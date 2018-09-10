@@ -1,42 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InterfaceManager : MonoBehaviour {
 
-    public Canvas threeEvent;
-    public Canvas twoEvent;
-
-    private ArrayList currentEventList = new ArrayList();
-
-    private OnCardClicked cardOne;
-    private OnCardClicked cardFour;
+    private Image imageOfConvesOne;
+    private List<string> cardPath = new List<string>();
+    private int currentIndex;
 
     // Use this for initialization
     void Start () {
-        threeEvent.enabled = true;
-        twoEvent.enabled = false;
 
-        cardOne = GameObject.Find("Event1").GetComponent<OnCardClicked>();
-        cardFour = GameObject.Find("Event4").GetComponent<OnCardClicked>();
+        cardPath.Add("banana");
+        cardPath.Add("monkey");
+        cardPath.Add("banana_alfa");
+        currentIndex = Random.Range(0, 3);
+
+        imageOfConvesOne = GameObject.Find("imageForOneEvent").GetComponent<Image>();
+
+        imageOfConvesOne.sprite = Resources.Load(cardPath[currentIndex], typeof(Sprite)) as Sprite;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //if (!Input.GetMouseButtonUp(0))
-        //    return;
 
-        //if (cardOne.IsSelected())
-        //{
-        //    threeEvent.enabled = false;
-        //    cardOne.Clear();
-        //    twoEvent.enabled = true;
-        //}
-        //else if (cardFour.IsSelected())
-        //{
-        //    threeEvent.enabled = true;
-        //    twoEvent.enabled = false;
-        //    cardFour.Clear();
-        //}
     }
+
+    public void OnConfirm()
+    {
+        int i = Random.Range(0, 3);
+        while(i==currentIndex)
+        {
+            i = Random.Range(0, 3);
+        }
+        currentIndex = i;
+        imageOfConvesOne.sprite = Resources.Load(cardPath[i], typeof(Sprite)) as Sprite;
+        Debug.Log(currentIndex);
+    }
+
 }
