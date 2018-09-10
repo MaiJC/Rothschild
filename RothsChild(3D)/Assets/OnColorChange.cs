@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class OnColorChange : EventTrigger {
+public class OnColorChange : EventTrigger
+{
 
     private Graphic targetGraphic;
     private bool isSelected = false;
@@ -14,15 +15,17 @@ public class OnColorChange : EventTrigger {
     private Color enterColor = Color.grey;
     private Color selectColor = Color.red;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         targetGraphic = this.GetComponent<Button>().targetGraphic;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public override void OnPointerEnter(PointerEventData eventData)
     {

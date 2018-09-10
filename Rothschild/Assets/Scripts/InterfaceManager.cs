@@ -4,21 +4,39 @@ using UnityEngine;
 
 public class InterfaceManager : MonoBehaviour {
 
-    public GameObject myEvent;
+    public Canvas threeEvent;
+    public Canvas twoEvent;
 
     private ArrayList currentEventList = new ArrayList();
 
-	// Use this for initialization
-	void Start () {
-        //GameObject tmp = (GameObject)Instantiate(myEvent, new Vector3(0, 0, 0), Quaternion.identity);
-        //GameObject canvas = GameObject.Find("Canvas");
-        //tmp.transform.SetParent(canvas.transform);
+    private OnCardClicked cardOne;
+    private OnCardClicked cardFour;
 
-        //currentEventList.Add(tmp);
-	}
+    // Use this for initialization
+    void Start () {
+        threeEvent.enabled = true;
+        twoEvent.enabled = false;
+
+        cardOne = GameObject.Find("Event1").GetComponent<OnCardClicked>();
+        cardFour = GameObject.Find("Event4").GetComponent<OnCardClicked>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        //if (!Input.GetMouseButtonUp(0))
+        //    return;
+
+        //if (cardOne.IsSelected())
+        //{
+        //    threeEvent.enabled = false;
+        //    cardOne.Clear();
+        //    twoEvent.enabled = true;
+        //}
+        //else if (cardFour.IsSelected())
+        //{
+        //    threeEvent.enabled = true;
+        //    twoEvent.enabled = false;
+        //    cardFour.Clear();
+        //}
+    }
 }
