@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<TStoryEventTable_Tab>
+<TStoryEventTable version="1">
+    <StoryID>1 </StoryID>
+    <Seq>0 </Seq>
+    <Before>0 </Before>
+    <Later>1001 </Later>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>1 </StoryID>
+    <Seq>1 </Seq>
+    <Before>1001 </Before>
+    <Later>1002 </Later>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>1 </StoryID>
+    <Seq>1 </Seq>
+    <Before>1001 </Before>
+    <Later>1003 </Later>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>1 </StoryID>
+    <Seq>2 </Seq>
+    <Before>1002 </Before>
+    <Later>1004 </Later>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>1 </StoryID>
+    <Seq>2 </Seq>
+    <Before>1003 </Before>
+    <Later>1005 </Later>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>1 </StoryID>
+    <Seq>3 </Seq>
+    <Before>1004 </Before>
+    <Later>1006 </Later>
+</TStoryEventTable>
+</TStoryEventTable_Tab>
