@@ -20,6 +20,9 @@ public class OnCardClicked : EventTrigger
     // Use this for initialization
     void Start()
     {
+        this.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
+
+
         interfaceManager = GameObject.Find("LogicHandler").GetComponent<InterfaceManager>();
         targetGraphic = this.GetComponent<Button>().targetGraphic;
         ColorState colorState = this.GetComponent<ColorState>();

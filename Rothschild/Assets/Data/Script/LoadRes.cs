@@ -69,7 +69,7 @@ public class LoadRes : MonoBehaviour {
         }
     }
 
-    List<int> GetCommonEventID()
+    public List<int> GetCommonEventID()
     {
         List<int> comEventList = new List<int>();
         foreach (XmlElement item in eventRootNode)
@@ -84,7 +84,7 @@ public class LoadRes : MonoBehaviour {
         return comEventList;
     }
 
-    int GetLevelCount()
+    public int GetLevelCount()
     {
         int maxLevel = 0;
         foreach (XmlElement item in eventRootNode)
@@ -98,7 +98,7 @@ public class LoadRes : MonoBehaviour {
         return maxLevel;
     }
 
-    List<int> GetLevelEventID(int levelIndex)
+    public List<int> GetLevelEventID(int levelIndex)
     {
         List<int> levelEventList = new List<int>();
         foreach (XmlElement item in eventRootNode)
@@ -113,7 +113,7 @@ public class LoadRes : MonoBehaviour {
         return levelEventList;
     }
 
-    List<int> GetLevelStoryID(int levelIndex)
+    public List<int> GetLevelStoryID(int levelIndex)
     {
         List<int> levelStoryList = new List<int>();
         foreach (XmlElement item in storyLevelRootNode)
@@ -128,7 +128,7 @@ public class LoadRes : MonoBehaviour {
         return levelStoryList;
     }
 
-    List<int> GetNextStoryID(int storyID, int storySeq, int fatherEventID)
+    public List<int> GetNextStoryID(int storyID, int storySeq, int fatherEventID)
     {
         List<int> nextStoryList = new List<int>();
         foreach (XmlElement item in storyEventRootNode)
@@ -146,7 +146,7 @@ public class LoadRes : MonoBehaviour {
         return nextStoryList;
     }
 
-    string GetEventUIPath(int eventID)
+    public string GetEventUIPath(int eventID)
     {
         string uiPath = "";
         foreach (XmlElement item in uiResRootNode)
@@ -162,7 +162,7 @@ public class LoadRes : MonoBehaviour {
         return uiPath;
     }
 
-    string GetEventText(int eventID)
+    public string GetEventText(int eventID)
     {
         string text = "";
         foreach (XmlElement item in uiResRootNode)
