@@ -18,10 +18,11 @@ struct PlayerData  //玩家信息
 }
 
 public class PlayerDataProc : MonoBehaviour {
+    string playerDBPath = "/Data/Xml/palyerDB.xml";
 
     void CreatePlayerDB()
     {
-        string path = Application.dataPath + "/Data/Xml/palyerDB.xml";
+        string path = Application.dataPath + playerDBPath;
         if (!File.Exists(path))
         {
             //创建最上一层的节点。
@@ -35,7 +36,7 @@ public class PlayerDataProc : MonoBehaviour {
 
     void addPlayerData(PlayerData playerInfo)
     {
-        string path = Application.dataPath + "/Data/Xml/palyerDB.xml";
+        string path = Application.dataPath + playerDBPath;
         if (File.Exists(path))
         {
             XmlDocument xml = new XmlDocument();
@@ -59,12 +60,17 @@ public class PlayerDataProc : MonoBehaviour {
             XmlElement elementReputation = xml.CreateElement("Reputation");
             elementReputation.InnerText = playerInfo.reputation.ToString();
 
+            // 新增玩家的初始已选择的事件集合为空
+            XmlElement elementEventLog = xml.CreateElement("EventLog");
+            elementEventLog.InnerText = "";
+
             //把节点一层一层的添加至xml中，注意他们之间的先后顺序，这是生成XML文件的顺序
             element.AppendChild(elementName);
             element.AppendChild(elementPassword);
             element.AppendChild(elementLevel);
             element.AppendChild(elementMoney);
             element.AppendChild(elementReputation);
+            element.AppendChild(elementEventLog);
 
             root.AppendChild(element);
 
@@ -78,7 +84,7 @@ public class PlayerDataProc : MonoBehaviour {
     void updatePlayerData(PlayerData playerInfo)
     {
         name = playerInfo.name;
-        string path = Application.dataPath + "/Data/Xml/palyerDB.xml";
+        string path = Application.dataPath + playerDBPath;
         if (File.Exists(path))
         {
             XmlDocument xml = new XmlDocument();
@@ -102,7 +108,7 @@ public class PlayerDataProc : MonoBehaviour {
 
     bool FindPlayer(string name)
     {
-        string path = Application.dataPath + "/Data/Xml/palyerDB.xml";
+        string path = Application.dataPath + playerDBPath;
         if (File.Exists(path))
         {
             XmlDocument xml = new XmlDocument();
@@ -141,9 +147,82 @@ public class PlayerDataProc : MonoBehaviour {
         return 0;
     }
 
+    List<int> GetEventLog(string name)
+    {
+        string path = Application.dataPath + playerDBPath;
+
+        List<int> eventList = new List<int>();
+        string eventStr = "";
+
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
+                {
+                    eventStr = xl1.ChildNodes[5].InnerText;
+                    break;
+                }
+            }
+        }
+        print(eventStr);
+        string[] sEvent = eventStr.Split(',');
+        foreach (string eventID in sEvent)
+        {
+            print(eventID);
+            eventList.Add(int.Parse(eventID));
+        }
+
+        return eventList;
+    }
+
+    int AddEventLog(string name, int eventID)
+    {
+        string path = Application.dataPath + playerDBPath;
+
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
+                {
+                    string eventStr = xl1.ChildNodes[5].InnerText;
+                    if (eventStr.CompareTo("") != 0)
+                    {
+                        eventStr += ',';
+                    }
+                    eventStr += eventID;
+                    
+                    xl1.ChildNodes[5].InnerText = eventStr;
+                    xml.Save(path);
+                    return 0;
+                }
+            }
+        }
+        return 1;
+    }
+
+    int AddEvenLogList(string name, List<int> eventLogList)
+    {
+        foreach (int eventID in eventLogList)
+        {
+            if (AddEventLog(name, eventID) != 0)
+            {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
     int Login(ref PlayerData playerInfo)
     {
-        string path = Application.dataPath + "/Data/Xml/palyerDB.xml";
+        string path = Application.dataPath + playerDBPath;
         string name = playerInfo.name;
         string password = playerInfo.password;
 
@@ -178,6 +257,7 @@ public class PlayerDataProc : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        
         //CreatePlayerDB();
         regPlayerData("neilxkchen", "43216");
         PlayerData myInfo;
@@ -193,7 +273,21 @@ public class PlayerDataProc : MonoBehaviour {
 
         Logout(myInfo);
 
-     //   print("My Level: " + myInfo.level);
+        //      print("My Level: " + myInfo.level);
+
+        //     AddEventLog("neilxkchen", 666);
+        //    AddEventLog("neilxkchen", 777);
+        //    AddEventLog("neilxkchen", 888);
+        List<int> eventLogList = new List<int>();
+        eventLogList.Add(101);
+        eventLogList.Add(102);
+        eventLogList.Add(103);
+        AddEvenLogList("neilxkchen", eventLogList);
+        List<int> eventLog = GetEventLog("neilxkchen");
+        
+    //    foreach (int eventID in eventLog)
+    //       print(eventID);
+
     }
 
     // Update is called once per frame

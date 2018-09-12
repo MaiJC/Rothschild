@@ -152,9 +152,9 @@ public class LoadRes : MonoBehaviour {
         foreach (XmlElement item in uiResRootNode)
         {
             int id = int.Parse(item.ChildNodes[0].InnerText);
-            uiPath = item.ChildNodes[1].InnerText;
             if (id == eventID)
             {
+                uiPath = item.ChildNodes[1].InnerText;
                 break;
             }
         }
@@ -168,9 +168,9 @@ public class LoadRes : MonoBehaviour {
         foreach (XmlElement item in uiResRootNode)
         {
             int id = int.Parse(item.ChildNodes[0].InnerText);
-            text = item.ChildNodes[2].InnerText;
             if (id == eventID)
             {
+                text = item.ChildNodes[2].InnerText;
                 break;
             }
         }
