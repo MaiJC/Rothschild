@@ -2,38 +2,44 @@
 <TStoryEventTable_Tab>
 <TStoryEventTable version="1">
     <StoryID>1 </StoryID>
-    <Seq>0 </Seq>
+    <Character>0 </Character>
+    <Choice>0 </Choice>
     <Before>0 </Before>
-    <Later>1001 </Later>
+    <Next>1001 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
     <StoryID>1 </StoryID>
-    <Seq>1 </Seq>
-    <Before>1001 </Before>
-    <Later>1002 </Later>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>1 </StoryID>
-    <Seq>1 </Seq>
-    <Before>1001 </Before>
-    <Later>1003 </Later>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>1 </StoryID>
-    <Seq>2 </Seq>
-    <Before>1002 </Before>
-    <Later>1004 </Later>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>1 </StoryID>
-    <Seq>2 </Seq>
-    <Before>1003 </Before>
-    <Later>1005 </Later>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>1 </StoryID>
-    <Seq>3 </Seq>
+    <Character>0 </Character>
+    <Choice>0 </Choice>
     <Before>1004 </Before>
-    <Later>1006 </Later>
+    <Next>1006 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>1 </StoryID>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>1002 </Before>
+    <Next>1004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>1 </StoryID>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>1001 </Before>
+    <Next>1003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>1 </StoryID>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>1003 </Before>
+    <Next>1005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>1 </StoryID>
+    <Character>1 </Character>
+    <Choice>1 </Choice>
+    <Before>1001 </Before>
+    <Next>1002 </Next>
 </TStoryEventTable>
 </TStoryEventTable_Tab>

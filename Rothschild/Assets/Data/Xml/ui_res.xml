@@ -4,20 +4,28 @@
     <ID>1001 </ID>
     <Picture>/data/u1</Picture>
     <Text>你好，你是？</Text>
+    <ChoiceA>是</ChoiceA>
+    <ChoiceB>否</ChoiceB>
 </TUIResTable>
 <TUIResTable version="1">
     <ID>1002 </ID>
     <Picture>/data/u2</Picture>
     <Text>世界和平</Text>
+    <ChoiceA>是</ChoiceA>
+    <ChoiceB>否</ChoiceB>
 </TUIResTable>
 <TUIResTable version="1">
     <ID>1003 </ID>
     <Picture>/data/u3</Picture>
     <Text>早睡早起！</Text>
+    <ChoiceA>是</ChoiceA>
+    <ChoiceB>否</ChoiceB>
 </TUIResTable>
 <TUIResTable version="1">
     <ID>1004 </ID>
     <Picture>/data/u4</Picture>
     <Text>&quot;放学了&quot;</Text>
+    <ChoiceA>是</ChoiceA>
+    <ChoiceB>否</ChoiceB>
 </TUIResTable>
 </TUIResTable_Tab>

@@ -6,7 +6,13 @@ using System.Security;
 using System.Xml;
 using UnityEngine;
 
+
 public class LoadRes : MonoBehaviour {
+
+    // 1是唯key，2是泛key，3是通用
+    public const int WEI_KEY_TYPE = 1;
+    public const int FAN_KEY_TYPE = 2;
+    public const int GENERAL_TYPE = 3;
 
     private XmlNode eventRootNode;
     private XmlNode uiResRootNode;
@@ -43,40 +49,16 @@ public class LoadRes : MonoBehaviour {
 
     }
 
-    void PrintEventTable()
-    {
-        print("\n --------Event Table--------\n");
-
-        foreach (XmlElement item in eventRootNode)
-        {
-            int id = int.Parse(item.ChildNodes[0].InnerText);
-            int type = int.Parse(item.ChildNodes[1].InnerText);
-            int key1 = int.Parse(item.ChildNodes[2].InnerText);
-            int key2 = int.Parse(item.ChildNodes[3].InnerText);
-            int level = int.Parse(item.ChildNodes[4].InnerText);
-            int withkeyMoney = int.Parse(item.ChildNodes[5].InnerText);
-            int withkeyReputation = int.Parse(item.ChildNodes[6].InnerText);
-            int withkeyTeamwork = int.Parse(item.ChildNodes[7].InnerText);
-            int withkeyCd = int.Parse(item.ChildNodes[8].InnerText);
-            int withoutkeyMoney = int.Parse(item.ChildNodes[9].InnerText);
-            int withoutkeyReputation = int.Parse(item.ChildNodes[10].InnerText);
-            int withoutkeyTeamwork = int.Parse(item.ChildNodes[11].InnerText);
-            int withoutkeyCd = int.Parse(item.ChildNodes[12].InnerText);
-            print("ID: " + id + " Type: " + type + " Key1: " + key1 + " Key2: " + key2 + " Level: " + level +
-                " withkeyMoney: " + withkeyMoney + " WithKeyReputation: " + withkeyReputation + " WithKeyTeamwork: " + withkeyTeamwork +
-                " WithKeyCd: " + withkeyCd + " WithoutKeyMoney: " + withoutkeyMoney + " WithoutKeyReputation: " + withoutkeyReputation +
-                " WithoutKeyTeamwork: " + withoutkeyTeamwork + " WithoutKeyCd: " + withoutkeyCd);
-        }
-    }
+    /*******************事件表处理*********************/
 
     public List<int> GetCommonEventID()
     {
         List<int> comEventList = new List<int>();
         foreach (XmlElement item in eventRootNode)
         {
-            int id = int.Parse(item.ChildNodes[0].InnerText);
-            int type = int.Parse(item.ChildNodes[1].InnerText);
-            if (0 == type)
+            int id = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
+            int type = int.Parse(item.ChildNodes[GetTypeIndex()].InnerText);
+            if (GENERAL_TYPE == type)  
             {
                 comEventList.Add(id);
             }
@@ -89,7 +71,7 @@ public class LoadRes : MonoBehaviour {
         int maxLevel = 0;
         foreach (XmlElement item in eventRootNode)
         {
-            int level = int.Parse(item.ChildNodes[4].InnerText);
+            int level = int.Parse(item.ChildNodes[GetLevelIndex()].InnerText);
             if (level > maxLevel)
             {
                 maxLevel = level;
@@ -103,8 +85,8 @@ public class LoadRes : MonoBehaviour {
         List<int> levelEventList = new List<int>();
         foreach (XmlElement item in eventRootNode)
         {
-            int id = int.Parse(item.ChildNodes[0].InnerText);
-            int level = int.Parse(item.ChildNodes[4].InnerText);
+            int id = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
+            int level = int.Parse(item.ChildNodes[GetLevelIndex()].InnerText);
             if (level == levelIndex)
             {
                 levelEventList.Add(id);
@@ -112,6 +94,11 @@ public class LoadRes : MonoBehaviour {
         }
         return levelEventList;
     }
+
+    /************************************************/
+
+
+    /*******************故事表处理*********************/
 
     public List<int> GetLevelStoryID(int levelIndex)
     {
@@ -128,22 +115,85 @@ public class LoadRes : MonoBehaviour {
         return levelStoryList;
     }
 
-    public int GetNextStoryEvent(int storyID, int fatherEventID, int eventChoice)
+    public int GetNextStoryEvent(int storyID, int fatherEventID, int eventChoice, List<int> roles)
     {
         int nextStoryEvent = 0;
+        int keyCharacter = 0;
+
+        if (0 != fatherEventID)
+        {
+            foreach (XmlElement item in eventRootNode)
+            {
+                int eventID = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
+                int type = int.Parse(item.ChildNodes[GetTypeIndex()].InnerText);
+                int key1 = int.Parse(item.ChildNodes[GetKey1Index()].InnerText);
+                int key2 = int.Parse(item.ChildNodes[GetKey2Index()].InnerText);
+  
+                if (eventID == fatherEventID)   
+                {
+                    int roleNum = roles.Count;
+                    if (WEI_KEY_TYPE == type)  // 唯key事件
+                    {
+                        if (1 == roleNum)   // 只选择一个人物
+                        {
+                            if (key1 == roles[0] && 0 == key2)
+                            {
+                                keyCharacter = 1;   
+                            }
+                        }
+                        else if (2 == roleNum) // 选择两个人物
+                        {
+                            if (roles.Contains(key1) && roles.Contains(key2))
+                            {
+                                keyCharacter = 1;
+                            }
+                        }
+                    }
+                    else if (FAN_KEY_TYPE == type) // 泛key事件
+                    {
+                        if (0 != key1)
+                        {
+                            if (0 != key2)
+                            {
+                                if (roles.Contains(key1) && roles.Contains(key2))
+                                {
+                                    keyCharacter = 1;
+                                }
+                            }
+                            else
+                            {
+                                if (roles.Contains(key1))
+                                {
+                                    keyCharacter = 1;
+                                }
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        
         foreach (XmlElement item in storyEventRootNode)
         {
             int id = int.Parse(item.ChildNodes[0].InnerText);
-            int choice = int.Parse(item.ChildNodes[1].InnerText);
-            int before = int.Parse(item.ChildNodes[2].InnerText);
-            int later = int.Parse(item.ChildNodes[3].InnerText);
-            if (id == storyID && before == fatherEventID && choice == eventChoice)
+            int character = int.Parse(item.ChildNodes[1].InnerText);
+            int choice = int.Parse(item.ChildNodes[2].InnerText);
+            int before = int.Parse(item.ChildNodes[3].InnerText);
+            int next = int.Parse(item.ChildNodes[4].InnerText);
+            if (id == storyID && before == fatherEventID && 
+                choice == eventChoice && keyCharacter == character)
             {
-                nextStoryEvent = later;
+                nextStoryEvent = next;
+                break;
             }
         }
         return nextStoryEvent;
     }
+
+    /***************************************************/
+
+    /*********************UI资源表**********************/
 
     public string GetEventUIPath(int eventID)
     {
@@ -175,14 +225,23 @@ public class LoadRes : MonoBehaviour {
                 string choice2Text = item.ChildNodes[4].InnerText;
 
                 textList.Add(descText);
-                textList.Add(choice1Text);
-                textList.Add(choice2Text);
+                if (choice1Text.CompareTo("") != 0)
+                {
+                    textList.Add(choice1Text);
+                } 
+                if (choice2Text.CompareTo("") != 0)
+                {
+                    textList.Add(choice2Text);
+                }
                 break;
             }
         }
 
         return textList;
     }
+
+    /***************************************************/
+
     // Use this for initialization
     void Start () {
 
@@ -207,6 +266,48 @@ public class LoadRes : MonoBehaviour {
 		
 	}
 
+
+    int GetIDIndex()
+    {
+        return 0;
+    }
+
+    int GetTypeIndex()
+    {
+        return 1;
+    }
+
+    int GetRoleLimitIndex()
+    {
+        return 2;
+    }
+
+    int GetCountLimitIndex()
+    {
+        return 3;
+    }
+
+    int GetChoiceIndex()
+    {
+        return 4;
+    }
+
+    int GetKey1Index()
+    {
+        return 5;
+    }
+
+    int GetKey2Index()
+    {
+        return 6;
+    }
+
+    int GetLevelIndex()
+    {
+        return 7;
+    }
+
+
     void PrintLevelCount()
     {
         print("\nLevel Cout: " + GetLevelCount() + "\n");
@@ -229,6 +330,32 @@ public class LoadRes : MonoBehaviour {
         foreach (int storyID in levelStoryList)
         {
             print(storyID);
+        }
+    }
+
+    void PrintEventTable()
+    {
+        print("\n --------Event Table--------\n");
+
+        foreach (XmlElement item in eventRootNode)
+        {
+            int id = int.Parse(item.ChildNodes[0].InnerText);
+            int type = int.Parse(item.ChildNodes[1].InnerText);
+            int key1 = int.Parse(item.ChildNodes[2].InnerText);
+            int key2 = int.Parse(item.ChildNodes[3].InnerText);
+            int level = int.Parse(item.ChildNodes[4].InnerText);
+            int withkeyMoney = int.Parse(item.ChildNodes[5].InnerText);
+            int withkeyReputation = int.Parse(item.ChildNodes[6].InnerText);
+            int withkeyTeamwork = int.Parse(item.ChildNodes[7].InnerText);
+            int withkeyCd = int.Parse(item.ChildNodes[8].InnerText);
+            int withoutkeyMoney = int.Parse(item.ChildNodes[9].InnerText);
+            int withoutkeyReputation = int.Parse(item.ChildNodes[10].InnerText);
+            int withoutkeyTeamwork = int.Parse(item.ChildNodes[11].InnerText);
+            int withoutkeyCd = int.Parse(item.ChildNodes[12].InnerText);
+            print("ID: " + id + " Type: " + type + " Key1: " + key1 + " Key2: " + key2 + " Level: " + level +
+                " withkeyMoney: " + withkeyMoney + " WithKeyReputation: " + withkeyReputation + " WithKeyTeamwork: " + withkeyTeamwork +
+                " WithKeyCd: " + withkeyCd + " WithoutKeyMoney: " + withoutkeyMoney + " WithoutKeyReputation: " + withoutkeyReputation +
+                " WithoutKeyTeamwork: " + withoutkeyTeamwork + " WithoutKeyCd: " + withoutkeyCd);
         }
     }
 
