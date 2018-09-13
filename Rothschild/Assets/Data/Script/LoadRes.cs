@@ -17,7 +17,6 @@ public class LoadRes : MonoBehaviour {
     private XmlNode eventRootNode;
     private XmlNode uiResRootNode;
     private XmlNode storyEventRootNode;
-    private XmlNode storyLevelRootNode;
 
  //   private int storySeq = 0;
 
@@ -40,12 +39,6 @@ public class LoadRes : MonoBehaviour {
         XmlDocument storyEventDoc = new XmlDocument();
         storyEventDoc.Load(storyEventPath);
         storyEventRootNode = storyEventDoc.SelectSingleNode("TStoryEventTable_Tab");
-
-        // 加载故事关卡表
-        string storyLevelPath = Application.dataPath + "/Data/Xml/story_level.xml";
-        XmlDocument storyLevelDoc = new XmlDocument();
-        storyLevelDoc.Load(storyLevelPath);
-        storyLevelRootNode = storyLevelDoc.SelectSingleNode("TStoryLevelTable_Tab");
 
     }
 
@@ -109,16 +102,39 @@ public class LoadRes : MonoBehaviour {
     public List<int> GetLevelStoryID(int levelIndex)
     {
         List<int> levelStoryList = new List<int>();
-        foreach (XmlElement item in storyLevelRootNode)
+        foreach (XmlElement item in storyEventRootNode)
         {
             int storyID = int.Parse(item.ChildNodes[0].InnerText);
             int level = int.Parse(item.ChildNodes[1].InnerText);
             if (level == levelIndex)
             {
-                levelStoryList.Add(storyID);
+                if (!levelStoryList.Contains(storyID))
+                {
+                    levelStoryList.Add(storyID);
+                }  
             }
         }
         return levelStoryList;
+    }
+
+    public int GetStoryHeadEventID(int storyID)
+    {
+        int headEventID = 0;
+
+        foreach (XmlElement item in storyEventRootNode)
+        {
+            int iStoryID = int.Parse(item.ChildNodes[0].InnerText);
+            int before = int.Parse(item.ChildNodes[4].InnerText);
+            int next = int.Parse(item.ChildNodes[5].InnerText);
+
+            if (storyID == iStoryID && 0 == before)
+            {
+                headEventID = next;
+                break;
+            }
+        }
+
+        return headEventID;
     }
 
     public int GetNextStoryEvent(int storyID, int fatherEventID, int eventChoice, List<int> roles)

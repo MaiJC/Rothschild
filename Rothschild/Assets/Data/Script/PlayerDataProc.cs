@@ -320,6 +320,8 @@ public class PlayerDataProc : MonoBehaviour
                             reputation = int.Parse(xl1.ChildNodes[GetWithoutKeyReputationIndex()].InnerText);
                             teamWork = int.Parse(xl1.ChildNodes[GetWithoutKeyTeamworkIndex()].InnerText);
                         }
+
+
                     }
                     else   // 无key事件
                     {
