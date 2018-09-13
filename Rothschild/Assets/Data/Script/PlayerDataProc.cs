@@ -280,7 +280,7 @@ public class PlayerDataProc : MonoBehaviour
         
     }
 
-    PlayerAttr[] SettlePlayer(int eventID, int eventChoice, List<int> selectRoles) 
+    public PlayerAttr[] SettlePlayer(int eventID, int eventChoice, List<int> selectRoles) 
     {
         string path = Application.dataPath + eventTablePath;
 

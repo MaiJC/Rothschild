@@ -137,13 +137,19 @@ public class LevelManager : MonoBehaviour
         currentRound++;
 
         /*TODO: 判断是否退出故事*/
-        if(isInStory)
+        if (isInStory)
         {
             //currentEventID=loadRes.GetNextStoryID(currentStoryHead,)
             int chooice = this.tag == "ChooseOne" ? 1 : 2;
             int fatherEventID = currentEventID;
             //currentEventID = loadRes.GetNextStoryID(currentStoryHead, choose, fatherEventID);
-            currentEventID = loadRes.GetNextStoryEvent(currentStoryHead, fatherEventID, chooice);
+
+            List<int> roles = new List<int>();
+            for (int i = 0; i < person.Count; i++)
+            {
+                if (person[i].IsSelected()) roles.Add(i + 1);
+            }
+            currentEventID = loadRes.GetNextStoryEvent(currentStoryHead, fatherEventID, chooice, roles);
         }
         else
         {
@@ -170,8 +176,8 @@ public class LevelManager : MonoBehaviour
                 currentStoryHead = currentEventID;
             }
         }
-        
-        
+
+
 
         /*TODO: 添加事件切换特效*/
         //为事件槽设置新的图片和文字描述
