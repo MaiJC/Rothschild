@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     private List<List<int>> levelEventID = new List<List<int>>();
     private List<List<int>> levelStoryID = new List<List<int>>();
     private int currentEventID;
+    private int currentStoryID;
     private int currentLevel = 0;
     private int currentEventCount = 0;
     private int currentRound = 0;
@@ -166,12 +167,13 @@ public class LevelManager : MonoBehaviour
             else if (idx < currentEventCount)
             {
                 currentEventID = levelEventID[currentLevel - 1][idx - commonEventID.Count];
-                commonEventID.RemoveAt(idx - commonEventID.Count);
+                levelEventID[currentLevel - 1].RemoveAt(idx - commonEventID.Count);
                 currentEventCount--;
             }
             else
             {
-                currentEventID = levelStoryID[currentLevel - 1][idx - currentEventCount];
+                currentStoryID = levelStoryID[currentLevel - 1][idx - currentEventCount];
+                //这里要加一个getcurrenteventid
                 levelStoryID[currentLevel - 1].RemoveAt(idx - currentEventCount);
                 isInStory = true;
                 currentStoryHead = currentEventID;
@@ -184,6 +186,7 @@ public class LevelManager : MonoBehaviour
         //为事件槽设置新的图片和文字描述
         //onEvent.SetImage(eventUIPath[currentEventID]);
         //onEvent.SetText(eventText[currentEventID]);
+        Debug.Log(currentEventID);
         onEvent.SetEventText(loadRes.GetEventText(currentEventID));
     }
 

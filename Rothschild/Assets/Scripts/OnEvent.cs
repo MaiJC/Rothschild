@@ -68,19 +68,20 @@ public class OnEvent : MonoBehaviour
         }
         else if (choiceTest.Count == 1)
         {
-            //choiceThree.enabled = true;
-            //choiceThree.GetComponent<Text>().text = choiceTest[0];
-            //choiceOne.enabled = false;
-            //choiceTwo.enabled = false;
+            choiceOne.gameObject.SetActive(false);
+            choiceTwo.gameObject.SetActive(false);
+            choiceThree.gameObject.SetActive(true);
 
+            choiceThree.transform.GetChild(0).gameObject.GetComponent<Text>().text = choiceTest[0];
         }
         else if (choiceTest.Count == 2)
         {
-            choiceOne.enabled = true;
-            choiceTwo.enabled = true;
-            choiceOne.GetComponent<Text>().text = choiceTest[0];
-            choiceTwo.GetComponent<Text>().text = choiceTest[1];
-            choiceThree.enabled = false;
+            choiceOne.gameObject.SetActive(true);
+            choiceTwo.gameObject.SetActive(true);
+            choiceThree.gameObject.SetActive(false);
+
+            choiceOne.transform.GetChild(0).gameObject.GetComponent<Text>().text = choiceTest[0];
+            choiceTwo.transform.GetChild(0).gameObject.GetComponent<Text>().text = choiceTest[0];
         }
     }
 
