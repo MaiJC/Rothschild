@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     private int levelCount;
     private List<List<int>> levelEventID = new List<List<int>>();
     private List<List<int>> levelStoryID = new List<List<int>>();
+    private List<List<int>> levelZTStoryID = new List<List<int>>();
     private int currentEventID;
     private int currentStoryID;
     private int currentLevel = 0;
@@ -23,6 +24,8 @@ public class LevelManager : MonoBehaviour
     private Dictionary<int, string> eventUIPath = new Dictionary<int, string>();
     private Dictionary<int, string> eventText = new Dictionary<int, string>();
     private OnEvent onEvent;
+    private int originEventCount;
+    private int originStoryCount;
 
 
     /*this is just use for monkeys*/
@@ -84,6 +87,7 @@ public class LevelManager : MonoBehaviour
                 //eventText.Add(eventID, text);
             }
         }
+
     }
 
     void InitializeMonkey()
@@ -206,7 +210,8 @@ public class LevelManager : MonoBehaviour
     void NextLevel()
     {
         currentLevel++;
-        //
+        originEventCount = 0;
+        originStoryCount = 0;
         currentEventCount = commonEventID.Count + levelEventID[currentLevel - 1].Count;
     }
 
