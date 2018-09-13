@@ -214,6 +214,19 @@ public class LoadRes : MonoBehaviour {
                 break;
             }
         }
+
+        if (0 == nextStoryEvent)
+        {
+            print("Get Next Stroy Event Error!!!!");
+
+            print("keyCharacter: " + keyCharacter);
+            print("storyID: " + storyID + " befor: " + fatherEventID + " eventChoice: " + eventChoice);
+            print("select roles: ");
+            foreach (int roleId in roles)
+            {
+                print(roleId);
+            }
+        }
         return nextStoryEvent;
     }
 
