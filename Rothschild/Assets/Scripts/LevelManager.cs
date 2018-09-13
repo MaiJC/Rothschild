@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     private List<List<int>> levelEventID = new List<List<int>>();
     private List<List<int>> levelStoryID = new List<List<int>>();
     private int currentEventID;
-    private int currentLevel = 1;
+    private int currentLevel = 0;
     private int currentEventCount = 0;
     private int currentRound = 0;
     private int currentMaxSelectedPersonCount = 2;
@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     {
         Initialize();
         InitializeMonkey();
+        NextLevel();
         NextEvent();
     }
 
@@ -171,7 +172,7 @@ public class LevelManager : MonoBehaviour
             else
             {
                 currentEventID = levelStoryID[currentLevel - 1][idx - currentEventCount];
-                levelStoryID.RemoveAt(idx - currentEventCount);
+                levelStoryID[currentLevel - 1].RemoveAt(idx - currentEventCount);
                 isInStory = true;
                 currentStoryHead = currentEventID;
             }
