@@ -313,15 +313,6 @@ public class PlayerDataProc : MonoBehaviour
                             money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
                             reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
                             teamWork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
-
-                            if (1 == selectRoles.Count)
-                            {
-
-                            }
-                            else if (2 == selectRoles.Count)
-                            {
-
-                            }
                         }
                         else   // key不成立，结算
                         {

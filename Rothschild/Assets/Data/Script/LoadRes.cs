@@ -57,8 +57,8 @@ public class LoadRes : MonoBehaviour {
         foreach (XmlElement item in eventRootNode)
         {
             int id = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
-            int type = int.Parse(item.ChildNodes[GetTypeIndex()].InnerText);
-            if (GENERAL_TYPE == type)  
+            int level = int.Parse(item.ChildNodes[GetLevelIndex()].InnerText);
+            if (0 == level)  
             {
                 if (!comEventList.Contains(id))
                 {
