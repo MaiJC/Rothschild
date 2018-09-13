@@ -128,7 +128,7 @@ public class LoadRes : MonoBehaviour {
         return levelStoryList;
     }
 
-    public int GetNextStoryID(int storyID, int fatherEventID, int eventChoice)
+    public int GetNextStoryEvent(int storyID, int fatherEventID, int eventChoice)
     {
         int nextStoryEvent = 0;
         foreach (XmlElement item in storyEventRootNode)
