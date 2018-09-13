@@ -63,9 +63,9 @@ public class LevelManager : MonoBehaviour
         {
             int eventID = commonEventID[i];
             string path = loadRes.GetEventUIPath(eventID);
-            string text = loadRes.GetEventText(eventID);
+            //string text = loadRes.GetEventText(eventID);
             eventUIPath.Add(eventID, path);
-            eventText.Add(eventID, text);
+            //eventText.Add(eventID, text);
         }
         for (int i = 0; i < levelCount; i++)
         {
@@ -73,9 +73,9 @@ public class LevelManager : MonoBehaviour
             {
                 int eventID = levelEventID[i][j];
                 string path = loadRes.GetEventUIPath(eventID);
-                string text = loadRes.GetEventText(eventID);
+                //string text = loadRes.GetEventText(eventID);
                 eventUIPath.Add(eventID, path);
-                eventText.Add(eventID, text);
+                //eventText.Add(eventID, text);
             }
         }
     }
@@ -130,9 +130,14 @@ public class LevelManager : MonoBehaviour
 
         currentRound++;
 
+        /*TODO: 判断是否退出故事*/
         if(isInStory)
         {
             //currentEventID=loadRes.GetNextStoryID(currentStoryHead,)
+            int choose = this.tag == "ChooseOne" ? 1 : 2;
+            int fatherEventID = currentEventID;
+            //currentEventID = loadRes.GetNextStoryID(currentStoryHead, choose, fatherEventID);
+            currentEventID = loadRes.GetNextStoryEvent(currentStoryHead, fatherEventID, choose);
         }
         else
         {
@@ -165,7 +170,8 @@ public class LevelManager : MonoBehaviour
         /*TODO: 添加事件切换特效*/
         //为事件槽设置新的图片和文字描述
         onEvent.SetImage(eventUIPath[currentEventID]);
-        onEvent.SetText(eventText[currentEventID]);
+        //onEvent.SetText(eventText[currentEventID]);
+        onEvent.SetEventText(loadRes.GetEventText(currentEventID));
     }
 
     void NextLevel()

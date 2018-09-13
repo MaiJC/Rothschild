@@ -14,10 +14,10 @@ struct PlayerData  //玩家信息
 
     public int level;
     public int section;
-    public PlayerAttr[] playerAttr;  
+    public PlayerAttr[] playerAttr;
 }
 
-struct PlayerAttr
+public struct PlayerAttr
 {
     public int money;
     public int reputation;
@@ -27,10 +27,11 @@ struct EventLog
 {
     public int roleID;
     public int eventID;
-    public int choice;    
+    public int choice;
 }
 
-public class PlayerDataProc : MonoBehaviour {
+public class PlayerDataProc : MonoBehaviour
+{
     string playerDBPath = "/Data/Xml/palyerDB.xml";
     PlayerAttr[] settleResult = new PlayerAttr[4];
 
@@ -60,14 +61,14 @@ public class PlayerDataProc : MonoBehaviour {
             {
                 if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
                 {
-                    return true;   
+                    return true;
                 }
             }
         }
         return false;
     }
 
-   
+
     int regPlayerData(string name, string password)
     {
         if (FindPlayer(name))
@@ -178,7 +179,7 @@ public class PlayerDataProc : MonoBehaviour {
                 }
             }
         }
-        
+
         return eventList;
     }
 
@@ -206,7 +207,7 @@ public class PlayerDataProc : MonoBehaviour {
                     print(eventlog.eventID);
                     print(eventlog.choice);
                     print(eventStr);
-                    
+
                     xl1.ChildNodes[6].InnerText = eventStr;
                     xml.Save(path);
                     return 0;
@@ -228,7 +229,7 @@ public class PlayerDataProc : MonoBehaviour {
         return 0;
     }
 
-    PlayerAttr[] SettlePlayer(int eventID, int choice, List<int> selectRoles) 
+    public PlayerAttr[] SettlePlayer(int eventID, int choice, List<int> selectRoles)
     {
 
         settleResult[0].money = 1;
@@ -239,7 +240,7 @@ public class PlayerDataProc : MonoBehaviour {
         return settleResult;
     }
 
-     int Login(ref PlayerData playerInfo)
+    int Login(ref PlayerData playerInfo)
     {
         string path = Application.dataPath + playerDBPath;
         string name = playerInfo.name;
@@ -252,7 +253,7 @@ public class PlayerDataProc : MonoBehaviour {
             XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
             foreach (XmlElement xl1 in xmlNodeList)
             {
-                if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText) && 
+                if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText) &&
                     0 == password.CompareTo(xl1.ChildNodes[1].InnerText))
                 {
                     playerInfo.level = int.Parse(xl1.ChildNodes[2].InnerText);
@@ -281,7 +282,7 @@ public class PlayerDataProc : MonoBehaviour {
                             i++;
                         }
                     }
-                    
+
                     return 0;
                 }
             }
@@ -328,12 +329,13 @@ public class PlayerDataProc : MonoBehaviour {
             }
             xml.Save(path);
         }
-        
+
         return 0;
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         /*    PlayerAttr[] result = SettlePlayer();
 
@@ -418,9 +420,10 @@ public class PlayerDataProc : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+
+    }
 
 
 }
