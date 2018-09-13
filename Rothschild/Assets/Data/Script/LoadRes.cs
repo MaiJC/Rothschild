@@ -140,7 +140,7 @@ public class LoadRes : MonoBehaviour {
     public int GetNextStoryEvent(int storyID, int fatherEventID, int eventChoice, List<int> roles)
     {
         int nextStoryEvent = 0;
-        int keyCharacter = 0;
+        int keyCharacter = 2;   // 默认有key限制，但没匹配上
 
         if (0 != fatherEventID)
         {
@@ -160,7 +160,7 @@ public class LoadRes : MonoBehaviour {
                         {
                             if (key1 == roles[0] && 0 == key2)
                             {
-                                keyCharacter = 1;   
+                                keyCharacter = 1;
                             }
                         }
                         else if (2 == roleNum) // 选择两个人物
@@ -191,6 +191,10 @@ public class LoadRes : MonoBehaviour {
                             }
                         }
                     }
+                    else if (GENERAL_TYPE == type) // 通用事件
+                    {
+                        keyCharacter = 0;
+                    }
                     break;
                 }
             }
@@ -199,10 +203,10 @@ public class LoadRes : MonoBehaviour {
         foreach (XmlElement item in storyEventRootNode)
         {
             int id = int.Parse(item.ChildNodes[0].InnerText);
-            int character = int.Parse(item.ChildNodes[1].InnerText);
-            int choice = int.Parse(item.ChildNodes[2].InnerText);
-            int before = int.Parse(item.ChildNodes[3].InnerText);
-            int next = int.Parse(item.ChildNodes[4].InnerText);
+            int character = int.Parse(item.ChildNodes[2].InnerText);
+            int choice = int.Parse(item.ChildNodes[3].InnerText);
+            int before = int.Parse(item.ChildNodes[4].InnerText);
+            int next = int.Parse(item.ChildNodes[5].InnerText);
             if (id == storyID && before == fatherEventID && 
                 choice == eventChoice && keyCharacter == character)
             {
@@ -259,6 +263,10 @@ public class LoadRes : MonoBehaviour {
             }
         }
 
+        if (0 == textList.Count)
+        {
+            print("!!!!!!!!!!!!GetEventText Error!!!!, eventID : " + eventID);
+        }
         return textList;
     }
 
