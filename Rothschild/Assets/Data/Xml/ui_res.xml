@@ -253,6 +253,125 @@
     <ChoiceB></ChoiceB>
   </TUIResTable>
   <TUIResTable version="1">
+    <ID>100100001 </ID>
+    <Picture>/data/u37</Picture>
+    <Text>反法战争又一次打响，大陆封锁令下经济持续萧条的英国军资陷入窘境。在威灵顿将军的要求下，财政部开始购买黄金。</Text>
+    <ChoiceA>倒卖囤积的金条</ChoiceA>
+    <ChoiceB>保持观望</ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100100002 </ID>
+    <Picture>/data/u38</Picture>
+    <Text>虽然你有心出售金条，但大陆封锁令下英国运送黄金的船只无法突破防线。是否派人暗中协助英国？</Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB>太冒险了</ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100100003 </ID>
+    <Picture>/data/u39</Picture>
+    <Text>英国从财政部开出高额费用购买黄金，囤有黄金的商贾纷纷出售。你看准时机，派人售出来自东印度公司的金条。</Text>
+    <ChoiceA>处理此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100100004 </ID>
+    <Picture>/data/u40</Picture>
+    <Text>威灵顿将军来信：“感谢洛菲家族对英国的支援，黄金成功送达。你们是一个出色的犹太家族，我对你们充满信心。“——你参与的这场黄金倒卖与转移，在一定程度上决定了欧洲战争的格局。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100100005 </ID>
+    <Picture>/data/u41</Picture>
+    <Text>谈妥了交易，却没能成功出售。你将金条出售给别人，但错过了后来改变欧洲战争格局的大事件。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100110001 </ID>
+    <Picture>/data/u42</Picture>
+    <Text>
+      流言1：法军在英吉利海峡击沉了数艘载满黄金的船，那些黄金正沉睡在海底。
+      流言2：英吉利海峡附近有骷颅头幽灵游荡。
+      流言3：以上都是道听途说。
+    </Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100120001 </ID>
+    <Picture>/data/u43</Picture>
+    <Text>达尔堡公爵来信：哈哈，还记得我吗。正所谓有借有还再借不难，听闻贵家族成员正处于财产困境，特送上一小笔资金以帮助度过难关。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100130001 </ID>
+    <Picture>/data/u44</Picture>
+    <Text>暴风雨来得突然，意大利圣提顿堡的雷诺公爵对军粮供应大臣赫里斯产生怀疑，认为在供应链上存在黑箱操作。而洛菲家族是圣提顿堡军粮供应商的要员，这事对家族产生了波及，你怀疑族里有人与赫里斯勾结，请派人处理此事。</Text>
+    <ChoiceA>派人处理</ChoiceA>
+    <ChoiceB>这不可能</ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140001 </ID>
+    <Picture>/data/u45</Picture>
+    <Text>流言：听说了吗！那个愚蠢的科西嘉佬从厄尔巴岛逃出来了！</Text>
+    <ChoiceA>打探消息</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140002 </ID>
+    <Picture>/data/u46</Picture>
+    <Text>流言：奉命阻击的米歇尔元帅倒戈了！路易十八被赶走了！天哪，战争又要开始了！</Text>
+    <ChoiceA>打探消息</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140004 </ID>
+    <Picture>/data/u47</Picture>
+    <Text>通过达尔堡公爵可以结识拿破仑的贴身侍卫官伊文，以此可以获得战争的一手消息。选择合适人选前去交涉。</Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140005 </ID>
+    <Picture>/data/u48</Picture>
+    <Text>
+      流言：听说了吗！那只法兰西蠢驴打赢了滑铁卢战役！英国就要完蛋啦！
+      伊文：阁下您好，我是拿破仑的侍卫官伊文。很遗憾地告诉您，我军即将溃败。
+    </Text>
+    <ChoiceA>采取行动</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140006 </ID>
+    <Picture>/data/u49</Picture>
+    <Text>内森采取了非常激进大胆的策略：带头做空英国公债。很多商人跟着他们抛售股票，商人们高喊着：英国战败啦！当第二天清晨，滑铁卢大捷的消息登上伦敦报纸头条之时，xx家族一跃成为当地最富有的犹太家族。（</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140007 </ID>
+    <Picture>/data/u50</Picture>
+    <Text>思虑过久犹豫不决，引起了内森的不快：应该采取更大胆的行动！立刻抛售英国公债！</Text>
+    <ChoiceA>认同</ChoiceA>
+    <ChoiceB>驳回</ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140008 </ID>
+    <Picture>/data/u51</Picture>
+    <Text>你们采取了非常激进大胆的策略：带头做空英国公债。很多商人跟着他们抛售股票，商人们高喊着：英国战败啦！当第二天清晨，滑铁卢大捷的消息登上伦敦报纸头条之时，xx家族一跃成为当地最富有的犹太家族。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140009 </ID>
+    <Picture>/data/u52</Picture>
+    <Text>第二天清晨，滑铁卢大捷的消息登上伦敦报纸头条。你们开始后悔，早该利用情报时间差来做空英国公债的，但已于事无补。内森生了整整一个月的气。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+  </TUIResTable>
+  <TUIResTable version="1">
     <ID>200000001 </ID>
     <Picture>/data/u53</Picture>
     <Text>南欧大旱 是否出资修建多瑙河到维也纳的高架渠；若出资请选择一名角色。</Text>
@@ -364,125 +483,6 @@
     <ID>200050002 </ID>
     <Picture>/data/u67</Picture>
     <Text>詹姆斯采取了威胁加奉承的方式巧妙地拖住了政府的要求：政府要求的这笔款项若要强制交付将把斐洛银行推往破产边缘——对法国来说将是可怕的灾难。这相当于轻易杀死一只下金蛋的鹅。另一方面，三四千工人将失业，财政部用于资助失业人员的开支将大大增加。——詹姆斯</Text>
-    <ChoiceA>确定</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000100001 </ID>
-    <Picture>/data/u37</Picture>
-    <Text>反法战争又一次打响，大陆封锁令下经济持续萧条的英国军资陷入窘境。在威灵顿将军的要求下，财政部开始购买黄金。</Text>
-    <ChoiceA>倒卖囤积的金条</ChoiceA>
-    <ChoiceB>保持观望</ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000100002 </ID>
-    <Picture>/data/u38</Picture>
-    <Text>虽然你有心出售金条，但大陆封锁令下英国运送黄金的船只无法突破防线。是否派人暗中协助英国？</Text>
-    <ChoiceA>负责此事</ChoiceA>
-    <ChoiceB>太冒险了</ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000100003 </ID>
-    <Picture>/data/u39</Picture>
-    <Text>英国从财政部开出高额费用购买黄金，囤有黄金的商贾纷纷出售。你看准时机，派人售出来自东印度公司的金条。</Text>
-    <ChoiceA>处理此事</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000100004 </ID>
-    <Picture>/data/u40</Picture>
-    <Text>威灵顿将军来信：“感谢洛菲家族对英国的支援，黄金成功送达。你们是一个出色的犹太家族，我对你们充满信心。“——你参与的这场黄金倒卖与转移，在一定程度上决定了欧洲战争的格局。</Text>
-    <ChoiceA>确定</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000100005 </ID>
-    <Picture>/data/u41</Picture>
-    <Text>谈妥了交易，却没能成功出售。你将金条出售给别人，但错过了后来改变欧洲战争格局的大事件。</Text>
-    <ChoiceA>确定</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000110001 </ID>
-    <Picture>/data/u42</Picture>
-    <Text>
-      流言1：法军在英吉利海峡击沉了数艘载满黄金的船，那些黄金正沉睡在海底。
-      流言2：英吉利海峡附近有骷颅头幽灵游荡。
-      流言3：以上都是道听途说。
-    </Text>
-    <ChoiceA>负责此事</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000120001 </ID>
-    <Picture>/data/u43</Picture>
-    <Text>达尔堡公爵来信：哈哈，还记得我吗。正所谓有借有还再借不难，听闻贵家族成员正处于财产困境，特送上一小笔资金以帮助度过难关。</Text>
-    <ChoiceA>确定</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000130001 </ID>
-    <Picture>/data/u44</Picture>
-    <Text>暴风雨来得突然，意大利圣提顿堡的雷诺公爵对军粮供应大臣赫里斯产生怀疑，认为在供应链上存在黑箱操作。而洛菲家族是圣提顿堡军粮供应商的要员，这事对家族产生了波及，你怀疑族里有人与赫里斯勾结，请派人处理此事。</Text>
-    <ChoiceA>派人处理</ChoiceA>
-    <ChoiceB>这不可能</ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000140001 </ID>
-    <Picture>/data/u45</Picture>
-    <Text>流言：听说了吗！那个愚蠢的科西嘉佬从厄尔巴岛逃出来了！</Text>
-    <ChoiceA>打探消息</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000140002 </ID>
-    <Picture>/data/u46</Picture>
-    <Text>流言：奉命阻击的米歇尔元帅倒戈了！路易十八被赶走了！天哪，战争又要开始了！</Text>
-    <ChoiceA>打探消息</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000140004 </ID>
-    <Picture>/data/u47</Picture>
-    <Text>通过达尔堡公爵可以结识拿破仑的贴身侍卫官伊文，以此可以获得战争的一手消息。选择合适人选前去交涉。</Text>
-    <ChoiceA>负责此事</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000140005 </ID>
-    <Picture>/data/u48</Picture>
-    <Text>
-      流言：听说了吗！那只法兰西蠢驴打赢了滑铁卢战役！英国就要完蛋啦！
-      伊文：阁下您好，我是拿破仑的侍卫官伊文。很遗憾地告诉您，我军即将溃败。
-    </Text>
-    <ChoiceA>采取行动</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000140006 </ID>
-    <Picture>/data/u49</Picture>
-    <Text>内森采取了非常激进大胆的策略：带头做空英国公债。很多商人跟着他们抛售股票，商人们高喊着：英国战败啦！当第二天清晨，滑铁卢大捷的消息登上伦敦报纸头条之时，xx家族一跃成为当地最富有的犹太家族。（</Text>
-    <ChoiceA>确定</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000140007 </ID>
-    <Picture>/data/u50</Picture>
-    <Text>思虑过久犹豫不决，引起了内森的不快：应该采取更大胆的行动！立刻抛售英国公债！</Text>
-    <ChoiceA>认同</ChoiceA>
-    <ChoiceB>驳回</ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000140008 </ID>
-    <Picture>/data/u51</Picture>
-    <Text>你们采取了非常激进大胆的策略：带头做空英国公债。很多商人跟着他们抛售股票，商人们高喊着：英国战败啦！当第二天清晨，滑铁卢大捷的消息登上伦敦报纸头条之时，xx家族一跃成为当地最富有的犹太家族。</Text>
-    <ChoiceA>确定</ChoiceA>
-    <ChoiceB></ChoiceB>
-  </TUIResTable>
-  <TUIResTable version="1">
-    <ID>1000140009 </ID>
-    <Picture>/data/u52</Picture>
-    <Text>第二天清晨，滑铁卢大捷的消息登上伦敦报纸头条。你们开始后悔，早该利用情报时间差来做空英国公债的，但已于事无补。内森生了整整一个月的气。</Text>
     <ChoiceA>确定</ChoiceA>
     <ChoiceB></ChoiceB>
   </TUIResTable>

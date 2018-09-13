@@ -276,6 +276,8 @@ public class LoadRes : MonoBehaviour {
     void Start () {
 
         LoadXml();
+
+        GetEventText(100140002);
 /*
         PrintLevelCount();
         PrintLevelStoryID(1);
