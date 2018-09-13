@@ -51,7 +51,7 @@ public class LoadRes : MonoBehaviour {
         {
             int id = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
             int level = int.Parse(item.ChildNodes[GetLevelIndex()].InnerText);
-            if (0 == level)  
+            if (0 == level)  // 可出现在任意关卡
             {
                 if (!comEventList.Contains(id))
                 {
@@ -60,6 +60,88 @@ public class LoadRes : MonoBehaviour {
             }
         }
         return comEventList;
+    }
+
+    public int GetChoiceType(int eventID)
+    {
+        int choiceType = 0;
+        foreach (XmlElement item in eventRootNode)
+        {
+            int id = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
+            if (id == eventID)
+            {
+                choiceType = int.Parse(item.ChildNodes[GetChoiceTypeIndex()].InnerText);
+                break;
+            }
+        }
+
+        return choiceType;
+    }
+
+    public bool IsStroryEvent(int eventID)
+    {
+        foreach (XmlElement item in eventRootNode)
+        {
+            int id = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
+            if (id == eventID)
+            {
+                int ifStory = int.Parse(item.ChildNodes[GetIfStoryIndex()].InnerText);
+                if (1 == ifStory)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public int GetRoleCountLimit(int eventID)
+    {
+        int roleCountLimit = 0;
+        foreach (XmlElement item in eventRootNode)
+        {
+            int id = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
+            if (id == eventID) 
+            {
+                roleCountLimit = int.Parse(item.ChildNodes[GetCountLimitIndex()].InnerText);
+                break;                
+            }
+        }
+
+        return roleCountLimit;
+    }
+
+    public List<int> GetRoleLimit(int eventID)
+    {
+        List<int> roleLimitList = new List<int>();
+
+        foreach (XmlElement item in eventRootNode)
+        {
+            int id = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
+            if (id == eventID)
+            {
+                string roleLimitStr = item.ChildNodes[GetRoleLimitIndex()].InnerText;
+                if (roleLimitStr.CompareTo("") != 0)
+                {
+                    string[] sRoleLimit = roleLimitStr.Split(',');
+                    foreach (string roleLimit in sRoleLimit)
+                    {
+                        if (roleLimit.CompareTo("") != 0)
+                        {
+                            roleLimitList.Add(int.Parse(roleLimit));
+                        }   
+                    }
+                }
+                break;
+            }
+        }
+
+        return roleLimitList;
     }
 
     public int GetLevelCount()
@@ -290,20 +372,12 @@ public class LoadRes : MonoBehaviour {
 
         LoadXml();
 
-        GetEventText(100140002);
-/*
-        PrintLevelCount();
-        PrintLevelStoryID(1);
-        PrintLevelStoryID(2);
+        List<int> roleLimitList = GetRoleLimit(100010001);
 
-        PrintNextStoryID(1, 0, 0);
-        PrintNextStoryID(1, 1, 1001);
-        PrintNextStoryID(1, 2, 1002);
-        PrintNextStoryID(1, 2, 1003);
-        PrintNextStoryID(1, 3, 1004);
-        print(GetEventUIPath(1004));
-        print(GetEventText(1004)); 
-*/
+        print("Limit roles: ");
+        foreach (int roleLimit in roleLimitList)
+            print(roleLimit);
+
     }
 	
 	// Update is called once per frame
@@ -322,96 +396,78 @@ public class LoadRes : MonoBehaviour {
         return 1;
     }
 
-    int GetRoleLimitIndex()
+    int GetPreEventIndex()
     {
         return 2;
     }
 
-    int GetCountLimitIndex()
+    int GetIfStoryIndex()
     {
         return 3;
     }
 
-    int GetChoiceIndex()
+    int GetRoleLimitIndex()
     {
         return 4;
     }
 
-    int GetKey1Index()
+    int GetCountLimitIndex()
     {
         return 5;
     }
 
-    int GetKey2Index()
+    int GetChoiceIndex()
     {
         return 6;
     }
 
-    int GetLevelIndex()
+    int GetKey1Index()
     {
         return 7;
     }
 
-
-    void PrintLevelCount()
+    int GetKey2Index()
     {
-        print("\nLevel Cout: " + GetLevelCount() + "\n");
+        return 8;
     }
 
-    void PrintLevelEvent(int levelIndex)
+    int GetChoiceTypeIndex()
     {
-        print("\n-------Level " + levelIndex + " Event------\n");
-        List<int> level1EventList = GetLevelEventID(levelIndex);
-        foreach (int eventID in level1EventList)
-        {
-            print(eventID);
-        }
+        return 9;
     }
 
-    void PrintLevelStoryID(int levelIndex)
+    int GetLevelIndex()
     {
-        print("\n-------Level " + levelIndex + " StoryID------\n");
-        List<int> levelStoryList = GetLevelStoryID(levelIndex);
-        foreach (int storyID in levelStoryList)
-        {
-            print(storyID);
-        }
+        return 10;
     }
 
-    void PrintEventTable()
+    int GetWithKeyMoneyIndex()
     {
-        print("\n --------Event Table--------\n");
-
-        foreach (XmlElement item in eventRootNode)
-        {
-            int id = int.Parse(item.ChildNodes[0].InnerText);
-            int type = int.Parse(item.ChildNodes[1].InnerText);
-            int key1 = int.Parse(item.ChildNodes[2].InnerText);
-            int key2 = int.Parse(item.ChildNodes[3].InnerText);
-            int level = int.Parse(item.ChildNodes[4].InnerText);
-            int withkeyMoney = int.Parse(item.ChildNodes[5].InnerText);
-            int withkeyReputation = int.Parse(item.ChildNodes[6].InnerText);
-            int withkeyTeamwork = int.Parse(item.ChildNodes[7].InnerText);
-            int withkeyCd = int.Parse(item.ChildNodes[8].InnerText);
-            int withoutkeyMoney = int.Parse(item.ChildNodes[9].InnerText);
-            int withoutkeyReputation = int.Parse(item.ChildNodes[10].InnerText);
-            int withoutkeyTeamwork = int.Parse(item.ChildNodes[11].InnerText);
-            int withoutkeyCd = int.Parse(item.ChildNodes[12].InnerText);
-            print("ID: " + id + " Type: " + type + " Key1: " + key1 + " Key2: " + key2 + " Level: " + level +
-                " withkeyMoney: " + withkeyMoney + " WithKeyReputation: " + withkeyReputation + " WithKeyTeamwork: " + withkeyTeamwork +
-                " WithKeyCd: " + withkeyCd + " WithoutKeyMoney: " + withoutkeyMoney + " WithoutKeyReputation: " + withoutkeyReputation +
-                " WithoutKeyTeamwork: " + withoutkeyTeamwork + " WithoutKeyCd: " + withoutkeyCd);
-        }
+        return 11;
     }
 
-    //void PrintNextStoryID(int storyID, int storySeq, int fatherEventID)
-    //{
-    //    print("\n-------StoryID  " + storyID +  ", StorySeq " + storySeq  + ", Before " + fatherEventID + ", Next Event" + "-----\n");
-    //    List<int> nextStoryList = GetNextStoryID(storyID, storySeq, fatherEventID);
-    //    foreach (int eventID in nextStoryList)
-    //    {
-    //        print(eventID);
-    //    }
-    //}
+    int GetWithKeyReputationIndex()
+    {
+        return 12;
+    }
 
+    int GetWithKeyTeamworkIndex()
+    {
+        return 13;
+    }
+
+    int GetWithoutKeyMoneyIndex()
+    {
+        return 14;
+    }
+
+    int GetWithoutKeyReputationIndex()
+    {
+        return 15;
+    }
+
+    int GetWithoutKeyTeamworkIndex()
+    {
+        return 16;
+    }
 }

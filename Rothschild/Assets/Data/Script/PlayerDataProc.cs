@@ -7,7 +7,7 @@ using System.Xml;
 using UnityEngine;
 
 
-struct PlayerData  //玩家信息
+public struct PlayerData  //玩家信息
 {
     public string name;
     public string password;
@@ -23,7 +23,7 @@ public struct PlayerAttr
     public int reputation;
 }
 
-struct EventLog
+public struct EventLog
 {
     public int roleID;
     public int eventID;
@@ -37,12 +37,14 @@ public class PlayerDataProc : MonoBehaviour
     public const int FAN_KEY_TYPE = 2;
     public const int GENERAL_TYPE = 3;
 
+    public static int teamworkValue = 0;
+
     string playerDBPath = "/Data/Xml/palyerDB.xml";
     string eventTablePath = "/Data/Xml/event.xml";
 
     PlayerAttr[] settleResult = new PlayerAttr[4];
 
-    void CreatePlayerDB()
+    public void CreatePlayerDB()
     {
         string path = Application.dataPath + playerDBPath;
         if (!File.Exists(path))
@@ -56,7 +58,7 @@ public class PlayerDataProc : MonoBehaviour
         }
     }
 
-    bool FindPlayer(string name)
+    public bool FindPlayer(string name)
     {
         string path = Application.dataPath + playerDBPath;
         if (File.Exists(path))
@@ -76,7 +78,7 @@ public class PlayerDataProc : MonoBehaviour
     }
 
 
-    int regPlayerData(string name, string password)
+    public int regPlayerData(string name, string password)
     {
         if (FindPlayer(name))
         {
@@ -106,6 +108,9 @@ public class PlayerDataProc : MonoBehaviour
                 XmlElement elementSection = xml.CreateElement("Section");
                 elementSection.InnerText = "1";
 
+                XmlElement elementTeamwork = xml.CreateElement("Teamwork");
+                elementTeamwork.InnerText = "0";
+
                 XmlElement elementMoney = xml.CreateElement("Money");
                 elementMoney.InnerText = "";
 
@@ -121,6 +126,7 @@ public class PlayerDataProc : MonoBehaviour
                 element.AppendChild(elementPassword);
                 element.AppendChild(elementLevel);
                 element.AppendChild(elementSection);
+                element.AppendChild(elementTeamwork);
                 element.AppendChild(elementMoney);
                 element.AppendChild(elementReputation);
                 element.AppendChild(elementEventLog);
@@ -135,7 +141,7 @@ public class PlayerDataProc : MonoBehaviour
         return 0;
     }
 
-    List<EventLog> GetEventLog(string name)
+    public List<EventLog> GetEventLog(string name)
     {
         string path = Application.dataPath + playerDBPath;
 
@@ -152,7 +158,7 @@ public class PlayerDataProc : MonoBehaviour
             {
                 if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
                 {
-                    eventStr = xl1.ChildNodes[6].InnerText;
+                    eventStr = xl1.ChildNodes[7].InnerText;
                     break;
                 }
             }
@@ -190,7 +196,7 @@ public class PlayerDataProc : MonoBehaviour
         return eventList;
     }
 
-    int AddEventLog(string name, EventLog eventlog)
+    public int AddEventLog(string name, EventLog eventlog)
     {
         string path = Application.dataPath + playerDBPath;
 
@@ -203,7 +209,7 @@ public class PlayerDataProc : MonoBehaviour
             {
                 if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
                 {
-                    string eventStr = xl1.ChildNodes[6].InnerText;
+                    string eventStr = xl1.ChildNodes[7].InnerText;
                     if (eventStr.CompareTo("") != 0)
                     {
                         eventStr += ",";
@@ -215,7 +221,7 @@ public class PlayerDataProc : MonoBehaviour
                     print(eventlog.choice);
                     print(eventStr);
 
-                    xl1.ChildNodes[6].InnerText = eventStr;
+                    xl1.ChildNodes[7].InnerText = eventStr;
                     xml.Save(path);
                     return 0;
                 }
@@ -224,7 +230,7 @@ public class PlayerDataProc : MonoBehaviour
         return 1;
     }
 
-    int AddEvenLogList(string name, List<EventLog> eventLogList)
+    public int AddEvenLogList(string name, List<EventLog> eventLogList)
     {
         foreach (EventLog eventLog in eventLogList)
         {
@@ -236,7 +242,12 @@ public class PlayerDataProc : MonoBehaviour
         return 0;
     }
 
-    bool KeyMatch(int key1, int key2, int type, List<int> selectRoles)
+    public int GetTeamworkValue()
+    {
+        return teamworkValue;
+    }
+
+    public bool KeyMatch(int key1, int key2, int type, List<int> selectRoles)
     {
         bool keyFlag = false;
         int roleNum = selectRoles.Count;
@@ -339,33 +350,62 @@ public class PlayerDataProc : MonoBehaviour
                         }
                         else if (FAN_KEY_TYPE == type)
                         {
-                            if (keyFlag && 0 == key2)  // 选对单key
+                            if (0 == key2)  // 事件是单key
                             {
-                                foreach (int roleID in selectRoles)
+                                if (1 == selectRoles.Count)
                                 {
-                                    settleResult[roleID - 1].money += money;
-                                    settleResult[roleID - 1].reputation += reputation;
+                                    settleResult[selectRoles[0] - 1].money += money;
+                                    settleResult[selectRoles[0] - 1].reputation += reputation;
                                 }
-                            }
-                            else if (0 != key1 && 0 != key2)    // 双key
-                            {
-                                foreach (int roleID in selectRoles)
+                                else if (2 == selectRoles.Count)
                                 {
-                                    settleResult[roleID - 1].money += money;
-                                    settleResult[roleID - 1].reputation += reputation;
-                                }
-                            }
-                            else if (2 == selectRoles.Count)
-                            {
+                                    if (keyFlag)    // 选对了
+                                    {
+                                        foreach (int roleID in selectRoles)
+                                        {
+                                            if (roleID == key1)     // 对的人80%
+                                            {
+                                                settleResult[roleID - 1].money += (int)(money * 0.8);
+                                                settleResult[roleID - 1].reputation += (int)(reputation * 0.8);
+                                            }
+                                            else  // 错的人20%
+                                            {
+                                                settleResult[roleID - 1].money += (int)(money * 0.2);
+                                                settleResult[roleID - 1].reputation += (int)(reputation * 0.2);
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        settleResult[selectRoles[0] - 1].money += (int)(money * 0.7);
+                                        settleResult[selectRoles[1] - 1].money += (int)(money * 0.7);
 
+                                        settleResult[selectRoles[0] - 1].reputation += (int)(reputation * 0.7);
+                                        settleResult[selectRoles[1] - 1].reputation += (int)(reputation * 0.7);
+                                    }
+                                }
+                            }
+                            else     // 双key
+                            {
+                                if (1 == selectRoles.Count)
+                                {
+                                    settleResult[selectRoles[0] - 1].money += money;
+                                    settleResult[selectRoles[0] - 1].reputation += reputation;
+                                }
+                                else if (2 == selectRoles.Count)
+                                {
+                                    settleResult[selectRoles[0] - 1].money += (int)(money * 0.7);
+                                    settleResult[selectRoles[1] - 1].money += (int)(money * 0.7);
+
+                                    settleResult[selectRoles[0] - 1].reputation += (int)(reputation * 0.7);
+                                    settleResult[selectRoles[1] - 1].reputation += (int)(reputation * 0.7);
+                                }
                             }
                         }
                         else
                         {
                             print("SettlePlayer: event type error!!!!!, type: " + type);
                         }
-
-
                     }
                     else   // 无key事件
                     {
@@ -404,6 +444,16 @@ public class PlayerDataProc : MonoBehaviour
                         }
                         
                     }
+
+                    // 结算teamwork
+                    if (2 == selectRoles.Count)
+                    {
+                        teamworkValue += (teamWork + Random.Range(2, 5));
+                    }
+                    else
+                    {
+                        teamworkValue += teamWork;
+                    }
                                         
                     break;
                 }
@@ -411,15 +461,10 @@ public class PlayerDataProc : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < 4; i++)
-        {
-            settleResult[i].money = 10 + i * 10;
-            settleResult[i].reputation = 10 + i * 10; 
-        }
         return settleResult;
     }
 
-    int Login(ref PlayerData playerInfo)
+    public int Login(ref PlayerData playerInfo)
     {
         string path = Application.dataPath + playerDBPath;
         string name = playerInfo.name;
@@ -437,9 +482,10 @@ public class PlayerDataProc : MonoBehaviour
                 {
                     playerInfo.level = int.Parse(xl1.ChildNodes[2].InnerText);
                     playerInfo.section = int.Parse(xl1.ChildNodes[3].InnerText);
+                    teamworkValue = int.Parse(xl1.ChildNodes[4].InnerText);
 
-                    string moneyStr = xl1.ChildNodes[4].InnerText;
-                    string reputationStr = xl1.ChildNodes[5].InnerText;
+                    string moneyStr = xl1.ChildNodes[5].InnerText;
+                    string reputationStr = xl1.ChildNodes[6].InnerText;
 
                     int i = 0;
                     if (moneyStr.CompareTo("") != 0)
@@ -473,7 +519,7 @@ public class PlayerDataProc : MonoBehaviour
         return 1;
     }
 
-    int Logout(PlayerData playerInfo)
+    public int Logout(PlayerData playerInfo)
     {
         name = playerInfo.name;
         string path = Application.dataPath + playerDBPath;
@@ -489,6 +535,7 @@ public class PlayerDataProc : MonoBehaviour
                     xl1.ChildNodes[1].InnerText = playerInfo.password;
                     xl1.ChildNodes[2].InnerText = playerInfo.level.ToString();
                     xl1.ChildNodes[3].InnerText = playerInfo.section.ToString();
+                    xl1.ChildNodes[4].InnerText = teamworkValue.ToString();
 
                     string money = "";
                     string reputation = "";
@@ -502,8 +549,8 @@ public class PlayerDataProc : MonoBehaviour
                         money += playerInfo.playerAttr[i].money.ToString();
                         reputation += playerInfo.playerAttr[i].reputation.ToString();
                     }
-                    xl1.ChildNodes[4].InnerText = money;
-                    xl1.ChildNodes[5].InnerText = reputation;
+                    xl1.ChildNodes[5].InnerText = money;
+                    xl1.ChildNodes[6].InnerText = reputation;
 
                     break;
                 }
@@ -518,81 +565,6 @@ public class PlayerDataProc : MonoBehaviour
     void Start()
     {
 
-        /*    PlayerAttr[] result = SettlePlayer();
-
-            print(result[0].money);
-            print(result[0].reputation);
-            print(result[1].money);
-            print(result[1].reputation);*/
-
-        //CreatePlayerDB();
-        //       regPlayerData("neilxkchen", "43216");
-        /*        PlayerData myInfo;
-                myInfo.name = "neilxkchen";
-                myInfo.password = "43216";
-                myInfo.level = 3;
-                myInfo.section = 3;
-
-                myInfo.playerAttr = new PlayerAttr[4];
-
-                for (int i = 0; i < 4; i++)
-                {
-                    myInfo.playerAttr[i].money = i + 1;
-                    myInfo.playerAttr[i].reputation = i + 1;
-                }
-
-                Login(ref myInfo);
-
-                print("level: " + myInfo.level);
-                print("section: " + myInfo.section);
-                for (int i = 0; i < 4; i++)
-                {
-                    print("money: " + myInfo.playerAttr[i].money);
-                    print("reputation: " + myInfo.playerAttr[i].reputation);
-                }
-
-                //        myInfo.level = 8888;
-
-                //       Logout(myInfo);
-
-                //      print("My Level: " + myInfo.level);
-
-                //     AddEventLog("neilxkchen", 666);
-                //    AddEventLog("neilxkchen", 777);
-                //    AddEventLog("neilxkchen", 888);
-                /*        List<int> eventLogList = new List<int>();
-                        eventLogList.Add(101);
-                        eventLogList.Add(102);
-                        eventLogList.Add(103);
-                        AddEvenLogList("neilxkchen", eventLogList);
-                        List<int> eventLog = GetEventLog("neilxkchen");*/
-
-        //    foreach (int eventID in eventLog)
-        //       print(eventID);*/
-        /*    EventLog log1 = new EventLog();
-            log1.roleID = 1;
-            log1.eventID = 1001;
-            log1.choice = 1;
-
-            EventLog log2 = new EventLog();
-            log2.roleID = 2;
-            log2.eventID = 1002;
-            log2.choice = 2;
-
-            EventLog log3 = new EventLog();
-            log3.roleID = 3;
-            log3.eventID = 1003;
-            log3.choice = 3;
-
-            List<EventLog> eventLogList = new List<EventLog>();
-
-            eventLogList.Add(log1);
-            eventLogList.Add(log2);
-            eventLogList.Add(log3);
-
-
-            AddEvenLogList("neilxkchen", eventLogList);
-    */
         
     }
 
@@ -612,73 +584,78 @@ public class PlayerDataProc : MonoBehaviour
         return 1;
     }
 
-    int GetRoleLimitIndex()
+    int GetPreEventIndex()
     {
         return 2;
     }
 
-    int GetCountLimitIndex()
+    int GetIfStoryIndex()
     {
         return 3;
     }
 
-    int GetChoiceIndex()
+    int GetRoleLimitIndex()
     {
         return 4;
     }
 
-    int GetKey1Index()
+    int GetCountLimitIndex()
     {
         return 5;
     }
 
-    int GetKey2Index()
+    int GetChoiceIndex()
     {
         return 6;
     }
 
-    int GetLevelIndex()
+    int GetKey1Index()
     {
         return 7;
     }
 
-    int GetWithKeyMoneyIndex()
+    int GetKey2Index()
     {
         return 8;
     }
 
-    int GetWithKeyReputationIndex()
+    int GetChoiceTypeIndex()
     {
         return 9;
     }
 
-    int GetWithKeyTeamworkIndex()
+    int GetLevelIndex()
     {
         return 10;
     }
 
-    int GetWithKeyCdIndex()
+    int GetWithKeyMoneyIndex()
     {
         return 11;
     }
 
-    int GetWithoutKeyMoneyIndex()
+    int GetWithKeyReputationIndex()
     {
         return 12;
     }
 
-    int GetWithoutKeyReputationIndex()
+    int GetWithKeyTeamworkIndex()
     {
         return 13;
     }
 
-    int GetWithoutKeyTeamworkIndex()
+    int GetWithoutKeyMoneyIndex()
     {
         return 14;
     }
 
-    int GetWithoutKeyCdIndex()
+    int GetWithoutKeyReputationIndex()
     {
         return 15;
+    }
+
+    int GetWithoutKeyTeamworkIndex()
+    {
+        return 16;
     }
 }
