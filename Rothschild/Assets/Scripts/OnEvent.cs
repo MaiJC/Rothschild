@@ -42,7 +42,7 @@ public class OnEvent : MonoBehaviour
         eventText.text = text;
     }
 
-    private void SetEventID(int id)
+    public void SetEventID(int id)
     {
         eventID = id;
     }
@@ -81,7 +81,7 @@ public class OnEvent : MonoBehaviour
             choiceThree.gameObject.SetActive(false);
 
             choiceOne.transform.GetChild(0).gameObject.GetComponent<Text>().text = choiceTest[0];
-            choiceTwo.transform.GetChild(0).gameObject.GetComponent<Text>().text = choiceTest[0];
+            choiceTwo.transform.GetChild(0).gameObject.GetComponent<Text>().text = choiceTest[1];
         }
     }
 

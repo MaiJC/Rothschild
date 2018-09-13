@@ -105,6 +105,7 @@ public class OnPerson : EventTrigger
     public void Clear()
     {
         isSelected = false;
+        targetGraphic.color = colorState.normalColor;
     }
 
     public void SetAvator(string avatarName)
