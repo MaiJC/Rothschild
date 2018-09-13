@@ -232,14 +232,14 @@ public class LoadRes : MonoBehaviour {
         }
     }
 
-    void PrintNextStoryID(int storyID, int storySeq, int fatherEventID)
-    {
-        print("\n-------StoryID  " + storyID +  ", StorySeq " + storySeq  + ", Before " + fatherEventID + ", Next Event" + "-----\n");
-        List<int> nextStoryList = GetNextStoryID(storyID, storySeq, fatherEventID);
-        foreach (int eventID in nextStoryList)
-        {
-            print(eventID);
-        }
-    }
+    //void PrintNextStoryID(int storyID, int storySeq, int fatherEventID)
+    //{
+    //    print("\n-------StoryID  " + storyID +  ", StorySeq " + storySeq  + ", Before " + fatherEventID + ", Next Event" + "-----\n");
+    //    List<int> nextStoryList = GetNextStoryID(storyID, storySeq, fatherEventID);
+    //    foreach (int eventID in nextStoryList)
+    //    {
+    //        print(eventID);
+    //    }
+    //}
 
 }

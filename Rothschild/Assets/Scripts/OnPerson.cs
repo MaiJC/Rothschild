@@ -112,24 +112,26 @@ public class OnPerson : EventTrigger
     }
 
     /*接收值为财富值的改变，返回角色是否死亡*/
-    public bool SetWealthChange(int wealthChange)
+    public bool SetWealth(int wealth)
     {
-        wealthNum += wealthChange;
+        //wealthNum += wealthChange;
 
-        isDead = (wealthNum <= 0);
-        wealthNum = wealthNum < 0 ? 0 : wealthNum;
+        //isDead = (wealthNum <= 0);
+        //wealthNum = wealthNum < 0 ? 0 : wealthNum;
+        wealthNum = wealth;
         wealthText.text = "财富\n" + wealthNum.ToString() + "/100";
 
         return isDead;
     }
 
     /*接收值为声望的改变，返回角色是否死亡*/
-    public bool SetReputationChange(int reputationChange)
+    public bool SetReputation(int reputation)
     {
-        reputationNum += reputationChange;
+        //reputationNum += reputationChange;
 
-        isDead = (reputationNum <= 0);
-        reputationNum = reputationNum < 0 ? 0 : wealthNum;
+        //isDead = (reputationNum <= 0);
+        //reputationNum = reputationNum < 0 ? 0 : wealthNum;
+        reputationNum = reputation;
         reputationText.text = "声望\n" + reputationNum.ToString() + "/100";
 
         return isDead;
