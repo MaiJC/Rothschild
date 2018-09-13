@@ -47,6 +47,7 @@ public class LevelManager : MonoBehaviour
 
     public void Confirm()
     {
+        ClearSelect();
         NextEvent();
     }
 
@@ -192,6 +193,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log("return event text null");
         }
         onEvent.SetEventText(loadRes.GetEventText(currentEventID));
+        onEvent.SetEventID(currentEventID);
     }
 
     void NextLevel()
@@ -201,6 +203,9 @@ public class LevelManager : MonoBehaviour
         currentEventCount = commonEventID.Count + levelEventID[currentLevel - 1].Count;
     }
 
-
+    void ClearSelect()
+    {
+        currentSelectedCount = 0;
+    }
 
 }

@@ -47,6 +47,10 @@ public class OnConfirm : EventTrigger
 
         PrcData();
         levelManager.Confirm();
+        foreach(OnPerson personTmp in onPerson)
+        {
+            personTmp.Clear();
+        }
     }
 
     void PrcData()

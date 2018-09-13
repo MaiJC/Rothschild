@@ -42,7 +42,7 @@ public class OnEvent : MonoBehaviour
         eventText.text = text;
     }
 
-    private void SetEventID(int id)
+    public void SetEventID(int id)
     {
         eventID = id;
     }
