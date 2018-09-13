@@ -321,6 +321,51 @@ public class PlayerDataProc : MonoBehaviour
                             teamWork = int.Parse(xl1.ChildNodes[GetWithoutKeyTeamworkIndex()].InnerText);
                         }
 
+                        if (WEI_KEY_TYPE == type)
+                        {
+                            if (1 == selectRoles.Count)
+                            {
+                                settleResult[selectRoles[0] - 1].money += money;
+                                settleResult[selectRoles[0] - 1].reputation += reputation;
+                            }
+                            else if (2 == selectRoles.Count)
+                            {
+                                settleResult[selectRoles[0] - 1].money += (int)(money * 0.7);
+                                settleResult[selectRoles[1] - 1].money += (int)(money * 0.7);
+                              
+                                settleResult[selectRoles[0] - 1].reputation += (int)(reputation * 0.7);
+                                settleResult[selectRoles[1] - 1].reputation += (int)(reputation * 0.7);
+                            }
+                        }
+                        else if (FAN_KEY_TYPE == type)
+                        {
+                            if (keyFlag && 0 == key2)  // 选对单key
+                            {
+                                foreach (int roleID in selectRoles)
+                                {
+                                    settleResult[roleID - 1].money += money;
+                                    settleResult[roleID - 1].reputation += reputation;
+                                }
+                            }
+                            else if (0 != key1 && 0 != key2)    // 双key
+                            {
+                                foreach (int roleID in selectRoles)
+                                {
+                                    settleResult[roleID - 1].money += money;
+                                    settleResult[roleID - 1].reputation += reputation;
+                                }
+                            }
+                            else if (2 == selectRoles.Count)
+                            {
+
+                            }
+
+                        }
+                        else
+                        {
+                            print("SettlePlayer: event type error!!!!!, type: " + type);
+                        }
+
 
                     }
                     else   // 无key事件
