@@ -92,7 +92,10 @@ public class LoadRes : MonoBehaviour {
             int level = int.Parse(item.ChildNodes[GetLevelIndex()].InnerText);
             if (level == levelIndex)
             {
-                levelEventList.Add(id);
+                if (!levelEventList.Contains(id))
+                {
+                    levelEventList.Add(id);
+                }
             }
         }
         return levelEventList;
