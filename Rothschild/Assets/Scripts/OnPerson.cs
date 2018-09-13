@@ -11,7 +11,7 @@ public class OnPerson : EventTrigger
 
     private ColorState colorState;
 
-    private InterfaceManager interfaceManager;
+    private LevelManager levelManager;
 
     //头像
     private Image avatarImage;
@@ -24,7 +24,7 @@ public class OnPerson : EventTrigger
     //是否死亡
     private bool isDead = false;
 
-    
+
     // Use this for initialization
     void Start()
     {
@@ -35,7 +35,7 @@ public class OnPerson : EventTrigger
 
         targetGraphic.color = colorState.normalColor;
 
-        interfaceManager = GameObject.Find("LogicHandler").GetComponent<InterfaceManager>();
+        levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
         avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
         wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
         reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
@@ -49,45 +49,50 @@ public class OnPerson : EventTrigger
 
     public override void OnPointerEnter(PointerEventData eventData)
     {
-        //base.OnPointerEnter(eventData);
         targetGraphic.color = colorState.enterColor;
-        //image.color = enterColor;
     }
 
     public override void OnPointerExit(PointerEventData eventData)
     {
-        //base.OnPointerExit(eventData);
         if (isSelected)
         {
             targetGraphic.color = colorState.selectColor;
-            //image.color = selectColor;
         }
         else
         {
             targetGraphic.color = colorState.normalColor;
-            //image.color = normalColor;
         }
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
         targetGraphic.color = colorState.clickColor;
-        //image.color = clickColor;
-        isSelected = !isSelected;
+        //isSelected = !isSelected;
+        //判断是否能够选择
+        if (isSelected == false)
+        {
+            if (levelManager.AddSelect())
+            {
+                isSelected = true;
+            }
+        }
+        else
+        {
+            levelManager.RemoveSelect();
+            isSelected = false;
+        }
+
     }
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        //targetGraphic.color = enterColor;
         if (isSelected)
         {
             targetGraphic.color = colorState.selectColor;
-            //image.color = selectColor;
         }
         else
         {
             targetGraphic.color = colorState.normalColor;
-            //image.color = normalColor;
         }
     }
 
@@ -106,7 +111,7 @@ public class OnPerson : EventTrigger
         avatarImage.sprite = Resources.Load(avatarName, typeof(Sprite)) as Sprite;
     }
 
-    /*receive the number of wealth change, and return if this person is dead*/
+    /*接收值为财富值的改变，返回角色是否死亡*/
     public bool SetWealthChange(int wealthChange)
     {
         wealthNum += wealthChange;
@@ -118,6 +123,7 @@ public class OnPerson : EventTrigger
         return isDead;
     }
 
+    /*接收值为声望的改变，返回角色是否死亡*/
     public bool SetReputationChange(int reputationChange)
     {
         reputationNum += reputationChange;
