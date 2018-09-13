@@ -76,6 +76,7 @@ public class LevelManager : MonoBehaviour
             for (int j = 0; j < levelEventID[i].Count; j++)
             {
                 int eventID = levelEventID[i][j];
+                Debug.Log("get event ui path: " + eventID.ToString());
                 string path = loadRes.GetEventUIPath(eventID);
                 //string text = loadRes.GetEventText(eventID);
                 eventUIPath.Add(eventID, path);
@@ -151,7 +152,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (person[i].IsSelected()) roles.Add(i + 1);
             }
-            currentEventID = loadRes.GetNextStoryEvent(currentStoryHead, fatherEventID, chooice, roles);
+            currentEventID = loadRes.GetNextStoryEvent(currentStoryID, fatherEventID, chooice, roles);
         }
         else
         {
@@ -174,19 +175,22 @@ public class LevelManager : MonoBehaviour
             {
                 currentStoryID = levelStoryID[currentLevel - 1][idx - currentEventCount];
                 //这里要加一个getcurrenteventid
+                currentEventID = loadRes.GetStoryHeadEventID(currentStoryID);
                 levelStoryID[currentLevel - 1].RemoveAt(idx - currentEventCount);
                 isInStory = true;
                 currentStoryHead = currentEventID;
             }
         }
 
-
-
         /*TODO: 添加事件切换特效*/
         //为事件槽设置新的图片和文字描述
         //onEvent.SetImage(eventUIPath[currentEventID]);
         //onEvent.SetText(eventText[currentEventID]);
-        Debug.Log(currentEventID);
+        Debug.Log("Next event: " + currentEventID.ToString());
+        if(loadRes.GetEventText(currentEventID).Count==0)
+        {
+            Debug.Log("return event text null");
+        }
         onEvent.SetEventText(loadRes.GetEventText(currentEventID));
     }
 
