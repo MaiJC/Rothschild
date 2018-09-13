@@ -10,6 +10,8 @@ public class OnConfirm : EventTrigger
     private LevelManager levelManager;
     private PlayerDataProc playerDataProc;
     private int choiceID;
+    private Graphic targetGraphic;
+    private ColorState colorState;
 
     // Use this for initialization
     void Start()
@@ -20,6 +22,8 @@ public class OnConfirm : EventTrigger
         onPerson.Add(GameObject.Find("PersonPanelD").GetComponent<OnPerson>());
         playerDataProc = GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>();
         levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+        colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
+        targetGraphic = this.GetComponent<Button>().targetGraphic;
 
         choiceID = this.tag == "ChoiceOne" ? 1 : 2;
     }
@@ -32,6 +36,15 @@ public class OnConfirm : EventTrigger
 
     public override void OnPointerUp(PointerEventData eventData)
     {
+        //若没有选择任何人
+        int selectedCount = 0;
+        foreach(OnPerson person in onPerson)
+        {
+            if (person.IsSelected()) selectedCount++;
+        }
+        if (selectedCount == 0)
+            return;
+
         PrcData();
         levelManager.Confirm();
     }
@@ -47,9 +60,6 @@ public class OnConfirm : EventTrigger
                 selectPerson.Add(i + 1);
         }
 
-        if (selectPerson.Count == 0)
-            return;
-
         PlayerAttr[] playerAttrs = playerDataProc.SettlePlayer(eventID, choiceID, selectPerson);
 
         for (int i = 0; i < 4; i++)
@@ -57,5 +67,31 @@ public class OnConfirm : EventTrigger
             onPerson[i].SetReputation(playerAttrs[i].reputation);
             onPerson[i].SetWealth(playerAttrs[i].money);
         }
+    }
+
+    public void SetUnselectable()
+    {
+        /*TODO: 增加颜色变化*/
+        this.targetGraphic.color = colorState.deadColor;
+        this.enabled = false;
+    }
+
+    public void SetSelectable()
+    {
+        /*TODO: 增加颜色变化*/
+        this.targetGraphic.color = colorState.normalColor;
+        this.enabled = true;
+    }
+
+    public override void OnPointerDown(PointerEventData eventData)
+    {
+    }
+
+    public override void OnPointerEnter(PointerEventData eventData)
+    {
+    }
+
+    public override void OnPointerExit(PointerEventData eventData)
+    {
     }
 }

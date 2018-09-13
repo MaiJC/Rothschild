@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     private int currentEventCount = 0;
     private int currentRound = 0;
     private int currentMaxSelectedPersonCount = 2;
-    private int currentMaxSelectedChooseCount = 2;
+    private int currentMaxSelectedChooiceCount = 2;
     private int currentSelectedCount = 0;
     private int currentStoryHead;
     private bool isInStory = false;
@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     {
         Initialize();
         InitializeMonkey();
+        NextEvent();
     }
 
     // Update is called once per frame
@@ -51,6 +52,7 @@ public class LevelManager : MonoBehaviour
     {
         loadRes = GameObject.Find("DataHandler").GetComponent<LoadRes>();
         onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
+        onEvent.SetUnselectable();
 
         levelCount = loadRes.GetLevelCount();
         commonEventID = loadRes.GetCommonEventID();
@@ -104,6 +106,7 @@ public class LevelManager : MonoBehaviour
 
     public bool AddSelect()
     {
+        onEvent.SetSelectable();
         if (currentSelectedCount == currentMaxSelectedPersonCount)
         {
             return false;
@@ -118,8 +121,11 @@ public class LevelManager : MonoBehaviour
 
     public void RemoveSelect()
     {
-        /*TODO: 增加如果原本选择数满上线，则将灰色的卡恢复彩色的功能s*/
+        /*TODO: 增加如果原本选择数满上线，则将灰色的卡恢复彩色的功能*/
         currentSelectedCount--;
+        if (currentSelectedCount == 0)
+            onEvent.SetUnselectable();
+
         if (currentSelectedCount < 0)
             Debug.LogError("currentSelectedCount less than 0!");
     }
@@ -134,10 +140,10 @@ public class LevelManager : MonoBehaviour
         if(isInStory)
         {
             //currentEventID=loadRes.GetNextStoryID(currentStoryHead,)
-            int choose = this.tag == "ChooseOne" ? 1 : 2;
+            int chooice = this.tag == "ChooseOne" ? 1 : 2;
             int fatherEventID = currentEventID;
             //currentEventID = loadRes.GetNextStoryID(currentStoryHead, choose, fatherEventID);
-            currentEventID = loadRes.GetNextStoryEvent(currentStoryHead, fatherEventID, choose);
+            currentEventID = loadRes.GetNextStoryEvent(currentStoryHead, fatherEventID, chooice);
         }
         else
         {
@@ -169,7 +175,7 @@ public class LevelManager : MonoBehaviour
 
         /*TODO: 添加事件切换特效*/
         //为事件槽设置新的图片和文字描述
-        onEvent.SetImage(eventUIPath[currentEventID]);
+        //onEvent.SetImage(eventUIPath[currentEventID]);
         //onEvent.SetText(eventText[currentEventID]);
         onEvent.SetEventText(loadRes.GetEventText(currentEventID));
     }
