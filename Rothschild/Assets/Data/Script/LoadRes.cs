@@ -333,14 +333,6 @@ public class LoadRes : MonoBehaviour {
         }
     }
 
-    void PrintNextStoryID(int storyID, int fatherEventID, int storyChoice)
-    {
-        print("\n-------StoryID  " + storyID  + ", Before " + fatherEventID + ", Choice " + storyChoice + ", Next Event" + "-----\n");
-
-    //    int nextStoryEvent = GetNextStoryEvent(storyID, fatherEventID, storyChoice);
-    //    print(nextStoryEvent);
-    }
-
     void PrintEventTable()
     {
         print("\n --------Event Table--------\n");
@@ -366,4 +358,15 @@ public class LoadRes : MonoBehaviour {
                 " WithoutKeyTeamwork: " + withoutkeyTeamwork + " WithoutKeyCd: " + withoutkeyCd);
         }
     }
+
+    //void PrintNextStoryID(int storyID, int storySeq, int fatherEventID)
+    //{
+    //    print("\n-------StoryID  " + storyID +  ", StorySeq " + storySeq  + ", Before " + fatherEventID + ", Next Event" + "-----\n");
+    //    List<int> nextStoryList = GetNextStoryID(storyID, storySeq, fatherEventID);
+    //    foreach (int eventID in nextStoryList)
+    //    {
+    //        print(eventID);
+    //    }
+    //}
+
 }

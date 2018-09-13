@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public void OnConfirm()
+    public void Confirm()
     {
         NextEvent();
     }
@@ -62,20 +62,30 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < commonEventID.Count; i++)
         {
             int eventID = commonEventID[i];
+<<<<<<< HEAD
             string path = "";//loadRes.GetEventUIPath(eventID);
             string text = "";//loadRes.GetEventText(eventID);
+=======
+            string path = loadRes.GetEventUIPath(eventID);
+            //string text = loadRes.GetEventText(eventID);
+>>>>>>> 1d367dae889ac95df4b6d93efa1667062335d3e3
             eventUIPath.Add(eventID, path);
-            eventText.Add(eventID, text);
+            //eventText.Add(eventID, text);
         }
         for (int i = 0; i < levelCount; i++)
         {
             for (int j = 0; j < levelEventID[i].Count; j++)
             {
                 int eventID = levelEventID[i][j];
+<<<<<<< HEAD
                 string path = ""; //loadRes.GetEventUIPath(eventID);
                 string text = "";// loadRes.GetEventText(eventID);
+=======
+                string path = loadRes.GetEventUIPath(eventID);
+                //string text = loadRes.GetEventText(eventID);
+>>>>>>> 1d367dae889ac95df4b6d93efa1667062335d3e3
                 eventUIPath.Add(eventID, path);
-                eventText.Add(eventID, text);
+                //eventText.Add(eventID, text);
             }
         }
     }
@@ -86,20 +96,20 @@ public class LevelManager : MonoBehaviour
         cardPath.Add("monkey");
         cardPath.Add("banana_alfa");
 
-        personImage.Add(GameObject.Find("PersonImageA").GetComponent<Image>());
-        personImage.Add(GameObject.Find("PersonImageB").GetComponent<Image>());
-        personImage.Add(GameObject.Find("PersonImageC").GetComponent<Image>());
-        personImage.Add(GameObject.Find("PersonImageD").GetComponent<Image>());
+        personImage.Add(GameObject.Find("PersonPanelA").transform.GetChild(0).gameObject.GetComponent<Image>());
+        personImage.Add(GameObject.Find("PersonPanelB").transform.GetChild(0).gameObject.GetComponent<Image>());
+        personImage.Add(GameObject.Find("PersonPanelC").transform.GetChild(0).gameObject.GetComponent<Image>());
+        personImage.Add(GameObject.Find("PersonPanelD").transform.GetChild(0).gameObject.GetComponent<Image>());
 
         person.Add(GameObject.Find("PersonPanelA").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelB").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelC").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelD").GetComponent<OnPerson>());
 
-        //foreach (Image i in personImage)
-        //{
-        //    i.overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
-        //}
+        foreach (Image i in personImage)
+        {
+            i.overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
+        }
     }
 
     public bool AddSelect()
@@ -130,9 +140,14 @@ public class LevelManager : MonoBehaviour
 
         currentRound++;
 
+        /*TODO: 判断是否退出故事*/
         if(isInStory)
         {
             //currentEventID=loadRes.GetNextStoryID(currentStoryHead,)
+            int choose = this.tag == "ChooseOne" ? 1 : 2;
+            int fatherEventID = currentEventID;
+            //currentEventID = loadRes.GetNextStoryID(currentStoryHead, choose, fatherEventID);
+            currentEventID = loadRes.GetNextStoryEvent(currentStoryHead, fatherEventID, choose);
         }
         else
         {
@@ -165,7 +180,8 @@ public class LevelManager : MonoBehaviour
         /*TODO: 添加事件切换特效*/
         //为事件槽设置新的图片和文字描述
         onEvent.SetImage(eventUIPath[currentEventID]);
-        onEvent.SetText(eventText[currentEventID]);
+        //onEvent.SetText(eventText[currentEventID]);
+        onEvent.SetEventText(loadRes.GetEventText(currentEventID));
     }
 
     void NextLevel()

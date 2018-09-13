@@ -8,6 +8,7 @@ public class ColorState : MonoBehaviour {
     public Color clickColor;
     public Color enterColor;
     public Color selectColor;
+    public Color deadColor;
 
     // Use this for initialization
     void Start () {
