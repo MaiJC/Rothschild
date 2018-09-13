@@ -2,9 +2,11 @@
   <Player>
     <Name>neilxkchen</Name>
     <Password>43216</Password>
-    <Level>8888</Level>
-    <Money>0</Money>
-    <Reputation>0</Reputation>
-    <EventLog>101,102,103,101,102,103</EventLog>
+    <Level>1</Level>
+    <Section>1</Section>
+    <Money>1,2,3,4</Money>
+    <Reputation>1,2,3,4</Reputation>
+    <EventLog>
+    </EventLog>
   </Player>
 </Players>
