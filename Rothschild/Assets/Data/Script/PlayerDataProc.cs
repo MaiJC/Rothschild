@@ -31,7 +31,15 @@ struct EventLog
 }
 
 public class PlayerDataProc : MonoBehaviour {
+
+    // 1是唯key，2是泛key，3是通用
+    public const int WEI_KEY_TYPE = 1;
+    public const int FAN_KEY_TYPE = 2;
+    public const int GENERAL_TYPE = 3;
+
     string playerDBPath = "/Data/Xml/palyerDB.xml";
+    string eventTablePath = "/Data/Xml/event.xml";
+
     PlayerAttr[] settleResult = new PlayerAttr[4];
 
     void CreatePlayerDB()
@@ -228,13 +236,101 @@ public class PlayerDataProc : MonoBehaviour {
         return 0;
     }
 
-    PlayerAttr[] SettlePlayer(int eventID, int choice, List<int> selectRoles) 
+    bool KeyMatch(int key1, int key2, int type, List<int> selectRoles)
     {
+        bool keyFlag = false;
+        int roleNum = selectRoles.Count;
 
-        settleResult[0].money = 1;
-        settleResult[0].reputation = 1;
-        settleResult[1].money = 2;
-        settleResult[1].reputation = 2;
+        if (WEI_KEY_TYPE == type) // 唯key事件
+        {
+            if (key2 != 0)   // 双key
+            {
+                if (roleNum == 2 && selectRoles.Contains(key1) && selectRoles.Contains(key2))
+                {
+                    keyFlag = true;
+                }
+            }
+            else    // 单key
+            {
+                if (roleNum == 1 && selectRoles[0] == key1)
+                {
+                    keyFlag = true;
+                }
+            }
+        }
+        else if (FAN_KEY_TYPE == type) // 范key事件
+        {
+            if (key2 != 0)  // 双key
+            {
+                if (selectRoles.Contains(key1) && selectRoles.Contains(key2))
+                {
+                    keyFlag = true;
+                }
+            }
+            else    // 单key
+            {
+                if (selectRoles.Contains(key1))
+                {
+                    keyFlag = true;
+                }
+            }
+        }
+
+        return keyFlag;
+        
+    }
+
+    PlayerAttr[] SettlePlayer(int eventID, int eventChoice, List<int> selectRoles) 
+    {
+        string path = Application.dataPath + eventTablePath;
+
+        int roleNum = selectRoles.Count;
+        bool keyFlag = false;
+
+        int money = 0;
+        int reputation = 0;
+        int teamWork = 0;
+        int settleValue = 0;
+
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("TEventTable_Tab").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                int id = int.Parse(xl1.ChildNodes[GetIDIndex()].InnerText);
+                int type = int.Parse(xl1.ChildNodes[GetTypeIndex()].InnerText);
+                int choice = int.Parse(xl1.ChildNodes[GetChoiceIndex()].InnerText);
+                int key1 = int.Parse(xl1.ChildNodes[GetKey1Index()].InnerText);
+                int key2 = int.Parse(xl1.ChildNodes[GetKey2Index()].InnerText);
+
+                if (eventID == id && eventChoice == choice)
+                {
+                    if (key1 != 0)  // 有key事件
+                    {
+                        keyFlag = KeyMatch(key1, key2, type, selectRoles);
+                        if (keyFlag)    // key成立，结算
+                        {
+                            money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
+                            reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
+                            teamWork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+                        }
+                        else   // key不成立，结算
+                        {
+
+                        }
+                    }
+                    else   // 无key事件
+                    {
+
+                    }
+                                        
+                    break;
+                }
+
+            }
+        }
 
         return settleResult;
     }
@@ -268,6 +364,7 @@ public class PlayerDataProc : MonoBehaviour {
                         foreach (string money in sMoney)
                         {
                             playerInfo.playerAttr[i].money = int.Parse(money);
+                            settleResult[i].money = int.Parse(money);
                             i++;
                         }
                     }
@@ -278,6 +375,7 @@ public class PlayerDataProc : MonoBehaviour {
                         foreach (string reputation in sReputation)
                         {
                             playerInfo.playerAttr[i].reputation = int.Parse(reputation);
+                            settleResult[i].reputation = int.Parse(reputation);
                             i++;
                         }
                     }
@@ -410,11 +508,7 @@ public class PlayerDataProc : MonoBehaviour {
 
             AddEvenLogList("neilxkchen", eventLogList);
     */
-        List<EventLog> eventLogList = GetEventLog("neilxkchen");
-        foreach (EventLog eventLog in eventLogList)
-        {
-            print("roleID: " + eventLog.roleID + ", eventID: " + eventLog.eventID + ", choice: " + eventLog.choice);
-        }
+        
     }
 
     // Update is called once per frame
@@ -422,5 +516,83 @@ public class PlayerDataProc : MonoBehaviour {
 		
 	}
 
+    int GetIDIndex()
+    {
+        return 0;
+    }
 
+    int GetTypeIndex()
+    {
+        return 1;
+    }
+
+    int GetRoleLimitIndex()
+    {
+        return 2;
+    }
+
+    int GetCountLimitIndex()
+    {
+        return 3;
+    }
+
+    int GetChoiceIndex()
+    {
+        return 4;
+    }
+
+    int GetKey1Index()
+    {
+        return 5;
+    }
+
+    int GetKey2Index()
+    {
+        return 6;
+    }
+
+    int GetLevelIndex()
+    {
+        return 7;
+    }
+
+    int GetWithKeyMoneyIndex()
+    {
+        return 8;
+    }
+
+    int GetWithKeyReputationIndex()
+    {
+        return 9;
+    }
+
+    int GetWithKeyTeamworkIndex()
+    {
+        return 10;
+    }
+
+    int GetWithKeyCd()
+    {
+        return 11;
+    }
+
+    int GetWithoutKeyMoneyIndex()
+    {
+        return 12;
+    }
+
+    int GetWithoutKeyReputation()
+    {
+        return 13;
+    }
+
+    int GetWithoutKeyTeamwork()
+    {
+        return 14;
+    }
+
+    int GetWithoutKeyCd()
+    {
+        return 15;
+    }
 }

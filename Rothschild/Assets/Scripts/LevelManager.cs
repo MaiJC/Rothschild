@@ -62,8 +62,8 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < commonEventID.Count; i++)
         {
             int eventID = commonEventID[i];
-            string path = loadRes.GetEventUIPath(eventID);
-            string text = loadRes.GetEventText(eventID);
+            string path = "";//loadRes.GetEventUIPath(eventID);
+            string text = "";//loadRes.GetEventText(eventID);
             eventUIPath.Add(eventID, path);
             eventText.Add(eventID, text);
         }
@@ -72,8 +72,8 @@ public class LevelManager : MonoBehaviour
             for (int j = 0; j < levelEventID[i].Count; j++)
             {
                 int eventID = levelEventID[i][j];
-                string path = loadRes.GetEventUIPath(eventID);
-                string text = loadRes.GetEventText(eventID);
+                string path = ""; //loadRes.GetEventUIPath(eventID);
+                string text = "";// loadRes.GetEventText(eventID);
                 eventUIPath.Add(eventID, path);
                 eventText.Add(eventID, text);
             }
