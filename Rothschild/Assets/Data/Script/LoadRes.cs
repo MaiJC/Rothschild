@@ -60,7 +60,10 @@ public class LoadRes : MonoBehaviour {
             int type = int.Parse(item.ChildNodes[GetTypeIndex()].InnerText);
             if (GENERAL_TYPE == type)  
             {
-                comEventList.Add(id);
+                if (!comEventList.Contains(id))
+                {
+                    comEventList.Add(id);
+                }  
             }
         }
         return comEventList;
