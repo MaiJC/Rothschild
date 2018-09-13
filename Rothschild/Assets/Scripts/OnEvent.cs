@@ -18,9 +18,9 @@ public class OnEvent : MonoBehaviour {
         eventImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
         eventText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
         levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
-        choiceOne = this.transform.GetChild(2).gameObject.GetComponent<Button>();
-        choiceTwo = this.transform.GetChild(3).gameObject.GetComponent<Button>();
-        choiceThree = this.transform.GetChild(4).gameObject.GetComponent<Button>();
+        choiceOne = this.transform.GetChild(2).GetChild(0).gameObject.GetComponent<Button>();
+        choiceTwo = this.transform.GetChild(3).GetChild(0).gameObject.GetComponent<Button>();
+        choiceThree = this.transform.GetChild(4).GetChild(0).gameObject.GetComponent<Button>();
 	}
 	
 	// Update is called once per frame

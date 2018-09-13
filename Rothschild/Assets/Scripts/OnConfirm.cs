@@ -6,8 +6,7 @@ using UnityEngine.EventSystems;
 
 public class OnConfirm : EventTrigger
 {
-
-    private List<OnPerson> onPerson;
+    private List<OnPerson> onPerson = new List<OnPerson>();
     private LevelManager levelManager;
     private PlayerDataProc playerDataProc;
     private int choiceID;
@@ -20,6 +19,7 @@ public class OnConfirm : EventTrigger
         onPerson.Add(GameObject.Find("PersonPanelC").GetComponent<OnPerson>());
         onPerson.Add(GameObject.Find("PersonPanelD").GetComponent<OnPerson>());
         playerDataProc = GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>();
+        levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
 
         choiceID = this.tag == "ChoiceOne" ? 1 : 2;
     }
@@ -32,6 +32,12 @@ public class OnConfirm : EventTrigger
 
     public override void OnPointerUp(PointerEventData eventData)
     {
+        PrcData();
+        levelManager.Confirm();
+    }
+
+    void PrcData()
+    {
         int eventID = this.transform.parent.gameObject.GetComponent<OnEvent>().GetEventID();
         List<int> selectPerson = new List<int>();
 
@@ -40,6 +46,9 @@ public class OnConfirm : EventTrigger
             if (onPerson[i].IsSelected())
                 selectPerson.Add(i + 1);
         }
+
+        if (selectPerson.Count == 0)
+            return;
 
         PlayerAttr[] playerAttrs = playerDataProc.SettlePlayer(eventID, choiceID, selectPerson);
 

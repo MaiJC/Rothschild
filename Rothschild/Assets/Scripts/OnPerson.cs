@@ -31,7 +31,8 @@ public class OnPerson : EventTrigger
         //this.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
 
         targetGraphic = this.GetComponent<Button>().targetGraphic;
-        colorState = this.GetComponent<ColorState>();
+        //colorState = this.GetComponent<ColorState>();
+        colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
 
         targetGraphic.color = colorState.normalColor;
 
@@ -111,7 +112,7 @@ public class OnPerson : EventTrigger
         avatarImage.sprite = Resources.Load(avatarName, typeof(Sprite)) as Sprite;
     }
 
-    /*接收值为财富值的改变，返回角色是否死亡*/
+    /*接收值为财富值的改变，返回角色是否死亡，返回true则为死亡*/
     public bool SetWealth(int wealth)
     {
         //wealthNum += wealthChange;
@@ -119,12 +120,14 @@ public class OnPerson : EventTrigger
         //isDead = (wealthNum <= 0);
         //wealthNum = wealthNum < 0 ? 0 : wealthNum;
         wealthNum = wealth;
+        isDead = (wealthNum <= 0 || wealthNum >= 100);
+        wealthNum = Mathf.Clamp(wealthNum, 0, 100);
         wealthText.text = "财富\n" + wealthNum.ToString() + "/100";
 
         return isDead;
     }
 
-    /*接收值为声望的改变，返回角色是否死亡*/
+    /*接收值为声望的改变，返回角色是否死亡，返回true则为死亡*/
     public bool SetReputation(int reputation)
     {
         //reputationNum += reputationChange;
@@ -132,8 +135,16 @@ public class OnPerson : EventTrigger
         //isDead = (reputationNum <= 0);
         //reputationNum = reputationNum < 0 ? 0 : wealthNum;
         reputationNum = reputation;
+        isDead = (reputationNum <= 0 || reputationNum >= 100);
+        wealthNum = Mathf.Clamp(reputation, 0, 100);
         reputationText.text = "声望\n" + reputationNum.ToString() + "/100";
 
         return isDead;
+    }
+
+    private void SetDead()
+    {
+        targetGraphic.color = colorState.deadColor;
+        this.enabled = false;
     }
 }

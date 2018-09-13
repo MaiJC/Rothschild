@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public void OnConfirm()
+    public void Confirm()
     {
         NextEvent();
     }
@@ -86,20 +86,20 @@ public class LevelManager : MonoBehaviour
         cardPath.Add("monkey");
         cardPath.Add("banana_alfa");
 
-        personImage.Add(GameObject.Find("PersonImageA").GetComponent<Image>());
-        personImage.Add(GameObject.Find("PersonImageB").GetComponent<Image>());
-        personImage.Add(GameObject.Find("PersonImageC").GetComponent<Image>());
-        personImage.Add(GameObject.Find("PersonImageD").GetComponent<Image>());
+        personImage.Add(GameObject.Find("PersonPanelA").transform.GetChild(0).gameObject.GetComponent<Image>());
+        personImage.Add(GameObject.Find("PersonPanelB").transform.GetChild(0).gameObject.GetComponent<Image>());
+        personImage.Add(GameObject.Find("PersonPanelC").transform.GetChild(0).gameObject.GetComponent<Image>());
+        personImage.Add(GameObject.Find("PersonPanelD").transform.GetChild(0).gameObject.GetComponent<Image>());
 
         person.Add(GameObject.Find("PersonPanelA").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelB").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelC").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelD").GetComponent<OnPerson>());
 
-        //foreach (Image i in personImage)
-        //{
-        //    i.overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
-        //}
+        foreach (Image i in personImage)
+        {
+            i.overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
+        }
     }
 
     public bool AddSelect()
