@@ -1,11 +1,15 @@
 <Players>
   <Player>
-    <Name>neilxkchen</Name>
-    <Password>43216</Password>
+    <Name>xkchen</Name>
+    <Password>12343</Password>
     <Level>1</Level>
     <Section>1</Section>
-    <Money>1,2,3,4</Money>
-    <Reputation>1,2,3,4</Reputation>
-    <EventLog>1/1001/1,2/1002/2,3/1003/3</EventLog>
+    <Teamwork>0</Teamwork>
+    <Money>
+    </Money>
+    <Reputation>
+    </Reputation>
+    <EventLog>
+    </EventLog>
   </Player>
 </Players>
