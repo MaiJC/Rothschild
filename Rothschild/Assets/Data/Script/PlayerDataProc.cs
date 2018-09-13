@@ -284,13 +284,11 @@ public class PlayerDataProc : MonoBehaviour
     {
         string path = Application.dataPath + eventTablePath;
 
-        int roleNum = selectRoles.Count;
         bool keyFlag = false;
 
         int money = 0;
         int reputation = 0;
         int teamWork = 0;
-        int settleValue = 0;
 
         if (File.Exists(path))
         {
@@ -315,15 +313,59 @@ public class PlayerDataProc : MonoBehaviour
                             money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
                             reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
                             teamWork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+
+                            if (1 == selectRoles.Count)
+                            {
+
+                            }
+                            else if (2 == selectRoles.Count)
+                            {
+
+                            }
                         }
                         else   // key不成立，结算
                         {
-
+                            money = int.Parse(xl1.ChildNodes[GetWithoutKeyMoneyIndex()].InnerText);
+                            reputation = int.Parse(xl1.ChildNodes[GetWithoutKeyReputationIndex()].InnerText);
+                            teamWork = int.Parse(xl1.ChildNodes[GetWithoutKeyTeamworkIndex()].InnerText);
                         }
                     }
                     else   // 无key事件
                     {
+                        money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
+                        reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
+                        teamWork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
 
+                        if (1 == selectRoles.Count)
+                        {
+                            settleResult[selectRoles[0] - 1].money += money;
+                            settleResult[selectRoles[0] - 1].reputation += reputation;
+                        }
+                        else if (2 == selectRoles.Count)
+                        {
+                            if (money > 0)
+                            {
+                                settleResult[selectRoles[0] - 1].money += (int)(money * 0.4);
+                                settleResult[selectRoles[1] - 1].money += (int)(money * 0.4);
+                            }
+                            else
+                            {
+                                settleResult[selectRoles[0] - 1].money += (int)(money * 0.7);
+                                settleResult[selectRoles[1] - 1].money += (int)(money * 0.7);
+                            }
+
+                            if (reputation > 0)
+                            {
+                                settleResult[selectRoles[0] - 1].reputation += (int)(reputation * 0.4);
+                                settleResult[selectRoles[1] - 1].reputation += (int)(reputation * 0.4);
+                            }
+                            else
+                            {
+                                settleResult[selectRoles[0] - 1].reputation += (int)(reputation * 0.7);
+                                settleResult[selectRoles[1] - 1].reputation += (int)(reputation * 0.7);
+                            }
+                        }
+                        
                     }
                                         
                     break;
@@ -332,6 +374,11 @@ public class PlayerDataProc : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < 4; i++)
+        {
+            settleResult[i].money = 10 + i * 10;
+            settleResult[i].reputation = 10 + i * 10; 
+        }
         return settleResult;
     }
 
@@ -573,7 +620,7 @@ public class PlayerDataProc : MonoBehaviour
         return 10;
     }
 
-    int GetWithKeyCd()
+    int GetWithKeyCdIndex()
     {
         return 11;
     }
@@ -583,17 +630,17 @@ public class PlayerDataProc : MonoBehaviour
         return 12;
     }
 
-    int GetWithoutKeyReputation()
+    int GetWithoutKeyReputationIndex()
     {
         return 13;
     }
 
-    int GetWithoutKeyTeamwork()
+    int GetWithoutKeyTeamworkIndex()
     {
         return 14;
     }
 
-    int GetWithoutKeyCd()
+    int GetWithoutKeyCdIndex()
     {
         return 15;
     }
