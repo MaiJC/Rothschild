@@ -23,6 +23,13 @@ struct PlayerAttr
     public int reputation;
 }
 
+struct EventLog
+{
+    public int roleID;
+    public int eventID;
+    public int choice;    
+}
+
 public class PlayerDataProc : MonoBehaviour {
     string playerDBPath = "/Data/Xml/palyerDB.xml";
     PlayerAttr[] settleResult = new PlayerAttr[4];
@@ -120,11 +127,12 @@ public class PlayerDataProc : MonoBehaviour {
         return 0;
     }
 
-    List<int> GetEventLog(string name)
+    List<EventLog> GetEventLog(string name)
     {
         string path = Application.dataPath + playerDBPath;
 
-        List<int> eventList = new List<int>();
+        List<EventLog> eventList = new List<EventLog>();
+        EventLog eventLogResult = new EventLog();
         string eventStr = "";
 
         if (File.Exists(path))
@@ -142,17 +150,39 @@ public class PlayerDataProc : MonoBehaviour {
             }
         }
         print(eventStr);
-        string[] sEvent = eventStr.Split(',');
-        foreach (string eventID in sEvent)
-        {
-            print(eventID);
-            eventList.Add(int.Parse(eventID));
-        }
 
+        if (eventStr.CompareTo("") != 0)
+        {
+            string[] sEvent = eventStr.Split(',');
+            foreach (string eventLog in sEvent)
+            {
+                print(eventLog);
+                if (eventLog.CompareTo("") != 0)
+                {
+                    string[] sEventlog = eventLog.Split('/');
+
+                    int flag = 0;
+                    foreach (string eventLogItem in sEventlog)
+                    {
+                        if (0 == flag)
+                            eventLogResult.roleID = int.Parse(eventLogItem);
+                        else if (1 == flag)
+                            eventLogResult.eventID = int.Parse(eventLogItem);
+                        else if (2 == flag)
+                            eventLogResult.choice = int.Parse(eventLogItem);
+
+                        flag++;
+                    }
+
+                    eventList.Add(eventLogResult);
+                }
+            }
+        }
+        
         return eventList;
     }
 
-    int AddEventLog(string name, int eventID)
+    int AddEventLog(string name, EventLog eventlog)
     {
         string path = Application.dataPath + playerDBPath;
 
@@ -165,12 +195,17 @@ public class PlayerDataProc : MonoBehaviour {
             {
                 if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
                 {
-                    string eventStr = xl1.ChildNodes[5].InnerText;
+                    string eventStr = xl1.ChildNodes[6].InnerText;
                     if (eventStr.CompareTo("") != 0)
                     {
-                        eventStr += ',';
+                        eventStr += ",";
                     }
-                    eventStr += eventID;
+                    print(eventStr);
+                    eventStr += eventlog.roleID.ToString() + "/" + eventlog.eventID.ToString() + "/" + eventlog.choice.ToString();
+                    print(eventlog.roleID);
+                    print(eventlog.eventID);
+                    print(eventlog.choice);
+                    print(eventStr);
                     
                     xl1.ChildNodes[6].InnerText = eventStr;
                     xml.Save(path);
@@ -181,11 +216,11 @@ public class PlayerDataProc : MonoBehaviour {
         return 1;
     }
 
-    int AddEvenLogList(string name, List<int> eventLogList)
+    int AddEvenLogList(string name, List<EventLog> eventLogList)
     {
-        foreach (int eventID in eventLogList)
+        foreach (EventLog eventLog in eventLogList)
         {
-            if (AddEventLog(name, eventID) != 0)
+            if (AddEventLog(name, eventLog) != 0)
             {
                 return 1;
             }
@@ -300,58 +335,86 @@ public class PlayerDataProc : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-    /*    PlayerAttr[] result = SettlePlayer();
+        /*    PlayerAttr[] result = SettlePlayer();
 
-        print(result[0].money);
-        print(result[0].reputation);
-        print(result[1].money);
-        print(result[1].reputation);*/
-         
+            print(result[0].money);
+            print(result[0].reputation);
+            print(result[1].money);
+            print(result[1].reputation);*/
+
         //CreatePlayerDB();
-//       regPlayerData("neilxkchen", "43216");
-        PlayerData myInfo;
-        myInfo.name = "neilxkchen";
-        myInfo.password = "43216";
-        myInfo.level = 3;
-        myInfo.section = 3;
+        //       regPlayerData("neilxkchen", "43216");
+        /*        PlayerData myInfo;
+                myInfo.name = "neilxkchen";
+                myInfo.password = "43216";
+                myInfo.level = 3;
+                myInfo.section = 3;
 
-        myInfo.playerAttr = new PlayerAttr[4];
+                myInfo.playerAttr = new PlayerAttr[4];
 
-        for (int i = 0; i < 4; i++)
-        {
-            myInfo.playerAttr[i].money = i + 1;
-            myInfo.playerAttr[i].reputation = i + 1;
-        }
+                for (int i = 0; i < 4; i++)
+                {
+                    myInfo.playerAttr[i].money = i + 1;
+                    myInfo.playerAttr[i].reputation = i + 1;
+                }
 
-        Login(ref myInfo);
+                Login(ref myInfo);
 
-        print("level: " + myInfo.level);
-        print("section: " + myInfo.section);
-        for (int i = 0; i < 4; i++)
-        {
-            print("money: " + myInfo.playerAttr[i].money);
-            print("reputation: " + myInfo.playerAttr[i].reputation);
-        }
+                print("level: " + myInfo.level);
+                print("section: " + myInfo.section);
+                for (int i = 0; i < 4; i++)
+                {
+                    print("money: " + myInfo.playerAttr[i].money);
+                    print("reputation: " + myInfo.playerAttr[i].reputation);
+                }
 
-        //        myInfo.level = 8888;
+                //        myInfo.level = 8888;
 
-        //       Logout(myInfo);
+                //       Logout(myInfo);
 
-        //      print("My Level: " + myInfo.level);
+                //      print("My Level: " + myInfo.level);
 
-        //     AddEventLog("neilxkchen", 666);
-        //    AddEventLog("neilxkchen", 777);
-        //    AddEventLog("neilxkchen", 888);
-        /*        List<int> eventLogList = new List<int>();
-                eventLogList.Add(101);
-                eventLogList.Add(102);
-                eventLogList.Add(103);
-                AddEvenLogList("neilxkchen", eventLogList);
-                List<int> eventLog = GetEventLog("neilxkchen");*/
+                //     AddEventLog("neilxkchen", 666);
+                //    AddEventLog("neilxkchen", 777);
+                //    AddEventLog("neilxkchen", 888);
+                /*        List<int> eventLogList = new List<int>();
+                        eventLogList.Add(101);
+                        eventLogList.Add(102);
+                        eventLogList.Add(103);
+                        AddEvenLogList("neilxkchen", eventLogList);
+                        List<int> eventLog = GetEventLog("neilxkchen");*/
 
         //    foreach (int eventID in eventLog)
-        //       print(eventID);
+        //       print(eventID);*/
+        /*    EventLog log1 = new EventLog();
+            log1.roleID = 1;
+            log1.eventID = 1001;
+            log1.choice = 1;
 
+            EventLog log2 = new EventLog();
+            log2.roleID = 2;
+            log2.eventID = 1002;
+            log2.choice = 2;
+
+            EventLog log3 = new EventLog();
+            log3.roleID = 3;
+            log3.eventID = 1003;
+            log3.choice = 3;
+
+            List<EventLog> eventLogList = new List<EventLog>();
+
+            eventLogList.Add(log1);
+            eventLogList.Add(log2);
+            eventLogList.Add(log3);
+
+
+            AddEvenLogList("neilxkchen", eventLogList);
+    */
+        List<EventLog> eventLogList = GetEventLog("neilxkchen");
+        foreach (EventLog eventLog in eventLogList)
+        {
+            print("roleID: " + eventLog.roleID + ", eventID: " + eventLog.eventID + ", choice: " + eventLog.choice);
+        }
     }
 
     // Update is called once per frame

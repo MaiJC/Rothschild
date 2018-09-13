@@ -128,22 +128,21 @@ public class LoadRes : MonoBehaviour {
         return levelStoryList;
     }
 
-    public List<int> GetNextStoryID(int storyID, int storySeq, int fatherEventID)
+    public int GetNextStoryID(int storyID, int fatherEventID, int eventChoice)
     {
-        List<int> nextStoryList = new List<int>();
+        int nextStoryEvent = 0;
         foreach (XmlElement item in storyEventRootNode)
         {
             int id = int.Parse(item.ChildNodes[0].InnerText);
-            int seq = int.Parse(item.ChildNodes[1].InnerText);
+            int choice = int.Parse(item.ChildNodes[1].InnerText);
             int before = int.Parse(item.ChildNodes[2].InnerText);
             int later = int.Parse(item.ChildNodes[3].InnerText);
-            if (id == storyID && before == fatherEventID && storySeq == seq)
+            if (id == storyID && before == fatherEventID && choice == eventChoice)
             {
-                nextStoryList.Add(later);
+                nextStoryEvent = later;
             }
         }
-    //    ++storySeq;
-        return nextStoryList;
+        return nextStoryEvent;
     }
 
     public string GetEventUIPath(int eventID)
@@ -162,22 +161,27 @@ public class LoadRes : MonoBehaviour {
         return uiPath;
     }
 
-    public string GetEventText(int eventID)
+    public List<string> GetEventText(int eventID)
     {
-        string text = "";
+        List<string> textList = new List<string>();
+
         foreach (XmlElement item in uiResRootNode)
         {
             int id = int.Parse(item.ChildNodes[0].InnerText);
             if (id == eventID)
             {
-                text = item.ChildNodes[2].InnerText;
+                string descText = item.ChildNodes[2].InnerText;
+                string choice1Text = item.ChildNodes[3].InnerText;
+                string choice2Text = item.ChildNodes[4].InnerText;
+
+                textList.Add(descText);
+                textList.Add(choice1Text);
+                textList.Add(choice2Text);
                 break;
             }
         }
 
-        print("eventID: " + eventID + ", Text: " + text);
-
-        return text;
+        return textList;
     }
     // Use this for initialization
     void Start () {
