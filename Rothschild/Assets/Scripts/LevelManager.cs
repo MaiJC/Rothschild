@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     private int levelCount;
     private List<List<int>> levelEventID = new List<List<int>>();
     private List<List<int>> levelStoryID = new List<List<int>>();
-    private List<List<int>> levelZTStoryID = new List<List<int>>();
+    private List<List<int>> levelZTPreStoryID = new List<List<int>>();
     private int currentEventID;
     private int currentStoryID;
     private int currentLevel = 0;
@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
     private int originLevelEventCount;
     private int originLevelStoryCount;
     private List<int> roleLimit;
+    private List<int> happenedEvent;
 
 
     /*this is just use for monkeys*/
@@ -98,6 +99,15 @@ public class LevelManager : MonoBehaviour
                     levelEventID[i].RemoveAt(j);
                     j--;
                 }
+            }
+        }
+
+        //设置重廷前置故事数组
+        for (int i = 0; i < levelStoryID.Count; i++)
+        {
+            for (int j = 0; j < levelStoryID[i].Count; j++)
+            {
+                
             }
         }
 
@@ -209,18 +219,58 @@ public class LevelManager : MonoBehaviour
             //从事件池里面随机事件
             //int idx = Random.Range(0, currentEventCount + levelStoryID[currentLevel - 1].Count);
 
-            int maxRange = commonEventID.Count + levelStoryID[currentLevel - 1].Count
-                + levelEventID[currentLevel - 1].Count;
+            int maxRange = commonEventID.Count + levelEventID[currentLevel - 1].Count
+                + levelStoryID[currentLevel - 1].Count;
             int idx = Random.Range(0, maxRange);
 
+            //发生所有关卡都能出现的事件
             if (idx < commonEventID.Count)
             {
+                //确保事件如果有前置事件，前置事件已经发生
+                bool havePerEventAndNotHappen = false;
+                do
+                {
+                    int preEvent = loadRes.GetPreEventID(commonEventID[idx]);
+                    if (preEvent != 0)
+                    {
+                        if (!happenedEvent.Contains(preEvent))
+                        {
+                            havePerEventAndNotHappen = true;
+                            idx = Random.Range(0, commonEventID.Count);
+                        }
+                        else
+                        {
+                            havePerEventAndNotHappen = false;
+                        }
+                    }
+                } while (havePerEventAndNotHappen);
+
                 currentEventID = commonEventID[idx];
                 commonEventID.RemoveAt(idx);
                 currentEventCount--;
             }
-            else if (idx < currentEventCount)
+            //发生该关卡特有的事件
+            else if (idx < levelEventID[currentLevel - 1].Count)
             {
+                //确保事件如果有前置事件，前置事件已经发生
+                bool havePerEventAndNotHappen = false;
+                do
+                {
+                    int preEvent = loadRes.GetPreEventID(commonEventID[idx]);
+                    if (preEvent != 0)
+                    {
+                        if (!happenedEvent.Contains(preEvent))
+                        {
+                            havePerEventAndNotHappen = true;
+                            idx = Random.Range(commonEventID.Count, levelEventID[currentLevel - 1].Count);
+                        }
+                        else
+                        {
+                            havePerEventAndNotHappen = false;
+                        }
+                    }
+                } while (havePerEventAndNotHappen);
+
                 currentEventID = levelEventID[currentLevel - 1][idx - commonEventID.Count];
                 levelEventID[currentLevel - 1].RemoveAt(idx - commonEventID.Count);
                 currentEventCount--;
@@ -258,6 +308,8 @@ public class LevelManager : MonoBehaviour
 
         roleLimit = loadRes.GetRoleLimit(currentEventID);
         currentMaxSelectedPersonCount = loadRes.GetRoleCountLimit(currentEventID);
+
+        happenedEvent.Add(currentEventID);
     }
 
     void NextLevel()
