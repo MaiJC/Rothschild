@@ -113,4 +113,23 @@ public class OnEvent : MonoBehaviour
         }
     }
 
+    public void SetRoleCountLimit(int countLimit)
+    {
+
+    }
+
+    public void SetChoiceType(int typeOne, int typeTwo)
+    {
+        switch(choiceCount)
+        {
+            case 1:
+                choiceThree.GetComponent<OnConfirm>().SetChoiceType(typeOne);
+                break;
+            case 2:
+                choiceOne.GetComponent<OnConfirm>().SetChoiceType(typeOne);
+                choiceTwo.GetComponent<OnConfirm>().SetChoiceType(typeTwo);
+                break;
+        }
+    }
+
 }

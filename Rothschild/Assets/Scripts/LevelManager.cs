@@ -24,8 +24,9 @@ public class LevelManager : MonoBehaviour
     private Dictionary<int, string> eventUIPath = new Dictionary<int, string>();
     private Dictionary<int, string> eventText = new Dictionary<int, string>();
     private OnEvent onEvent;
-    private int originEventCount;
-    private int originStoryCount;
+    private int originLevelEventCount;
+    private int originLevelStoryCount;
+    private List<int> roleLimit;
 
 
     /*this is just use for monkeys*/
@@ -58,7 +59,7 @@ public class LevelManager : MonoBehaviour
     {
         loadRes = GameObject.Find("DataHandler").GetComponent<LoadRes>();
         onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
-        onEvent.SetUnselectable();
+        //onEvent.SetUnselectable();
 
         levelCount = loadRes.GetLevelCount();
         commonEventID = loadRes.GetCommonEventID();
@@ -88,6 +89,18 @@ public class LevelManager : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < levelEventID.Count; i++)
+        {
+            for (int j = 0; j < levelEventID[i].Count; j++)
+            {
+                if (loadRes.IsStroryEvent(levelEventID[i][j]))
+                {
+                    levelEventID[i].RemoveAt(j);
+                    j--;
+                }
+            }
+        }
+
     }
 
     void InitializeMonkey()
@@ -112,8 +125,30 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public bool AddSelect()
+    public bool AddSelect(string personTag)
     {
+        int selectPerson = 0;
+        switch (personTag)
+        {
+            case "PersonOne":
+                selectPerson = 1;
+                break;
+            case "PersonTwo":
+                selectPerson = 2;
+                break;
+            case "PersonThree":
+                selectPerson = 3;
+                break;
+            case "PersonFour":
+                selectPerson = 4;
+                break;
+        }
+        foreach (int p in roleLimit)
+        {
+            if (p == selectPerson)
+                return false;
+        }
+
         onEvent.SetSelectable();
         if (currentSelectedCount == currentMaxSelectedPersonCount)
         {
@@ -159,14 +194,25 @@ public class LevelManager : MonoBehaviour
             }
             currentEventID = loadRes.GetNextStoryEvent(currentStoryID, fatherEventID, chooice, roles);
             if (currentEventID == 0)
+            {
                 isInStory = false;
+                if (levelStoryID[levelCount - 1].Count == 0)
+                {
+                    NextLevel();
+                }
+            }
             Debug.Log("Story ID:" + currentStoryID.ToString() + " ,current event ID:" + currentEventID.ToString());
         }
         if (!isInStory)
         {
             /*TODO: 目前故事的出现是完全随机，没有限制回合数的，后期需要加入故事出现的回合数判断*/
             //从事件池里面随机事件
-            int idx = Random.Range(0, currentEventCount + levelStoryID[currentLevel - 1].Count);
+            //int idx = Random.Range(0, currentEventCount + levelStoryID[currentLevel - 1].Count);
+
+            int maxRange = commonEventID.Count + levelStoryID[currentLevel - 1].Count
+                + levelEventID[currentLevel - 1].Count;
+            int idx = Random.Range(0, maxRange);
+
             if (idx < commonEventID.Count)
             {
                 currentEventID = commonEventID[idx];
@@ -181,18 +227,15 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                currentStoryID = levelStoryID[currentLevel - 1][idx - currentEventCount];
-                //这里要加一个getcurrenteventid
+                //永远都取出第一个故事
+                currentStoryID = levelStoryID[currentLevel - 1][0];
                 currentEventID = loadRes.GetStoryHeadEventID(currentStoryID);
-                levelStoryID[currentLevel - 1].RemoveAt(idx - currentEventCount);
+                levelStoryID[currentLevel - 1].RemoveAt(0);
                 isInStory = true;
                 currentStoryHead = currentEventID;
             }
         }
 
-        string tmpS = currentEventID.ToString();
-        if (tmpS.StartsWith("2"))
-            Debug.Log("error level 2 happen!");
 
         /*TODO: 添加事件切换特效*/
         //为事件槽设置新的图片和文字描述
@@ -203,15 +246,26 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("return event text null");
         }
+
+        int choiceTypeOne, choiceTypeTwo;
+        choiceTypeOne = loadRes.GetChoiceType(currentEventID, 1);
+        choiceTypeTwo = loadRes.GetChoiceType(currentEventID, 2);
         onEvent.SetEventText(loadRes.GetEventText(currentEventID));
         onEvent.SetEventID(currentEventID);
+        onEvent.SetChoiceType(choiceTypeOne, choiceTypeTwo);
+        Debug.Log("CT1:" + choiceTypeOne.ToString() + " ,CT2:" + choiceTypeTwo.ToString());
+        onEvent.SetUnselectable();
+
+        roleLimit = loadRes.GetRoleLimit(currentEventID);
+        currentMaxSelectedPersonCount = loadRes.GetRoleCountLimit(currentEventID);
     }
 
     void NextLevel()
     {
         currentLevel++;
-        originEventCount = 0;
-        originStoryCount = 0;
+        originLevelEventCount = levelEventID[currentLevel].Count;
+        originLevelStoryCount = levelStoryID[currentLevel].Count;
+
         currentEventCount = commonEventID.Count + levelEventID[currentLevel - 1].Count;
     }
 

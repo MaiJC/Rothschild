@@ -12,6 +12,7 @@ public class OnConfirm : EventTrigger
     private int choiceID;
     private Graphic targetGraphic;
     private ColorState colorState;
+    private int choiceType;
 
     // Use this for initialization
     void Start()
@@ -38,16 +39,19 @@ public class OnConfirm : EventTrigger
     {
         //若没有选择任何人
         int selectedCount = 0;
-        foreach(OnPerson person in onPerson)
+        foreach (OnPerson person in onPerson)
         {
             if (person.IsSelected()) selectedCount++;
         }
-        if (selectedCount == 0)
+        if (selectedCount == 0 && choiceType != 2)
+        {
             return;
+        }
+
 
         PrcData();
         levelManager.Confirm();
-        foreach(OnPerson personTmp in onPerson)
+        foreach (OnPerson personTmp in onPerson)
         {
             personTmp.Clear();
         }
@@ -76,6 +80,8 @@ public class OnConfirm : EventTrigger
     public void SetUnselectable()
     {
         /*TODO: 增加颜色变化*/
+        if (choiceType == 2)
+            return;
         this.targetGraphic.color = colorState.deadColor;
         this.enabled = false;
     }
@@ -85,6 +91,11 @@ public class OnConfirm : EventTrigger
         /*TODO: 增加颜色变化*/
         this.targetGraphic.color = colorState.normalColor;
         this.enabled = true;
+    }
+
+    public void SetChoiceType(int ct)
+    {
+        choiceType = ct;
     }
 
     public override void OnPointerDown(PointerEventData eventData)
