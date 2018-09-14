@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<TStorySettleTable_Tab>
+<TStorySettleTable version="1">
+    <StoryID>9 </StoryID>
+    <SettleType>1 </SettleType>
+    <Param1>100090002 </Param1>
+    <Param2>1 </Param2>
+</TStorySettleTable>
+<TStorySettleTable version="1">
+    <StoryID>51 </StoryID>
+    <SettleType>2 </SettleType>
+    <Param1>0 </Param1>
+    <Param2>0 </Param2>
+</TStorySettleTable>
+</TStorySettleTable_Tab>

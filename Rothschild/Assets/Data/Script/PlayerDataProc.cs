@@ -52,6 +52,8 @@ public class PlayerDataProc : MonoBehaviour
     string eventTablePath = "/Data/Xml/event.xml";
     string specialEventTablePath = "/Data/Xml/special_event.xml";
 
+    string storySettleTablePath = "/Data/Xml/story_settle.xml";
+
     PlayerAttr[] settleResult = new PlayerAttr[4];
 
     public void CreatePlayerDB()
@@ -66,6 +68,63 @@ public class PlayerDataProc : MonoBehaviour
             //最后保存文件
             xml.Save(path);
         }
+    }
+
+    public bool IsJumpStory(int storyID)
+    {
+        bool jumpStory = false;
+        string path = Application.dataPath + storySettleTablePath;
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("TStorySettleTable_Tab").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                int iStrotyID = int.Parse(xl1.ChildNodes[0].InnerText);
+                int settleType = int.Parse(xl1.ChildNodes[1].InnerText);
+                if (iStrotyID == storyID)
+                {
+                    if (2 == settleType)
+                    {
+                        jumpStory = true;
+                    }
+                    break;
+                }
+            }
+        }
+
+        return jumpStory;
+    }
+
+    public bool IsPreStroy(int storyID, ref int preEvent, ref int roleID)
+    {
+        bool preStroy = false;
+
+        string path = Application.dataPath + storySettleTablePath;
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("TStorySettleTable_Tab").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                int iStrotyID = int.Parse(xl1.ChildNodes[0].InnerText);
+                int settleType = int.Parse(xl1.ChildNodes[1].InnerText);
+                if (iStrotyID == storyID)
+                {
+                    if (1 == settleType)
+                    {
+                        preStroy = true;
+                        preEvent = int.Parse(xl1.ChildNodes[2].InnerText);
+                        roleID = int.Parse(xl1.ChildNodes[3].InnerText);
+                    }
+                    break;
+                }
+            }
+        }
+
+        return preStroy;
     }
 
     public bool FindPlayer(string name)
@@ -964,7 +1023,18 @@ public class PlayerDataProc : MonoBehaviour
             settleResult[i].money = 50;
             settleResult[i].reputation = 50;
         }
+/*
+        if (IsJumpStory(51))
+            print("跳跳跳！！！");
 
+        int preEvent = 0;
+        int roleID = 0;
+
+        if (IsPreStroy(9, ref preEvent, ref roleID))
+        {
+            print("preEvent: " + preEvent + "roleID: " + roleID);
+        }
+*/
     }
 
     // Update is called once per frame
