@@ -367,27 +367,235 @@ public class PlayerDataProc : MonoBehaviour
             }
         }
     }
-    void SettleType2(int eventID, int eventChoice, int roleNum, List<int> selectRoles)
+    void SettleType2(int eventID, int eventChoice, int roleNumThre, List<int> selectRoles)
     {
+        string path = Application.dataPath + eventTablePath;
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("TEventTable_Tab").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                int id = int.Parse(xl1.ChildNodes[GetIDIndex()].InnerText);
+                int choice = int.Parse(xl1.ChildNodes[GetChoiceIndex()].InnerText);
+
+                if (id == eventID && choice == eventChoice)
+                {
+                    int money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
+                    int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
+                    int teamWork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+
+                    foreach (int roleID in selectRoles)
+                    {
+                        if (roleID < 1 || roleID > 4)
+                        {
+                            print("SettleType2: roleID error, roleID: " + roleID);
+                            return;
+                        }
+                        settleResult[roleID - 1].money += money;
+                        settleResult[roleID - 1].reputation += reputation;
+                    }
+
+                    if (selectRoles.Count >= roleNumThre)
+                    {
+                        teamworkValue += teamWork;
+                    }
+                 
+                    break;
+                }
+            }
+        }
+    }
+
+    void SettleType3(int eventID, int eventChoice, int preEvent)
+    {
+        RoleEventStat preEventStat = GetEventLogStat(preEvent);
+        if (0 == preEventStat.eventID)
+        {
+            print("error!!!! event: " + eventID + " it's pre event: " + preEvent + "not occurr!!!");
+            return;
+        }
+
+        List<int> preEventRoles = preEventStat.roles;
+
+        string path = Application.dataPath + eventTablePath;
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("TEventTable_Tab").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                int id = int.Parse(xl1.ChildNodes[GetIDIndex()].InnerText);
+                int choice = int.Parse(xl1.ChildNodes[GetChoiceIndex()].InnerText);
+
+                if (id == eventID && choice == eventChoice)
+                {
+                    int money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
+                    int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
+                    int teamwork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+
+                    foreach (int roleID in preEventRoles)
+                    {
+                        if (roleID < 1 || roleID > 4)
+                        {
+                            print("SettleType3: roleID error, roleID: " + roleID);
+                            return;
+                        }
+
+                        settleResult[roleID - 1].money += money;
+                        settleResult[roleID - 1].reputation += reputation;
+                    }
+                    teamworkValue += teamwork;
+                    break;
+                }
+            }
+        }
+    }
+
+    void SettleType4(int eventID, int eventChoice, List<int> selectRoles, int preEvent, int preChoice)
+    {
+        RoleEventStat preEventStat = GetEventLogStat(preEvent);
+        if (0 == preEventStat.eventID)
+        {
+            print("error!!!! event: " + eventID + " it's pre event: " + preEvent + "not occurr!!!");
+            return;
+        }
+
+        string path = Application.dataPath + eventTablePath;
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("TEventTable_Tab").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                int id = int.Parse(xl1.ChildNodes[GetIDIndex()].InnerText);
+                int choice = int.Parse(xl1.ChildNodes[GetChoiceIndex()].InnerText);
+
+                if (id == eventID && choice == eventChoice)
+                {
+                    int money = 0;
+                    int reputation = 0;
+                    int teamwork = 0;
+                    if (eventChoice == preChoice)
+                    {
+                        money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
+                        reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
+                        teamwork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+                    }
+                    else
+                    {
+                        money = int.Parse(xl1.ChildNodes[GetWithoutKeyMoneyIndex()].InnerText);
+                        reputation = int.Parse(xl1.ChildNodes[GetWithoutKeyReputationIndex()].InnerText);
+                        teamwork = int.Parse(xl1.ChildNodes[GetWithoutKeyTeamworkIndex()].InnerText);
+                    }
+                
+                    foreach (int roleID in selectRoles)
+                    {
+                        if (roleID < 1 || roleID > 4)
+                        {
+                            print("SettleType4: roleID error, roleID: " + roleID);
+                            return;
+                        }
+
+                        settleResult[roleID - 1].money += money;
+                        settleResult[roleID - 1].reputation += reputation;
+                    }
+                    teamworkValue += teamwork;
+                    break;
+                }
+            }
+        }
+
+    }
+    void SettleType5(int eventID, int eventChoice, int preEvent, int specialRoleID)
+    {
+        RoleEventStat preEventStat = GetEventLogStat(preEvent);
+        if (0 == preEventStat.eventID)
+        {
+            print("error!!!! event: " + eventID + " it's pre event: " + preEvent + "not occurr!!!");
+            return;
+        }
+
+        List<int> preEventRoles = preEventStat.roles;
+
+        string path = Application.dataPath + eventTablePath;
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("TEventTable_Tab").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                int id = int.Parse(xl1.ChildNodes[GetIDIndex()].InnerText);
+                int choice = int.Parse(xl1.ChildNodes[GetChoiceIndex()].InnerText);
+
+                if (id == eventID && choice == eventChoice)
+                {
+                    int money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
+                    int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
+                    int teamwork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+
+                    foreach (int roleID in preEventRoles)
+                    {
+                        if (roleID < 1 || roleID > 4)
+                        {
+                            print("SettleType5: roleID error, roleID: " + roleID);
+                            return;
+                        }
+
+                        settleResult[roleID - 1].money += (int)(money * 0.7);
+                        settleResult[roleID - 1].reputation += (int)(reputation * 0.7);
+                    }
+
+                    if (specialRoleID < 1 || specialRoleID > 4)
+                    {
+                        print("SettleType5: specialRoleID error, specialRoleID: " + specialRoleID);
+                        return;
+                    }
+                    settleResult[specialRoleID - 1].money += (int)(money * 0.7);
+                    settleResult[specialRoleID - 1].reputation += (int)(reputation * 0.7);
+
+                    teamworkValue += teamwork;
+                    break;
+                }
+            }
+        }
 
     }
 
-    void SettleType3(int eventID, int eventChoice, List<int> selectRoles)
+    void SettleType6(int eventID, int eventChoice)
     {
+        string path = Application.dataPath + eventTablePath;
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("TEventTable_Tab").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                int id = int.Parse(xl1.ChildNodes[GetIDIndex()].InnerText);
+                int choice = int.Parse(xl1.ChildNodes[GetChoiceIndex()].InnerText);
 
-    }
-    void SettleType4(int eventID, int eventChoice, List<int> selectRoles)
-    {
+                if (id == eventID && choice == eventChoice)
+                {
+                    int money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
+                    int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
+                    int teamwork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
 
-    }
-    void SettleType5(int eventID, int eventChoice, List<int> selectRoles)
-    {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        settleResult[i].money += money;
+                        settleResult[i].reputation += reputation;
+                    }
 
-    }
-
-    void SettleType6(int eventID, int eventChoice, List<int> selectRoles)
-    {
-
+                    teamworkValue += teamwork;
+                    break;
+                }
+            }
+        }
     }
 
     bool SpeicialSettle(int eventID, int eventChoice, List<int> selectRoles)
@@ -417,23 +625,27 @@ public class PlayerDataProc : MonoBehaviour
                             SettleType2(eventID, eventChoice, roleNumThre, selectRoles);
                             break;
                         case 3:
-                            SettleType3(eventID, eventChoice, selectRoles);
+                            int preEvent = int.Parse(xl1.ChildNodes[2].InnerText);
+                            SettleType3(eventID, eventChoice, preEvent);
                             break;
                         case 4:
-                            SettleType4(eventID, eventChoice, selectRoles);
+                            int preEvent1 = int.Parse(xl1.ChildNodes[2].InnerText);
+                            int preChoice = int.Parse(xl1.ChildNodes[3].InnerText);
+                            SettleType4(eventID, eventChoice, selectRoles, preEvent1, preChoice);
                             break;
                         case 5:
-                            SettleType5(eventID, eventChoice, selectRoles);
+                            int preEvent2 = int.Parse(xl1.ChildNodes[2].InnerText);
+                            int specialRoleID1 = int.Parse(xl1.ChildNodes[3].InnerText);
+                            SettleType5(eventID, eventChoice, preEvent2, specialRoleID1);
                             break;
                         case 6:
-                            SettleType6(eventID, eventChoice, selectRoles);
+                            SettleType6(eventID, eventChoice);
                             break;
                     }
                     return true;
                 }
             }
         }
-
 
         return isSpeicial;
     }
@@ -718,21 +930,12 @@ public class PlayerDataProc : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        List<int> selectRoles = new List<int>();
-        selectRoles.Add(2);
-        selectRoles.Add(3);
-        selectRoles.Add(1);
-        AddEventLogStat(101, 1, selectRoles);
+        for (int i = 0; i < 4; i++)
+        {
+            settleResult[i].money = 50;
+            settleResult[i].reputation = 50;
+        }
 
-        RoleEventStat eventStat = GetEventLogStat(101);
-
-        print("eventID: " + eventStat.eventID);
-        print("choice: " + eventStat.choice);
-        print("select roles:");
-        foreach (int roleID in eventStat.roles)
-            print(roleID);
-
-        
     }
 
     // Update is called once per frame
