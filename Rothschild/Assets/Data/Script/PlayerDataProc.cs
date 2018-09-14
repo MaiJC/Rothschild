@@ -151,6 +151,35 @@ public class PlayerDataProc : MonoBehaviour
         return 0;
     }
 
+    public PlayerAttr[] GetPlayerAttr()
+    {
+        PlayerAttr[] playerAttrs = new PlayerAttr[4];
+
+        for (int i = 0; i < 4; i++)
+        {
+            playerAttrs[i].money = settleResult[i].money;
+            playerAttrs[i].reputation = settleResult[i].reputation;
+        }
+
+        return playerAttrs;
+    }
+
+    public bool EventHaveOccur(int eventID)
+    {
+        bool occurFlag = false;
+
+        foreach (RoleEventStat eventStat in roleEventStats)
+        {
+            if (eventID == eventStat.eventID)
+            {
+                occurFlag = true;
+                break;
+            }
+        }
+
+        return occurFlag;
+    }
+
     public List<EventLog> GetEventLog(string name)
     {
         string path = Application.dataPath + playerDBPath;
