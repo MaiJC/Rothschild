@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<TItemTable_Tab>
+  <TItemTable version="1">
+    <ItemID>1 </ItemID>
+    <ItemPicture>/data/item1</ItemPicture>
+  </TItemTable>
+  <TItemTable version="1">
+    <ItemID>2 </ItemID>
+    <ItemPicture>/data/item2</ItemPicture>
+  </TItemTable>
+  <TItemTable version="1">
+    <ItemID>3 </ItemID>
+    <ItemPicture>/data/item3</ItemPicture>
+  </TItemTable>
+  <TItemTable version="1">
+    <ItemID>4 </ItemID>
+    <ItemPicture>/data/item4</ItemPicture>
+  </TItemTable>
+  <TItemTable version="1">
+    <ItemID>5 </ItemID>
+    <ItemPicture>/data/item5</ItemPicture>
+  </TItemTable>
+  <TItemTable version="1">
+    <ItemID>6 </ItemID>
+    <ItemPicture>/data/item6</ItemPicture>
+  </TItemTable>
+</TItemTable_Tab>

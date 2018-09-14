@@ -17,6 +17,7 @@ public class LoadRes : MonoBehaviour {
     private XmlNode eventRootNode;
     private XmlNode uiResRootNode;
     private XmlNode storyEventRootNode;
+    private XmlNode itemRootNode;
 
  //   private int storySeq = 0;
 
@@ -40,6 +41,11 @@ public class LoadRes : MonoBehaviour {
         storyEventDoc.Load(storyEventPath);
         storyEventRootNode = storyEventDoc.SelectSingleNode("TStoryEventTable_Tab");
 
+        // 加载道具表
+        string itemPath = Application.dataPath + "/Data/Xml/item.xml";
+        XmlDocument itemDoc = new XmlDocument();
+        itemDoc.Load(itemPath);
+        itemRootNode = itemDoc.SelectSingleNode("TItemTable_Tab");
     }
 
     /*******************事件表处理*********************/
@@ -384,16 +390,35 @@ public class LoadRes : MonoBehaviour {
 
     /***************************************************/
 
+
+
+    /**********************道具表***********************/
+    string GetItemPicture(int itemID)
+    {
+        string picture = "";
+
+        foreach (XmlElement item in itemRootNode)
+        {
+            int id = int.Parse(item.ChildNodes[0].InnerText);
+            if (id == itemID)  
+            {
+                picture = item.ChildNodes[1].InnerText;
+                break;
+            }
+        }
+        
+        return picture;
+    }
+            
+    /**************************************************/
+
+
     // Use this for initialization
     void Start () {
 
         LoadXml();
 
-        List<int> roleLimitList = GetRoleLimit(100010001);
-
-        print("Limit roles: ");
-        foreach (int roleLimit in roleLimitList)
-            print(roleLimit);
+        print(GetItemPicture(2));
 
     }
 	
