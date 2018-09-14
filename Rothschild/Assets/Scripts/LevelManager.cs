@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour
     {
         loadRes = GameObject.Find("DataHandler").GetComponent<LoadRes>();
         onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
-        onEvent.SetUnselectable();
+        //onEvent.SetUnselectable();
 
         levelCount = loadRes.GetLevelCount();
         commonEventID = loadRes.GetCommonEventID();
@@ -88,13 +88,15 @@ public class LevelManager : MonoBehaviour
                 //eventText.Add(eventID, text);
             }
         }
-        foreach(List<int> levels in levelEventID)
+
+        for (int i = 0; i < levelEventID.Count; i++)
         {
-            foreach(int eventID in levels)
+            for (int j = 0; j < levelEventID[i].Count; j++)
             {
-                if(loadRes.IsStroryEvent(eventID))
+                if (loadRes.IsStroryEvent(levelEventID[i][j]))
                 {
-                    levels.Remove(eventID);
+                    levelEventID[i].RemoveAt(j);
+                    j--;
                 }
             }
         }
@@ -194,7 +196,7 @@ public class LevelManager : MonoBehaviour
             if (currentEventID == 0)
             {
                 isInStory = false;
-                if(levelStoryID[levelCount-1].Count==0)
+                if (levelStoryID[levelCount - 1].Count == 0)
                 {
                     NextLevel();
                 }
@@ -207,7 +209,7 @@ public class LevelManager : MonoBehaviour
             //从事件池里面随机事件
             //int idx = Random.Range(0, currentEventCount + levelStoryID[currentLevel - 1].Count);
 
-            int maxRange = commonEventID.Count + levelStoryID[currentLevel - 1].Count 
+            int maxRange = commonEventID.Count + levelStoryID[currentLevel - 1].Count
                 + levelEventID[currentLevel - 1].Count;
             int idx = Random.Range(0, maxRange);
 
@@ -244,8 +246,15 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("return event text null");
         }
+
+        int choiceTypeOne, choiceTypeTwo;
+        choiceTypeOne = loadRes.GetChoiceType(currentEventID, 1);
+        choiceTypeTwo = loadRes.GetChoiceType(currentEventID, 2);
         onEvent.SetEventText(loadRes.GetEventText(currentEventID));
         onEvent.SetEventID(currentEventID);
+        onEvent.SetChoiceType(choiceTypeOne, choiceTypeTwo);
+        Debug.Log("CT1:" + choiceTypeOne.ToString() + " ,CT2:" + choiceTypeTwo.ToString());
+        onEvent.SetUnselectable();
 
         roleLimit = loadRes.GetRoleLimit(currentEventID);
         currentMaxSelectedPersonCount = loadRes.GetRoleCountLimit(currentEventID);
