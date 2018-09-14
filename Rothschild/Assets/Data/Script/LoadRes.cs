@@ -312,11 +312,20 @@ public class LoadRes : MonoBehaviour {
             int choice = int.Parse(item.ChildNodes[3].InnerText);
             int before = int.Parse(item.ChildNodes[4].InnerText);
             int next = int.Parse(item.ChildNodes[5].InnerText);
-            if (id == storyID && before == fatherEventID && 
-                choice == eventChoice && keyCharacter == character)
+
+            if (id == storyID && before == fatherEventID)
             {
-                nextStoryEvent = next;
-                break;
+                if (0 == before)
+                {
+                    nextStoryEvent = next;
+                    break;
+                }
+                else if (choice == eventChoice && keyCharacter == character)
+                {
+                    nextStoryEvent = next;
+                    break;
+                }
+
             }
         }
 
