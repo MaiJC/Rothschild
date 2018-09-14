@@ -72,7 +72,7 @@ public class OnPerson : EventTrigger
         //判断是否能够选择
         if (isSelected == false)
         {
-            if (levelManager.AddSelect())
+            if (levelManager.AddSelect(this.tag))
             {
                 isSelected = true;
             }

@@ -113,4 +113,9 @@ public class OnEvent : MonoBehaviour
         }
     }
 
+    public void SetRoleCountLimit(int countLimit)
+    {
+
+    }
+
 }
