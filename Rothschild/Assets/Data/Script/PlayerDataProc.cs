@@ -30,6 +30,14 @@ public struct EventLog
     public int choice;
 }
 
+
+public struct RoleEventStat
+{
+    public int eventID;
+    public int choice;
+    public List<int> roles;
+}
+
 public class PlayerDataProc : MonoBehaviour
 {
     // 1是唯key，2是泛key，3是通用
@@ -38,9 +46,11 @@ public class PlayerDataProc : MonoBehaviour
     public const int GENERAL_TYPE = 3;
 
     public static int teamworkValue = 0;
+    public static List<RoleEventStat> roleEventStats = new List<RoleEventStat>();
 
     string playerDBPath = "/Data/Xml/palyerDB.xml";
     string eventTablePath = "/Data/Xml/event.xml";
+    string specialEventTablePath = "/Data/Xml/special_event.xml";
 
     PlayerAttr[] settleResult = new PlayerAttr[4];
 
@@ -291,6 +301,143 @@ public class PlayerDataProc : MonoBehaviour
         
     }
 
+    public void AddEventLogStat(int eventID, int eventChoice, List<int> selectRoles)
+    {
+        RoleEventStat eventStat = new RoleEventStat();
+        eventStat.eventID = eventID;
+        eventStat.choice = eventChoice;
+
+
+        eventStat.roles = new List<int>();
+        foreach (int roleID in selectRoles)
+        {
+            eventStat.roles.Add(roleID);
+        }
+
+        roleEventStats.Add(eventStat);
+    }
+
+    public RoleEventStat GetEventLogStat(int eventID)
+    {
+        RoleEventStat eventStat = new RoleEventStat();
+        eventStat.eventID = 0;
+
+        foreach (RoleEventStat stat in roleEventStats)
+        {
+            if (eventID == stat.eventID)
+            {
+                eventStat.eventID = stat.eventID;
+                eventStat.choice = stat.choice;
+                eventStat.roles = new List<int>();
+                foreach (int role in stat.roles)
+                {
+                    eventStat.roles.Add(role);
+                }
+            }
+        }
+
+        return eventStat;
+    }
+
+    void SettleType1(int eventID, int eventChoice, int specialRoleID)
+    {
+        string path = Application.dataPath + eventTablePath;
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("TEventTable_Tab").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                int id = int.Parse(xl1.ChildNodes[GetIDIndex()].InnerText);
+                int choice = int.Parse(xl1.ChildNodes[GetChoiceIndex()].InnerText);
+
+                if (id == eventID && choice == eventChoice)
+                {
+                    int money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
+                    int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
+                    int teamWork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+
+                    settleResult[specialRoleID - 1].money += money;
+                    settleResult[specialRoleID - 1].reputation += reputation;
+                    teamworkValue += teamWork;
+
+                    break;
+                }
+            }
+        }
+    }
+    void SettleType2(int eventID, int eventChoice, int roleNum, List<int> selectRoles)
+    {
+
+    }
+
+    void SettleType3(int eventID, int eventChoice, List<int> selectRoles)
+    {
+
+    }
+    void SettleType4(int eventID, int eventChoice, List<int> selectRoles)
+    {
+
+    }
+    void SettleType5(int eventID, int eventChoice, List<int> selectRoles)
+    {
+
+    }
+
+    void SettleType6(int eventID, int eventChoice, List<int> selectRoles)
+    {
+
+    }
+
+    bool SpeicialSettle(int eventID, int eventChoice, List<int> selectRoles)
+    {
+        bool isSpeicial = false;
+
+        string path = Application.dataPath + specialEventTablePath;
+        if (File.Exists(path))
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlNodeList xmlNodeList = xml.SelectSingleNode("TSpecialEventTable_Tab").ChildNodes;
+            foreach (XmlElement xl1 in xmlNodeList)
+            {
+                int id = int.Parse(xl1.ChildNodes[0].InnerText);
+                int settleType = int.Parse(xl1.ChildNodes[1].InnerText);
+                if (id == eventID)
+                {
+                    switch (settleType)
+                    {
+                        case 1:
+                            int specialRoleID = int.Parse(xl1.ChildNodes[2].InnerText);
+                            SettleType1(eventID, eventChoice, specialRoleID);
+                            break;
+                        case 2:
+                            int roleNumThre = int.Parse(xl1.ChildNodes[2].InnerText);
+                            SettleType2(eventID, eventChoice, roleNumThre, selectRoles);
+                            break;
+                        case 3:
+                            SettleType3(eventID, eventChoice, selectRoles);
+                            break;
+                        case 4:
+                            SettleType4(eventID, eventChoice, selectRoles);
+                            break;
+                        case 5:
+                            SettleType5(eventID, eventChoice, selectRoles);
+                            break;
+                        case 6:
+                            SettleType6(eventID, eventChoice, selectRoles);
+                            break;
+                    }
+                    return true;
+                }
+            }
+        }
+
+
+        return isSpeicial;
+    }
+
     public PlayerAttr[] SettlePlayer(int eventID, int eventChoice, List<int> selectRoles) 
     {
         string path = Application.dataPath + eventTablePath;
@@ -300,6 +447,13 @@ public class PlayerDataProc : MonoBehaviour
         int money = 0;
         int reputation = 0;
         int teamWork = 0;
+
+        AddEventLogStat(eventID, eventChoice, selectRoles);
+
+        if (SpeicialSettle(eventID, eventChoice, selectRoles))
+        {
+            return settleResult;
+        }
 
         if (File.Exists(path))
         {
@@ -564,6 +718,19 @@ public class PlayerDataProc : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        List<int> selectRoles = new List<int>();
+        selectRoles.Add(2);
+        selectRoles.Add(3);
+        selectRoles.Add(1);
+        AddEventLogStat(101, 1, selectRoles);
+
+        RoleEventStat eventStat = GetEventLogStat(101);
+
+        print("eventID: " + eventStat.eventID);
+        print("choice: " + eventStat.choice);
+        print("select roles:");
+        foreach (int roleID in eventStat.roles)
+            print(roleID);
 
         
     }

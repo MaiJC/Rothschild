@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<TSpecialEventTable_Tab>
+<TSpecialEventTable version="1">
+    <EventID>200010002 </EventID>
+    <SettleType>1 </SettleType>
+    <Param1>1 </Param1>
+    <Param2>0 </Param2>
+    <Param3>0 </Param3>
+</TSpecialEventTable>
+<TSpecialEventTable version="1">
+    <EventID>200030002 </EventID>
+    <SettleType>2 </SettleType>
+    <Param1>2 </Param1>
+    <Param2>0 </Param2>
+    <Param3>0 </Param3>
+</TSpecialEventTable>
+<TSpecialEventTable version="1">
+    <EventID>200020002 </EventID>
+    <SettleType>3 </SettleType>
+    <Param1>200020001 </Param1>
+    <Param2>0 </Param2>
+    <Param3>0 </Param3>
+</TSpecialEventTable>
+<TSpecialEventTable version="1">
+    <EventID>200040002 </EventID>
+    <SettleType>4 </SettleType>
+    <Param1>200040001 </Param1>
+    <Param2>2 </Param2>
+    <Param3>0 </Param3>
+</TSpecialEventTable>
+<TSpecialEventTable version="1">
+    <EventID>1000100002 </EventID>
+    <SettleType>5 </SettleType>
+    <Param1>1000100004 </Param1>
+    <Param2>0 </Param2>
+    <Param3>0 </Param3>
+</TSpecialEventTable>
+<TSpecialEventTable version="1">
+    <EventID>100090006 </EventID>
+    <SettleType>6 </SettleType>
+    <Param1>0 </Param1>
+    <Param2>0 </Param2>
+    <Param3>0 </Param3>
+</TSpecialEventTable>
+</TSpecialEventTable_Tab>

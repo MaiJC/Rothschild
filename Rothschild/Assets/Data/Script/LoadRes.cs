@@ -62,13 +62,14 @@ public class LoadRes : MonoBehaviour {
         return comEventList;
     }
 
-    public int GetChoiceType(int eventID)
+    public int GetChoiceType(int eventID, int eventChoice)
     {
         int choiceType = 0;
         foreach (XmlElement item in eventRootNode)
         {
             int id = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
-            if (id == eventID)
+            int choice = int.Parse(item.ChildNodes[GetChoiceIndex()].InnerText);
+            if (id == eventID && choice == eventChoice)
             {
                 choiceType = int.Parse(item.ChildNodes[GetChoiceTypeIndex()].InnerText);
                 break;
@@ -76,6 +77,22 @@ public class LoadRes : MonoBehaviour {
         }
 
         return choiceType;
+    }
+
+    public int GetPreEventID(int eventID)
+    {
+        int preEventID = 0;
+        foreach (XmlElement item in eventRootNode)
+        {
+            int id = int.Parse(item.ChildNodes[GetIDIndex()].InnerText);
+            if (id == eventID)
+            {
+                preEventID = int.Parse(item.ChildNodes[GetPreEventIndex()].InnerText);
+                break;
+            }
+        }
+
+        return preEventID;
     }
 
     public bool IsStroryEvent(int eventID)
