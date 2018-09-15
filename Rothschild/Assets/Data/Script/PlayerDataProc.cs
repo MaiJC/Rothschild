@@ -187,6 +187,7 @@ public class PlayerDataProc : MonoBehaviour
 
                 XmlElement elementReputation = xml.CreateElement("Reputation");
                 elementReputation.InnerText = "50";
+                elementReputation.InnerText = "";
 
                 // 新增玩家的初始已选择的事件集合为空
                 XmlElement elementEventLog = xml.CreateElement("EventLog");
@@ -220,6 +221,8 @@ public class PlayerDataProc : MonoBehaviour
         {
             playerAttrs[i].money = settleResult[i].money;
             playerAttrs[i].reputation = settleResult[i].reputation;
+
+            print("roleID: " + (i+1) + ", money: " + playerAttrs[i].money + ", reputation: " + playerAttrs[i].reputation);
         }
 
         return playerAttrs;
@@ -229,14 +232,10 @@ public class PlayerDataProc : MonoBehaviour
     {
         if (settleResult[deathRoleID - 1].money <= 0)
         {
-            settleResult[saveRoleID - 1].money = settleResult[saveRoleID - 1].money / 2;
-            settleResult[deathRoleID - 1].money = settleResult[saveRoleID - 1].money;
         }
 
         if (settleResult[deathRoleID - 1].reputation <= 0)
         {
-            settleResult[saveRoleID - 1].reputation = settleResult[saveRoleID - 1].reputation / 2;
-            settleResult[deathRoleID - 1].reputation = settleResult[saveRoleID - 1].reputation;
         }
 
         ++saveTimes;
@@ -691,7 +690,6 @@ public class PlayerDataProc : MonoBehaviour
                         reputation = int.Parse(xl1.ChildNodes[GetWithoutKeyReputationIndex()].InnerText);
                         teamwork = int.Parse(xl1.ChildNodes[GetWithoutKeyTeamworkIndex()].InnerText);
                     }
-                
                     foreach (int roleID in selectRoles)
                     {
                         if (roleID < 1 || roleID > 4)
@@ -868,7 +866,6 @@ public class PlayerDataProc : MonoBehaviour
 
         if (SpeicialSettle(eventID, eventChoice, selectRoles))
         {
-            return settleResult;
         }
 
         if (File.Exists(path))
@@ -1030,6 +1027,7 @@ public class PlayerDataProc : MonoBehaviour
 
             }
         }
+<<<<<<< HEAD
         settleResult[0].money = 0;
         return settleResult;
     }
