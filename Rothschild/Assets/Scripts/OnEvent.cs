@@ -8,6 +8,7 @@ public class OnEvent : MonoBehaviour
 
     private Image eventImage;
     private Text eventText;
+    private Text eventTitle;
     private int eventID;
     private LevelManager levelManager;
     private Button choiceOne;
@@ -20,6 +21,7 @@ public class OnEvent : MonoBehaviour
     {
         eventImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
         eventText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
+        eventTitle = GameObject.Find("EventTitle").GetComponent<Text>();
         levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
         choiceOne = this.transform.GetChild(2).gameObject.GetComponent<Button>();
         choiceTwo = this.transform.GetChild(3).gameObject.GetComponent<Button>();
@@ -97,6 +99,11 @@ public class OnEvent : MonoBehaviour
                 choiceTwo.GetComponent<OnConfirm>().SetUnselectable();
                 break;
         }
+    }
+
+    public void SetEventTitle(string title)
+    {
+
     }
 
     public void SetSelectable()

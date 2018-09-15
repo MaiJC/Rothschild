@@ -92,7 +92,7 @@ public class OnConfirm : EventTrigger
     public void SetSelectable()
     {
         /*TODO: 增加颜色变化*/
-        this.targetGraphic.color = colorState.normalColor;
+        this.targetGraphic.color = colorState.buttonNormalColor;
         this.enabled = true;
     }
 
