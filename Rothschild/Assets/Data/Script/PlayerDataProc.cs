@@ -267,6 +267,11 @@ public class PlayerDataProc : MonoBehaviour
             teamworkValue -= 80;
         }
 
+        if (teamworkValue > 200)
+        {
+            teamworkValue = 200;
+        }
+
         return GetPlayerAttr();
     }
 
