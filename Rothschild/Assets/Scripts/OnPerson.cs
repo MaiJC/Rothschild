@@ -34,7 +34,7 @@ public class OnPerson : EventTrigger
         //colorState = this.GetComponent<ColorState>();
         colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
 
-        targetGraphic.color = colorState.normalColor;
+        targetGraphic.color = colorState.personNormalColor;
 
         levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
         avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
@@ -61,7 +61,7 @@ public class OnPerson : EventTrigger
         }
         else
         {
-            targetGraphic.color = colorState.normalColor;
+            targetGraphic.color = colorState.personNormalColor;
         }
     }
 
@@ -93,7 +93,7 @@ public class OnPerson : EventTrigger
         }
         else
         {
-            targetGraphic.color = colorState.normalColor;
+            targetGraphic.color = colorState.personNormalColor;
         }
     }
 
@@ -105,7 +105,7 @@ public class OnPerson : EventTrigger
     public void Clear()
     {
         isSelected = false;
-        targetGraphic.color = colorState.normalColor;
+        targetGraphic.color = colorState.personNormalColor;
         this.enabled = true;
     }
 
