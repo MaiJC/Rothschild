@@ -124,7 +124,7 @@ public class OnPerson : EventTrigger
         wealthNum = wealth;
         isDead = (wealthNum <= 0 || wealthNum >= 100);
         wealthNum = Mathf.Clamp(wealthNum, 0, 100);
-        wealthText.text = "财富\n" + wealthNum.ToString() + "/100";
+        wealthText.text = wealthNum.ToString() + "/100";
 
         return isDead;
     }
@@ -139,7 +139,7 @@ public class OnPerson : EventTrigger
         reputationNum = reputation;
         isDead = (reputationNum <= 0 || reputationNum >= 100);
         wealthNum = Mathf.Clamp(reputation, 0, 100);
-        reputationText.text = "声望\n" + reputationNum.ToString() + "/100";
+        reputationText.text = reputationNum.ToString() + "/100";
 
         return isDead;
     }

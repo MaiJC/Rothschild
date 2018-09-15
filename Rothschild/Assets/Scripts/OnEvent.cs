@@ -103,7 +103,7 @@ public class OnEvent : MonoBehaviour
 
     public void SetEventTitle(string title)
     {
-
+        eventTitle.text = title;
     }
 
     public void SetSelectable()

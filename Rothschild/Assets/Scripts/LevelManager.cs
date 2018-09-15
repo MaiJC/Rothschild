@@ -424,14 +424,18 @@ public class LevelManager : MonoBehaviour
                 currentStoryID = levelStoryID[currentLevel - 1][0];
                 currentEventID = loadRes.GetStoryHeadEventID(currentStoryID);
                 levelStoryID[currentLevel - 1].RemoveAt(0);
-                if (playerDataProc.IsJumpStory(currentEventID))
+                if (playerDataProc.IsJumpStory(currentStoryID))
                 {
                     isInJumpStory = true;
                     isJumpStoryFirstHappen = true;
                     jumpStoryTimesRemain = JUMP_STORY_TIMES_MAX;
+                    Debug.Log("is jump story");
                 }
                 else
+                {
                     isInStory = true;
+                    Debug.Log("is normal story");
+                }
                 currentStoryHead = currentEventID;
             }
         }
@@ -443,8 +447,11 @@ public class LevelManager : MonoBehaviour
         //onEvent.SetText(eventText[currentEventID]);
         Debug.Log("Next event: " + currentEventID.ToString());
         happenedEvent.Add(currentEventID);
+        if (currentEventID == 0)
+            Debug.Log("Error");
 
 
+        onEvent.SetEventTitle(loadRes.GetEventTitle(currentEventID));
         //设置该关卡的图片，文字，可选择角色等信息
         if (isInJumpStory)//这里其实是错的
         {
