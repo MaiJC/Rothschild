@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 222034880829413676}
   - component: {fileID: 114106298204919590}
   - component: {fileID: 114101153942749684}
+  - component: {fileID: 114792676528758254}
   m_Layer: 0
   m_Name: ChoiceOne
   m_TagString: Untagged
@@ -114,6 +115,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114792676528758254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1979302409058522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d4138b7af8eea4abf1e8b2335476d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
 --- !u!114 &114836649560538236
 MonoBehaviour:
   m_ObjectHideFlags: 1
