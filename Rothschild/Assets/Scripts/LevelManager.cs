@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     private int currentEventCount = 0;
     private int currentRound = 0;
     private int currentMaxSelectedPersonCount = 2;
+    private int currentMaxSelectedPersonCountCopy;
     private int currentMaxSelectedChooiceCount = 2;
     private int currentSelectedCount = 0;
     private int currentStoryHead;
@@ -36,6 +37,9 @@ public class LevelManager : MonoBehaviour
     private bool isJumpStoryFirstHappen = false;
     private int currentJumpStoryPerson;
     private int lastChoice;
+    private bool[] hasDead = new bool[4];
+    private int handleDeadRemains = 0;
+    private int currentHanlingDeadPerson = 0;
     private struct ZTPreStoryCondition
     {
         public int storyID;
@@ -43,7 +47,7 @@ public class LevelManager : MonoBehaviour
         public int perChoice;
     };
     private Dictionary<int, ZTPreStoryCondition> ZTPreStory = new Dictionary<int, ZTPreStoryCondition>();
-
+    private GameObject deadInterface;
 
     /*this is just use for monkeys*/
     private List<string> cardPath = new List<string>();
@@ -68,6 +72,22 @@ public class LevelManager : MonoBehaviour
     public void Confirm(int choice, List<bool> role)
     {
         lastChoice = choice;
+
+        //处理死亡
+        if (handleDeadRemains != 0)
+        {
+            int i;
+            for (i = 0; i < role.Count; i++)
+            {
+                if (role[i] == true) break;
+            }
+            DeadConfirm(i + 1, choice);
+            ClearSelect();
+            return;
+        }
+
+
+
         //判断并把重廷前置故事加入故事池
         if (ZTPreStory.ContainsKey(currentEventID))
         {
@@ -149,6 +169,9 @@ public class LevelManager : MonoBehaviour
 
     void Initialize()
     {
+        deadInterface = GameObject.Find("DeadInterface");
+        deadInterface.SetActive(false);
+
         loadRes = GameObject.Find("DataHandler").GetComponent<LoadRes>();
         onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
         playerDataProc = GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>();
@@ -215,6 +238,10 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
             jumpStorySelectedRole.Add(false);
+
+        for (int i = 0; i < 4; i++)
+            hasDead[i] = false;
+
 
     }
 
@@ -543,4 +570,55 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void HandleDead()
+    {
+        int newDeadPerson = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            if (person[i].IsDead() != hasDead[i])
+                newDeadPerson++;
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            if (person[i].IsDead() != hasDead[i])
+            {
+                //GameObject.Find("DeadInterface").SetActive(true);
+                deadInterface.SetActive(true);
+                currentHanlingDeadPerson = i + 1;
+                break;
+            }
+        }
+        handleDeadRemains = newDeadPerson;
+        currentMaxSelectedPersonCountCopy = currentMaxSelectedPersonCount;
+        currentMaxSelectedPersonCount = 1;
+    }
+
+    private void DeadConfirm(int role, int choice)
+    {
+        //没有新死的人了，就把死亡界面去掉
+        handleDeadRemains--;
+        if (handleDeadRemains == 0)
+        {
+            currentMaxSelectedPersonCount = currentMaxSelectedPersonCountCopy;
+            deadInterface.SetActive(false);
+        }
+
+        //不救，就存下来这个人已经死了
+        if (choice == 2)
+        {
+            hasDead[currentHanlingDeadPerson] = true;
+            return;
+        }
+        //救了
+        else
+        {
+            PlayerAttr[] tmpAttr = playerDataProc.HandleDeath(currentHanlingDeadPerson, role);
+            person[currentHanlingDeadPerson - 1].SetReputation(tmpAttr[currentHanlingDeadPerson - 1].reputation);
+            person[currentHanlingDeadPerson - 1].SetWealth(tmpAttr[currentHanlingDeadPerson - 1].money);
+            person[role - 1].SetReputation(tmpAttr[role - 1].reputation);
+            person[role - 1].SetWealth(tmpAttr[role - 1].money);
+            person[currentHanlingDeadPerson - 1].SetAlive();
+
+        }
+    }
 }

@@ -120,11 +120,6 @@ public class OnEvent : MonoBehaviour
         }
     }
 
-    public void SetRoleCountLimit(int countLimit)
-    {
-
-    }
-
     public void SetChoiceType(int typeOne, int typeTwo)
     {
         switch(choiceCount)

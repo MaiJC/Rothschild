@@ -1030,7 +1030,7 @@ public class PlayerDataProc : MonoBehaviour
 
             }
         }
-
+        settleResult[0].money = 0;
         return settleResult;
     }
 
