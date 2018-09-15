@@ -296,7 +296,7 @@ public class LoadRes : MonoBehaviour {
                             }
                         }
                     }
-                    else if (GENERAL_TYPE == type) // 通用事件
+                    else  // 通用事件
                     {
                         keyCharacter = 0;
                     }

@@ -35,6 +35,7 @@ public class LevelManager : MonoBehaviour
     private List<bool> jumpStorySelectedRole = new List<bool>();
     private bool isJumpStoryFirstHappen = false;
     private int currentJumpStoryPerson;
+    private int lastChoice;
     private struct ZTPreStoryCondition
     {
         public int storyID;
@@ -66,6 +67,7 @@ public class LevelManager : MonoBehaviour
 
     public void Confirm(int choice, List<bool> role)
     {
+        lastChoice = choice;
         //判断并把重廷前置故事加入故事池
         if (ZTPreStory.ContainsKey(currentEventID))
         {
@@ -296,7 +298,7 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("in story or in jump story");
             //currentEventID=loadRes.GetNextStoryID(currentStoryHead,)
-            int chooice = this.tag == "ChoiceOne" ? 1 : 2;
+            //int chooice = this.tag == "ChoiceOne" ? 1 : 2;
             int fatherEventID = currentEventID;
             //currentEventID = loadRes.GetNextStoryID(currentStoryHead, choose, fatherEventID);
 
@@ -306,7 +308,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (person[i].IsSelected()) roles.Add(i + 1);
             }
-            currentEventID = loadRes.GetNextStoryEvent(currentStoryID, fatherEventID, chooice, roles);
+            currentEventID = loadRes.GetNextStoryEvent(currentStoryID, fatherEventID, lastChoice, roles);
 
             //单条故事线结束，判断是否跳跳跳，以决定是否退出
             if (currentEventID == 0)
@@ -536,6 +538,7 @@ public class LevelManager : MonoBehaviour
             if (tmpZTStoryID < levelStoryID[currentLevel - 1][i])
             {
                 levelStoryID[currentLevel - 1].Insert(i, tmpZTStoryID);
+                break;
             }
         }
     }

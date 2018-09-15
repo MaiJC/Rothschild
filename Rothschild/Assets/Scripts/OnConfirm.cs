@@ -82,16 +82,19 @@ public class OnConfirm : EventTrigger
 
     public void SetUnselectable()
     {
-        /*TODO: 增加颜色变化*/
         if (choiceType == 2)
+        {
+            this.targetGraphic.color = colorState.buttonNormalColor;
+            this.enabled = true;
             return;
+        }
+            
         this.targetGraphic.color = colorState.deadColor;
         this.enabled = false;
     }
 
     public void SetSelectable()
     {
-        /*TODO: 增加颜色变化*/
         this.targetGraphic.color = colorState.buttonNormalColor;
         this.enabled = true;
     }
