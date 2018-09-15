@@ -1032,6 +1032,7 @@ public class PlayerDataProc : MonoBehaviour
 
             }
         }
+        return GetPlayerAttr();
     }
 
     public int Login(ref PlayerData playerInfo)
