@@ -104,6 +104,8 @@ public class OnPerson : EventTrigger
 
     public void Clear()
     {
+        if (isDead)
+            return;
         isSelected = false;
         targetGraphic.color = colorState.personNormalColor;
         this.enabled = true;
@@ -125,6 +127,8 @@ public class OnPerson : EventTrigger
         isDead = (wealthNum <= 0 || wealthNum >= 100);
         wealthNum = Mathf.Clamp(wealthNum, 0, 100);
         wealthText.text = wealthNum.ToString() + "/100";
+        if(isDead)
+            SetDead();
 
         return isDead;
     }
@@ -140,6 +144,8 @@ public class OnPerson : EventTrigger
         isDead = (reputationNum <= 0 || reputationNum >= 100);
         wealthNum = Mathf.Clamp(reputation, 0, 100);
         reputationText.text = reputationNum.ToString() + "/100";
+        if (isDead)
+            SetDead();
 
         return isDead;
     }
@@ -147,6 +153,7 @@ public class OnPerson : EventTrigger
     private void SetDead()
     {
         targetGraphic.color = colorState.deadColor;
+        this.isSelected = false;
         this.enabled = false;
     }
 
@@ -162,5 +169,17 @@ public class OnPerson : EventTrigger
         targetGraphic.color = colorState.selectColor;
         this.isSelected = true;
         this.enabled = false;
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
+    public void SetAlive()
+    {
+        isDead = false;
+        this.enabled = true;
+        targetGraphic.color = colorState.personNormalColor;
     }
 }
