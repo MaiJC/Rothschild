@@ -39,8 +39,10 @@ public class OnConfirm : EventTrigger
     {
         //若没有选择任何人
         int selectedCount = 0;
+        List<bool> selectRole = new List<bool>();
         foreach (OnPerson person in onPerson)
         {
+            selectRole.Add(person.IsSelected());
             if (person.IsSelected()) selectedCount++;
         }
         if (selectedCount == 0 && choiceType != 2)
@@ -48,9 +50,10 @@ public class OnConfirm : EventTrigger
             return;
         }
 
+        int choice = tag == "ChoiceOne" ? 1 : 2;
 
         PrcData();
-        levelManager.Confirm();
+        levelManager.Confirm(choice, selectRole);
         foreach (OnPerson personTmp in onPerson)
         {
             personTmp.Clear();
