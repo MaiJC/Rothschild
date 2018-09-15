@@ -397,6 +397,21 @@ public class LoadRes : MonoBehaviour {
         return textList;
     }
 
+    public string GetEventTitle(int eventID)
+    {
+        string eventTitle = "";
+        foreach (XmlElement item in uiResRootNode)
+        {
+            int id = int.Parse(item.ChildNodes[0].InnerText);
+            if (id == eventID)
+            {
+                eventTitle = item.ChildNodes[5].InnerText;               
+                break;
+            }
+        }
+
+        return eventTitle;
+    }
     /***************************************************/
 
 
