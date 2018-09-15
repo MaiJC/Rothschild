@@ -21,6 +21,14 @@
     <Level>1 </Level>
     <Character>1 </Character>
     <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>100040001 </Next>
+  </TStoryEventTable>
+  <TStoryEventTable version="1">
+    <StoryID>4 </StoryID>
+    <Level>1 </Level>
+    <Character>1 </Character>
+    <Choice>1 </Choice>
     <Before>100040001 </Before>
     <Next>100040002 </Next>
   </TStoryEventTable>
