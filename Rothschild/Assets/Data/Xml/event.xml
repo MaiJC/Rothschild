@@ -1,0 +1,1333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<TEventTable_Tab>
+  <TEventTable version="1">
+    <ID>100010001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>2 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>2 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100010001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>1 </WithkeyMoney>
+    <WithkeyReputation>1 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>1 </WithoutkeyMoney>
+    <WithoutkeyReputation>1 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100010002 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>1 </WithkeyMoney>
+    <WithkeyReputation>1 </WithkeyReputation>
+    <WithkeyTeamwork>1 </WithkeyTeamwork>
+    <WithoutkeyMoney>1 </WithoutkeyMoney>
+    <WithoutkeyReputation>1 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>1 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100010002 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>2 </WithkeyMoney>
+    <WithkeyReputation>-2 </WithkeyReputation>
+    <WithkeyTeamwork>-2 </WithkeyTeamwork>
+    <WithoutkeyMoney>2 </WithoutkeyMoney>
+    <WithoutkeyReputation>-2 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100020001 </ID>
+    <Type>2 </Type>
+    <PreEvent>100010001 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>4 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>2 </WithkeyMoney>
+    <WithkeyReputation>2 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>-2 </WithoutkeyMoney>
+    <WithoutkeyReputation>-1 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>1 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100030001 </ID>
+    <Type>3 </Type>
+    <PreEvent>100020001 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-2 </WithkeyMoney>
+    <WithkeyReputation>2 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>-2 </WithoutkeyMoney>
+    <WithoutkeyReputation>2 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100040001 </ID>
+    <Type>2 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>1 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-1 </WithkeyMoney>
+    <WithkeyReputation>3 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100040002 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100050001 </ID>
+    <Type>2 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>1 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>2 </Level>
+    <WithkeyMoney>-2 </WithkeyMoney>
+    <WithkeyReputation>3 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100050002 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>2 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100060001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-2 </WithkeyMoney>
+    <WithkeyReputation>1 </WithkeyReputation>
+    <WithkeyTeamwork>1 </WithkeyTeamwork>
+    <WithoutkeyMoney>-2 </WithoutkeyMoney>
+    <WithoutkeyReputation>1 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>1 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100060002 </ID>
+    <Type>4 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>2 </Key1>
+    <Key2>3 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>3 </WithkeyMoney>
+    <WithkeyReputation>3 </WithkeyReputation>
+    <WithkeyTeamwork>3 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100060003 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100060004 </ID>
+    <Type>2 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>4 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>1 </WithkeyReputation>
+    <WithkeyTeamwork>1 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>-1 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-1 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-1 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070002 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>4 </Key1>
+    <Key2>1 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-2 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>-2 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070003 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>3 </Key1>
+    <Key2>2 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>4 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>-2 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-1 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070004 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>-2 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070004 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-1 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070005 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070006 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-1 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070006 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>-2 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070007 </ID>
+    <Type>2 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>2 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>4 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>3 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070008 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070009 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070010 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070011 </ID>
+    <Type>2 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>2 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>3 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>3 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100070012 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100080001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100080001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-1 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit>2</RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-1 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>3 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>3 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit>2</RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>-4 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-4 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090002 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit>2</RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>-4 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-4 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090002 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit>2</RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-1 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>3 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>3 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090003 </ID>
+    <Type>2 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>2 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090004 </ID>
+    <Type>2 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>2 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-4 </WithkeyMoney>
+    <WithkeyReputation>2 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>-2 </WithoutkeyMoney>
+    <WithoutkeyReputation>1 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>1 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090005 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090005 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>-1 </WithkeyReputation>
+    <WithkeyTeamwork>-2 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>-1 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090006 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090007 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090008 </ID>
+    <Type>2 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>2 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-4 </WithkeyMoney>
+    <WithkeyReputation>2 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>-2 </WithoutkeyMoney>
+    <WithoutkeyReputation>1 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>1 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090009 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090010 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100090011 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100100001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100100001 </ID>
+    <Type>4 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>4 </WithkeyMoney>
+    <WithkeyReputation>2 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>4 </WithoutkeyMoney>
+    <WithoutkeyReputation>2 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100100002 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>-2 </WithkeyReputation>
+    <WithkeyTeamwork>1 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>-2 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>1 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100100002 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>5 </WithkeyMoney>
+    <WithkeyReputation>3 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>5 </WithoutkeyMoney>
+    <WithoutkeyReputation>3 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100100003 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>5 </WithkeyMoney>
+    <WithkeyReputation>3 </WithkeyReputation>
+    <WithkeyTeamwork>3 </WithkeyTeamwork>
+    <WithoutkeyMoney>5 </WithoutkeyMoney>
+    <WithoutkeyReputation>3 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>3 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100100004 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100100005 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100110001 </ID>
+    <Type>2 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>2 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-3 </WithkeyMoney>
+    <WithkeyReputation>1 </WithkeyReputation>
+    <WithkeyTeamwork>1 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>1 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>1 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100120001 </ID>
+    <Type>3 </Type>
+    <PreEvent>100080001 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>3 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>3 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100130001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>3 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>3 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100130001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>-3 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-3 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100140001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100140002 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-1 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100140004 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-3 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>1 </WithkeyTeamwork>
+    <WithoutkeyMoney>-3 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>1 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100140005 </ID>
+    <Type>2 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>2 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>5 </WithkeyMoney>
+    <WithkeyReputation>5 </WithkeyReputation>
+    <WithkeyTeamwork>5 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-3 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100140006 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100140007 </ID>
+    <Type>4 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>-3 </WithkeyReputation>
+    <WithkeyTeamwork>-4 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>-3 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-4 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100140007 </ID>
+    <Type>4 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>5 </WithkeyMoney>
+    <WithkeyReputation>5 </WithkeyReputation>
+    <WithkeyTeamwork>5 </WithkeyTeamwork>
+    <WithoutkeyMoney>5 </WithoutkeyMoney>
+    <WithoutkeyReputation>5 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>5 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100140008 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100140009 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>1 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>0 </WithkeyMoney>
+    <WithkeyReputation>0 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>0 </WithoutkeyMoney>
+    <WithoutkeyReputation>0 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100150001 </ID>
+    <Type>4 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>4 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>4 </WithkeyMoney>
+    <WithkeyReputation>2 </WithkeyReputation>
+    <WithkeyTeamwork>4 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>2 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>3 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100160001 </ID>
+    <Type>4 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>3 </WithkeyMoney>
+    <WithkeyReputation>3 </WithkeyReputation>
+    <WithkeyTeamwork>-2 </WithkeyTeamwork>
+    <WithoutkeyMoney>3 </WithoutkeyMoney>
+    <WithoutkeyReputation>3 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100160001 </ID>
+    <Type>4 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>0 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-3 </WithkeyMoney>
+    <WithkeyReputation>3 </WithkeyReputation>
+    <WithkeyTeamwork>2 </WithkeyTeamwork>
+    <WithoutkeyMoney>-3 </WithoutkeyMoney>
+    <WithoutkeyReputation>3 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>2 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100170001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>2 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>2 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>2 </WithkeyMoney>
+    <WithkeyReputation>-3 </WithkeyReputation>
+    <WithkeyTeamwork>-3 </WithkeyTeamwork>
+    <WithoutkeyMoney>2 </WithoutkeyMoney>
+    <WithoutkeyReputation>-3 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-3 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100170001 </ID>
+    <Type>3 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit></RoleLimit>
+    <CountLimit>2 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>0 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>-2 </WithkeyMoney>
+    <WithkeyReputation>3 </WithkeyReputation>
+    <WithkeyTeamwork>-3 </WithkeyTeamwork>
+    <WithoutkeyMoney>-2 </WithoutkeyMoney>
+    <WithoutkeyReputation>3 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>-3 </WithoutkeyTeamwork>
+  </TEventTable>
+  <TEventTable version="1">
+    <ID>100180001 </ID>
+    <Type>1 </Type>
+    <PreEvent>0 </PreEvent>
+    <IfStory>0 </IfStory>
+    <RoleLimit>4</RoleLimit>
+    <CountLimit>1 </CountLimit>
+    <Choice>1 </Choice>
+    <Key1>3 </Key1>
+    <Key2>0 </Key2>
+    <ChoiceType>1 </ChoiceType>
+    <Level>1 </Level>
+    <WithkeyMoney>1 </WithkeyMoney>
+    <WithkeyReputation>1 </WithkeyReputation>
+    <WithkeyTeamwork>0 </WithkeyTeamwork>
+    <WithoutkeyMoney>-1 </WithoutkeyMoney>
+    <WithoutkeyReputation>-1 </WithoutkeyReputation>
+    <WithoutkeyTeamwork>0 </WithoutkeyTeamwork>
+  </TEventTable>
+</TEventTable_Tab>
