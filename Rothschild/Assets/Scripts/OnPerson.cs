@@ -106,6 +106,7 @@ public class OnPerson : EventTrigger
     {
         isSelected = false;
         targetGraphic.color = colorState.normalColor;
+        this.enabled = true;
     }
 
     public void SetAvator(string avatarName)
@@ -146,6 +147,20 @@ public class OnPerson : EventTrigger
     private void SetDead()
     {
         targetGraphic.color = colorState.deadColor;
+        this.enabled = false;
+    }
+
+    public void SetUnselectable()
+    {
+        targetGraphic.color = colorState.unselectableColor;
+        this.isSelected = false;
+        this.enabled = false;
+    }
+
+    public void SetSelected()
+    {
+        targetGraphic.color = colorState.selectColor;
+        this.isSelected = true;
         this.enabled = false;
     }
 }

@@ -132,4 +132,19 @@ public class OnEvent : MonoBehaviour
         }
     }
 
+    public void SetJumpStoryRole(int role)
+    {
+        
+    }
+
+    public void SetPersonUnselectable(int unRole)
+    {
+
+    }
+
+    private void KeepPersonSelected(int role)
+    {
+
+    }
+
 }

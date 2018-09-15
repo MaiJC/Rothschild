@@ -97,7 +97,7 @@ public class PlayerDataProc : MonoBehaviour
         return jumpStory;
     }
 
-    public bool IsPreStroy(int storyID, ref int preEvent, ref int roleID)
+    public bool IsPreStroy(int storyID, ref int preEvent, ref int roleID, ref int choice)
     {
         bool preStroy = false;
 
@@ -118,6 +118,7 @@ public class PlayerDataProc : MonoBehaviour
                         preStroy = true;
                         preEvent = int.Parse(xl1.ChildNodes[2].InnerText);
                         roleID = int.Parse(xl1.ChildNodes[3].InnerText);
+                        choice = int.Parse(xl1.ChildNodes[4].InnerText);
                     }
                     break;
                 }
