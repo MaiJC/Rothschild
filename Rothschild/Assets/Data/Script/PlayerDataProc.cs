@@ -45,16 +45,17 @@ public class PlayerDataProc : MonoBehaviour
     public const int FAN_KEY_TYPE = 2;
     public const int GENERAL_TYPE = 3;
 
-    public static int teamworkValue = 50;
+    public static int teamworkValue = 80;
     public static List<RoleEventStat> roleEventStats = new List<RoleEventStat>();
+    public static PlayerAttr[] settleResult = new PlayerAttr[4];
+
+    public static int saveTimes = 0;
 
     string playerDBPath = "/Data/Xml/palyerDB.xml";
     string eventTablePath = "/Data/Xml/event.xml";
     string specialEventTablePath = "/Data/Xml/special_event.xml";
 
     string storySettleTablePath = "/Data/Xml/story_settle.xml";
-
-    PlayerAttr[] settleResult = new PlayerAttr[4];
 
     public void CreatePlayerDB()
     {
@@ -179,13 +180,13 @@ public class PlayerDataProc : MonoBehaviour
                 elementSection.InnerText = "1";
 
                 XmlElement elementTeamwork = xml.CreateElement("Teamwork");
-                elementTeamwork.InnerText = "0";
+                elementTeamwork.InnerText = "80";
 
                 XmlElement elementMoney = xml.CreateElement("Money");
-                elementMoney.InnerText = "";
+                elementMoney.InnerText = "50";
 
                 XmlElement elementReputation = xml.CreateElement("Reputation");
-                elementReputation.InnerText = "";
+                elementReputation.InnerText = "50";
 
                 // 新增玩家的初始已选择的事件集合为空
                 XmlElement elementEventLog = xml.CreateElement("EventLog");
@@ -222,6 +223,33 @@ public class PlayerDataProc : MonoBehaviour
         }
 
         return playerAttrs;
+    }
+
+    public PlayerAttr[] HandleDeath(int deathRoleID, int saveRoleID)
+    {
+        if (settleResult[deathRoleID - 1].money <= 0)
+        {
+            settleResult[saveRoleID - 1].money = settleResult[saveRoleID - 1].money / 2;
+            settleResult[deathRoleID - 1].money = settleResult[saveRoleID - 1].money;
+        }
+
+        if (settleResult[deathRoleID - 1].reputation <= 0)
+        {
+            settleResult[saveRoleID - 1].reputation = settleResult[saveRoleID - 1].reputation / 2;
+            settleResult[deathRoleID - 1].reputation = settleResult[saveRoleID - 1].reputation;
+        }
+
+        ++saveTimes;
+        if (1 == saveTimes)
+        {
+            teamworkValue += 40;
+        }
+        else
+        {
+            teamworkValue -= 80;
+        }
+
+        return GetPlayerAttr();
     }
 
     public bool EventHaveOccur(int eventID)
@@ -477,6 +505,37 @@ public class PlayerDataProc : MonoBehaviour
         {
             teamworkValue += (int)(teamwork * multi);
 
+        }
+
+        int minMoney = settleResult[0].money;
+        int maxMoney = settleResult[0].money; 
+        int minReputation = settleResult[0].reputation;
+        int maxReputation = settleResult[0].reputation;
+
+        for (int i = 1; i < 4; i++)
+        {
+            if (settleResult[i].money < minMoney)
+            {
+                minMoney = settleResult[i].money;
+            }
+            if (settleResult[i].money > maxMoney)
+            {
+                maxMoney = settleResult[i].money;
+            }
+
+            if (settleResult[i].reputation < minReputation)
+            {
+                minReputation = settleResult[i].reputation;
+            }
+            if (settleResult[i].reputation > maxReputation)
+            {
+                maxReputation = settleResult[i].reputation;
+            }
+        }
+
+        if ((maxMoney - minMoney > 60) || (maxReputation - minReputation > 60))
+        {
+            teamworkValue -= 30;
         }
     }
 
