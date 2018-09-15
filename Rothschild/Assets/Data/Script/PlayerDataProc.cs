@@ -555,6 +555,11 @@ public class PlayerDataProc : MonoBehaviour
         {
             teamworkValue -= 30;
         }
+
+        if (teamworkValue > 200)
+        {
+            teamworkValue = 200;
+        }
     }
 
     void SettleType1(int eventID, int eventChoice, int specialRoleID)
