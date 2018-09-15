@@ -13,6 +13,7 @@ public class OnConfirm : EventTrigger
     private Graphic targetGraphic;
     private ColorState colorState;
     private int choiceType;
+    private Image teamWorkBar;
 
     // Use this for initialization
     void Start()
@@ -25,6 +26,9 @@ public class OnConfirm : EventTrigger
         levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
         colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
         targetGraphic = this.GetComponent<Button>().targetGraphic;
+        teamWorkBar = GameObject.Find("Fill").GetComponent<Image>();
+        float teamworkPercent = (float)playerDataProc.GetTeamworkValue() / 200.0f;
+        teamWorkBar.transform.localScale = new Vector3(teamworkPercent, 1.0f, 1.0f);
 
         choiceID = this.tag == "ChoiceOne" ? 1 : 2;
     }
@@ -78,6 +82,10 @@ public class OnConfirm : EventTrigger
             onPerson[i].SetReputation(playerAttrs[i].reputation);
             onPerson[i].SetWealth(playerAttrs[i].money);
         }
+
+        int teamWork = playerDataProc.GetTeamworkValue();
+        float teamWorkPercent = (float)teamWork / 200.0f;
+        teamWorkBar.transform.localScale = new Vector3(teamWorkPercent, 1, 1);
     }
 
     public void SetUnselectable()
@@ -88,7 +96,7 @@ public class OnConfirm : EventTrigger
             this.enabled = true;
             return;
         }
-            
+
         this.targetGraphic.color = colorState.deadColor;
         this.enabled = false;
     }
