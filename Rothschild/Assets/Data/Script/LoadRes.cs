@@ -360,7 +360,7 @@ public class LoadRes : MonoBehaviour {
                 break;
             }
         }
-        print("eventID: " + eventID + ", Picture: " + uiPath); 
+    //    print("eventID: " + eventID + ", Picture: " + uiPath); 
         return uiPath;
     }
 

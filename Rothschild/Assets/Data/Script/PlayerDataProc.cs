@@ -220,6 +220,8 @@ public class PlayerDataProc : MonoBehaviour
         {
             playerAttrs[i].money = settleResult[i].money;
             playerAttrs[i].reputation = settleResult[i].reputation;
+
+            print("roleID: " + (i+1) + ", money: " + playerAttrs[i].money + ", reputation: " + playerAttrs[i].reputation);
         }
 
         return playerAttrs;
@@ -574,6 +576,10 @@ public class PlayerDataProc : MonoBehaviour
                     int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
                     int teamWork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
 
+                    print("SettleType1:");
+                    print("eventID: " + eventID + ", eventChoice: " + ", specialRoleID: " + specialRoleID);
+                    print("money: " + money + ", reputation: " + reputation + ", teamwork: " +teamWork);
+
                     SettleMoney(money, specialRoleID, 1);
                     SettleReputation(reputation, specialRoleID, 1);
                     SettleTeamwork(teamWork, 1);                   
@@ -600,6 +606,13 @@ public class PlayerDataProc : MonoBehaviour
                     int money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
                     int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
                     int teamWork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+
+                    print("SettleType2:");
+                    print("eventID: " + eventID + ", eventChoice: " + ", roleNumThre: " + roleNumThre);
+                    print("selectRoles:");
+                    foreach (int RoleID in selectRoles)
+                        print(RoleID);
+                    print("money: " + money + ", reputation: " + reputation + ", teamwork: " + teamWork);
 
                     foreach (int roleID in selectRoles)
                     {
@@ -651,6 +664,13 @@ public class PlayerDataProc : MonoBehaviour
                     int money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
                     int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
                     int teamwork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+
+                    print("SettleType3:");
+                    print("eventID: " + eventID + ", eventChoice: " + ", preEvent: " + preEvent);
+                    print("preEventRoles:");
+                    foreach (int RoleID in preEventRoles)
+                        print(RoleID);
+                    print("money: " + money + ", reputation: " + reputation + ", teamwork: " + teamwork);
 
                     foreach (int roleID in preEventRoles)
                     {
@@ -707,7 +727,14 @@ public class PlayerDataProc : MonoBehaviour
                         reputation = int.Parse(xl1.ChildNodes[GetWithoutKeyReputationIndex()].InnerText);
                         teamwork = int.Parse(xl1.ChildNodes[GetWithoutKeyTeamworkIndex()].InnerText);
                     }
-                
+
+                    print("SettleType4:");
+                    print("eventID: " + eventID + ", eventChoice: " + ", preEvent: " + preEvent + ", preChoice: " + preChoice);
+                    print("preEventRoles:");
+                    foreach (int RoleID in selectRoles)
+                        print(RoleID);
+                    print("money: " + money + ", reputation: " + reputation + ", teamwork: " + teamwork);
+
                     foreach (int roleID in selectRoles)
                     {
                         if (roleID < 1 || roleID > 4)
@@ -753,6 +780,10 @@ public class PlayerDataProc : MonoBehaviour
                     int money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
                     int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
                     int teamwork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+
+                    print("SettleType5:");
+                    print("eventID: " + eventID + ", eventChoice: " + ", preEvent: " + preEvent + ", specialRoleID: " + specialRoleID);
+                    print("money: " + money + ", reputation: " + reputation + ", teamwork: " + teamwork);
 
                     foreach (int roleID in preEventRoles)
                     {
@@ -803,6 +834,10 @@ public class PlayerDataProc : MonoBehaviour
                     int money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
                     int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
                     int teamwork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+
+                    print("SettleType6:");
+                    print("eventID: " + eventID + ", eventChoice: " + eventChoice);
+                    print("money: " + money + ", reputation: " + reputation + ", teamwork: " + teamwork);
 
                     for (int i = 0; i < 4; i++)
                     {
@@ -884,7 +919,7 @@ public class PlayerDataProc : MonoBehaviour
 
         if (SpeicialSettle(eventID, eventChoice, selectRoles))
         {
-            return settleResult;
+            return GetPlayerAttr();
         }
 
         if (File.Exists(path))
@@ -1047,7 +1082,17 @@ public class PlayerDataProc : MonoBehaviour
             }
         }
 
-        return settleResult;
+        print("SettlePlayer: ");
+        print("eventID: " + eventID + ", choice: " + eventChoice);
+        print("selecRoles: ");
+        foreach (int roleID in selectRoles)
+        {
+            print(roleID);
+        }
+
+        print("money: " + money + ", reputation: " + reputation + "teamwork: " + teamWork);
+
+        return GetPlayerAttr();
     }
 
     public int Login(ref PlayerData playerInfo)
