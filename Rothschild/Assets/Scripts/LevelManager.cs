@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
     {
         public int storyID;
         public int perRole;
+        public int perChoice;
     };
     private Dictionary<int, ZTPreStoryCondition> ZTPreStory = new Dictionary<int, ZTPreStoryCondition>();
 
