@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<TStoryLevelTable_Tab>
+<TStoryLevelTable version="1">
+    <StoryID>1 </StoryID>
+    <Level>1 </Level>
+</TStoryLevelTable>
+<TStoryLevelTable version="1">
+    <StoryID>2 </StoryID>
+    <Level>1 </Level>
+</TStoryLevelTable>
+<TStoryLevelTable version="1">
+    <StoryID>3 </StoryID>
+    <Level>1 </Level>
+</TStoryLevelTable>
+<TStoryLevelTable version="1">
+    <StoryID>4 </StoryID>
+    <Level>2 </Level>
+</TStoryLevelTable>
+<TStoryLevelTable version="1">
+    <StoryID>5 </StoryID>
+    <Level>2 </Level>
+</TStoryLevelTable>
+</TStoryLevelTable_Tab>
