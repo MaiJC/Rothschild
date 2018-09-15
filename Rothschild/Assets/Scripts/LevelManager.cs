@@ -73,9 +73,7 @@ public class LevelManager : MonoBehaviour
             //只要前置事件出现了故事就能发生
             if (tmpCondition.perRole == 0 && tmpCondition.perChoice == 0)
             {
-                int tmpZTStoryID = ZTPreStory[currentEventID].storyID;
-                ZTPreStory.Remove(currentEventID);
-                levelStoryID[currentLevel - 1].Insert(1, tmpZTStoryID);
+                InsertPreStory();
             }
             //需要前置事件出现和选择特定角色
             else if (tmpCondition.perRole != 0 && tmpCondition.perChoice == 0)
@@ -84,9 +82,7 @@ public class LevelManager : MonoBehaviour
                 {
                     if (role[i] == true && ZTPreStory[currentEventID].perRole == i + 1)
                     {
-                        int tmpZTStoryID = ZTPreStory[currentEventID].storyID;
-                        ZTPreStory.Remove(currentEventID);
-                        levelStoryID[currentLevel - 1].Insert(1, tmpZTStoryID);
+                        InsertPreStory();
                     }
                 }
             }
@@ -94,23 +90,19 @@ public class LevelManager : MonoBehaviour
             {
                 if (choice == ZTPreStory[currentEventID].perChoice)
                 {
-                    int tmpZTStoryID = ZTPreStory[currentEventID].storyID;
-                    ZTPreStory.Remove(currentEventID);
-                    levelStoryID[currentLevel - 1].Insert(1, tmpZTStoryID);
+                    InsertPreStory();
                 }
             }
-            else if(tmpCondition.perRole != 0 && tmpCondition.perChoice != 0)
+            else if (tmpCondition.perRole != 0 && tmpCondition.perChoice != 0)
             {
                 for (int i = 0; i < role.Count; i++)
                 {
                     if (role[i] == true && ZTPreStory[currentEventID].perRole == i + 1)
                     {
-                        if(choice==ZTPreStory[currentEventID].perChoice)
+                        if (choice == ZTPreStory[currentEventID].perChoice)
                         {
-                            int tmpZTStoryID = ZTPreStory[currentEventID].storyID;
-                            ZTPreStory.Remove(currentEventID);
-                            levelStoryID[currentLevel - 1].Insert(1, tmpZTStoryID);
-                        }         
+                            InsertPreStory();
+                        }
                     }
                 }
             }
@@ -525,6 +517,19 @@ public class LevelManager : MonoBehaviour
     void ClearSelect()
     {
         currentSelectedCount = 0;
+    }
+
+    void InsertPreStory()
+    {
+        int tmpZTStoryID = ZTPreStory[currentEventID].storyID;
+        ZTPreStory.Remove(currentEventID);
+        for (int i = 0; i < levelStoryID[currentLevel - 1].Count; i++)
+        {
+            if (tmpZTStoryID < levelStoryID[currentLevel - 1][i])
+            {
+                levelStoryID[currentLevel - 1].Insert(i, tmpZTStoryID);
+            }
+        }
     }
 
 }
