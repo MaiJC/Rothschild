@@ -1,4 +1,5 @@
 ﻿using Mono.Xml;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -186,7 +187,7 @@ public class PlayerDataProc : MonoBehaviour
                 elementMoney.InnerText = "50";
 
                 XmlElement elementReputation = xml.CreateElement("Reputation");
-                elementReputation.InnerText = "50";
+                elementReputation.InnerText = "";
 
                 // 新增玩家的初始已选择的事件集合为空
                 XmlElement elementEventLog = xml.CreateElement("EventLog");
@@ -229,14 +230,30 @@ public class PlayerDataProc : MonoBehaviour
     {
         if (settleResult[deathRoleID - 1].money <= 0)
         {
-            settleResult[saveRoleID - 1].money = settleResult[saveRoleID - 1].money / 2;
-            settleResult[deathRoleID - 1].money = settleResult[saveRoleID - 1].money;
+            if (1 == settleResult[saveRoleID - 1].money)
+            {
+                settleResult[saveRoleID - 1].money = 1;
+                settleResult[deathRoleID - 1].money = 1;          }
+            else
+            {
+                settleResult[saveRoleID - 1].money = settleResult[saveRoleID - 1].money / 2;
+                settleResult[deathRoleID - 1].money = settleResult[saveRoleID - 1].money;
+            }
+            
         }
 
         if (settleResult[deathRoleID - 1].reputation <= 0)
         {
-            settleResult[saveRoleID - 1].reputation = settleResult[saveRoleID - 1].reputation / 2;
-            settleResult[deathRoleID - 1].reputation = settleResult[saveRoleID - 1].reputation;
+            if (1 == settleResult[saveRoleID - 1].reputation)
+            {
+                settleResult[saveRoleID - 1].reputation = 1;
+                settleResult[deathRoleID - 1].reputation = 1;
+            }
+            else
+            {
+                settleResult[saveRoleID - 1].reputation = settleResult[saveRoleID - 1].reputation / 2;
+                settleResult[deathRoleID - 1].reputation = settleResult[saveRoleID - 1].reputation;
+            }
         }
 
         ++saveTimes;
