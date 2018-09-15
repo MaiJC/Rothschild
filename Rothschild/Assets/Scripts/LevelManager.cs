@@ -442,6 +442,8 @@ public class LevelManager : MonoBehaviour
         //onEvent.SetImage(eventUIPath[currentEventID]);
         //onEvent.SetText(eventText[currentEventID]);
         Debug.Log("Next event: " + currentEventID.ToString());
+        happenedEvent.Add(currentEventID);
+
 
         //设置该关卡的图片，文字，可选择角色等信息
         if (isInJumpStory)//这里其实是错的
@@ -463,7 +465,6 @@ public class LevelManager : MonoBehaviour
                     }
                 }
                 currentMaxSelectedPersonCount = 1;
-                happenedEvent.Add(currentEventID);
             }
             //不是跳跳跳的开头
             else
@@ -483,6 +484,7 @@ public class LevelManager : MonoBehaviour
                         person[i].SetUnselectable();
                     }
                 }
+
             }
         }
         else
@@ -499,7 +501,6 @@ public class LevelManager : MonoBehaviour
             roleLimit = loadRes.GetRoleLimit(currentEventID);
             currentMaxSelectedPersonCount = loadRes.GetRoleCountLimit(currentEventID);
 
-            happenedEvent.Add(currentEventID);
         }
 
     }
