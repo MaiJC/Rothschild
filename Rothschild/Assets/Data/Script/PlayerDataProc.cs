@@ -45,7 +45,7 @@ public class PlayerDataProc : MonoBehaviour
     public const int FAN_KEY_TYPE = 2;
     public const int GENERAL_TYPE = 3;
 
-    public static int teamworkValue = 0;
+    public static int teamworkValue = 50;
     public static List<RoleEventStat> roleEventStats = new List<RoleEventStat>();
 
     string playerDBPath = "/Data/Xml/palyerDB.xml";
@@ -428,6 +428,58 @@ public class PlayerDataProc : MonoBehaviour
         return eventStat;
     }
 
+    void SettleMoney(int money, int roleID, double multi)
+    {
+        if (roleID < 1 || roleID > 4)
+        {
+            print("roleID error!!!, roleID: " + roleID);
+            return;
+        }
+
+        if (money > 1000 || money < -1000)
+        {
+            float addMoney = (money / 10000) * settleResult[roleID - 1].money;
+            settleResult[roleID - 1].money += (int)(addMoney);
+        }
+        else
+        {
+            settleResult[roleID - 1].money += (int)(money * multi);
+        }
+    }
+
+    void SettleReputation(int reputation, int roleID, double multi)
+    {
+        if (roleID < 1 || roleID > 4)
+        {
+            print("roleID error!!!, roleID: " + roleID);
+            return;
+        }
+
+        if (reputation > 1000 || reputation < -1000)
+        {
+            float addReputation = (reputation / 10000) * settleResult[roleID - 1].reputation;
+            settleResult[roleID - 1].reputation += (int)(addReputation);
+        }
+        else
+        {
+            settleResult[roleID - 1].reputation += (int)(reputation * multi);
+        }
+    }
+
+    void SettleTeamwork(int teamwork, double multi)
+    {
+        if (teamwork > 1000 || teamwork < -1000)
+        {
+            float addTeamwork = (teamwork / 10000) * teamworkValue;
+            teamworkValue += (int)(addTeamwork);
+        }
+        else
+        {
+            teamworkValue += (int)(teamwork * multi);
+
+        }
+    }
+
     void SettleType1(int eventID, int eventChoice, int specialRoleID)
     {
         string path = Application.dataPath + eventTablePath;
@@ -447,10 +499,9 @@ public class PlayerDataProc : MonoBehaviour
                     int reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
                     int teamWork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
 
-                    settleResult[specialRoleID - 1].money += money;
-                    settleResult[specialRoleID - 1].reputation += reputation;
-                    teamworkValue += teamWork;
-
+                    SettleMoney(money, specialRoleID, 1);
+                    SettleReputation(reputation, specialRoleID, 1);
+                    SettleTeamwork(teamWork, 1);                   
                     break;
                 }
             }
@@ -482,13 +533,14 @@ public class PlayerDataProc : MonoBehaviour
                             print("SettleType2: roleID error, roleID: " + roleID);
                             return;
                         }
-                        settleResult[roleID - 1].money += money;
-                        settleResult[roleID - 1].reputation += reputation;
+
+                        SettleMoney(money, roleID, 1);
+                        SettleReputation(reputation, roleID, 1);   
                     }
 
                     if (selectRoles.Count >= roleNumThre)
                     {
-                        teamworkValue += teamWork;
+                        SettleTeamwork(teamWork, 1);
                     }
                  
                     break;
@@ -533,10 +585,10 @@ public class PlayerDataProc : MonoBehaviour
                             return;
                         }
 
-                        settleResult[roleID - 1].money += money;
-                        settleResult[roleID - 1].reputation += reputation;
+                        SettleMoney(money, roleID, 1);
+                        SettleReputation(reputation, roleID, 1);
                     }
-                    teamworkValue += teamwork;
+                    SettleTeamwork(teamwork, 1);
                     break;
                 }
             }
@@ -589,10 +641,10 @@ public class PlayerDataProc : MonoBehaviour
                             return;
                         }
 
-                        settleResult[roleID - 1].money += money;
-                        settleResult[roleID - 1].reputation += reputation;
+                        SettleMoney(money, roleID, 1);
+                        SettleReputation(reputation, roleID, 1);
                     }
-                    teamworkValue += teamwork;
+                    SettleTeamwork(teamwork, 1);
                     break;
                 }
             }
@@ -635,8 +687,9 @@ public class PlayerDataProc : MonoBehaviour
                             return;
                         }
 
-                        settleResult[roleID - 1].money += (int)(money * 0.7);
-                        settleResult[roleID - 1].reputation += (int)(reputation * 0.7);
+                        SettleMoney(money, roleID, 0.7);
+                        SettleReputation(reputation, roleID, 0.7);
+                        
                     }
 
                     if (specialRoleID < 1 || specialRoleID > 4)
@@ -644,10 +697,12 @@ public class PlayerDataProc : MonoBehaviour
                         print("SettleType5: specialRoleID error, specialRoleID: " + specialRoleID);
                         return;
                     }
-                    settleResult[specialRoleID - 1].money += (int)(money * 0.7);
-                    settleResult[specialRoleID - 1].reputation += (int)(reputation * 0.7);
 
-                    teamworkValue += teamwork;
+                    SettleMoney(money, specialRoleID, 0.7);
+                    SettleReputation(reputation, specialRoleID, 0.7);
+
+                    SettleTeamwork(teamwork, 1);
+        
                     break;
                 }
             }
@@ -676,11 +731,12 @@ public class PlayerDataProc : MonoBehaviour
 
                     for (int i = 0; i < 4; i++)
                     {
-                        settleResult[i].money += money;
-                        settleResult[i].reputation += reputation;
+                        SettleMoney(money, i + 1, 1);
+                        SettleReputation(reputation, i + 1, 1);
                     }
 
-                    teamworkValue += teamwork;
+                    SettleTeamwork(teamwork, 1);
+                    
                     break;
                 }
             }
@@ -791,16 +847,16 @@ public class PlayerDataProc : MonoBehaviour
                         {
                             if (1 == selectRoles.Count)
                             {
-                                settleResult[selectRoles[0] - 1].money += money;
-                                settleResult[selectRoles[0] - 1].reputation += reputation;
+                                SettleMoney(money, selectRoles[0], 1);
+                                SettleReputation(reputation, selectRoles[0], 1);
                             }
                             else if (2 == selectRoles.Count)
                             {
-                                settleResult[selectRoles[0] - 1].money += (int)(money * 0.7);
-                                settleResult[selectRoles[1] - 1].money += (int)(money * 0.7);
-                              
-                                settleResult[selectRoles[0] - 1].reputation += (int)(reputation * 0.7);
-                                settleResult[selectRoles[1] - 1].reputation += (int)(reputation * 0.7);
+                                SettleMoney(money, selectRoles[0], 0.7);
+                                SettleReputation(reputation, selectRoles[0], 0.7);
+
+                                SettleMoney(money, selectRoles[1], 0.7);
+                                SettleReputation(reputation, selectRoles[1], 0.7);
                             }
                         }
                         else if (FAN_KEY_TYPE == type)
@@ -809,8 +865,8 @@ public class PlayerDataProc : MonoBehaviour
                             {
                                 if (1 == selectRoles.Count)
                                 {
-                                    settleResult[selectRoles[0] - 1].money += money;
-                                    settleResult[selectRoles[0] - 1].reputation += reputation;
+                                    SettleMoney(money, selectRoles[0], 1);
+                                    SettleReputation(reputation, selectRoles[0], 1);
                                 }
                                 else if (2 == selectRoles.Count)
                                 {
@@ -820,23 +876,23 @@ public class PlayerDataProc : MonoBehaviour
                                         {
                                             if (roleID == key1)     // 对的人80%
                                             {
-                                                settleResult[roleID - 1].money += (int)(money * 0.8);
-                                                settleResult[roleID - 1].reputation += (int)(reputation * 0.8);
+                                                SettleMoney(money, roleID, 0.8);
+                                                SettleReputation(reputation, roleID, 0.8);
                                             }
                                             else  // 错的人20%
                                             {
-                                                settleResult[roleID - 1].money += (int)(money * 0.2);
-                                                settleResult[roleID - 1].reputation += (int)(reputation * 0.2);
+                                                SettleMoney(money, roleID, 0.2);
+                                                SettleReputation(reputation, roleID, 0.2);
                                             }
                                         }
                                     }
                                     else
                                     {
-                                        settleResult[selectRoles[0] - 1].money += (int)(money * 0.7);
-                                        settleResult[selectRoles[1] - 1].money += (int)(money * 0.7);
+                                        SettleMoney(money, selectRoles[0], 0.7);
+                                        SettleReputation(reputation, selectRoles[0], 0.7);
 
-                                        settleResult[selectRoles[0] - 1].reputation += (int)(reputation * 0.7);
-                                        settleResult[selectRoles[1] - 1].reputation += (int)(reputation * 0.7);
+                                        SettleMoney(money, selectRoles[1], 0.7);
+                                        SettleReputation(reputation, selectRoles[1], 0.7);
                                     }
                                 }
                             }
@@ -844,16 +900,16 @@ public class PlayerDataProc : MonoBehaviour
                             {
                                 if (1 == selectRoles.Count)
                                 {
-                                    settleResult[selectRoles[0] - 1].money += money;
-                                    settleResult[selectRoles[0] - 1].reputation += reputation;
+                                    SettleMoney(money, selectRoles[0], 1);
+                                    SettleReputation(reputation, selectRoles[0], 1);
                                 }
                                 else if (2 == selectRoles.Count)
                                 {
-                                    settleResult[selectRoles[0] - 1].money += (int)(money * 0.7);
-                                    settleResult[selectRoles[1] - 1].money += (int)(money * 0.7);
+                                    SettleMoney(money, selectRoles[0], 0.7);
+                                    SettleReputation(reputation, selectRoles[0], 0.7);
 
-                                    settleResult[selectRoles[0] - 1].reputation += (int)(reputation * 0.7);
-                                    settleResult[selectRoles[1] - 1].reputation += (int)(reputation * 0.7);
+                                    SettleMoney(money, selectRoles[1], 0.7);
+                                    SettleReputation(reputation, selectRoles[1], 0.7);
                                 }
                             }
                         }
@@ -870,31 +926,31 @@ public class PlayerDataProc : MonoBehaviour
 
                         if (1 == selectRoles.Count)
                         {
-                            settleResult[selectRoles[0] - 1].money += money;
-                            settleResult[selectRoles[0] - 1].reputation += reputation;
+                            SettleMoney(money, selectRoles[0], 1);
+                            SettleReputation(reputation, selectRoles[0], 1);
                         }
                         else if (2 == selectRoles.Count)
                         {
                             if (money > 0)
                             {
-                                settleResult[selectRoles[0] - 1].money += (int)(money * 0.4);
-                                settleResult[selectRoles[1] - 1].money += (int)(money * 0.4);
+                                SettleMoney(money, selectRoles[0], 0.4);
+                                SettleMoney(money, selectRoles[1], 0.4);
                             }
                             else
                             {
-                                settleResult[selectRoles[0] - 1].money += (int)(money * 0.7);
-                                settleResult[selectRoles[1] - 1].money += (int)(money * 0.7);
+                                SettleMoney(money, selectRoles[0], 0.7);
+                                SettleMoney(money, selectRoles[1], 0.7);
                             }
 
                             if (reputation > 0)
                             {
-                                settleResult[selectRoles[0] - 1].reputation += (int)(reputation * 0.4);
-                                settleResult[selectRoles[1] - 1].reputation += (int)(reputation * 0.4);
+                                SettleReputation(reputation, selectRoles[0], 0.4);
+                                SettleReputation(reputation, selectRoles[1], 0.4);
                             }
                             else
                             {
-                                settleResult[selectRoles[0] - 1].reputation += (int)(reputation * 0.7);
-                                settleResult[selectRoles[1] - 1].reputation += (int)(reputation * 0.7);
+                                SettleReputation(reputation, selectRoles[0], 0.7);
+                                SettleReputation(reputation, selectRoles[1], 0.7);
                             }
                         }
                         
@@ -903,11 +959,11 @@ public class PlayerDataProc : MonoBehaviour
                     // 结算teamwork
                     if (2 == selectRoles.Count)
                     {
-                        teamworkValue += (teamWork + Random.Range(2, 5));
+                        SettleTeamwork(teamWork + Random.Range(2, 5), 1);
                     }
                     else
                     {
-                        teamworkValue += teamWork;
+                        SettleTeamwork(teamWork, 1);
                     }
                                         
                     break;
