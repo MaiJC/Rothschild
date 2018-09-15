@@ -1032,9 +1032,6 @@ public class PlayerDataProc : MonoBehaviour
 
             }
         }
-<<<<<<< HEAD
-        settleResult[0].money = 0;
-        return settleResult;
     }
 
     public int Login(ref PlayerData playerInfo)
