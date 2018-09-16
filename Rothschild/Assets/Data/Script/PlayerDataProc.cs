@@ -490,11 +490,11 @@ public class PlayerDataProc : MonoBehaviour
         if (money > 1000 || money < -1000)
         {
             float addMoney = (money / 10000) * settleResult[roleID - 1].money;
-            settleResult[roleID - 1].money += (int)(addMoney);
+            settleResult[roleID - 1].money += (int)(System.Math.Ceiling(addMoney));
         }
         else
         {
-            settleResult[roleID - 1].money += (int)(money * multi);
+            settleResult[roleID - 1].money += (int)(System.Math.Ceiling(money * multi));
         }
     }
 
@@ -509,11 +509,11 @@ public class PlayerDataProc : MonoBehaviour
         if (reputation > 1000 || reputation < -1000)
         {
             float addReputation = (reputation / 10000) * settleResult[roleID - 1].reputation;
-            settleResult[roleID - 1].reputation += (int)(addReputation);
+            settleResult[roleID - 1].reputation += (int)(System.Math.Ceiling(addReputation));
         }
         else
         {
-            settleResult[roleID - 1].reputation += (int)(reputation * multi);
+            settleResult[roleID - 1].reputation += (int)(System.Math.Ceiling(reputation * multi));
         }
     }
 
@@ -522,12 +522,11 @@ public class PlayerDataProc : MonoBehaviour
         if (teamwork > 1000 || teamwork < -1000)
         {
             float addTeamwork = (teamwork / 10000) * teamworkValue;
-            teamworkValue += (int)(addTeamwork);
+            teamworkValue += (int)(System.Math.Ceiling(addTeamwork));
         }
         else
         {
-            teamworkValue += (int)(teamwork * multi);
-
+            teamworkValue += (int)(System.Math.Ceiling(teamwork * multi));
         }
 
         int minMoney = settleResult[0].money;
