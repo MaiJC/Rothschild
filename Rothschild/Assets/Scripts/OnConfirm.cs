@@ -14,6 +14,7 @@ public class OnConfirm : EventTrigger
     private ColorState colorState;
     private int choiceType;
     private Image teamWorkBar;
+    private OnEvent onEvent;
 
     // Use this for initialization
     void Start()
@@ -29,6 +30,7 @@ public class OnConfirm : EventTrigger
         teamWorkBar = GameObject.Find("Fill").GetComponent<Image>();
         float teamworkPercent = (float)playerDataProc.GetTeamworkValue() / 200.0f;
         teamWorkBar.transform.localScale = new Vector3(teamworkPercent, 1.0f, 1.0f);
+        onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
 
         choiceID = this.tag == "ChoiceOne" ? 1 : 2;
     }
@@ -57,16 +59,19 @@ public class OnConfirm : EventTrigger
         int choice = tag == "ChoiceOne" ? 1 : 2;
 
         PrcData();
+        //获得下一关
         levelManager.Confirm(choice, selectRole);
         foreach (OnPerson personTmp in onPerson)
         {
             personTmp.Clear();
         }
+        levelManager.HandleDead();
+        RefreshTeamwork();
     }
 
     void PrcData()
     {
-        int eventID = this.transform.parent.gameObject.GetComponent<OnEvent>().GetEventID();
+        int eventID = onEvent.GetEventID();
         List<int> selectPerson = new List<int>();
 
         for (int i = 0; i < onPerson.Count; i++)
@@ -83,6 +88,11 @@ public class OnConfirm : EventTrigger
             onPerson[i].SetWealth(playerAttrs[i].money);
         }
 
+        RefreshTeamwork();
+    }
+
+    private void RefreshTeamwork()
+    {
         int teamWork = playerDataProc.GetTeamworkValue();
         float teamWorkPercent = (float)teamWork / 200.0f;
         teamWorkBar.transform.localScale = new Vector3(teamWorkPercent, 1, 1);
