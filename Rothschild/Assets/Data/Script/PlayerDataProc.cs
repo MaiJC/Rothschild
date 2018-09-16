@@ -266,6 +266,7 @@ public class PlayerDataProc : MonoBehaviour
             print("roleID: " + (i+1) + ", money: " + playerAttrs[i].money + ", reputation: " + playerAttrs[i].reputation);
         }
 
+        //playerAttrs[0].money = 0;
         return playerAttrs;
     }
 

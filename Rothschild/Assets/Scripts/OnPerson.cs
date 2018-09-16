@@ -28,6 +28,8 @@ public class OnPerson : EventTrigger
 
     private GameObject frame;
 
+    private List<double> monkeyInput = new List<double>();
+
 
     // Use this for initialization
     void Start()
@@ -63,6 +65,22 @@ public class OnPerson : EventTrigger
             hasInitalize = true;
             StartFrame();
             DeactiveFrame();
+        }
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < monkeyInput.Count; i++)
+        {
+            if (Time.time - monkeyInput[i] > 2)
+            {
+                monkeyInput.RemoveAt(i);
+                i--;
+            }
+        }
+        if (monkeyInput.Count > 12)
+        {
+            transform.GetChild(0).gameObject.GetComponent<Image>().overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
         }
     }
 
@@ -102,19 +120,20 @@ public class OnPerson : EventTrigger
             DeactiveFrame();
             isSelected = false;
         }
+        monkeyInput.Add(Time.time);
 
     }
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        if (isSelected)
-        {
-            //targetGraphic.color = colorState.selectColor;
-        }
-        else
-        {
-            //targetGraphic.color = colorState.personNormalColor;
-        }
+        //if (isSelected)
+        //{
+        //    //targetGraphic.color = colorState.selectColor;
+        //}
+        //else
+        //{
+        //    //targetGraphic.color = colorState.personNormalColor;
+        //}
     }
 
     public bool IsSelected()
@@ -173,7 +192,7 @@ public class OnPerson : EventTrigger
 
     private void SetDead()
     {
-        //targetGraphic.color = colorState.deadColor;
+        targetGraphic.color = colorState.deadColor;
         this.isSelected = false;
         this.enabled = false;
     }
