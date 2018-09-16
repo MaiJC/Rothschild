@@ -93,7 +93,7 @@ public class OnPerson : EventTrigger
         }
         else
         {
-            levelManager.RemoveSelect();
+            levelManager.RemoveSelect(this.tag);
             isSelected = false;
         }
 

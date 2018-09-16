@@ -2566,7 +2566,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1032218691496716, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc, type: 2}
       propertyPath: m_TagString
-      value: PersonFour
+      value: PersonThree
       objectReference: {fileID: 0}
     - target: {fileID: 114837774464219698, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
         type: 2}
