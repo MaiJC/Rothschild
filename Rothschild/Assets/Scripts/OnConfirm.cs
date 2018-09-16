@@ -99,7 +99,7 @@ public class OnConfirm : EventTrigger
                 selectPerson.Add(i + 1);
         }
 
-        PlayerAttr[] playerAttrs = playerDataProc.SettlePlayer(eventID, choiceID, selectPerson);
+        PlayerAttr[] playerAttrs = playerDataProc.SettlePlayer(eventID, choiceID, choiceID, selectPerson);
 
         for (int i = 0; i < 4; i++)
         {

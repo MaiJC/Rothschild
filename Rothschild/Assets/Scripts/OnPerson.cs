@@ -30,7 +30,6 @@ public class OnPerson : EventTrigger
     // Use this for initialization
     void Start()
     {
-
         //targetGraphic = this.GetComponent<Button>().targetGraphic;
         ////colorState = this.GetComponent<ColorState>();
         //colorState = GameObject.Find("ColorState").GetComponent<ColorState>();

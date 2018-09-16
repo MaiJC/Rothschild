@@ -41,6 +41,7 @@ public class LevelManager : MonoBehaviour
     private int handleDeadRemains = 0;
     private int currentHanlingDeadPerson = 0;
     private bool hasInitialize = false;
+    private int choiceTypeOne, choiceTypeTwo;
     private struct ZTPreStoryCondition
     {
         public int storyID;
@@ -67,6 +68,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        gameObject.SetActive(true);
         if (hasInitialize == false && Time.fixedTime > 2)
         {
             Initialize();
@@ -343,7 +345,11 @@ public class LevelManager : MonoBehaviour
             {
                 if (person[i].IsSelected()) roles.Add(i + 1);
             }
-            currentEventID = loadRes.GetNextStoryEvent(currentStoryID, fatherEventID, lastChoice, roles);
+            if (lastChoice == 2)
+            {
+                choiceTypeOne = choiceTypeTwo;
+            }
+            currentEventID = loadRes.GetNextStoryEvent(currentStoryID, fatherEventID, lastChoice, choiceTypeOne, roles);
 
             //单条故事线结束，判断是否跳跳跳，以决定是否退出
             if (currentEventID == 0)
@@ -533,7 +539,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            int choiceTypeOne, choiceTypeTwo;
+            //int choiceTypeOne, choiceTypeTwo;
             choiceTypeOne = loadRes.GetChoiceType(currentEventID, 1);
             choiceTypeTwo = loadRes.GetChoiceType(currentEventID, 2);
             onEvent.SetEventText(loadRes.GetEventText(currentEventID));
@@ -593,12 +599,13 @@ public class LevelManager : MonoBehaviour
                 //GameObject.Find("DeadInterface").SetActive(true);
                 deadInterface.SetActive(true);
                 currentHanlingDeadPerson = i + 1;
+                handleDeadRemains = newDeadPerson;
+                currentMaxSelectedPersonCountCopy = currentMaxSelectedPersonCount;
+                currentMaxSelectedPersonCount = 1;
                 break;
             }
+
         }
-        handleDeadRemains = newDeadPerson;
-        currentMaxSelectedPersonCountCopy = currentMaxSelectedPersonCount;
-        currentMaxSelectedPersonCount = 1;
     }
 
     private void DeadConfirm(int role, int choice)
