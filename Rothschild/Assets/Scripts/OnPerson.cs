@@ -24,28 +24,43 @@ public class OnPerson : EventTrigger
     //是否死亡
     private bool isDead = false;
 
+    private bool hasInitalize = false;
+
 
     // Use this for initialization
     void Start()
     {
-        //this.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
 
-        targetGraphic = this.GetComponent<Button>().targetGraphic;
-        //colorState = this.GetComponent<ColorState>();
-        colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
+        //targetGraphic = this.GetComponent<Button>().targetGraphic;
+        ////colorState = this.GetComponent<ColorState>();
+        //colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
 
-        targetGraphic.color = colorState.personNormalColor;
+        //targetGraphic.color = colorState.personNormalColor;
 
-        levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
-        avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
-        wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
-        reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
+        //levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+        //avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
+        //wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
+        //reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (hasInitalize == false && Time.fixedTime > 2)
+        {
+            targetGraphic = this.GetComponent<Button>().targetGraphic;
+            //colorState = this.GetComponent<ColorState>();
+            colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
 
+            targetGraphic.color = colorState.personNormalColor;
+
+            levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+            avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
+            wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
+            reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
+
+            hasInitalize = true;
+        }
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
@@ -127,7 +142,7 @@ public class OnPerson : EventTrigger
         isDead = (wealthNum <= 0 || wealthNum >= 100);
         wealthNum = Mathf.Clamp(wealthNum, 0, 100);
         wealthText.text = wealthNum.ToString() + "/100";
-        if(isDead)
+        if (isDead)
             SetDead();
 
         return isDead;

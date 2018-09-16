@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
     private bool[] hasDead = new bool[4];
     private int handleDeadRemains = 0;
     private int currentHanlingDeadPerson = 0;
+    private bool hasInitialize = false;
     private struct ZTPreStoryCondition
     {
         public int storyID;
@@ -57,16 +58,23 @@ public class LevelManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Initialize();
-        InitializeMonkey();
-        NextLevel();
-        NextEvent();
+        //Initialize();
+        //InitializeMonkey();
+        //NextLevel();
+        //NextEvent();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
+        if (hasInitialize == false && Time.fixedTime > 2)
+        {
+            Initialize();
+            InitializeMonkey();
+            NextLevel();
+            NextEvent();
+            hasInitialize = true;
+        }
     }
 
     public void Confirm(int choice, List<bool> role)
