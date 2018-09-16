@@ -30,56 +30,24 @@ public class LoadRes : MonoBehaviour {
             TextAsset eventTextAsset = Resources.Load("event") as TextAsset;
             XmlDocument eventDoc = new XmlDocument();
             eventDoc.LoadXml(eventTextAsset.text);
-
-            //string eventPath = Application.persistentDataPath + "/Resources/event.xml";
-
-            //string eventPath = Application.dataPath + "/StreamingAssets" + "/event.xml";
-            //XmlDocument eventDoc = new XmlDocument();
-            //eventDoc.Load(eventPath);
-            //eventRootNode = eventDoc.SelectSingleNode("TEventTable_Tab");
-            //TextAsset eventPath = (TextAsset)Resources.Load("event");
-            //XmlDocument eventDoc = new XmlDocument();
-            //eventDoc.LoadXml(eventPath.text);
             eventRootNode = eventDoc.SelectSingleNode("TEventTable_Tab");
 
             // 加载UI资源表
-
             TextAsset uiResTextAsset = Resources.Load("ui_res") as TextAsset;
             XmlDocument uiResDoc = new XmlDocument();
             uiResDoc.LoadXml(uiResTextAsset.text);
-            //string uiResPath = Application.persistentDataPath + "/Resources/ui_res.xml";
-            //string uiResPath = Application.dataPath + "/StreamingAssets" + "/ui_res.xml";
-            //XmlDocument uiResDoc = new XmlDocument();
-            //uiResDoc.Load(uiResPath);
-            //TextAsset uiResPath = (TextAsset)Resources.Load("ui_res");
-            //XmlDocument uiResDoc = new XmlDocument();
-            //uiResDoc.LoadXml(eventPath.text);
             uiResRootNode = uiResDoc.SelectSingleNode("TUIResTable_Tab");
 
             // 加载故事事件表
             TextAsset storyEventTextAsset = Resources.Load("story_event") as TextAsset;
             XmlDocument storyEventDoc = new XmlDocument();
             storyEventDoc.LoadXml(storyEventTextAsset.text);
-            //string storyEventPath = Application.persistentDataPath + "/Resources/story_event.xml";
-            //string storyEventPath = Application.dataPath + "/StreamingAssets" + "/story_event.xml";
-            //XmlDocument storyEventDoc = new XmlDocument();
-            //storyEventDoc.Load(storyEventPath);
-            //TextAsset storyEventPath = (TextAsset)Resources.Load("story_event");
-            //XmlDocument storyEventDoc = new XmlDocument();
-            //storyEventDoc.LoadXml(eventPath.text);
             storyEventRootNode = storyEventDoc.SelectSingleNode("TStoryEventTable_Tab");
 
             // 加载道具表
             TextAsset itemTextAsset = Resources.Load("item") as TextAsset;
             XmlDocument itemDoc = new XmlDocument();
             itemDoc.LoadXml(itemTextAsset.text);
-            //string itemPath = Application.persistentDataPath + "/Resources/item.xml";
-            //string itemPath = Application.dataPath + "/StreamingAssets" + "/item.xml";
-            //XmlDocument itemDoc = new XmlDocument();
-            //itemDoc.Load(itemPath);
-            //TextAsset itemPath = (TextAsset)Resources.Load("story_event");
-            //XmlDocument itemDoc = new XmlDocument();
-            //itemDoc.LoadXml(eventPath.text);
             itemRootNode = itemDoc.SelectSingleNode("TItemTable_Tab");
         }
         //else
@@ -464,6 +432,47 @@ public class LoadRes : MonoBehaviour {
             print("!!!!!!!!!!!!GetEventText Error!!!!, eventID : " + eventID);
         }
         return textList;
+    }
+
+    public string GetEventDesc(int eventID)
+    {
+        string descText = "";
+        foreach (XmlElement item in uiResRootNode)
+        {
+            int id = int.Parse(item.ChildNodes[0].InnerText);
+            if (id == eventID)
+            {
+                descText = item.ChildNodes[2].InnerText;
+                break;
+            }
+        }
+        return descText;
+    }
+
+    public string GetEventChoiceText(int eventID, int choice)
+    {
+        string choiceText = "";
+        foreach (XmlElement item in uiResRootNode)
+        {
+            int id = int.Parse(item.ChildNodes[0].InnerText);
+            if (id == eventID)
+            {
+                if (1 == choice)
+                {
+                    choiceText = item.ChildNodes[3].InnerText;
+                }
+                else if (2 == choice)
+                {
+                    choiceText = item.ChildNodes[4].InnerText;
+                }
+                else
+                {
+                    print("choice error!!!, choice: " + choice);
+                }
+                break;
+            }
+        }
+        return choiceText;
     }
 
     public string GetEventTitle(int eventID)
