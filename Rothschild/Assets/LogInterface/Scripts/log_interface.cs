@@ -79,10 +79,14 @@ public class log_interface : MonoBehaviour
     float event_body_prefab_height;
     float highlight_event_body_prefab_height;
     float event_body_grid_layout_panel_world_init_pos_y;
+    float event_body_grid_layout_panel_world_min_pos_y;
+    float event_body_grid_layout_panel_world_max_pos_y;
+
     float highlight_event_body_world_center_pos_y;
 
     Vector2 touch_start_pos;
-    float event_body_grid_layout_panel_world_old_pos_y;
+    float event_body_grid_layout_panel_world_target_pos_y;
+    float event_body_grid_layout_panel_adjust_rate;
     bool vertical_slide_effective;
     float canvas_width;
     float canvas_height;
@@ -221,18 +225,6 @@ public class log_interface : MonoBehaviour
             event_information_list.Add(new EventInformation(event_log.eventTitle, event_log.eventDesc, event_log.eventChoice));
         }
 
-        //后端读取
-        //event_information_list.Add(new EventInformation("a01事件", "acfun", "aa选择"));
-        //event_information_list.Add(new EventInformation("b02事件", "bilibili", "bb选择"));
-        //event_information_list.Add(new EventInformation("c03事件", "cctv", "cc选择"));
-        //event_information_list.Add(new EventInformation("d04事件", "dog", "dd选择"));
-        //event_information_list.Add(new EventInformation("e05事件", "egg", "ee选择"));
-        //event_information_list.Add(new EventInformation("f06事件", "f♂u♂c♂k", "ff选择"));
-        //event_information_list.Add(new EventInformation("g07事件", "girl", "gg选择"));
-        //event_information_list.Add(new EventInformation("h08事件", "hiphop", "hh选择"));
-        //event_information_list.Add(new EventInformation("i09事件", "innovation", "ii选择"));
-        //event_information_list.Add(new EventInformation("j10事件", "juice", "jj选择"));
-
         //一头一尾空白event
         event_information_list.Add(new EventInformation("", "", ""));
 
@@ -261,6 +253,8 @@ public class log_interface : MonoBehaviour
 
         var event_body_grid_layout_panel_height = event_information_list.Count * event_body_prefab_height;
         var highlight_event_body_grid_layout_panel_height = event_information_list.Count * highlight_event_body_prefab_height;
+
+        event_body_grid_layout_panel_world_max_pos_y = event_body_grid_layout_panel_world_min_pos_y + (event_information_list.Count - 3) * event_body_prefab_height;
 
         //设置height
         event_body_grid_layout_panel_recttransform.sizeDelta = new Vector2(event_body_grid_layout_panel_recttransform.sizeDelta.x, event_body_grid_layout_panel_height);
@@ -293,6 +287,26 @@ public class log_interface : MonoBehaviour
         }
     }
 
+    //用于update
+    void update_event_body()
+    {
+        float event_body_grid_layout_panel_world_next_pos_y;
+
+        if (Math.Abs(event_body_grid_layout_panel_recttransform.position.y - event_body_grid_layout_panel_world_target_pos_y) < event_body_grid_layout_panel_adjust_rate)
+        {
+            event_body_grid_layout_panel_world_next_pos_y = event_body_grid_layout_panel_world_target_pos_y;
+        }
+        else if (event_body_grid_layout_panel_recttransform.position.y < event_body_grid_layout_panel_world_target_pos_y)
+        {
+            event_body_grid_layout_panel_world_next_pos_y = event_body_grid_layout_panel_recttransform.position.y + event_body_grid_layout_panel_adjust_rate;
+        }
+        else
+        {
+            event_body_grid_layout_panel_world_next_pos_y = event_body_grid_layout_panel_recttransform.position.y - event_body_grid_layout_panel_adjust_rate;
+        }
+
+        event_body_grid_layout_panel_recttransform.position = new Vector3(event_body_grid_layout_panel_recttransform.position.x, event_body_grid_layout_panel_world_next_pos_y, event_body_grid_layout_panel_recttransform.position.z);
+    }
 
     //用于update
     void update_highlight_event_body()
@@ -387,6 +401,9 @@ public class log_interface : MonoBehaviour
         event_body_prefab_obj.GetComponent<RectTransform>().sizeDelta = new Vector2(event_body_prefab_obj.GetComponent<RectTransform>().sizeDelta.x, event_body_prefab_height);
         event_below_height = event_obj.GetComponent<RectTransform>().position.y; //110
         event_body_grid_layout_panel_world_init_pos_y = event_body_obj.GetComponent<RectTransform>().position.y; //1430
+        event_body_grid_layout_panel_world_min_pos_y = event_body_grid_layout_panel_world_init_pos_y; //1430
+        event_body_grid_layout_panel_world_target_pos_y = event_body_grid_layout_panel_world_init_pos_y; //1430
+        event_body_grid_layout_panel_adjust_rate = 10; //玄学调参
 
         highlight_event_body_obj = GameObject.Find("highlight_event_body");
         highlight_event_body_prefab_obj = GameObject.Find("highlight_event_body_prefab");
@@ -395,6 +412,7 @@ public class log_interface : MonoBehaviour
         event_name_prefab_obj = GameObject.Find("event_name_prefab");
         highlight_event_body_grid_layout_panel_recttransform = highlight_event_body_grid_layout_panel_obj.GetComponent<RectTransform>();
         highlight_event_body_prefab_height = highlight_event_body_prefab_obj.GetComponent<RectTransform>().sizeDelta.y; //622
+
 
         horizontal_slide_range_lower_limit = (canvas_width - event_width) / 2; //25
         horizontal_slide_range_upper_limit = (canvas_width + event_width) / 2; //1055
@@ -420,41 +438,6 @@ public class log_interface : MonoBehaviour
         center_event_world_y_range_upper_limit = highlight_event_body_world_center_pos_y + event_body_prefab_height / 2; //990
         center_event_world_y_range_lower_limit = highlight_event_body_world_center_pos_y - event_body_prefab_height / 2; //550
 
-        //Debug.Log(canvas_width);
-        //Debug.Log(canvas_height);
-        //Debug.Log(event_width);
-        //Debug.Log(event_height);
-        //Debug.Log(event_body_height);
-        //Debug.Log(event_body_prefab_height);
-        //Debug.Log(event_below_height);
-        //Debug.Log(event_body_grid_layout_panel_world_init_pos_y);
-
-        //Debug.Log(highlight_event_body_prefab_height);
-
-        //Debug.Log(horizontal_slide_range_lower_limit);
-        //Debug.Log(horizontal_slide_range_upper_limit);
-        //Debug.Log(vertical_slide_range_lower_limit);
-        //Debug.Log(vertical_slide_range_upper_limit);
-        //Debug.Log(horizontal_slide_threshold);
-        //Debug.Log(vertical_slide_threshold);
-        //Debug.Log(highlight_event_body_world_center_pos_y);
-
-
-        //Debug.Log(event_name_background_image_width);
-        //Debug.Log(event_name_background_image_height);
-        //Debug.Log(event_name_prefab_width);
-        //Debug.Log(event_name_prefab_height);
-
-        //Debug.Log("圆的中心,半径,y上下界(世界坐标):");
-        //Debug.Log(circle_world_center_pos_x);
-        //Debug.Log(circle_world_center_pos_y);
-        //Debug.Log(circle_radius);
-        //Debug.Log(circle_world_y_upper_limit);
-        //Debug.Log(circle_world_y_lower_limit);
-
-        //Debug.Log(center_event_world_y_range_upper_limit);
-        //Debug.Log(center_event_world_y_range_lower_limit);
-
         //enter_log_interface_button_obj.GetComponent<Button>().onClick.AddListener(enter_log_interface_click);
         exit_log_interface_button_obj.GetComponent<Button>().onClick.AddListener(exit_log_interface_click);
 
@@ -468,7 +451,7 @@ public class log_interface : MonoBehaviour
             touch_start_pos = Event.current.mousePosition;
 
             //event_body_grid_layout_panel在触摸开始时的pivot世界坐标，用于确定event_body的展示情况
-            event_body_grid_layout_panel_world_old_pos_y = event_body_grid_layout_panel_recttransform.position.y;
+            //event_body_grid_layout_panel_world_old_pos_y = event_body_grid_layout_panel_recttransform.position.y;
 
             //通过起始触摸坐标判定垂直滑动是否有效（x向右递增，y向下递增）
             var horizontal_criterion = horizontal_slide_range_lower_limit <= touch_start_pos.x && touch_start_pos.x <= horizontal_slide_range_upper_limit;
@@ -520,31 +503,28 @@ public class log_interface : MonoBehaviour
             {
                 vertical_slide_count++;
 
-                float event_body_grid_layout_panel_world_new_pos_y;
-
                 Debug.Log("垂直滑动有效");
-                //向上
                 if (touch_end_pos.y < touch_start_pos.y)
                 {
                     Debug.Log("向上滑");
-                    event_body_grid_layout_panel_world_new_pos_y = event_body_grid_layout_panel_world_old_pos_y + event_body_prefab_height;
+                    if (event_body_grid_layout_panel_world_target_pos_y < event_body_grid_layout_panel_world_max_pos_y)
+                    {
+                        event_body_grid_layout_panel_world_target_pos_y += event_body_prefab_height;
+                    }
                 }
-                //向下
                 else
                 {
                     Debug.Log("向下滑");
-                    event_body_grid_layout_panel_world_new_pos_y = event_body_grid_layout_panel_world_old_pos_y - event_body_prefab_height;
+                    if(event_body_grid_layout_panel_world_target_pos_y > event_body_grid_layout_panel_world_min_pos_y)
+                    {
+                        event_body_grid_layout_panel_world_target_pos_y -= event_body_prefab_height;
+                    }
                 }
-
-                //将event_body列对齐float event_grid_layout_panel_world_end_pos_y;
-                event_body_grid_layout_panel_recttransform.position = new Vector3(event_body_grid_layout_panel_recttransform.position.x, event_body_grid_layout_panel_world_new_pos_y, event_body_grid_layout_panel_recttransform.position.z);
             }
 
             else
             {
                 Debug.Log("滑动无效");
-                //还原到event_body_grid_layout原来的位置
-                event_body_grid_layout_panel_recttransform.position = new Vector3(event_body_grid_layout_panel_recttransform.position.x, event_body_grid_layout_panel_world_old_pos_y, event_body_grid_layout_panel_recttransform.position.z);
             }
         }
     }
@@ -553,6 +533,7 @@ public class log_interface : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        update_event_body();
         update_highlight_event_body();
         update_event_name();
 
