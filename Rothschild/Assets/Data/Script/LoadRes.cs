@@ -23,29 +23,92 @@ public class LoadRes : MonoBehaviour {
 
     void LoadXml()
     {
-        // 加载事件表
-        string eventPath = Application.dataPath + "/Data/Xml/event.xml";
-        XmlDocument eventDoc = new XmlDocument();
-        eventDoc.Load(eventPath);
-        eventRootNode = eventDoc.SelectSingleNode("TEventTable_Tab");
+        //if(Application.platform==RuntimePlatform.Android)
 
-        // 加载UI资源表
-        string uiResPath = Application.dataPath + "/Data/Xml/ui_res.xml";
-        XmlDocument uiResDoc = new XmlDocument();
-        uiResDoc.Load(uiResPath);
-        uiResRootNode = uiResDoc.SelectSingleNode("TUIResTable_Tab");
+        {
+            // 加载事件表
+            TextAsset eventTextAsset = Resources.Load("event") as TextAsset;
+            XmlDocument eventDoc = new XmlDocument();
+            eventDoc.LoadXml(eventTextAsset.text);
 
-        // 加载故事事件表
-        string storyEventPath = Application.dataPath + "/Data/Xml/story_event.xml";
-        XmlDocument storyEventDoc = new XmlDocument();
-        storyEventDoc.Load(storyEventPath);
-        storyEventRootNode = storyEventDoc.SelectSingleNode("TStoryEventTable_Tab");
+            //string eventPath = Application.persistentDataPath + "/Resources/event.xml";
 
-        // 加载道具表
-        string itemPath = Application.dataPath + "/Data/Xml/item.xml";
-        XmlDocument itemDoc = new XmlDocument();
-        itemDoc.Load(itemPath);
-        itemRootNode = itemDoc.SelectSingleNode("TItemTable_Tab");
+            //string eventPath = Application.dataPath + "/StreamingAssets" + "/event.xml";
+            //XmlDocument eventDoc = new XmlDocument();
+            //eventDoc.Load(eventPath);
+            //eventRootNode = eventDoc.SelectSingleNode("TEventTable_Tab");
+            //TextAsset eventPath = (TextAsset)Resources.Load("event");
+            //XmlDocument eventDoc = new XmlDocument();
+            //eventDoc.LoadXml(eventPath.text);
+            eventRootNode = eventDoc.SelectSingleNode("TEventTable_Tab");
+
+            // 加载UI资源表
+
+            TextAsset uiResTextAsset = Resources.Load("ui_res") as TextAsset;
+            XmlDocument uiResDoc = new XmlDocument();
+            uiResDoc.LoadXml(uiResTextAsset.text);
+            //string uiResPath = Application.persistentDataPath + "/Resources/ui_res.xml";
+            //string uiResPath = Application.dataPath + "/StreamingAssets" + "/ui_res.xml";
+            //XmlDocument uiResDoc = new XmlDocument();
+            //uiResDoc.Load(uiResPath);
+            //TextAsset uiResPath = (TextAsset)Resources.Load("ui_res");
+            //XmlDocument uiResDoc = new XmlDocument();
+            //uiResDoc.LoadXml(eventPath.text);
+            uiResRootNode = uiResDoc.SelectSingleNode("TUIResTable_Tab");
+
+            // 加载故事事件表
+            TextAsset storyEventTextAsset = Resources.Load("story_event") as TextAsset;
+            XmlDocument storyEventDoc = new XmlDocument();
+            storyEventDoc.LoadXml(storyEventTextAsset.text);
+            //string storyEventPath = Application.persistentDataPath + "/Resources/story_event.xml";
+            //string storyEventPath = Application.dataPath + "/StreamingAssets" + "/story_event.xml";
+            //XmlDocument storyEventDoc = new XmlDocument();
+            //storyEventDoc.Load(storyEventPath);
+            //TextAsset storyEventPath = (TextAsset)Resources.Load("story_event");
+            //XmlDocument storyEventDoc = new XmlDocument();
+            //storyEventDoc.LoadXml(eventPath.text);
+            storyEventRootNode = storyEventDoc.SelectSingleNode("TStoryEventTable_Tab");
+
+            // 加载道具表
+            TextAsset itemTextAsset = Resources.Load("item") as TextAsset;
+            XmlDocument itemDoc = new XmlDocument();
+            itemDoc.LoadXml(itemTextAsset.text);
+            //string itemPath = Application.persistentDataPath + "/Resources/item.xml";
+            //string itemPath = Application.dataPath + "/StreamingAssets" + "/item.xml";
+            //XmlDocument itemDoc = new XmlDocument();
+            //itemDoc.Load(itemPath);
+            //TextAsset itemPath = (TextAsset)Resources.Load("story_event");
+            //XmlDocument itemDoc = new XmlDocument();
+            //itemDoc.LoadXml(eventPath.text);
+            itemRootNode = itemDoc.SelectSingleNode("TItemTable_Tab");
+        }
+        //else
+        //{
+        //    // 加载事件表
+        //    string eventPath = Application.dataPath + "/Data/Xml/event.xml";
+        //    XmlDocument eventDoc = new XmlDocument();
+        //    eventDoc.Load(eventPath);
+        //    eventRootNode = eventDoc.SelectSingleNode("TEventTable_Tab");
+
+        //    // 加载UI资源表
+        //    string uiResPath = Application.dataPath + "/Data/Xml/ui_res.xml";
+        //    XmlDocument uiResDoc = new XmlDocument();
+        //    uiResDoc.Load(uiResPath);
+        //    uiResRootNode = uiResDoc.SelectSingleNode("TUIResTable_Tab");
+
+        //    // 加载故事事件表
+        //    string storyEventPath = Application.dataPath + "/Data/Xml/story_event.xml";
+        //    XmlDocument storyEventDoc = new XmlDocument();
+        //    storyEventDoc.Load(storyEventPath);
+        //    storyEventRootNode = storyEventDoc.SelectSingleNode("TStoryEventTable_Tab");
+
+        //    // 加载道具表
+        //    string itemPath = Application.dataPath + "/Data/Xml/item.xml";
+        //    XmlDocument itemDoc = new XmlDocument();
+        //    itemDoc.Load(itemPath);
+        //    itemRootNode = itemDoc.SelectSingleNode("TItemTable_Tab");
+        //}
+        
     }
 
     /*******************事件表处理*********************/
