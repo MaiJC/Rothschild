@@ -108,10 +108,6 @@ public class PlayerDataProc : MonoBehaviour
     {
         bool jumpStory = false;
 
-        if (storySettleRootNode != null)
-        {
-            GameObject.Find("Log").GetComponent<Text>().text = "bbbbbbbbb";
-        }
 
         foreach (XmlElement xl1 in storySettleRootNode)
         {
@@ -1200,6 +1196,8 @@ public class PlayerDataProc : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        GameObject.Find("Log").GetComponent<Text>().text = "受到了<color=#4169E1>9399</color>的伤害\ndjaklfjal;\nfjdiajfdklas\n";
+
         for (int i = 0; i < 4; i++)
         {
             settleResult[i].money = 50;

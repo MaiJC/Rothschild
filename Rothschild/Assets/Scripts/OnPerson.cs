@@ -26,6 +26,8 @@ public class OnPerson : EventTrigger
 
     private bool hasInitalize = false;
 
+    private GameObject frame;
+
 
     // Use this for initialization
     void Start()
@@ -59,29 +61,31 @@ public class OnPerson : EventTrigger
             reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
 
             hasInitalize = true;
+            StartFrame();
+            DeactiveFrame();
         }
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
     {
-        targetGraphic.color = colorState.enterColor;
+        //targetGraphic.color = colorState.enterColor;
     }
 
     public override void OnPointerExit(PointerEventData eventData)
     {
         if (isSelected)
         {
-            targetGraphic.color = colorState.selectColor;
+            //targetGraphic.color = colorState.selectColor;
         }
         else
         {
-            targetGraphic.color = colorState.personNormalColor;
+            //targetGraphic.color = colorState.personNormalColor;
         }
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        targetGraphic.color = colorState.clickColor;
+        //targetGraphic.color = colorState.clickColor;
         //isSelected = !isSelected;
         //判断是否能够选择
         if (isSelected == false)
@@ -89,11 +93,13 @@ public class OnPerson : EventTrigger
             if (levelManager.AddSelect(this.tag))
             {
                 isSelected = true;
+                ActiveFrame();
             }
         }
         else
         {
             levelManager.RemoveSelect(this.tag);
+            DeactiveFrame();
             isSelected = false;
         }
 
@@ -103,11 +109,11 @@ public class OnPerson : EventTrigger
     {
         if (isSelected)
         {
-            targetGraphic.color = colorState.selectColor;
+            //targetGraphic.color = colorState.selectColor;
         }
         else
         {
-            targetGraphic.color = colorState.personNormalColor;
+            //targetGraphic.color = colorState.personNormalColor;
         }
     }
 
@@ -121,8 +127,9 @@ public class OnPerson : EventTrigger
         if (isDead)
             return;
         isSelected = false;
-        targetGraphic.color = colorState.personNormalColor;
+        //targetGraphic.color = colorState.personNormalColor;
         this.enabled = true;
+        DeactiveFrame();
     }
 
     public void SetAvator(string avatarName)
@@ -166,21 +173,21 @@ public class OnPerson : EventTrigger
 
     private void SetDead()
     {
-        targetGraphic.color = colorState.deadColor;
+        //targetGraphic.color = colorState.deadColor;
         this.isSelected = false;
         this.enabled = false;
     }
 
     public void SetUnselectable()
     {
-        targetGraphic.color = colorState.unselectableColor;
+        //targetGraphic.color = colorState.unselectableColor;
         this.isSelected = false;
         this.enabled = false;
     }
 
     public void SetSelected()
     {
-        targetGraphic.color = colorState.selectColor;
+        //targetGraphic.color = colorState.selectColor;
         this.isSelected = true;
         this.enabled = false;
     }
@@ -194,6 +201,35 @@ public class OnPerson : EventTrigger
     {
         isDead = false;
         this.enabled = true;
-        targetGraphic.color = colorState.personNormalColor;
+        //targetGraphic.color = colorState.personNormalColor;
+    }
+
+    private void ActiveFrame()
+    {
+        frame.SetActive(true);
+    }
+
+    private void DeactiveFrame()
+    {
+        frame.SetActive(false);
+    }
+
+    private void StartFrame()
+    {
+        switch (tag)
+        {
+            case "PersonOne":
+                frame = GameObject.Find("SelectA");
+                break;
+            case "PersonTwo":
+                frame = GameObject.Find("SelectB");
+                break;
+            case "PersonThree":
+                frame = GameObject.Find("SelectC");
+                break;
+            case "PersonFour":
+                frame = GameObject.Find("SelectD");
+                break;
+        }
     }
 }
