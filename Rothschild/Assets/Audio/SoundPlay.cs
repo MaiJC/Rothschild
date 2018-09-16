@@ -13,8 +13,9 @@ public class SoundPlay : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        chick();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
