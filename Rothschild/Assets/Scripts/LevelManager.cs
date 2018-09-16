@@ -50,6 +50,7 @@ public class LevelManager : MonoBehaviour
     };
     private Dictionary<int, ZTPreStoryCondition> ZTPreStory = new Dictionary<int, ZTPreStoryCondition>();
     private GameObject deadInterface;
+    private List<int> selectedPerson = new List<int>();
 
     /*this is just use for monkeys*/
     private List<string> cardPath = new List<string>();
@@ -302,20 +303,52 @@ public class LevelManager : MonoBehaviour
         }
 
         onEvent.SetSelectable();
-        if (currentSelectedCount == currentMaxSelectedPersonCount)
+        if (currentSelectedCount >= currentMaxSelectedPersonCount)
         {
-            return false;
+            if (currentMaxSelectedPersonCount == 0)
+                return false;
+            person[selectedPerson[0] - 1].Clear();
+            selectedPerson.RemoveAt(0);
+            selectedPerson.Add(selectPerson);
+            return true;
         }
         else
         {
             /*TODO: 增加如果选择数已达上限，则将未选择人物变灰的功能*/
-            currentSelectedCount++;
+            if (currentSelectedCount < currentMaxSelectedChooiceCount)
+                currentSelectedCount++;
+            selectedPerson.Add(selectPerson);
             return true;
         }
     }
 
-    public void RemoveSelect()
+    public void RemoveSelect(string personTag)
     {
+        int selectPerson = 0;
+        switch (personTag)
+        {
+            case "PersonOne":
+                selectPerson = 1;
+                break;
+            case "PersonTwo":
+                selectPerson = 2;
+                break;
+            case "PersonThree":
+                selectPerson = 3;
+                break;
+            case "PersonFour":
+                selectPerson = 4;
+                break;
+        }
+        for (int i = 0; i < selectedPerson.Count; i++)
+        {
+            if (selectedPerson[i] == selectPerson)
+            {
+                selectedPerson.RemoveAt(i);
+                break;
+            }
+        }
+
         /*TODO: 增加如果原本选择数满上线，则将灰色的卡恢复彩色的功能*/
         currentSelectedCount--;
         if (currentSelectedCount == 0)
@@ -328,7 +361,7 @@ public class LevelManager : MonoBehaviour
     void NextEvent()
     {
         /*TODO: 增加是否为下一关的判断*/
-
+        selectedPerson.Clear();
         currentRound++;
 
         if (isInStory || isInJumpStory)
