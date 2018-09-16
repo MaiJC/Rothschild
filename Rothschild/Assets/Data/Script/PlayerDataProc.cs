@@ -68,7 +68,7 @@ public class PlayerDataProc : MonoBehaviour
 
     void LoadXml()
     {
-        
+
 
         // 加载特殊事件表
         TextAsset specialEventTextAsset = Resources.Load("special_event") as TextAsset;
@@ -87,13 +87,13 @@ public class PlayerDataProc : MonoBehaviour
         XmlDocument eventDoc = new XmlDocument();
         eventDoc.LoadXml(eventTextAsset.text);
         eventRootNode = eventDoc.SelectSingleNode("TEventTable_Tab");
-        
-     /*   // 加载玩家数据表
-        TextAsset playerDBTextAsset = Resources.Load("palyerDB") as TextAsset;
-        XmlDocument playerDBDoc = new XmlDocument();
-        playerDBDoc.LoadXml(playerDBTextAsset.text);
-        playerDBRootNode = playerDBDoc.SelectSingleNode("Players");*/
-         
+
+        /*   // 加载玩家数据表
+           TextAsset playerDBTextAsset = Resources.Load("palyerDB") as TextAsset;
+           XmlDocument playerDBDoc = new XmlDocument();
+           playerDBDoc.LoadXml(playerDBTextAsset.text);
+           playerDBRootNode = playerDBDoc.SelectSingleNode("Players");*/
+
     }
 
 
@@ -166,7 +166,7 @@ public class PlayerDataProc : MonoBehaviour
                 return true;
             }
         }
-        
+
         return false;
     }
 
@@ -226,7 +226,7 @@ public class PlayerDataProc : MonoBehaviour
                 xml.AppendChild(root);
                 //最后保存文件
                 xml.Save(path);*/
-         
+
         }
         return 0;
     }
@@ -240,7 +240,7 @@ public class PlayerDataProc : MonoBehaviour
             playerAttrs[i].money = settleResult[i].money;
             playerAttrs[i].reputation = settleResult[i].reputation;
 
-            print("roleID: " + (i+1) + ", money: " + playerAttrs[i].money + ", reputation: " + playerAttrs[i].reputation);
+            print("roleID: " + (i + 1) + ", money: " + playerAttrs[i].money + ", reputation: " + playerAttrs[i].reputation);
         }
 
         //playerAttrs[0].money = 0;
@@ -254,13 +254,14 @@ public class PlayerDataProc : MonoBehaviour
             if (1 == settleResult[saveRoleID - 1].money)
             {
                 settleResult[saveRoleID - 1].money = 1;
-                settleResult[deathRoleID - 1].money = 1;          }
+                settleResult[deathRoleID - 1].money = 1;
+            }
             else
             {
                 settleResult[saveRoleID - 1].money = settleResult[saveRoleID - 1].money / 2;
                 settleResult[deathRoleID - 1].money = settleResult[saveRoleID - 1].money;
             }
-            
+
         }
 
         if (settleResult[deathRoleID - 1].reputation <= 0)
@@ -313,90 +314,90 @@ public class PlayerDataProc : MonoBehaviour
 
     public List<EventLog> GetEventLog(string name)
     {
-    //    string path = Application.dataPath + playerDBPath;
+        //    string path = Application.dataPath + playerDBPath;
 
         List<EventLog> eventList = new List<EventLog>();
-    /*    EventLog eventLogResult = new EventLog();
-        string eventStr = "";
+        /*    EventLog eventLogResult = new EventLog();
+            string eventStr = "";
 
-        if (File.Exists(path))
-        {
-            XmlDocument xml = new XmlDocument();
-            xml.Load(path);
-            XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
-            foreach (XmlElement xl1 in xmlNodeList)
+            if (File.Exists(path))
             {
-                if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
+                XmlDocument xml = new XmlDocument();
+                xml.Load(path);
+                XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
+                foreach (XmlElement xl1 in xmlNodeList)
                 {
-                    eventStr = xl1.ChildNodes[7].InnerText;
-                    break;
-                }
-            }
-        }
-        print(eventStr);
-
-        if (eventStr.CompareTo("") != 0)
-        {
-            string[] sEvent = eventStr.Split(',');
-            foreach (string eventLog in sEvent)
-            {
-                print(eventLog);
-                if (eventLog.CompareTo("") != 0)
-                {
-                    string[] sEventlog = eventLog.Split('/');
-
-                    int flag = 0;
-                    foreach (string eventLogItem in sEventlog)
+                    if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
                     {
-                        if (0 == flag)
-                            eventLogResult.roleID = int.Parse(eventLogItem);
-                        else if (1 == flag)
-                            eventLogResult.eventID = int.Parse(eventLogItem);
-                        else if (2 == flag)
-                            eventLogResult.choice = int.Parse(eventLogItem);
-
-                        flag++;
+                        eventStr = xl1.ChildNodes[7].InnerText;
+                        break;
                     }
-
-                    eventList.Add(eventLogResult);
                 }
             }
-        }
-        */
+            print(eventStr);
+
+            if (eventStr.CompareTo("") != 0)
+            {
+                string[] sEvent = eventStr.Split(',');
+                foreach (string eventLog in sEvent)
+                {
+                    print(eventLog);
+                    if (eventLog.CompareTo("") != 0)
+                    {
+                        string[] sEventlog = eventLog.Split('/');
+
+                        int flag = 0;
+                        foreach (string eventLogItem in sEventlog)
+                        {
+                            if (0 == flag)
+                                eventLogResult.roleID = int.Parse(eventLogItem);
+                            else if (1 == flag)
+                                eventLogResult.eventID = int.Parse(eventLogItem);
+                            else if (2 == flag)
+                                eventLogResult.choice = int.Parse(eventLogItem);
+
+                            flag++;
+                        }
+
+                        eventList.Add(eventLogResult);
+                    }
+                }
+            }
+            */
         return eventList;
     }
 
     public int AddEventLog(string name, EventLog eventlog)
     {
-       /* string path = Application.dataPath + playerDBPath;
+        /* string path = Application.dataPath + playerDBPath;
 
-        if (File.Exists(path))
-        {
-            XmlDocument xml = new XmlDocument();
-            xml.Load(path);
-            XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
-            foreach (XmlElement xl1 in xmlNodeList)
-            {
-                if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
-                {
-                    string eventStr = xl1.ChildNodes[7].InnerText;
-                    if (eventStr.CompareTo("") != 0)
-                    {
-                        eventStr += ",";
-                    }
-                    print(eventStr);
-                    eventStr += eventlog.roleID.ToString() + "/" + eventlog.eventID.ToString() + "/" + eventlog.choice.ToString();
-                    print(eventlog.roleID);
-                    print(eventlog.eventID);
-                    print(eventlog.choice);
-                    print(eventStr);
+         if (File.Exists(path))
+         {
+             XmlDocument xml = new XmlDocument();
+             xml.Load(path);
+             XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
+             foreach (XmlElement xl1 in xmlNodeList)
+             {
+                 if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
+                 {
+                     string eventStr = xl1.ChildNodes[7].InnerText;
+                     if (eventStr.CompareTo("") != 0)
+                     {
+                         eventStr += ",";
+                     }
+                     print(eventStr);
+                     eventStr += eventlog.roleID.ToString() + "/" + eventlog.eventID.ToString() + "/" + eventlog.choice.ToString();
+                     print(eventlog.roleID);
+                     print(eventlog.eventID);
+                     print(eventlog.choice);
+                     print(eventStr);
 
-                    xl1.ChildNodes[7].InnerText = eventStr;
-                    xml.Save(path);
-                    return 0;
-                }
-            }
-        }*/
+                     xl1.ChildNodes[7].InnerText = eventStr;
+                     xml.Save(path);
+                     return 0;
+                 }
+             }
+         }*/
         return 1;
     }
 
@@ -414,7 +415,8 @@ public class PlayerDataProc : MonoBehaviour
 
     public int GetTeamworkValue()
     {
-        return teamworkValue;
+        //return teamworkValue;
+        return 0;
     }
 
     public bool KeyMatch(int key1, int key2, int type, List<int> selectRoles)
@@ -458,7 +460,7 @@ public class PlayerDataProc : MonoBehaviour
         }
 
         return keyFlag;
-        
+
     }
 
     public void AddEventLogStat(int eventID, int eventChoice, List<int> selectRoles)
@@ -550,7 +552,7 @@ public class PlayerDataProc : MonoBehaviour
         }
 
         int minMoney = settleResult[0].money;
-        int maxMoney = settleResult[0].money; 
+        int maxMoney = settleResult[0].money;
         int minReputation = settleResult[0].reputation;
         int maxReputation = settleResult[0].reputation;
 
@@ -601,11 +603,11 @@ public class PlayerDataProc : MonoBehaviour
 
                 print("SettleType1:");
                 print("eventID: " + eventID + ", eventChoice: " + ", specialRoleID: " + specialRoleID);
-                print("money: " + money + ", reputation: " + reputation + ", teamwork: " +teamWork);
+                print("money: " + money + ", reputation: " + reputation + ", teamwork: " + teamWork);
 
                 SettleMoney(money, specialRoleID, 1);
                 SettleReputation(reputation, specialRoleID, 1);
-                SettleTeamwork(teamWork, 1);                   
+                SettleTeamwork(teamWork, 1);
                 break;
             }
         }
@@ -639,14 +641,14 @@ public class PlayerDataProc : MonoBehaviour
                     }
 
                     SettleMoney(money, roleID, 1);
-                    SettleReputation(reputation, roleID, 1);   
+                    SettleReputation(reputation, roleID, 1);
                 }
 
                 if (selectRoles.Count >= roleNumThre)
                 {
                     SettleTeamwork(teamWork, 1);
                 }
-                 
+
                 break;
             }
         }
@@ -695,7 +697,7 @@ public class PlayerDataProc : MonoBehaviour
                 SettleTeamwork(teamwork, 1);
                 break;
             }
-        }    
+        }
     }
 
     void SettleType4(int eventID, int eventChoice, List<int> selectRoles, int preEvent, int preChoice)
@@ -763,7 +765,7 @@ public class PlayerDataProc : MonoBehaviour
         }
 
         List<int> preEventRoles = preEventStat.roles;
-       
+
         foreach (XmlElement xl1 in eventRootNode)
         {
             int id = int.Parse(xl1.ChildNodes[GetIDIndex()].InnerText);
@@ -789,7 +791,7 @@ public class PlayerDataProc : MonoBehaviour
 
                     SettleMoney(money, roleID, 0.7);
                     SettleReputation(reputation, roleID, 0.7);
-                        
+
                 }
 
                 if (specialRoleID < 1 || specialRoleID > 4)
@@ -802,7 +804,7 @@ public class PlayerDataProc : MonoBehaviour
                 SettleReputation(reputation, specialRoleID, 0.7);
 
                 SettleTeamwork(teamwork, 1);
-        
+
                 break;
             }
         }
@@ -832,7 +834,7 @@ public class PlayerDataProc : MonoBehaviour
                 }
 
                 SettleTeamwork(teamwork, 1);
-                    
+
                 break;
             }
         }
@@ -882,7 +884,7 @@ public class PlayerDataProc : MonoBehaviour
         return isSpeicial;
     }
 
-    public PlayerAttr[] SettlePlayer(int eventID, int eventChoice, int eventChoiceType, List<int> selectRoles) 
+    public PlayerAttr[] SettlePlayer(int eventID, int eventChoice, int eventChoiceType, List<int> selectRoles)
     {
         bool keyFlag = false;
 
@@ -1051,7 +1053,7 @@ public class PlayerDataProc : MonoBehaviour
                             SettleReputation(reputation, selectRoles[1], 0.7);
                         }
                     }
-                        
+
                 }
 
                 // 结算teamwork
@@ -1063,9 +1065,9 @@ public class PlayerDataProc : MonoBehaviour
                 {
                     SettleTeamwork(teamWork, 1);
                 }
-                                        
+
                 break;
-            }   
+            }
         }
 
         print("SettlePlayer: ");
@@ -1083,102 +1085,102 @@ public class PlayerDataProc : MonoBehaviour
 
     public int Login(ref PlayerData playerInfo)
     {
-    /*    string path = Application.dataPath + playerDBPath;
-        string name = playerInfo.name;
-        string password = playerInfo.password;
+        /*    string path = Application.dataPath + playerDBPath;
+            string name = playerInfo.name;
+            string password = playerInfo.password;
 
-        if (File.Exists(path))
-        {
-            XmlDocument xml = new XmlDocument();
-            xml.Load(path);
-            XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
-            foreach (XmlElement xl1 in xmlNodeList)
+            if (File.Exists(path))
             {
-                if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText) &&
-                    0 == password.CompareTo(xl1.ChildNodes[1].InnerText))
+                XmlDocument xml = new XmlDocument();
+                xml.Load(path);
+                XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
+                foreach (XmlElement xl1 in xmlNodeList)
                 {
-                    playerInfo.level = int.Parse(xl1.ChildNodes[2].InnerText);
-                    playerInfo.section = int.Parse(xl1.ChildNodes[3].InnerText);
-                    teamworkValue = int.Parse(xl1.ChildNodes[4].InnerText);
-
-                    string moneyStr = xl1.ChildNodes[5].InnerText;
-                    string reputationStr = xl1.ChildNodes[6].InnerText;
-
-                    int i = 0;
-                    if (moneyStr.CompareTo("") != 0)
+                    if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText) &&
+                        0 == password.CompareTo(xl1.ChildNodes[1].InnerText))
                     {
-                        string[] sMoney = moneyStr.Split(',');
-                        foreach (string money in sMoney)
-                        {
-                            playerInfo.playerAttr[i].money = int.Parse(money);
-                            settleResult[i].money = int.Parse(money);
-                            i++;
-                        }
-                    }
-                    if (reputationStr.CompareTo("") != 0)
-                    {
-                        i = 0;
-                        string[] sReputation = reputationStr.Split(',');
-                        foreach (string reputation in sReputation)
-                        {
-                            playerInfo.playerAttr[i].reputation = int.Parse(reputation);
-                            settleResult[i].reputation = int.Parse(reputation);
-                            i++;
-                        }
-                    }
+                        playerInfo.level = int.Parse(xl1.ChildNodes[2].InnerText);
+                        playerInfo.section = int.Parse(xl1.ChildNodes[3].InnerText);
+                        teamworkValue = int.Parse(xl1.ChildNodes[4].InnerText);
 
-                    return 0;
+                        string moneyStr = xl1.ChildNodes[5].InnerText;
+                        string reputationStr = xl1.ChildNodes[6].InnerText;
+
+                        int i = 0;
+                        if (moneyStr.CompareTo("") != 0)
+                        {
+                            string[] sMoney = moneyStr.Split(',');
+                            foreach (string money in sMoney)
+                            {
+                                playerInfo.playerAttr[i].money = int.Parse(money);
+                                settleResult[i].money = int.Parse(money);
+                                i++;
+                            }
+                        }
+                        if (reputationStr.CompareTo("") != 0)
+                        {
+                            i = 0;
+                            string[] sReputation = reputationStr.Split(',');
+                            foreach (string reputation in sReputation)
+                            {
+                                playerInfo.playerAttr[i].reputation = int.Parse(reputation);
+                                settleResult[i].reputation = int.Parse(reputation);
+                                i++;
+                            }
+                        }
+
+                        return 0;
+                    }
                 }
             }
-        }
-*/
+    */
         print("用户名或密码错误！！！");
         return 1;
     }
 
     public int Logout(PlayerData playerInfo)
     {
-      /*  name = playerInfo.name;
-        string path = Application.dataPath + playerDBPath;
-        if (File.Exists(path))
-        {
-            XmlDocument xml = new XmlDocument();
-            xml.Load(path);
-            XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
-            foreach (XmlElement xl1 in xmlNodeList)
-            {
-                if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
-                {
-                    xl1.ChildNodes[1].InnerText = playerInfo.password;
-                    xl1.ChildNodes[2].InnerText = playerInfo.level.ToString();
-                    xl1.ChildNodes[3].InnerText = playerInfo.section.ToString();
-                    xl1.ChildNodes[4].InnerText = teamworkValue.ToString();
+        /*  name = playerInfo.name;
+          string path = Application.dataPath + playerDBPath;
+          if (File.Exists(path))
+          {
+              XmlDocument xml = new XmlDocument();
+              xml.Load(path);
+              XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
+              foreach (XmlElement xl1 in xmlNodeList)
+              {
+                  if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
+                  {
+                      xl1.ChildNodes[1].InnerText = playerInfo.password;
+                      xl1.ChildNodes[2].InnerText = playerInfo.level.ToString();
+                      xl1.ChildNodes[3].InnerText = playerInfo.section.ToString();
+                      xl1.ChildNodes[4].InnerText = teamworkValue.ToString();
 
-                    string money = "";
-                    string reputation = "";
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (i > 0)
-                        {
-                            money += ",";
-                            reputation += ",";
-                        }
-                        money += playerInfo.playerAttr[i].money.ToString();
-                        reputation += playerInfo.playerAttr[i].reputation.ToString();
-                    }
-                    xl1.ChildNodes[5].InnerText = money;
-                    xl1.ChildNodes[6].InnerText = reputation;
+                      string money = "";
+                      string reputation = "";
+                      for (int i = 0; i < 4; i++)
+                      {
+                          if (i > 0)
+                          {
+                              money += ",";
+                              reputation += ",";
+                          }
+                          money += playerInfo.playerAttr[i].money.ToString();
+                          reputation += playerInfo.playerAttr[i].reputation.ToString();
+                      }
+                      xl1.ChildNodes[5].InnerText = money;
+                      xl1.ChildNodes[6].InnerText = reputation;
 
-                    break;
-                }
-            }
-            xml.Save(path);
-        }
-*/
+                      break;
+                  }
+              }
+              xml.Save(path);
+          }
+  */
         return 0;
     }
 
-    void CleanPlayerInfo()
+    public void CleanPlayerInfo()
     {
         teamworkValue = 80;
         for (int i = 0; i < 4; i++)
@@ -1202,7 +1204,7 @@ public class PlayerDataProc : MonoBehaviour
         }
 
         LoadXml();
-        
+
     }
 
     public List<RoleEvents> GetRoleEventList(string name, int roleID)
