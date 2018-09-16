@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<TUIResTable_Tab>
+  <TUIResTable version="1">
+    <ID>100010001 </ID>
+    <Picture>/data/u1</Picture>
+    <Text>黑森公国的艾斯多夫上校正在收购一套15世纪图林根银币</Text>
+    <ChoiceA>出售</ChoiceA>
+    <ChoiceB>持币观望</ChoiceB>
+    <Name>111</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100010002 </ID>
+    <Picture>/data/u2</Picture>
+    <Text>艾斯多夫上校很满意并把洛菲家族引荐给威廉王子，威廉王子提出再购买几套</Text>
+    <ChoiceA>欣然出售</ChoiceA>
+    <ChoiceB>保留藏品</ChoiceB>
+    <Name>112</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100020001 </ID>
+    <Picture>/data/u3</Picture>
+    <Text>黑森公国的威廉王子虽然是一个可靠的服务对象，但他蔑视犹太商人、刚愎自负。委派族人负责与威廉王子的交往。</Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>113</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100030001 </ID>
+    <Picture>/data/u4</Picture>
+    <Text>挑剔的威廉王子发来委托：打造一套新的家族徽章</Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>114</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100040001 </ID>
+    <Picture>/data/u5</Picture>
+    <Text>看见了路边有个可怜的小女孩，正在寒风中卖着玫瑰</Text>
+    <ChoiceA>选择</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>115</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100040002 </ID>
+    <Picture>/data/u6</Picture>
+    <Text>少女珂赛特的祝福：Dear卡尔，愿神祝福您。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>116</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100050001 </ID>
+    <Picture>/data/u7</Picture>
+    <Text>商人马德兰准备建造一所大型托儿所，寄信给你请求资助</Text>
+    <ChoiceA>选择</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>117</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100050002 </ID>
+    <Picture>/data/u8</Picture>
+    <Text>冉阿让的祝福：Dear卡尔，愿神祝福您。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>118</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100060001 </ID>
+    <Picture>/data/u9</Picture>
+    <Text>丹麦海军被英国舰队摧毁，丹麦出现巨大财政亏空，派遣族人插入斡旋</Text>
+    <ChoiceA>选择</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>119</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100060002 </ID>
+    <Picture>/data/u10</Picture>
+    <Text>丹麦国王决定向侄子乔治四世请求贷款，乔治碍于情面打算进行民间贷款，需要一个可靠的人来谈这笔生意</Text>
+    <ChoiceA>选择</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>120</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100060003 </ID>
+    <Picture>/data/u11</Picture>
+    <Text>生意十分成功，各方皆大欢喜</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>121</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100060004 </ID>
+    <Picture>/data/u12</Picture>
+    <Text>有传言：异教徒将组织暗杀丹麦国王，恐怕事出有变</Text>
+    <ChoiceA>派出</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>122</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070001 </ID>
+    <Picture>/data/u13</Picture>
+    <Text>拿破仑颁布柏林敕令，禁止进口英国货物。其中是否有商机？派人探查此事。</Text>
+    <ChoiceA>探查</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>123</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070002 </ID>
+    <Picture>/data/u14</Picture>
+    <Text>打探到：拿破仑的宠臣缪拉将会在法兰克福举办舞会</Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>124</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070003 </ID>
+    <Picture>/data/u15</Picture>
+    <Text>简：真是令人高兴，缪拉先生有意愿帮助我们打通向法兰西走私英国货物的渠道！只是，还需进一步商谈。</Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>125</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070004 </ID>
+    <Picture>/data/u16</Picture>
+    <Text>缪拉真是只老狐狸，似乎有意帮富商打通向法兰西走私英国货物的渠道，来获取大量利润。</Text>
+    <ChoiceA>买通</ChoiceA>
+    <ChoiceB>放弃这条路</ChoiceB>
+    <Name>126</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070005 </ID>
+    <Picture>/data/u17</Picture>
+    <Text>成功收买缪拉，走私贸易在缪拉的协助下如火如荼</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>127</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070006 </ID>
+    <Picture>/data/u18</Picture>
+    <Text>缪拉不愧是拿破仑身边的老狐狸，一般的钱财完全不能打动他。还要花费更多才行。</Text>
+    <ChoiceA>买通</ChoiceA>
+    <ChoiceB>放弃这条路</ChoiceB>
+    <Name>128</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070007 </ID>
+    <Picture>/data/u19</Picture>
+    <Text>成功收买缪拉，需指派族人管理此次走私贸易</Text>
+    <ChoiceA>委派</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>129</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070008 </ID>
+    <Picture>/data/u20</Picture>
+    <Text>错过机遇，铩羽而归</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>130</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070009 </ID>
+    <Picture>/data/u21</Picture>
+    <Text>走私贸易在缪拉的协助下如火如荼</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>131</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070010 </ID>
+    <Picture>/data/u22</Picture>
+    <Text>走私贸易在缪拉的协助下还算顺利</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>132</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070011 </ID>
+    <Picture>/data/u23</Picture>
+    <Text>花费大量金钱成功收买缪拉，需指派族人管理此次走私贸易</Text>
+    <ChoiceA>委派</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>133</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100070012 </ID>
+    <Picture>/data/u24</Picture>
+    <Text>走私贸易在缪拉的协助下如火如荼</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>134</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100080001 </ID>
+    <Picture>/data/u25</Picture>
+    <Text>小道消息：拿破仑将迎娶奥地利公主玛丽，为了筹备婚礼邀请诸多公爵进行赞助。达尔堡公爵接受了邀请但手头拮据，正在犯难。</Text>
+    <ChoiceA>悄悄送上一笔钱</ChoiceA>
+    <ChoiceB>无视</ChoiceB>
+    <Name>135</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090001 </ID>
+    <Picture>/data/u26</Picture>
+    <Text>天有不测风云，大陆封锁令下达后英国陷入了史上最严重的经济危机。内森从伦敦传来消息：亲爱的族人，我大胆预测，大英帝国的金价必将持续上涨！相信我！请尽快做好准备。</Text>
+    <ChoiceA>探查消息</ChoiceA>
+    <ChoiceB>无视</ChoiceB>
+    <Name>136</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090002 </ID>
+    <Picture>/data/u27</Picture>
+    <Text>事实证明，并不如内森的预料，市面上还没有商人开始收购黄金。</Text>
+    <ChoiceA>继续探查</ChoiceA>
+    <ChoiceB>就此作罢</ChoiceB>
+    <Name>137</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090003 </ID>
+    <Picture>/data/u28</Picture>
+    <Text>俗话说动荡中买黄金，动荡后买石油。现有传言：英属东印度公司资金周转困难，欲出售金条套取现金。派合适人选处理此事。</Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>138</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090004 </ID>
+    <Picture>/data/u29</Picture>
+    <Text>内森：确有此事，而且现在还没人出手！请尽快考虑是否购买，并选择合适人选处理此事！</Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>139</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090005 </ID>
+    <Picture>/data/u30</Picture>
+    <Text>“真是惨，我们在路上被耽误了，耗费了大量时间！如果要购买金条，请速派其他人前往！不过我们还不能确认消息是否属实。“</Text>
+    <ChoiceA>派内森前往</ChoiceA>
+    <ChoiceB>不费事了</ChoiceB>
+    <Name>140</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090006 </ID>
+    <Picture>/data/u31</Picture>
+    <Text>斥巨资购入东印度公司的全部金条</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>141</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090007 </ID>
+    <Picture>/data/u32</Picture>
+    <Text>思虑过后，少量购入东印度公司的金条</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>142</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090008 </ID>
+    <Picture>/data/u33</Picture>
+    <Text>内森：确有此事，而且现在还没人出手！请尽快考虑是否购买，并选择合适人选处理此事！</Text>
+    <ChoiceA>处理此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>143</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090009 </ID>
+    <Picture>/data/u34</Picture>
+    <Text>很可惜，最终错过了购入金条的最佳时机。后英国财政局因反法战争大量高价购入黄金时，你只能望洋兴叹。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>144</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090010 </ID>
+    <Picture>/data/u35</Picture>
+    <Text>斥巨资购入东印度公司的全部金条</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>145</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100090011 </ID>
+    <Picture>/data/u36</Picture>
+    <Text>思虑过后，少量购入东印度公司的金条</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>146</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100100001 </ID>
+    <Picture>/data/u37</Picture>
+    <Text>反法战争又一次打响，大陆封锁令下经济持续萧条的英国军资陷入窘境。在威灵顿将军的要求下，财政部开始购买黄金。</Text>
+    <ChoiceA>倒卖囤积的金条</ChoiceA>
+    <ChoiceB>保持观望</ChoiceB>
+    <Name>147</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100100002 </ID>
+    <Picture>/data/u38</Picture>
+    <Text>虽然你有心出售金条，但大陆封锁令下英国运送黄金的船只无法突破防线。是否派人暗中协助英国？</Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB>太冒险了</ChoiceB>
+    <Name>148</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100100003 </ID>
+    <Picture>/data/u39</Picture>
+    <Text>英国从财政部开出高额费用购买黄金，囤有黄金的商贾纷纷出售。你看准时机，派人售出来自东印度公司的金条。</Text>
+    <ChoiceA>处理此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>149</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100100004 </ID>
+    <Picture>/data/u40</Picture>
+    <Text>威灵顿将军来信：感谢洛菲家族对英国的支援，黄金成功送达。你们是一个出色的犹太家族，我对你们充满信心。——你参与的这场黄金倒卖与转移，在一定程度上决定了欧洲战争的格局。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>150</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100100005 </ID>
+    <Picture>/data/u41</Picture>
+    <Text>谈妥了交易，却没能成功出售。你将金条出售给别人，但错过了后来改变欧洲战争格局的大事件。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>151</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100110001 </ID>
+    <Picture>/data/u42</Picture>
+    <Text>
+      流言1：法军在英吉利海峡击沉了数艘载满黄金的船，那些黄金正沉睡在海底。
+      流言2：英吉利海峡附近有骷颅头幽灵游荡。
+      流言3：以上都是道听途说。
+    </Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>152</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100120001 </ID>
+    <Picture>/data/u43</Picture>
+    <Text>达尔堡公爵来信：哈哈，还记得我吗。正所谓有借有还再借不难，听闻贵家族成员正处于财产困境，特送上一小笔资金以帮助度过难关。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>153</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100130001 </ID>
+    <Picture>/data/u44</Picture>
+    <Text>暴风雨来得突然，意大利圣提顿堡对军粮供应大臣赫里斯产生怀疑，认为在供应链上存在黑箱操作。这事对家族产生了波及，你怀疑族里有人与赫里斯勾结，请派人处理此事。</Text>
+    <ChoiceA>派人处理</ChoiceA>
+    <ChoiceB>这不可能</ChoiceB>
+    <Name>154</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140001 </ID>
+    <Picture>/data/u45</Picture>
+    <Text>流言：听说了吗！那个愚蠢的科西嘉佬从厄尔巴岛逃出来了！</Text>
+    <ChoiceA>打探消息</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>155</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140002 </ID>
+    <Picture>/data/u46</Picture>
+    <Text>流言：奉命阻击的米歇尔元帅倒戈了！路易十八被赶走了！天哪，战争又要开始了！</Text>
+    <ChoiceA>打探消息</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>156</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140004 </ID>
+    <Picture>/data/u47</Picture>
+    <Text>通过达尔堡公爵可以结识拿破仑的贴身侍卫官伊文，以此可以获得战争的一手消息。选择合适人选前去交涉。</Text>
+    <ChoiceA>负责此事</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>157</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140005 </ID>
+    <Picture>/data/u48</Picture>
+    <Text>
+      流言：听说了吗！那只法兰西蠢驴打赢了滑铁卢战役！英国就要完蛋啦！
+      伊文：阁下您好，我是拿破仑的侍卫官伊文。很遗憾地告诉您，我军即将溃败。
+    </Text>
+    <ChoiceA>采取行动</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>158</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140006 </ID>
+    <Picture>/data/u49</Picture>
+    <Text>内森采取了非常激进大胆的策略：带头空英国公债。很多商人跟着他们抛售股票，商人们高喊着：英国战败啦！当第二天清晨，滑铁卢大捷的消息登上伦敦报纸头条之时，x家族一跃成为当地最富有的犹太家族。（</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>159</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140007 </ID>
+    <Picture>/data/u50</Picture>
+    <Text>思虑过久犹豫不决，引起了内森的不快：应该采取更大胆的行动！立刻抛售英国公债！</Text>
+    <ChoiceA>认同</ChoiceA>
+    <ChoiceB>驳回</ChoiceB>
+    <Name>160</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140008 </ID>
+    <Picture>/data/u51</Picture>
+    <Text>你们采取了非常激进大胆的策略：带头做空英国公债。很多商人跟着他们抛售股票，商人们高喊着：英国战败啦！当第二天清晨，滑铁卢大捷的消息登上伦敦报纸头条之时，xx家族一跃成为当地最富有的犹太家族。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>161</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100140009 </ID>
+    <Picture>/data/u52</Picture>
+    <Text>第二天清晨，滑铁卢大捷的消息登上伦敦报纸头条。你们开始后悔，早该利用情报时间差来做空英国公债的，但已于事无补。内森生了整整一个月的气。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>162</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100150001 </ID>
+    <Picture>/data/u53</Picture>
+    <Text>彭伯里庄园似乎有意与菲洛家族联姻，邀请家族成员去庄园做客。</Text>
+    <ChoiceA>前往</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>163</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100160001 </ID>
+    <Picture>/data/u54</Picture>
+    <Text>箴言：世界终究走向和平</Text>
+    <ChoiceA>相信</ChoiceA>
+    <ChoiceB>不信</ChoiceB>
+    <Name>164</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100170001 </ID>
+    <Picture>/data/u55</Picture>
+    <Text>召唤恶魔的六芒星阵出现在巴黎街头，贵族怀疑这是犹太教徒的阴谋。</Text>
+    <ChoiceA>介入调查</ChoiceA>
+    <ChoiceB>事不关己</ChoiceB>
+    <Name>165</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>100180001 </ID>
+    <Picture>/data/u56</Picture>
+    <Text>一位绅士坐于骏马之上，猩红猎装，神色不明，十几只猎犬兴奋地在马前奔跑开道。他会是？</Text>
+    <ChoiceA>是他</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>166</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200000001 </ID>
+    <Picture>/data/u57</Picture>
+    <Text>南欧大旱 是否出资修建多瑙河到维也纳的高架渠；若出资请选择一名角色。</Text>
+    <ChoiceA>是</ChoiceA>
+    <ChoiceB>否</ChoiceB>
+    <Name>167</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200000002 </ID>
+    <Picture>/data/u58</Picture>
+    <Text>意大利的佩斯和奥芬遭受重大洪涝灾害，是否出资赈灾；若出资请选择一名角色。</Text>
+    <ChoiceA>是</ChoiceA>
+    <ChoiceB>否</ChoiceB>
+    <Name>168</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200000003 </ID>
+    <Picture>/data/u59</Picture>
+    <Text>德国汉堡发生大火，是否出资赈灾，若出资请选择一名角色</Text>
+    <ChoiceA>是</ChoiceA>
+    <ChoiceB>否</ChoiceB>
+    <Name>169</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200000004 </ID>
+    <Picture>/data/u60</Picture>
+    <Text>收到贝弗斯家族的联姻请求：贝弗斯是德意志联邦的重要实业家，其长女对斐洛家族有爱慕之情</Text>
+    <ChoiceA>答应</ChoiceA>
+    <ChoiceB>婉拒</ChoiceB>
+    <Name>170</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200000005 </ID>
+    <Picture>/data/u63</Picture>
+    <Text>由于货币紧缩，巴黎的铁路事务停滞。是否要卖出股票和铁路公司，撤出巴黎的铁路事务？</Text>
+    <ChoiceA>撤出</ChoiceA>
+    <ChoiceB>不撤出</ChoiceB>
+    <Name>173</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200000006 </ID>
+    <Picture>/data/u72</Picture>
+    <Text>政府和人们都把银子都换成了粮食…现在整个英国的钱加起来都不足以撑起我们的证券价格。我们应当敦促政府禁止白银出口、发行纸币。——伦敦分行 路易·佩雷尔 ? ? A采纳 ? ? B不采纳</Text>
+    <ChoiceA>采纳</ChoiceA>
+    <ChoiceB>不采纳</ChoiceB>
+    <Name>182</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200010001 </ID>
+    <Picture>/data/u61</Picture>
+    <Text>意大利都灵的埃斯克尔银行破产。是否援助？若援助请选择一名角色。</Text>
+    <ChoiceA>援助</ChoiceA>
+    <ChoiceB>不援助</ChoiceB>
+    <Name>171</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200010002 </ID>
+    <Picture>/data/u62</Picture>
+    <Text>埃斯克尔银行的破产成为了整个意大利银行业崩溃的导火索，家族在那不勒斯的银行也濒临破产。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>172</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200020001 </ID>
+    <Picture>/data/u66</Picture>
+    <Text>由于英国独一无二的信用等级和永远能获得广泛支持的好名头，这件事应当是稳赚不赔。——西蒙·菲洛      是否承销英国为救助爱尔兰饥荒灾民而发行的债券？</Text>
+    <ChoiceA>承销</ChoiceA>
+    <ChoiceB>不承销</ChoiceB>
+    <Name>176</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200020002 </ID>
+    <Picture>/data/u67</Picture>
+    <Text>然而此时已有高额财政赤字的英国政府却将这笔名义上用来救助灾民的债券款用在了别的地方，债券不久就跌破了发行价，令投资界大为惊愕。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>177</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200030001 </ID>
+    <Picture>/data/u64</Picture>
+    <Text>北线铁路出轨，家族成为众矢之的。是否寻找作家挽回家族形象？</Text>
+    <ChoiceA>找</ChoiceA>
+    <ChoiceB>不找</ChoiceB>
+    <Name>174</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200030002 </ID>
+    <Picture>/data/u65</Picture>
+    <Text>“他生来是个男爵吗？作为犹太人的他出身于最低等的阶层，甚至连仆人的地位都不如；他天生就是个百万富翁吗？他出身贫寒，而只要你了解建造这被称为“罗 斯柴尔德家族”的欧洲大厦所耗费的才智、耐心和艰辛你便会新生敬佩而不会出言侮辱…事实上，罗斯柴尔德男爵的成功恰是平等奋斗的最好例子。”</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>175</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200040001 </ID>
+    <Picture>/data/u68</Picture>
+    <Text>
+      意大利背部城市伦巴第和维尼夏已经出现暴乱…奥地利将考虑派遣部队进行干涉。——梅特涅   A 贷款给奥地利并换取奥地利国债
+      B 不做进一步举动
+    </Text>
+    <ChoiceA>A</ChoiceA>
+    <ChoiceB>B</ChoiceB>
+    <Name>178</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200040002 </ID>
+    <Picture>/data/u69</Picture>
+    <Text>我们的叔叔手里全是奥地利5%年利率的国债，他怎么从这个市场抽身，只有上帝知道。——西蒙·斐洛      奥地利的战争状态导致奥地利的国债不断下跌。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>179</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200050001 </ID>
+    <Picture>/data/u70</Picture>
+    <Text>政府想要收回铁路建设中贷给家族的款项，请选择一名角色处理此事。</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>180</Name>
+  </TUIResTable>
+  <TUIResTable version="1">
+    <ID>200050002 </ID>
+    <Picture>/data/u71</Picture>
+    <Text>詹姆斯采取了威胁加奉承的方式巧妙地拖住了政府的要求：政府要求的这笔款项若要强制交付将把斐洛银行推往破产边缘——对法国来说将是可怕的灾难。这相当于轻易杀死一只下金蛋的鹅。另一方面，三四千工人将失业，财政部用于资助失业人员的开支将大大增加。——詹姆斯</Text>
+    <ChoiceA>确定</ChoiceA>
+    <ChoiceB></ChoiceB>
+    <Name>181</Name>
+  </TUIResTable>
+</TUIResTable_Tab>
