@@ -16,22 +16,42 @@ public class OnEvent : MonoBehaviour
     private Button choiceThree;
     private int choiceCount = 2;
 
+    private OnConfirm save;
+
+    private bool hasInitalize = false;
+
     // Use this for initialization
     void Start()
     {
-        eventImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
-        eventText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
-        eventTitle = GameObject.Find("EventTitle").GetComponent<Text>();
-        levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
-        choiceOne = this.transform.GetChild(2).gameObject.GetComponent<Button>();
-        choiceTwo = this.transform.GetChild(3).gameObject.GetComponent<Button>();
-        choiceThree = this.transform.GetChild(4).gameObject.GetComponent<Button>();
+        //eventImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
+        //eventText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
+        //eventTitle = GameObject.Find("EventTitle").GetComponent<Text>();
+        //levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+        //choiceOne = this.transform.GetChild(2).gameObject.GetComponent<Button>();
+        //choiceTwo = this.transform.GetChild(3).gameObject.GetComponent<Button>();
+        //choiceThree = this.transform.GetChild(4).gameObject.GetComponent<Button>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (hasInitalize == false && Time.fixedTime > 2)
+        {
+            eventImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
+            eventText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
+            eventTitle = GameObject.Find("EventTitle").GetComponent<Text>();
+            levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+            choiceOne = this.transform.GetChild(2).gameObject.GetComponent<Button>();
+            choiceTwo = this.transform.GetChild(3).gameObject.GetComponent<Button>();
+            choiceThree = this.transform.GetChild(4).gameObject.GetComponent<Button>();
 
+            //GameObject.Find("Save").gameObject.GetComponent<OnConfirm>().SetChoiceType(1);
+            GameObject.Find("NotSave").gameObject.GetComponent<OnConfirm>().SetChoiceType(2);
+            save = GameObject.Find("Save").gameObject.GetComponent<OnConfirm>();
+            save.SetChoiceType(1);
+
+            hasInitalize = true;
+        }
     }
 
     public void SetImage(string path)
@@ -99,6 +119,7 @@ public class OnEvent : MonoBehaviour
                 choiceTwo.GetComponent<OnConfirm>().SetUnselectable();
                 break;
         }
+        save.SetUnselectable();
     }
 
     public void SetEventTitle(string title)
@@ -118,11 +139,13 @@ public class OnEvent : MonoBehaviour
                 choiceTwo.GetComponent<OnConfirm>().SetSelectable();
                 break;
         }
+        save.SetSelectable();
+        
     }
 
     public void SetChoiceType(int typeOne, int typeTwo)
     {
-        switch(choiceCount)
+        switch (choiceCount)
         {
             case 1:
                 choiceThree.GetComponent<OnConfirm>().SetChoiceType(typeOne);
@@ -136,7 +159,7 @@ public class OnEvent : MonoBehaviour
 
     public void SetJumpStoryRole(int role)
     {
-        
+
     }
 
     public void SetPersonUnselectable(int unRole)

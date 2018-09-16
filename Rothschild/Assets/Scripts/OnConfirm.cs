@@ -15,30 +15,49 @@ public class OnConfirm : EventTrigger
     private int choiceType;
     private Image teamWorkBar;
     private OnEvent onEvent;
+    private bool hasInitalize = false;
 
     // Use this for initialization
     void Start()
     {
-        onPerson.Add(GameObject.Find("PersonPanelA").GetComponent<OnPerson>());
-        onPerson.Add(GameObject.Find("PersonPanelB").GetComponent<OnPerson>());
-        onPerson.Add(GameObject.Find("PersonPanelC").GetComponent<OnPerson>());
-        onPerson.Add(GameObject.Find("PersonPanelD").GetComponent<OnPerson>());
-        playerDataProc = GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>();
-        levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
-        colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
-        targetGraphic = this.GetComponent<Button>().targetGraphic;
-        teamWorkBar = GameObject.Find("Fill").GetComponent<Image>();
-        float teamworkPercent = (float)playerDataProc.GetTeamworkValue() / 200.0f;
-        teamWorkBar.transform.localScale = new Vector3(teamworkPercent, 1.0f, 1.0f);
-        onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
+        //onPerson.Add(GameObject.Find("PersonPanelA").GetComponent<OnPerson>());
+        //onPerson.Add(GameObject.Find("PersonPanelB").GetComponent<OnPerson>());
+        //onPerson.Add(GameObject.Find("PersonPanelC").GetComponent<OnPerson>());
+        //onPerson.Add(GameObject.Find("PersonPanelD").GetComponent<OnPerson>());
+        //playerDataProc = GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>();
+        //levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+        //colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
+        //targetGraphic = this.GetComponent<Button>().targetGraphic;
+        //teamWorkBar = GameObject.Find("Fill").GetComponent<Image>();
+        //float teamworkPercent = (float)playerDataProc.GetTeamworkValue() / 200.0f;
+        //teamWorkBar.transform.localScale = new Vector3(teamworkPercent, 1.0f, 1.0f);
+        //onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
 
-        choiceID = this.tag == "ChoiceOne" ? 1 : 2;
+        //choiceID = this.tag == "ChoiceOne" ? 1 : 2;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (hasInitalize == false && Time.fixedTime > 2)
+        {
+            onPerson.Add(GameObject.Find("PersonPanelA").GetComponent<OnPerson>());
+            onPerson.Add(GameObject.Find("PersonPanelB").GetComponent<OnPerson>());
+            onPerson.Add(GameObject.Find("PersonPanelC").GetComponent<OnPerson>());
+            onPerson.Add(GameObject.Find("PersonPanelD").GetComponent<OnPerson>());
+            playerDataProc = GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>();
+            levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+            colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
+            targetGraphic = this.GetComponent<Button>().targetGraphic;
+            teamWorkBar = GameObject.Find("Fill").GetComponent<Image>();
+            float teamworkPercent = (float)playerDataProc.GetTeamworkValue() / 200.0f;
+            teamWorkBar.transform.localScale = new Vector3(teamworkPercent, 1.0f, 1.0f);
+            onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
 
+            choiceID = this.tag == "ChoiceOne" ? 1 : 2;
+
+            hasInitalize = true;
+        }
     }
 
     public override void OnPointerUp(PointerEventData eventData)
@@ -80,13 +99,15 @@ public class OnConfirm : EventTrigger
                 selectPerson.Add(i + 1);
         }
 
-        PlayerAttr[] playerAttrs = playerDataProc.SettlePlayer(eventID, choiceID, selectPerson);
+        PlayerAttr[] playerAttrs = playerDataProc.SettlePlayer(eventID, choiceID, choiceID, selectPerson);
 
         for (int i = 0; i < 4; i++)
         {
             onPerson[i].SetReputation(playerAttrs[i].reputation);
             onPerson[i].SetWealth(playerAttrs[i].money);
         }
+
+        //onPerson[0].SetWealth(0);
 
         RefreshTeamwork();
     }
