@@ -32,6 +32,13 @@ public struct EventLog
 }
 
 
+public struct RoleEvents
+{
+    public string eventTitle;
+    public string eventDesc;
+    public string eventChoice;
+}
+
 public struct RoleEventStat
 {
     public int eventID;
@@ -1206,18 +1213,34 @@ public class PlayerDataProc : MonoBehaviour
 
         LoadXml();
         
-/*
-        if (IsJumpStory(51))
-            print("跳跳跳！！！");
+    }
 
-        int preEvent = 0;
-        int roleID = 0;
+    public List<RoleEvents> GetRoleEventList(string name, int roleID)
+    {
+        List<RoleEvents> roleEventList = new List<RoleEvents>();
 
-        if (IsPreStroy(9, ref preEvent, ref roleID))
+        LoadRes elegent = GameObject.Find("DataHandler").GetComponent<LoadRes>();
+
+        foreach (RoleEventStat stat in roleEventStats)
         {
-            print("preEvent: " + preEvent + "roleID: " + roleID);
+            int eventID = stat.eventID;
+            int choice = stat.choice;
+
+            foreach (int iRoleID in stat.roles)
+            {
+                if (iRoleID == roleID)
+                {
+                    RoleEvents roleEventlog = new RoleEvents();
+                    roleEventlog.eventTitle = elegent.GetEventTitle(eventID);
+                    roleEventlog.eventDesc = elegent.GetEventDesc(eventID);
+                    roleEventlog.eventChoice = elegent.GetEventChoiceText(eventID, choice);
+                    roleEventList.Add(roleEventlog);
+                    break;
+                }
+            }
         }
-*/
+
+        return roleEventList;
     }
 
     // Update is called once per frame
