@@ -415,8 +415,8 @@ public class PlayerDataProc : MonoBehaviour
 
     public int GetTeamworkValue()
     {
-        //return teamworkValue;
-        return 0;
+        return teamworkValue;
+        //return 0;
     }
 
     public bool KeyMatch(int key1, int key2, int type, List<int> selectRoles)
