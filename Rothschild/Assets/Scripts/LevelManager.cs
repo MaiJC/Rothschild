@@ -585,12 +585,12 @@ public class LevelManager : MonoBehaviour
                 //GameObject.Find("DeadInterface").SetActive(true);
                 deadInterface.SetActive(true);
                 currentHanlingDeadPerson = i + 1;
-                handleDeadRemains = newDeadPerson;
-                currentMaxSelectedPersonCountCopy = currentMaxSelectedPersonCount;
-                currentMaxSelectedPersonCount = 1;
                 break;
             }
         }
+        handleDeadRemains = newDeadPerson;
+        currentMaxSelectedPersonCountCopy = currentMaxSelectedPersonCount;
+        currentMaxSelectedPersonCount = 1;
     }
 
     private void DeadConfirm(int role, int choice)
