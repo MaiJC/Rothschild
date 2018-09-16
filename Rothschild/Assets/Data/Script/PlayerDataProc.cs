@@ -901,7 +901,7 @@ public class PlayerDataProc : MonoBehaviour
         return isSpeicial;
     }
 
-    public PlayerAttr[] SettlePlayer(int eventID, int eventChoice, List<int> selectRoles) 
+    public PlayerAttr[] SettlePlayer(int eventID, int eventChoice, int eventChoiceType, List<int> selectRoles) 
     {
         bool keyFlag = false;
 
@@ -924,8 +924,26 @@ public class PlayerDataProc : MonoBehaviour
             int key1 = int.Parse(xl1.ChildNodes[GetKey1Index()].InnerText);
             int key2 = int.Parse(xl1.ChildNodes[GetKey2Index()].InnerText);
 
+
             if (eventID == id && eventChoice == choice)
             {
+                if (2 == eventChoiceType)
+                {
+                    money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
+                    reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);
+                    teamWork = int.Parse(xl1.ChildNodes[GetWithKeyTeamworkIndex()].InnerText);
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        SettleMoney(money, i + 1, 1);
+                        SettleReputation(reputation, i + 1, 1);
+                    }
+
+                    SettleTeamwork(teamWork, 1);
+
+                    break;
+                }
+
                 if (key1 != 0)  // 有key事件
                 {
                     keyFlag = KeyMatch(key1, key2, type, selectRoles);

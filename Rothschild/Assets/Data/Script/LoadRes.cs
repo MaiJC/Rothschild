@@ -305,7 +305,7 @@ public class LoadRes : MonoBehaviour {
         return headEventID;
     }
 
-    public int GetNextStoryEvent(int storyID, int fatherEventID, int eventChoice, List<int> roles)
+    public int GetNextStoryEvent(int storyID, int fatherEventID, int eventChoice, int eventChoiceType, List<int> roles)
     {
         int nextStoryEvent = 0;
         int keyCharacter = 2;   // 默认有key限制，但没匹配上
@@ -321,6 +321,12 @@ public class LoadRes : MonoBehaviour {
   
                 if (eventID == fatherEventID)   
                 {
+                    if (2 == eventChoiceType)
+                    {
+                        keyCharacter = 1;
+                        break;
+                    }
+
                     int roleNum = roles.Count;
                     if (WEI_KEY_TYPE == type)  // 唯key事件
                     {
