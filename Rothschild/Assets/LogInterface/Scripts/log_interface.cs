@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class log_interface : MonoBehaviour {
+public class log_interface : MonoBehaviour
+{
+    private bool isLoadComplete = false;
 
     class GameEvent
     {
@@ -52,7 +54,7 @@ public class log_interface : MonoBehaviour {
     GameObject reputation_value_text_obj;
     GameObject cohesion_fill_image_obj;
 
-    GameObject enter_log_interface_button_obj;
+    //GameObject enter_log_interface_button_obj;
     GameObject exit_log_interface_button_obj;
 
     GameObject event_obj;
@@ -117,19 +119,19 @@ public class log_interface : MonoBehaviour {
     int vertical_slide_count = 0;
 
 
-    //进入日志界面
-    void enter_log_interface_click()
-    {
-        enter_log_interface_click_count++;
+    ////进入日志界面
+    //void enter_log_interface_click()
+    //{
+    //    enter_log_interface_click_count++;
 
-        enter_log_interface();
+    //    enter_log_interface();
 
-        //下面是JC的操作
-        game_canvas_obj.SetActive(false);
-    }
+    //    //下面是JC的操作
+    //    game_canvas_obj.SetActive(false);
+    //}
 
     //给JC调用
-    void enter_log_interface()
+    public void enter_log_interface()
     {
         log_canvas_obj.SetActive(true);
 
@@ -214,7 +216,7 @@ public class log_interface : MonoBehaviour {
         //to change
         var event_log_list = playerdataproc.GetRoleEventList("loongzhang", current_role_id + 1);
 
-        foreach(var event_log in event_log_list)
+        foreach (var event_log in event_log_list)
         {
             event_information_list.Add(new EventInformation(event_log.eventTitle, event_log.eventDesc, event_log.eventChoice));
         }
@@ -248,7 +250,7 @@ public class log_interface : MonoBehaviour {
     {
         foreach (var clone_event_prefab in clone_event_prefab_list)
         {
-            
+
             Destroy(clone_event_prefab.body);
             Destroy(clone_event_prefab.highlight_body);
             Destroy(clone_event_prefab.name);
@@ -273,19 +275,19 @@ public class log_interface : MonoBehaviour {
 
         foreach (var event_information in event_information_list)
         {
-            var clone_event_prefab = new GameEvent(Instantiate(event_body_prefab_obj), Instantiate(highlight_event_body_prefab_obj),Instantiate(event_name_prefab_obj));
+            var clone_event_prefab = new GameEvent(Instantiate(event_body_prefab_obj), Instantiate(highlight_event_body_prefab_obj), Instantiate(event_name_prefab_obj));
 
             clone_event_prefab.body.transform.SetParent(event_body_grid_layout_panel_obj.transform);
-            clone_event_prefab.description.GetComponent<Text>().text = string.Format("{0}\ntest_value:{1}", event_information.description, test_value);
-            clone_event_prefab.choice.GetComponent<Text>().text = string.Format("{0}\ntest_value:{1}", event_information.choice, test_value);
+            clone_event_prefab.description.GetComponent<Text>().text = string.Format("{0}", event_information.description);
+            clone_event_prefab.choice.GetComponent<Text>().text = string.Format("{0}", event_information.choice);
 
             clone_event_prefab.highlight_body.transform.SetParent(highlight_event_body_grid_layout_panel_obj.transform);
-            clone_event_prefab.highlight_description.GetComponent<Text>().text = string.Format("{0}\ntest_value:{1}", event_information.description, test_value);
-            clone_event_prefab.highlight_choice.GetComponent<Text>().text = string.Format("{0}\ntest_value:{1}", event_information.choice, test_value);
+            clone_event_prefab.highlight_description.GetComponent<Text>().text = string.Format("{0}", event_information.description);
+            clone_event_prefab.highlight_choice.GetComponent<Text>().text = string.Format("{0}", event_information.choice);
 
             clone_event_prefab.name.transform.SetParent(event_name_background_image_obj.transform);
             clone_event_prefab.name_image.GetComponent<Image>().color = new Color(255 / 255, 255 / 255, 255 / 255, 255 / 255);
-            clone_event_prefab.name_text.GetComponent<Text>().text = string.Format("{0}\ntest_value:{1}", event_information.name, test_value);
+            clone_event_prefab.name_text.GetComponent<Text>().text = string.Format("{0}", event_information.name);
 
             clone_event_prefab_list.Add(clone_event_prefab);
         }
@@ -335,7 +337,7 @@ public class log_interface : MonoBehaviour {
 
         if (circle_world_y_lower_limit < world_pos_y && world_pos_y < circle_world_y_upper_limit)
         {
-            world_pos_x = (float) Math.Sqrt(Math.Pow(circle_radius, 2) - Math.Pow(world_pos_y - circle_world_center_pos_y, 2)) + circle_world_center_pos_x;
+            world_pos_x = (float)Math.Sqrt(Math.Pow(circle_radius, 2) - Math.Pow(world_pos_y - circle_world_center_pos_y, 2)) + circle_world_center_pos_x;
 
         }
         else
@@ -347,7 +349,7 @@ public class log_interface : MonoBehaviour {
     }
 
 
-	// Use this for initialization
+    // Use this for initialization
     void Start()
     {
         //导入小康的脚本
@@ -359,7 +361,7 @@ public class log_interface : MonoBehaviour {
         current_role_id = 0;
 
         log_canvas_obj = GameObject.Find("log_canvas");
-        game_canvas_obj = GameObject.Find("game_canvas");
+        game_canvas_obj = GameObject.Find("Canvas");
         role_portrait_image_obj = GameObject.Find("role_portrait_image");
         role_name_text_obj = GameObject.Find("role_name_text");
         wealth_value_text_obj = GameObject.Find("wealth_value_text");
@@ -370,9 +372,9 @@ public class log_interface : MonoBehaviour {
         event_body_prefab_obj = GameObject.Find("event_body_prefab");
         event_body_grid_layout_panel_obj = GameObject.Find("event_body_grid_layout_panel");
         event_body_grid_layout_panel_recttransform = event_body_grid_layout_panel_obj.GetComponent<RectTransform>();
-        enter_log_interface_button_obj = GameObject.Find("enter_log_interface_button");
+        //enter_log_interface_button_obj = GameObject.Find("enter_log_interface_button");
         exit_log_interface_button_obj = GameObject.Find("exit_log_interface_button");
-        
+
         horizontal_slide_obj = GameObject.Find("horizontal_slide");
 
         canvas_width = log_canvas_obj.GetComponent<RectTransform>().sizeDelta.x; //1080
@@ -453,12 +455,11 @@ public class log_interface : MonoBehaviour {
         //Debug.Log(center_event_world_y_range_upper_limit);
         //Debug.Log(center_event_world_y_range_lower_limit);
 
-        enter_log_interface_button_obj.GetComponent<Button>().onClick.AddListener(enter_log_interface_click);
+        //enter_log_interface_button_obj.GetComponent<Button>().onClick.AddListener(enter_log_interface_click);
         exit_log_interface_button_obj.GetComponent<Button>().onClick.AddListener(exit_log_interface_click);
 
-        exit_log_interface_click();
+        //exit_log_interface_click();
     }
-	
 
     void OnGUI()
     {
@@ -473,7 +474,7 @@ public class log_interface : MonoBehaviour {
             var horizontal_criterion = horizontal_slide_range_lower_limit <= touch_start_pos.x && touch_start_pos.x <= horizontal_slide_range_upper_limit;
             var vertiacal_criterion = vertical_slide_range_lower_limit <= touch_start_pos.y && touch_start_pos.y <= vertical_slide_range_upper_limit;
 
-            if (horizontal_criterion && vertiacal_criterion) 
+            if (horizontal_criterion && vertiacal_criterion)
             {
                 vertical_slide_effective = true;
             }
@@ -554,6 +555,12 @@ public class log_interface : MonoBehaviour {
     {
         update_highlight_event_body();
         update_event_name();
+
+        if (isLoadComplete == false && Time.time > 2)
+        {
+            isLoadComplete = true;
+            exit_log_interface_click();
+        }
     }
 
 

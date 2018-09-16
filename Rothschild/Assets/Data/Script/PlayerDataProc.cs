@@ -87,13 +87,13 @@ public class PlayerDataProc : MonoBehaviour
         XmlDocument eventDoc = new XmlDocument();
         eventDoc.LoadXml(eventTextAsset.text);
         eventRootNode = eventDoc.SelectSingleNode("TEventTable_Tab");
-        /*
-                // 加载玩家数据表
-                TextAsset playerDBTextAsset = Resources.Load("palyerDB") as TextAsset;
-                XmlDocument playerDBDoc = new XmlDocument();
-                playerDBDoc.LoadXml(playerDBTextAsset.text);
-                playerDBRootNode = playerDBDoc.SelectSingleNode("Players");
-         */
+        
+     /*   // 加载玩家数据表
+        TextAsset playerDBTextAsset = Resources.Load("palyerDB") as TextAsset;
+        XmlDocument playerDBDoc = new XmlDocument();
+        playerDBDoc.LoadXml(playerDBTextAsset.text);
+        playerDBRootNode = playerDBDoc.SelectSingleNode("Players");*/
+         
     }
 
 
@@ -114,12 +114,6 @@ public class PlayerDataProc : MonoBehaviour
     public bool IsJumpStory(int storyID)
     {
         bool jumpStory = false;
-
-        if (storySettleRootNode != null)
-        {
-            GameObject.Find("Log").GetComponent<Text>().text = "bbbbbbbbb";
-        }
-
         foreach (XmlElement xl1 in storySettleRootNode)
         {
             int iStrotyID = int.Parse(xl1.ChildNodes[0].InnerText);
@@ -134,7 +128,6 @@ public class PlayerDataProc : MonoBehaviour
             }
         }
 
-    //    GameObject.Find("Log").GetComponent<Text>().text = "aaaaaaaaaa";
         return jumpStory;
     }
 
@@ -142,19 +135,10 @@ public class PlayerDataProc : MonoBehaviour
     {
         bool preStroy = false;
 
-        int ggg = 0;
- /*
-        if (storySettleRootNode == null)
-        {
-            //GameObject.Find("Log").GetComponent<Text>().text = "aaaaaaaaaa" + ggg++.ToString();
-        }
-
         foreach (XmlElement xl1 in storySettleRootNode)
         {
             int iStrotyID = int.Parse(xl1.ChildNodes[0].InnerText);
             int settleType = int.Parse(xl1.ChildNodes[1].InnerText);
-
-            GameObject.Find("Log").GetComponent<Text>().text = "aaaaaaaaaa" + ggg++.ToString();
             //GameObject.Find("Log").GetComponent<Text>().text = storyID.ToString() + ", " + preEvent.ToString()
             //+ ", " + roleID.ToString() + ", " + choice.ToString();
 
@@ -170,43 +154,32 @@ public class PlayerDataProc : MonoBehaviour
                 break;
             }
         }
-   
-*/
         return preStroy;
     }
 
     public bool FindPlayer(string name)
     {
-     /*   string path = Application.dataPath + playerDBPath;
-        if (File.Exists(path))
+        foreach (XmlElement xl1 in playerDBRootNode)
         {
-            XmlDocument xml = new XmlDocument();
-            xml.Load(path);
-            XmlNodeList xmlNodeList = xml.SelectSingleNode("Players").ChildNodes;
-            foreach (XmlElement xl1 in xmlNodeList)
+            if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
             {
-                if (0 == name.CompareTo(xl1.ChildNodes[0].InnerText))
-                {
-                    return true;
-                }
+                return true;
             }
-        }*/
+        }
+        
         return false;
     }
 
 
     public int regPlayerData(string name, string password)
-    {/*
+    {
         if (FindPlayer(name))
         {
             print("玩家已存在！！！");
             return 1;
         }
         else
-        {
-            string path = Application.dataPath + playerDBPath;
-            if (File.Exists(path))
-            {
+        {/*
                 XmlDocument xml = new XmlDocument();
                 xml.Load(path);
                 XmlNode root = xml.SelectSingleNode("Players");
@@ -229,7 +202,7 @@ public class PlayerDataProc : MonoBehaviour
                 elementTeamwork.InnerText = "80";
 
                 XmlElement elementMoney = xml.CreateElement("Money");
-                elementMoney.InnerText = "50";
+                elementMoney.InnerText = "";
 
                 XmlElement elementReputation = xml.CreateElement("Reputation");
                 elementReputation.InnerText = "";
@@ -252,9 +225,9 @@ public class PlayerDataProc : MonoBehaviour
 
                 xml.AppendChild(root);
                 //最后保存文件
-                xml.Save(path);
-            }
-        }*/
+                xml.Save(path);*/
+         
+        }
         return 0;
     }
 
@@ -270,6 +243,7 @@ public class PlayerDataProc : MonoBehaviour
             print("roleID: " + (i+1) + ", money: " + playerAttrs[i].money + ", reputation: " + playerAttrs[i].reputation);
         }
 
+        //playerAttrs[0].money = 0;
         return playerAttrs;
     }
 
@@ -1204,9 +1178,23 @@ public class PlayerDataProc : MonoBehaviour
         return 0;
     }
 
+    void CleanPlayerInfo()
+    {
+        teamworkValue = 80;
+        for (int i = 0; i < 4; i++)
+        {
+            settleResult[i].money = 50;
+            settleResult[i].reputation = 50;
+        }
+        saveTimes = 0;
+        roleEventStats.Clear();
+    }
+
     // Use this for initialization
     void Start()
     {
+        //GameObject.Find("Log").GetComponent<Text>().text = "受到了<color=#4169E1>9399</color>的伤害\ndjaklfjal;\nfjdiajfdklas\n";
+
         for (int i = 0; i < 4; i++)
         {
             settleResult[i].money = 50;

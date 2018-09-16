@@ -26,6 +26,10 @@ public class OnPerson : EventTrigger
 
     private bool hasInitalize = false;
 
+    private GameObject frame;
+
+    private List<double> monkeyInput = new List<double>();
+
 
     // Use this for initialization
     void Start()
@@ -59,29 +63,47 @@ public class OnPerson : EventTrigger
             reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
 
             hasInitalize = true;
+            StartFrame();
+            DeactiveFrame();
+        }
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < monkeyInput.Count; i++)
+        {
+            if (Time.time - monkeyInput[i] > 2)
+            {
+                monkeyInput.RemoveAt(i);
+                i--;
+            }
+        }
+        if (monkeyInput.Count > 12)
+        {
+            transform.GetChild(0).gameObject.GetComponent<Image>().overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
         }
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
     {
-        targetGraphic.color = colorState.enterColor;
+        //targetGraphic.color = colorState.enterColor;
     }
 
     public override void OnPointerExit(PointerEventData eventData)
     {
         if (isSelected)
         {
-            targetGraphic.color = colorState.selectColor;
+            //targetGraphic.color = colorState.selectColor;
         }
         else
         {
-            targetGraphic.color = colorState.personNormalColor;
+            //targetGraphic.color = colorState.personNormalColor;
         }
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        targetGraphic.color = colorState.clickColor;
+        //targetGraphic.color = colorState.clickColor;
         //isSelected = !isSelected;
         //判断是否能够选择
         if (isSelected == false)
@@ -89,26 +111,29 @@ public class OnPerson : EventTrigger
             if (levelManager.AddSelect(this.tag))
             {
                 isSelected = true;
+                ActiveFrame();
             }
         }
         else
         {
             levelManager.RemoveSelect(this.tag);
+            DeactiveFrame();
             isSelected = false;
         }
+        monkeyInput.Add(Time.time);
 
     }
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        if (isSelected)
-        {
-            targetGraphic.color = colorState.selectColor;
-        }
-        else
-        {
-            targetGraphic.color = colorState.personNormalColor;
-        }
+        //if (isSelected)
+        //{
+        //    //targetGraphic.color = colorState.selectColor;
+        //}
+        //else
+        //{
+        //    //targetGraphic.color = colorState.personNormalColor;
+        //}
     }
 
     public bool IsSelected()
@@ -121,8 +146,9 @@ public class OnPerson : EventTrigger
         if (isDead)
             return;
         isSelected = false;
-        targetGraphic.color = colorState.personNormalColor;
+        //targetGraphic.color = colorState.personNormalColor;
         this.enabled = true;
+        DeactiveFrame();
     }
 
     public void SetAvator(string avatarName)
@@ -173,14 +199,14 @@ public class OnPerson : EventTrigger
 
     public void SetUnselectable()
     {
-        targetGraphic.color = colorState.unselectableColor;
+        //targetGraphic.color = colorState.unselectableColor;
         this.isSelected = false;
         this.enabled = false;
     }
 
     public void SetSelected()
     {
-        targetGraphic.color = colorState.selectColor;
+        //targetGraphic.color = colorState.selectColor;
         this.isSelected = true;
         this.enabled = false;
     }
@@ -194,6 +220,35 @@ public class OnPerson : EventTrigger
     {
         isDead = false;
         this.enabled = true;
-        targetGraphic.color = colorState.personNormalColor;
+        //targetGraphic.color = colorState.personNormalColor;
+    }
+
+    private void ActiveFrame()
+    {
+        frame.SetActive(true);
+    }
+
+    private void DeactiveFrame()
+    {
+        frame.SetActive(false);
+    }
+
+    private void StartFrame()
+    {
+        switch (tag)
+        {
+            case "PersonOne":
+                frame = GameObject.Find("SelectA");
+                break;
+            case "PersonTwo":
+                frame = GameObject.Find("SelectB");
+                break;
+            case "PersonThree":
+                frame = GameObject.Find("SelectC");
+                break;
+            case "PersonFour":
+                frame = GameObject.Find("SelectD");
+                break;
+        }
     }
 }
