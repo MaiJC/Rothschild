@@ -19,9 +19,11 @@ public class OnPerson : EventTrigger
     //财富
     private Text wealthText;
     private int wealthNum;
+    private GameObject wealthArror;
     //名望
     private Text reputationText;
     private int reputationNum;
+    private GameObject reputationArror;
     //是否死亡
     private bool isDead = false;
 
@@ -94,6 +96,8 @@ public class OnPerson : EventTrigger
             avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
             wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
             reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
+            wealthArror = this.transform.GetChild(3).gameObject;
+            reputationArror = this.transform.GetChild(4).gameObject;
 
             hasInitalize = true;
             StartFrame();
@@ -174,19 +178,25 @@ public class OnPerson : EventTrigger
         avatarImage.sprite = Resources.Load(avatarName, typeof(Sprite)) as Sprite;
     }
 
+    private bool hasSetWealth = false;
     /*接收值为财富值的改变，返回角色是否死亡，返回true则为死亡*/
     public bool SetWealth(int wealth)
     {
-        //wealthNum += wealthChange;
-
-        //isDead = (wealthNum <= 0);
-        //wealthNum = wealthNum < 0 ? 0 : wealthNum;
-        wealthNum = wealth;
-        isDead = (wealthNum <= 0 || wealthNum >= 100);
-        wealthNum = Mathf.Clamp(wealthNum, 0, 100);
-        wealthText.text = wealthNum.ToString() + "/100";
-        if (isDead)
-            SetDead();
+        if(hasSetWealth==false)
+        {
+            wealthNum = wealth;
+            isDead = (wealthNum <= 0 || wealthNum >= 100);
+            wealthNum = Mathf.Clamp(wealthNum, 0, 100);
+            wealthText.text = wealthNum.ToString() + "/100";
+            if (isDead)
+                SetDead();
+            hasSetWealth = true;
+        }
+        else
+        {
+            int lastWealth=
+        }
+        
 
         return isDead;
     }
