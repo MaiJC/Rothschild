@@ -1531,17 +1531,17 @@ Prefab:
     - target: {fileID: 114837774464219698, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
         type: 2}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114837774464219698, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
         type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114837774464219698, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
         type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224534656134511742, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
         type: 2}
@@ -1597,6 +1597,41 @@ Prefab:
         type: 2}
       propertyPath: m_FillCenter
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114396562177635502, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114396562177635502, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114396562177635502, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
+        type: 2}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114446534210327482, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114446534210327482, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114446534210327482, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114446534210327482, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cb4c65ebf76eac4cb2382e7fa1e96cc, type: 2}
@@ -6549,7 +6584,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1576025480703466, guid: b7f470578f09d9947a79ccc5fccccc3d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114620033690599670, guid: b7f470578f09d9947a79ccc5fccccc3d,
         type: 2}
@@ -7426,9 +7461,9 @@ MonoBehaviour:
   clickColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 0.39215687}
   enterColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 0.39215687}
   selectColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0.39215687}
-  deadColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 0.5882353}
-  unselectableColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.39215687}
-  personNormalColor: {r: 0.9568628, g: 0.93725497, b: 0.8862746, a: 0}
+  deadColor: {r: 1, g: 1, b: 1, a: 0.8235294}
+  unselectableColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.49019608}
+  personNormalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &917787835
 GameObject:
   m_ObjectHideFlags: 0

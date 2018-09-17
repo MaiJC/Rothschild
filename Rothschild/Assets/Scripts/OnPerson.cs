@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class OnPerson : EventTrigger
 {
-    private Graphic targetGraphic;
+    //private Graphic targetGraphic;
+    private Image targetGraphic;
     private bool isSelected = false;
 
     private ColorState colorState;
@@ -82,7 +83,8 @@ public class OnPerson : EventTrigger
         }
         if (hasInitalize == false && Time.fixedTime - loadTime > 1.5)
         {
-            targetGraphic = this.GetComponent<Button>().targetGraphic;
+            targetGraphic = this.transform.GetChild(0).GetComponent<Image>();
+            //targetGraphic = this.GetComponent<Button>().targetGraphic;
             //colorState = this.GetComponent<ColorState>();
             colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
 
@@ -162,7 +164,7 @@ public class OnPerson : EventTrigger
         if (isDead)
             return;
         isSelected = false;
-        //targetGraphic.color = colorState.personNormalColor;
+        targetGraphic.color = colorState.personNormalColor;
         this.enabled = true;
         DeactiveFrame();
     }
@@ -215,13 +217,17 @@ public class OnPerson : EventTrigger
 
     public void SetUnselectable()
     {
-        //targetGraphic.color = colorState.unselectableColor;
+        if (isDead)
+            return;
+        targetGraphic.color = colorState.unselectableColor;
         this.isSelected = false;
         this.enabled = false;
     }
 
     public void SetSelected()
     {
+        if (isDead)
+            return;
         //targetGraphic.color = colorState.selectColor;
         this.isSelected = true;
         this.enabled = false;

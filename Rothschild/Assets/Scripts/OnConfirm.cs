@@ -82,10 +82,10 @@ public class OnConfirm : EventTrigger
         PrcData();
         //获得下一关
         levelManager.Confirm(choice, selectRole);
-        foreach (OnPerson personTmp in onPerson)
-        {
-            personTmp.Clear();
-        }
+        //foreach (OnPerson personTmp in onPerson)
+        //{
+        //    personTmp.Clear();
+        //}
         levelManager.HandleDead();
         RefreshTeamwork();
     }
