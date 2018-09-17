@@ -26,7 +26,7 @@ public class OnLose : MonoBehaviour
         GameObject.Find("Exit").GetComponent<Button>().onClick.AddListener(Quit);
         GameObject.Find("WinRestart").GetComponent<Button>().onClick.AddListener(Retry);
         GameObject.Find("WinExit").GetComponent<Button>().onClick.AddListener(Quit);
-        GameObject.Find("WTF").GetComponent<Button>().onClick.AddListener(Retry);
+        //GameObject.Find("WTF").GetComponent<Button>().onClick.AddListener(Retry);
         loseInterface.SetActive(false);
         winInterface.SetActive(false);
 
