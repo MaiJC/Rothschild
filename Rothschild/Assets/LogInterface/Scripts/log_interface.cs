@@ -43,13 +43,17 @@ public class log_interface : MonoBehaviour
     LoadRes loadres;
 
     int current_role_id;
+    List<string> role_description_list;
     List<string> role_name_list;
+    List<string> role_place_list;
     int role_total_num;
 
     GameObject log_canvas_obj;
     GameObject game_canvas_obj;
     GameObject role_portrait_image_obj;
+    GameObject role_description_text_obj;
     GameObject role_name_text_obj;
+    GameObject role_place_text_obj;
     GameObject wealth_value_text_obj;
     GameObject reputation_value_text_obj;
     GameObject cohesion_fill_image_obj;
@@ -140,7 +144,7 @@ public class log_interface : MonoBehaviour
         log_canvas_obj.SetActive(true);
 
         refresh_role_portrait_image();
-        refresh_role_name_text();
+        refresh_role_text();
         refresh_property();
         refresh_cohesion();
         refresh_event();
@@ -168,10 +172,15 @@ public class log_interface : MonoBehaviour
     }
 
     //用于：进入日志界面、水平滑动
-    void refresh_role_name_text()
+    void refresh_role_text()
     {
+        var role_description = role_description_list[current_role_id];
         var role_name = role_name_list[current_role_id];
+        var role_place = role_place_list[current_role_id];
+
+        role_description_text_obj.GetComponent<Text>().text = role_description;
         role_name_text_obj.GetComponent<Text>().text = role_name;
+        role_place_text_obj.GetComponent<Text>().text = role_place;
     }
 
     //用于：进入日志界面、水平滑动
@@ -263,6 +272,7 @@ public class log_interface : MonoBehaviour
         //event_body、event_body_grid_layout_panel的pivot必须置顶（x轴方向不重要），RectTransform.position返回的是pivot的世界坐标
         //滚动文本上对齐
         event_body_grid_layout_panel_recttransform.position = new Vector3(event_body_grid_layout_panel_recttransform.position.x, event_body_grid_layout_panel_world_init_pos_y, event_body_grid_layout_panel_recttransform.position.z);
+        event_body_grid_layout_panel_world_target_pos_y = event_body_grid_layout_panel_world_init_pos_y; //1430
 
         //test
         int test_value = enter_log_interface_click_count + exit_log_interface_click_count + horizontal_slide_count + vertical_slide_count;
@@ -370,14 +380,18 @@ public class log_interface : MonoBehaviour
         playerdataproc = GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>();
         loadres = GameObject.Find("LogicHandler").GetComponent<LoadRes>();
 
-        role_name_list = new List<string>() { "法兰克福", "伦敦", "巴黎", "那不勒斯" };
+        role_description_list = new List<string> { "友善的", "征服者", "博学者", "迷人的" };
+        role_name_list = new List<string>() { "卡尔", "内森", "杰姆斯", "简" };
+        role_place_list = new List<string>() { "法兰克福", "伦敦", "巴黎", "那不勒斯" };
         role_total_num = role_name_list.Count;
         current_role_id = 0;
 
         log_canvas_obj = GameObject.Find("log_canvas");
         game_canvas_obj = GameObject.Find("Canvas");
         role_portrait_image_obj = GameObject.Find("role_portrait_image");
+        role_description_text_obj = GameObject.Find("role_description_text");
         role_name_text_obj = GameObject.Find("role_name_text");
+        role_place_text_obj = GameObject.Find("role_place_text");
         wealth_value_text_obj = GameObject.Find("wealth_value_text");
         reputation_value_text_obj = GameObject.Find("reputation_value_text");
         cohesion_fill_image_obj = GameObject.Find("cohesion_fill_image");
@@ -402,8 +416,7 @@ public class log_interface : MonoBehaviour
         event_below_height = event_obj.GetComponent<RectTransform>().position.y; //110
         event_body_grid_layout_panel_world_init_pos_y = event_body_obj.GetComponent<RectTransform>().position.y; //1430
         event_body_grid_layout_panel_world_min_pos_y = event_body_grid_layout_panel_world_init_pos_y; //1430
-        event_body_grid_layout_panel_world_target_pos_y = event_body_grid_layout_panel_world_init_pos_y; //1430
-        event_body_grid_layout_panel_adjust_rate = 10; //玄学调参
+        event_body_grid_layout_panel_adjust_rate = 15; //玄学调参
 
         highlight_event_body_obj = GameObject.Find("highlight_event_body");
         highlight_event_body_prefab_obj = GameObject.Find("highlight_event_body_prefab");
@@ -493,7 +506,7 @@ public class log_interface : MonoBehaviour
                 horizontal_slide_obj.GetComponent<AudioSource>().Play();
 
                 refresh_role_portrait_image();
-                refresh_role_name_text();
+                refresh_role_text();
                 refresh_property();
                 refresh_cohesion();
                 refresh_event();
