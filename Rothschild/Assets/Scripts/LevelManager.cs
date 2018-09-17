@@ -75,11 +75,11 @@ public class LevelManager : MonoBehaviour
         gameObject.SetActive(true);
         if (hasInitialize == false && Time.fixedTime - loadTime > 2)
         {
+            hasInitialize = true;
             Initialize();
             InitializeMonkey();
             NextLevel();
             NextEvent();
-            hasInitialize = true;
         }
     }
 
