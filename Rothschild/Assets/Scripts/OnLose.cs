@@ -18,7 +18,6 @@ public class OnLose : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
         winInterface = GameObject.Find("WinInterface");
         loseInterface = GameObject.Find("LoseInterface");
