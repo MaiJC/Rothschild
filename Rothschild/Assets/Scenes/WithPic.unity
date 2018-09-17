@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 3476712}
   - component: {fileID: 3476711}
   m_Layer: 0
-  m_Name: reputation
+  m_Name: eputation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 15042699}
   - component: {fileID: 15042698}
   m_Layer: 5
-  m_Name: role_portrait_image
+  m_Name: ole_portrait_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 15609787}
   m_Layer: 0
-  m_Name: cohesion
+  m_Name: ohesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 56418346}
   m_Layer: 0
-  m_Name: cohesion
+  m_Name: ohesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 65142447}
   - component: {fileID: 65142446}
   m_Layer: 0
-  m_Name: reputation_value_upper_limit_text
+  m_Name: eputation_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 66900949}
   - component: {fileID: 66900948}
   m_Layer: 0
-  m_Name: wealth
+  m_Name: ealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 73639780}
   - component: {fileID: 73639779}
   m_Layer: 0
-  m_Name: wealth
+  m_Name: ealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 85286549}
   - component: {fileID: 85286548}
   m_Layer: 0
-  m_Name: role_name
+  m_Name: ole_name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 85603925}
   - component: {fileID: 85603924}
   m_Layer: 5
-  m_Name: wealth_name_text
+  m_Name: ealth_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -813,7 +813,7 @@ GameObject:
   - component: {fileID: 86350347}
   - component: {fileID: 86350346}
   m_Layer: 5
-  m_Name: background_image
+  m_Name: ackground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -886,7 +886,7 @@ GameObject:
   - component: {fileID: 106553478}
   - component: {fileID: 106553477}
   m_Layer: 0
-  m_Name: reputation_value_text
+  m_Name: eputation_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 110016325}
   - component: {fileID: 110016324}
   m_Layer: 0
-  m_Name: reputation_logo_image
+  m_Name: eputation_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1038,7 +1038,7 @@ GameObject:
   - component: {fileID: 118591723}
   - component: {fileID: 118591722}
   m_Layer: 5
-  m_Name: role_portrait_image
+  m_Name: ole_portrait_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 121486046}
   - component: {fileID: 121486045}
   m_Layer: 5
-  m_Name: wealth_name_text
+  m_Name: ealth_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,7 +1190,7 @@ GameObject:
   - component: {fileID: 158893647}
   - component: {fileID: 158893646}
   m_Layer: 0
-  m_Name: reputation
+  m_Name: eputation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 165682511}
   - component: {fileID: 165682510}
   m_Layer: 5
-  m_Name: cohesion_foreground_image
+  m_Name: ohesion_foreground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1340,7 +1340,7 @@ GameObject:
   - component: {fileID: 166800053}
   - component: {fileID: 166800052}
   m_Layer: 0
-  m_Name: wealth_value_upper_limit_text
+  m_Name: ealth_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1618,7 +1618,7 @@ GameObject:
   - component: {fileID: 171227817}
   - component: {fileID: 171227816}
   m_Layer: 0
-  m_Name: reputation_logo_image
+  m_Name: eputation_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1731,7 +1731,7 @@ GameObject:
   - component: {fileID: 173504041}
   - component: {fileID: 173504040}
   m_Layer: 5
-  m_Name: reputation_name_text
+  m_Name: eputation_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1810,7 +1810,7 @@ GameObject:
   - component: {fileID: 177757242}
   - component: {fileID: 177757241}
   m_Layer: 0
-  m_Name: reputation_value_text
+  m_Name: eputation_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1889,7 +1889,7 @@ GameObject:
   - component: {fileID: 182425462}
   - component: {fileID: 182425461}
   m_Layer: 0
-  m_Name: reputation_value_upper_limit_text
+  m_Name: eputation_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2037,7 +2037,7 @@ GameObject:
   - component: {fileID: 196987242}
   - component: {fileID: 196987241}
   m_Layer: 5
-  m_Name: background_image
+  m_Name: ackground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2110,7 +2110,7 @@ GameObject:
   - component: {fileID: 216186616}
   - component: {fileID: 216186615}
   m_Layer: 0
-  m_Name: reputation_value_text
+  m_Name: Reputation_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2376,7 +2376,7 @@ GameObject:
   - component: {fileID: 276668102}
   - component: {fileID: 276668101}
   m_Layer: 5
-  m_Name: cohesion_background_image
+  m_Name: ohesion_background_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2449,7 +2449,7 @@ GameObject:
   - component: {fileID: 283660071}
   - component: {fileID: 283660070}
   m_Layer: 0
-  m_Name: wealth
+  m_Name: ealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2526,7 +2526,7 @@ GameObject:
   - component: {fileID: 286734765}
   - component: {fileID: 286734764}
   m_Layer: 5
-  m_Name: role_name_text
+  m_Name: ole_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2605,7 +2605,7 @@ GameObject:
   - component: {fileID: 301484715}
   - component: {fileID: 301484714}
   m_Layer: 0
-  m_Name: property
+  m_Name: roperty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2680,7 +2680,7 @@ GameObject:
   - component: {fileID: 307673984}
   - component: {fileID: 307673983}
   m_Layer: 0
-  m_Name: reputation_logo_image
+  m_Name: eputation_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2823,7 +2823,7 @@ GameObject:
   - component: {fileID: 346170355}
   - component: {fileID: 346170354}
   m_Layer: 5
-  m_Name: cohesion_fill_image
+  m_Name: ohesion_fill_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2896,7 +2896,7 @@ GameObject:
   - component: {fileID: 362743416}
   - component: {fileID: 362743415}
   m_Layer: 0
-  m_Name: role_name_lower_image
+  m_Name: Role_name_lower_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3083,7 +3083,7 @@ GameObject:
   - component: {fileID: 426904459}
   - component: {fileID: 426904458}
   m_Layer: 0
-  m_Name: reputation_logo_image
+  m_Name: Reputation_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3432,7 +3432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 455962306}
   m_Layer: 0
-  m_Name: cohesion
+  m_Name: Cohesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3472,7 +3472,7 @@ GameObject:
   - component: {fileID: 458742349}
   - component: {fileID: 458742348}
   m_Layer: 5
-  m_Name: role_portrait_image
+  m_Name: ole_portrait_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3543,7 +3543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 463253215}
   m_Layer: 0
-  m_Name: cohesion
+  m_Name: ohesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3767,7 +3767,7 @@ GameObject:
   - component: {fileID: 474980587}
   - component: {fileID: 474980586}
   m_Layer: 5
-  m_Name: cohesion_background_image
+  m_Name: ohesion_background_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3915,7 +3915,7 @@ GameObject:
   - component: {fileID: 501927497}
   - component: {fileID: 501927496}
   m_Layer: 0
-  m_Name: wealth_logo_image
+  m_Name: ealth_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4064,7 +4064,7 @@ GameObject:
   - component: {fileID: 514929738}
   - component: {fileID: 514929737}
   m_Layer: 5
-  m_Name: reputation_name_text
+  m_Name: eputation_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4143,7 +4143,7 @@ GameObject:
   - component: {fileID: 519382218}
   - component: {fileID: 519382217}
   m_Layer: 0
-  m_Name: wealth_value_text
+  m_Name: ealth_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4222,7 +4222,7 @@ GameObject:
   - component: {fileID: 538403066}
   - component: {fileID: 538403065}
   m_Layer: 0
-  m_Name: wealth_value_text
+  m_Name: ealth_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4301,7 +4301,7 @@ GameObject:
   - component: {fileID: 562079027}
   - component: {fileID: 562079026}
   m_Layer: 0
-  m_Name: wealth_logo_image
+  m_Name: ealth_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4374,7 +4374,7 @@ GameObject:
   - component: {fileID: 565152698}
   - component: {fileID: 565152697}
   m_Layer: 0
-  m_Name: wealth
+  m_Name: ealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4451,7 +4451,7 @@ GameObject:
   - component: {fileID: 568742658}
   - component: {fileID: 568742657}
   m_Layer: 5
-  m_Name: background_image
+  m_Name: ackground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4524,7 +4524,7 @@ GameObject:
   - component: {fileID: 571253712}
   - component: {fileID: 571253711}
   m_Layer: 0
-  m_Name: role_name
+  m_Name: ole_name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4599,7 +4599,7 @@ GameObject:
   - component: {fileID: 595642919}
   - component: {fileID: 595642918}
   m_Layer: 0
-  m_Name: wealth_value_upper_limit_text
+  m_Name: ealth_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4678,7 +4678,7 @@ GameObject:
   - component: {fileID: 598005383}
   - component: {fileID: 598005382}
   m_Layer: 5
-  m_Name: cohesion_background_image
+  m_Name: ohesion_background_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4751,7 +4751,7 @@ GameObject:
   - component: {fileID: 598404980}
   - component: {fileID: 598404979}
   m_Layer: 0
-  m_Name: wealth_value_text
+  m_Name: ealth_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4829,7 +4829,7 @@ GameObject:
   - component: {fileID: 601904374}
   - component: {fileID: 601904373}
   m_Layer: 5
-  m_Name: text
+  m_Name: ext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5018,7 +5018,7 @@ GameObject:
   - component: {fileID: 617779433}
   - component: {fileID: 617779432}
   m_Layer: 0
-  m_Name: wealth_value_text
+  m_Name: ealth_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5097,7 +5097,7 @@ GameObject:
   - component: {fileID: 622382242}
   - component: {fileID: 622382241}
   m_Layer: 0
-  m_Name: role_name_lower_image
+  m_Name: ole_name_lower_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5170,7 +5170,7 @@ GameObject:
   - component: {fileID: 633864914}
   - component: {fileID: 633864913}
   m_Layer: 5
-  m_Name: role_name_text
+  m_Name: ole_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5249,7 +5249,7 @@ GameObject:
   - component: {fileID: 648006807}
   - component: {fileID: 648006806}
   m_Layer: 5
-  m_Name: cohesion_background_image
+  m_Name: ohesion_background_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5475,7 +5475,7 @@ GameObject:
   - component: {fileID: 670295301}
   - component: {fileID: 670295300}
   m_Layer: 0
-  m_Name: wealth
+  m_Name: Pealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5552,7 +5552,7 @@ GameObject:
   - component: {fileID: 679282362}
   - component: {fileID: 679282361}
   m_Layer: 5
-  m_Name: cohesion_foreground_image
+  m_Name: ohesion_foreground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5625,7 +5625,7 @@ GameObject:
   - component: {fileID: 689448325}
   - component: {fileID: 689448324}
   m_Layer: 0
-  m_Name: wealth_value_upper_limit_text
+  m_Name: ealth_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5899,7 +5899,7 @@ GameObject:
   - component: {fileID: 754270995}
   - component: {fileID: 754270994}
   m_Layer: 0
-  m_Name: wealth_value_upper_limit_text
+  m_Name: ealth_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5978,7 +5978,7 @@ GameObject:
   - component: {fileID: 767702886}
   - component: {fileID: 767702885}
   m_Layer: 0
-  m_Name: wealth_value_upper_limit_text
+  m_Name: ealth_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6126,7 +6126,7 @@ GameObject:
   - component: {fileID: 810711178}
   - component: {fileID: 810711177}
   m_Layer: 0
-  m_Name: reputation_value_text
+  m_Name: eputation_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6423,7 +6423,7 @@ GameObject:
   - component: {fileID: 834362424}
   - component: {fileID: 834362423}
   m_Layer: 5
-  m_Name: wealth_name_text
+  m_Name: ealth_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6502,7 +6502,7 @@ GameObject:
   - component: {fileID: 837842297}
   - component: {fileID: 837842296}
   m_Layer: 0
-  m_Name: role_name
+  m_Name: ole_name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6577,7 +6577,7 @@ GameObject:
   - component: {fileID: 841478135}
   - component: {fileID: 841478134}
   m_Layer: 0
-  m_Name: reputation_logo_image
+  m_Name: eputation_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6650,7 +6650,7 @@ GameObject:
   - component: {fileID: 843616895}
   - component: {fileID: 843616894}
   m_Layer: 0
-  m_Name: role_name_lower_image
+  m_Name: ole_name_lower_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6721,7 +6721,7 @@ GameObject:
   m_Component:
   - component: {fileID: 849213083}
   m_Layer: 0
-  m_Name: cohesion
+  m_Name: ohesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6761,7 +6761,7 @@ GameObject:
   - component: {fileID: 850096936}
   - component: {fileID: 850096935}
   m_Layer: 5
-  m_Name: role_portrait_image
+  m_Name: ole_portrait_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6911,7 +6911,7 @@ GameObject:
   - component: {fileID: 852449975}
   - component: {fileID: 852449974}
   m_Layer: 0
-  m_Name: reputation
+  m_Name: eputation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6988,7 +6988,7 @@ GameObject:
   - component: {fileID: 872825518}
   - component: {fileID: 872825517}
   m_Layer: 0
-  m_Name: property
+  m_Name: roperty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7061,7 +7061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 880855949}
   m_Layer: 0
-  m_Name: cohesion
+  m_Name: ohesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7215,7 +7215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 917787836}
   m_Layer: 0
-  m_Name: cohesion
+  m_Name: ohesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7254,7 +7254,7 @@ GameObject:
   - component: {fileID: 927114847}
   - component: {fileID: 927114846}
   m_Layer: 5
-  m_Name: text
+  m_Name: ext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7330,7 +7330,7 @@ GameObject:
   - component: {fileID: 953980121}
   - component: {fileID: 953980120}
   m_Layer: 5
-  m_Name: role_name_text
+  m_Name: ole_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7530,7 +7530,7 @@ GameObject:
   - component: {fileID: 986444458}
   - component: {fileID: 986444457}
   m_Layer: 5
-  m_Name: cohesion_background_image
+  m_Name: ohesion_background_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7796,7 +7796,7 @@ GameObject:
   - component: {fileID: 1011038797}
   - component: {fileID: 1011038796}
   m_Layer: 5
-  m_Name: background_image
+  m_Name: Background_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7869,7 +7869,7 @@ GameObject:
   - component: {fileID: 1011913337}
   - component: {fileID: 1011913336}
   m_Layer: 0
-  m_Name: reputation_value_upper_limit_text
+  m_Name: eputation_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7947,7 +7947,7 @@ GameObject:
   - component: {fileID: 1021498991}
   - component: {fileID: 1021498990}
   m_Layer: 5
-  m_Name: text
+  m_Name: ext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8022,7 +8022,7 @@ GameObject:
   - component: {fileID: 1035475286}
   - component: {fileID: 1035475285}
   m_Layer: 5
-  m_Name: text
+  m_Name: ext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8098,7 +8098,7 @@ GameObject:
   - component: {fileID: 1054086922}
   - component: {fileID: 1054086921}
   m_Layer: 0
-  m_Name: role_name_lower_image
+  m_Name: ole_name_lower_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8171,7 +8171,7 @@ GameObject:
   - component: {fileID: 1079522488}
   - component: {fileID: 1079522487}
   m_Layer: 0
-  m_Name: reputation_value_upper_limit_text
+  m_Name: eputation_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8250,7 +8250,7 @@ GameObject:
   - component: {fileID: 1084063944}
   - component: {fileID: 1084063943}
   m_Layer: 0
-  m_Name: reputation_value_text
+  m_Name: eputation_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8500,7 +8500,7 @@ GameObject:
   - component: {fileID: 1128448158}
   - component: {fileID: 1128448157}
   m_Layer: 0
-  m_Name: wealth
+  m_Name: ealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8760,7 +8760,7 @@ GameObject:
   - component: {fileID: 1140015003}
   - component: {fileID: 1140015002}
   m_Layer: 0
-  m_Name: wealth_value_text
+  m_Name: ealth_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8908,7 +8908,7 @@ GameObject:
   - component: {fileID: 1168766720}
   - component: {fileID: 1168766719}
   m_Layer: 0
-  m_Name: wealth_logo_image
+  m_Name: ealth_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9099,7 +9099,7 @@ GameObject:
   - component: {fileID: 1191938752}
   - component: {fileID: 1191938751}
   m_Layer: 5
-  m_Name: role_name_text
+  m_Name: ole_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9246,7 +9246,7 @@ GameObject:
   - component: {fileID: 1221278825}
   - component: {fileID: 1221278824}
   m_Layer: 5
-  m_Name: text
+  m_Name: ext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9322,7 +9322,7 @@ GameObject:
   - component: {fileID: 1229326237}
   - component: {fileID: 1229326236}
   m_Layer: 5
-  m_Name: background_image
+  m_Name: ackground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9395,7 +9395,7 @@ GameObject:
   - component: {fileID: 1257250337}
   - component: {fileID: 1257250336}
   m_Layer: 5
-  m_Name: cohesion_background_image
+  m_Name: ohesion_background_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9543,7 +9543,7 @@ GameObject:
   - component: {fileID: 1262814570}
   - component: {fileID: 1262814569}
   m_Layer: 0
-  m_Name: reputation
+  m_Name: eputation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9733,7 +9733,7 @@ GameObject:
   - component: {fileID: 1284475372}
   - component: {fileID: 1284475371}
   m_Layer: 0
-  m_Name: reputation_value_upper_limit_text
+  m_Name: eputation_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9812,7 +9812,7 @@ GameObject:
   - component: {fileID: 1286816485}
   - component: {fileID: 1286816484}
   m_Layer: 5
-  m_Name: reputation_name_text
+  m_Name: eputation_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9960,7 +9960,7 @@ GameObject:
   - component: {fileID: 1296149452}
   - component: {fileID: 1296149451}
   m_Layer: 5
-  m_Name: role_name_text
+  m_Name: ole_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10108,7 +10108,7 @@ GameObject:
   - component: {fileID: 1319725966}
   - component: {fileID: 1319725965}
   m_Layer: 0
-  m_Name: property
+  m_Name: roperty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10183,7 +10183,7 @@ GameObject:
   - component: {fileID: 1335600911}
   - component: {fileID: 1335600910}
   m_Layer: 5
-  m_Name: cohesion_foreground_image
+  m_Name: ohesion_foreground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10255,7 +10255,7 @@ GameObject:
   - component: {fileID: 1337702104}
   - component: {fileID: 1337702103}
   m_Layer: 5
-  m_Name: text
+  m_Name: ext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10331,7 +10331,7 @@ GameObject:
   - component: {fileID: 1343314386}
   - component: {fileID: 1343314385}
   m_Layer: 0
-  m_Name: role_name_lower_image
+  m_Name: ole_name_lower_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10404,7 +10404,7 @@ GameObject:
   - component: {fileID: 1349347556}
   - component: {fileID: 1349347555}
   m_Layer: 5
-  m_Name: wealth_name_text
+  m_Name: ealth_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10483,7 +10483,7 @@ GameObject:
   - component: {fileID: 1353422518}
   - component: {fileID: 1353422517}
   m_Layer: 5
-  m_Name: cohesion_fill_image
+  m_Name: ohesion_fill_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10556,7 +10556,7 @@ GameObject:
   - component: {fileID: 1356683303}
   - component: {fileID: 1356683302}
   m_Layer: 0
-  m_Name: wealth_logo_image
+  m_Name: ealth_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10629,7 +10629,7 @@ GameObject:
   - component: {fileID: 1362943304}
   - component: {fileID: 1362943303}
   m_Layer: 5
-  m_Name: cohesion_foreground_image
+  m_Name: ohesion_foreground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10702,7 +10702,7 @@ GameObject:
   - component: {fileID: 1367483044}
   - component: {fileID: 1367483043}
   m_Layer: 5
-  m_Name: role_portrait_image
+  m_Name: Role_portrait_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10775,7 +10775,7 @@ GameObject:
   - component: {fileID: 1377126033}
   - component: {fileID: 1377126032}
   m_Layer: 5
-  m_Name: role_portrait_image
+  m_Name: ole_portrait_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10912,7 +10912,7 @@ GameObject:
   - component: {fileID: 1381697208}
   - component: {fileID: 1381697207}
   m_Layer: 5
-  m_Name: cohesion_foreground_image
+  m_Name: ohesion_foreground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10983,7 +10983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1382636084}
   m_Layer: 0
-  m_Name: cohesion
+  m_Name: ohesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11028,7 +11028,7 @@ GameObject:
   - component: {fileID: 1395487790}
   - component: {fileID: 1395487789}
   m_Layer: 5
-  m_Name: role_name_text
+  m_Name: Role_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11107,7 +11107,7 @@ GameObject:
   - component: {fileID: 1417696690}
   - component: {fileID: 1417696689}
   m_Layer: 0
-  m_Name: role_name
+  m_Name: ole_name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11182,7 +11182,7 @@ GameObject:
   - component: {fileID: 1418515843}
   - component: {fileID: 1418515842}
   m_Layer: 0
-  m_Name: reputation_value_upper_limit_text
+  m_Name: eputation_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11261,7 +11261,7 @@ GameObject:
   - component: {fileID: 1424189341}
   - component: {fileID: 1424189340}
   m_Layer: 5
-  m_Name: cohesion_foreground_image
+  m_Name: ohesion_foreground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11334,7 +11334,7 @@ GameObject:
   - component: {fileID: 1424960986}
   - component: {fileID: 1424960985}
   m_Layer: 0
-  m_Name: role_name
+  m_Name: ole_name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11598,7 +11598,7 @@ GameObject:
   - component: {fileID: 1435117975}
   - component: {fileID: 1435117974}
   m_Layer: 0
-  m_Name: property
+  m_Name: roperty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11673,7 +11673,7 @@ GameObject:
   - component: {fileID: 1437807576}
   - component: {fileID: 1437807575}
   m_Layer: 5
-  m_Name: cohesion_foreground_image
+  m_Name: ohesion_foreground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11746,7 +11746,7 @@ GameObject:
   - component: {fileID: 1449143813}
   - component: {fileID: 1449143812}
   m_Layer: 5
-  m_Name: cohesion_fill_image
+  m_Name: ohesion_fill_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11819,7 +11819,7 @@ GameObject:
   - component: {fileID: 1453691903}
   - component: {fileID: 1453691902}
   m_Layer: 0
-  m_Name: wealth_value_text
+  m_Name: ealth_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11898,7 +11898,7 @@ GameObject:
   - component: {fileID: 1464895800}
   - component: {fileID: 1464895799}
   m_Layer: 0
-  m_Name: wealth_value_text
+  m_Name: Wealth_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12046,7 +12046,7 @@ GameObject:
   - component: {fileID: 1469799732}
   - component: {fileID: 1469799731}
   m_Layer: 0
-  m_Name: reputation_value_text
+  m_Name: eputation_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12125,7 +12125,7 @@ GameObject:
   - component: {fileID: 1486085372}
   - component: {fileID: 1486085371}
   m_Layer: 0
-  m_Name: wealth_logo_image
+  m_Name: Wealth_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12198,7 +12198,7 @@ GameObject:
   - component: {fileID: 1489572063}
   - component: {fileID: 1489572062}
   m_Layer: 0
-  m_Name: property
+  m_Name: roperty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12385,7 +12385,7 @@ GameObject:
   - component: {fileID: 1495872461}
   - component: {fileID: 1495872460}
   m_Layer: 0
-  m_Name: property
+  m_Name: roperty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12535,7 +12535,7 @@ GameObject:
   - component: {fileID: 1529191344}
   - component: {fileID: 1529191343}
   m_Layer: 0
-  m_Name: reputation_value_upper_limit_text
+  m_Name: Reputation_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12614,7 +12614,7 @@ GameObject:
   - component: {fileID: 1534768020}
   - component: {fileID: 1534768019}
   m_Layer: 5
-  m_Name: reputation_name_text
+  m_Name: eputation_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12693,7 +12693,7 @@ GameObject:
   - component: {fileID: 1547040432}
   - component: {fileID: 1547040431}
   m_Layer: 0
-  m_Name: role_name_lower_image
+  m_Name: ole_name_lower_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12766,7 +12766,7 @@ GameObject:
   - component: {fileID: 1559852461}
   - component: {fileID: 1559852460}
   m_Layer: 5
-  m_Name: cohesion_fill_image
+  m_Name: ohesion_fill_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12839,7 +12839,7 @@ GameObject:
   - component: {fileID: 1570012903}
   - component: {fileID: 1570012902}
   m_Layer: 5
-  m_Name: background_image
+  m_Name: ackground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12912,7 +12912,7 @@ GameObject:
   - component: {fileID: 1584356913}
   - component: {fileID: 1584356912}
   m_Layer: 0
-  m_Name: reputation_value_text
+  m_Name: eputation_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12991,7 +12991,7 @@ GameObject:
   - component: {fileID: 1593304607}
   - component: {fileID: 1593304606}
   m_Layer: 5
-  m_Name: wealth_name_text
+  m_Name: Wealth_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13070,7 +13070,7 @@ GameObject:
   - component: {fileID: 1593472947}
   - component: {fileID: 1593472946}
   m_Layer: 5
-  m_Name: reputation_name_text
+  m_Name: eputation_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13149,7 +13149,7 @@ GameObject:
   - component: {fileID: 1619827947}
   - component: {fileID: 1619827946}
   m_Layer: 0
-  m_Name: reputation
+  m_Name: eputation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13226,7 +13226,7 @@ GameObject:
   - component: {fileID: 1638465509}
   - component: {fileID: 1638465508}
   m_Layer: 5
-  m_Name: background_image
+  m_Name: ackground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13374,7 +13374,7 @@ GameObject:
   - component: {fileID: 1661344459}
   - component: {fileID: 1661344458}
   m_Layer: 0
-  m_Name: role_name_lower_image
+  m_Name: ole_name_lower_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13447,7 +13447,7 @@ GameObject:
   - component: {fileID: 1664325470}
   - component: {fileID: 1664325469}
   m_Layer: 5
-  m_Name: role_name_text
+  m_Name: ole_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13650,7 +13650,7 @@ GameObject:
   - component: {fileID: 1677381698}
   - component: {fileID: 1677381697}
   m_Layer: 5
-  m_Name: background_image
+  m_Name: ackground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13723,7 +13723,7 @@ GameObject:
   - component: {fileID: 1681558047}
   - component: {fileID: 1681558046}
   m_Layer: 0
-  m_Name: reputation_logo_image
+  m_Name: eputation_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13796,7 +13796,7 @@ GameObject:
   - component: {fileID: 1682231886}
   - component: {fileID: 1682231885}
   m_Layer: 0
-  m_Name: reputation
+  m_Name: eputation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13873,7 +13873,7 @@ GameObject:
   - component: {fileID: 1685938314}
   - component: {fileID: 1685938313}
   m_Layer: 0
-  m_Name: reputation_value_upper_limit_text
+  m_Name: eputation_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13951,7 +13951,7 @@ GameObject:
   - component: {fileID: 1690716609}
   - component: {fileID: 1690716608}
   m_Layer: 5
-  m_Name: text
+  m_Name: ext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14027,7 +14027,7 @@ GameObject:
   - component: {fileID: 1707534261}
   - component: {fileID: 1707534260}
   m_Layer: 0
-  m_Name: reputation
+  m_Name: eputation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14104,7 +14104,7 @@ GameObject:
   - component: {fileID: 1712813486}
   - component: {fileID: 1712813485}
   m_Layer: 0
-  m_Name: wealth_logo_image
+  m_Name: ealth_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14177,7 +14177,7 @@ GameObject:
   - component: {fileID: 1720926689}
   - component: {fileID: 1720926688}
   m_Layer: 5
-  m_Name: cohesion_background_image
+  m_Name: ohesion_background_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14409,7 +14409,7 @@ GameObject:
   - component: {fileID: 1743929189}
   - component: {fileID: 1743929188}
   m_Layer: 0
-  m_Name: wealth_value_upper_limit_text
+  m_Name: ealth_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14487,7 +14487,7 @@ GameObject:
   - component: {fileID: 1748261913}
   - component: {fileID: 1748261912}
   m_Layer: 5
-  m_Name: text
+  m_Name: ext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14563,7 +14563,7 @@ GameObject:
   - component: {fileID: 1748585713}
   - component: {fileID: 1748585712}
   m_Layer: 0
-  m_Name: wealth_value_upper_limit_text
+  m_Name: ealth_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14642,7 +14642,7 @@ GameObject:
   - component: {fileID: 1750073730}
   - component: {fileID: 1750073729}
   m_Layer: 5
-  m_Name: wealth_name_text
+  m_Name: ealth_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14790,7 +14790,7 @@ GameObject:
   - component: {fileID: 1767455495}
   - component: {fileID: 1767455494}
   m_Layer: 5
-  m_Name: reputation_name_text
+  m_Name: Reputation_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14869,7 +14869,7 @@ GameObject:
   - component: {fileID: 1781007545}
   - component: {fileID: 1781007544}
   m_Layer: 0
-  m_Name: property
+  m_Name: roperty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14944,7 +14944,7 @@ GameObject:
   - component: {fileID: 1790388116}
   - component: {fileID: 1790388115}
   m_Layer: 5
-  m_Name: role_name_text
+  m_Name: ole_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15023,7 +15023,7 @@ GameObject:
   - component: {fileID: 1800294588}
   - component: {fileID: 1800294587}
   m_Layer: 0
-  m_Name: role_name
+  m_Name: Role_name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15167,7 +15167,7 @@ GameObject:
   - component: {fileID: 1814427088}
   - component: {fileID: 1814427087}
   m_Layer: 5
-  m_Name: cohesion_fill_image
+  m_Name: ohesion_fill_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15240,7 +15240,7 @@ GameObject:
   - component: {fileID: 1821641547}
   - component: {fileID: 1821641546}
   m_Layer: 0
-  m_Name: reputation_logo_image
+  m_Name: eputation_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15313,7 +15313,7 @@ GameObject:
   - component: {fileID: 1824500548}
   - component: {fileID: 1824500547}
   m_Layer: 0
-  m_Name: wealth_logo_image
+  m_Name: ealth_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15391,7 +15391,7 @@ GameObject:
   - component: {fileID: 1833950545}
   - component: {fileID: 1833950544}
   m_Layer: 0
-  m_Name: role_name
+  m_Name: ole_name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15466,7 +15466,7 @@ GameObject:
   - component: {fileID: 1855678887}
   - component: {fileID: 1855678886}
   m_Layer: 0
-  m_Name: role_name_lower_image
+  m_Name: ole_name_lower_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15539,7 +15539,7 @@ GameObject:
   - component: {fileID: 1862075387}
   - component: {fileID: 1862075386}
   m_Layer: 0
-  m_Name: reputation
+  m_Name: Reputation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15685,7 +15685,7 @@ GameObject:
   - component: {fileID: 1891332673}
   - component: {fileID: 1891332672}
   m_Layer: 5
-  m_Name: cohesion_background_image
+  m_Name: ohesion_background_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15793,7 +15793,7 @@ GameObject:
   - component: {fileID: 1913832718}
   - component: {fileID: 1913832717}
   m_Layer: 5
-  m_Name: cohesion_fill_image
+  m_Name: ohesion_fill_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15866,7 +15866,7 @@ GameObject:
   - component: {fileID: 1932081043}
   - component: {fileID: 1932081042}
   m_Layer: 5
-  m_Name: wealth_name_text
+  m_Name: ealth_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15945,7 +15945,7 @@ GameObject:
   - component: {fileID: 1949948395}
   - component: {fileID: 1949948394}
   m_Layer: 0
-  m_Name: property
+  m_Name: Property
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16020,7 +16020,7 @@ GameObject:
   - component: {fileID: 1970415847}
   - component: {fileID: 1970415846}
   m_Layer: 0
-  m_Name: wealth_value_text
+  m_Name: ealth_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16099,7 +16099,7 @@ GameObject:
   - component: {fileID: 1974036980}
   - component: {fileID: 1974036979}
   m_Layer: 0
-  m_Name: wealth
+  m_Name: ealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16176,7 +16176,7 @@ GameObject:
   - component: {fileID: 1979316799}
   - component: {fileID: 1979316798}
   m_Layer: 5
-  m_Name: cohesion_fill_image
+  m_Name: ohesion_fill_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16433,7 +16433,7 @@ GameObject:
   - component: {fileID: 1995395108}
   - component: {fileID: 1995395107}
   m_Layer: 5
-  m_Name: reputation_name_text
+  m_Name: eputation_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16512,7 +16512,7 @@ GameObject:
   - component: {fileID: 2003897799}
   - component: {fileID: 2003897798}
   m_Layer: 0
-  m_Name: wealth_value_upper_limit_text
+  m_Name: Wealth_value_upper_limit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16591,7 +16591,7 @@ GameObject:
   - component: {fileID: 2024219124}
   - component: {fileID: 2024219123}
   m_Layer: 5
-  m_Name: wealth_name_text
+  m_Name: ealth_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16670,7 +16670,7 @@ GameObject:
   - component: {fileID: 2024738053}
   - component: {fileID: 2024738052}
   m_Layer: 5
-  m_Name: cohesion_fill_image
+  m_Name: ohesion_fill_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16743,7 +16743,7 @@ GameObject:
   - component: {fileID: 2028460021}
   - component: {fileID: 2028460020}
   m_Layer: 0
-  m_Name: role_name
+  m_Name: ole_name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16818,7 +16818,7 @@ GameObject:
   - component: {fileID: 2035133308}
   - component: {fileID: 2035133307}
   m_Layer: 0
-  m_Name: wealth
+  m_Name: ealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16895,7 +16895,7 @@ GameObject:
   - component: {fileID: 2045360719}
   - component: {fileID: 2045360718}
   m_Layer: 0
-  m_Name: wealth_logo_image
+  m_Name: ealth_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17187,7 +17187,7 @@ GameObject:
   - component: {fileID: 2067077932}
   - component: {fileID: 2067077931}
   m_Layer: 0
-  m_Name: reputation_logo_image
+  m_Name: eputation_logo_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17260,7 +17260,7 @@ GameObject:
   - component: {fileID: 2082838518}
   - component: {fileID: 2082838517}
   m_Layer: 5
-  m_Name: role_portrait_image
+  m_Name: ole_portrait_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17333,7 +17333,7 @@ GameObject:
   - component: {fileID: 2090532737}
   - component: {fileID: 2090532736}
   m_Layer: 5
-  m_Name: reputation_name_text
+  m_Name: eputation_name_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17412,7 +17412,7 @@ GameObject:
   - component: {fileID: 2098229198}
   - component: {fileID: 2098229197}
   m_Layer: 5
-  m_Name: role_portrait_image
+  m_Name: ole_portrait_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17485,7 +17485,7 @@ GameObject:
   - component: {fileID: 2105894507}
   - component: {fileID: 2105894506}
   m_Layer: 5
-  m_Name: cohesion_foreground_image
+  m_Name: ohesion_foreground_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17717,7 +17717,7 @@ GameObject:
   - component: {fileID: 2132317103}
   - component: {fileID: 2132317102}
   m_Layer: 0
-  m_Name: reputation_value_text
+  m_Name: eputation_value_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
