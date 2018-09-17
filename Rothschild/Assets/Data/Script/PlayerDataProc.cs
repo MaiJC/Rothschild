@@ -1205,6 +1205,13 @@ public class PlayerDataProc : MonoBehaviour
 
         LoadXml();
 
+//<<<<<<< HEAD
+//        SavePlayerData();  //将字符串缓存到本地
+//        List<string> str = GetPlayerData();
+//        if (str.Count > 0)
+//        print(str[0]);
+//=======
+//>>>>>>> b0123bbc31506fe75d32002eb03d1a3a06c9ec35
     }
 
     public List<RoleEvents> GetRoleEventList(string name, int roleID)
@@ -1238,7 +1245,58 @@ public class PlayerDataProc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
 
+    }
+
+    void SavePlayerData()  //将字符串缓存到本地
+    {
+        //文件流信息  
+        StreamWriter sw;
+        FileInfo t = new FileInfo(Application.persistentDataPath + "//" + "FileName.txt");
+        if (!t.Exists)
+        {
+            //如果此文件不存在则创建  
+            sw = t.CreateText();
+        }
+        else
+        {
+            //如果此文件存在则打开  
+            sw = t.AppendText();
+        }
+        //以行的形式写入信息  
+        sw.WriteLine("hai tao gao ruan");
+        //关闭流  
+        sw.Close();
+        //销毁流  
+        sw.Dispose();
+    }
+
+    List<string> GetPlayerData()  //从本地取出内容
+    {
+        //使用流的形式读取  
+        StreamReader sr = null;
+        try
+        {
+            sr = File.OpenText(Application.persistentDataPath + "//" + "MiniGame.txt");
+        }
+        catch (System.Exception e)
+        {
+            //路径与名称未找到文件则直接返回空  
+            return null;
+        }
+        string line;
+        List<string> arrlist = new List<string>();
+        while ((line = sr.ReadLine()) != null)
+        {
+            arrlist.Add(line);
+        }
+        //关闭流  
+        sr.Close();
+        //销毁流  
+        sr.Dispose();
+        //将数组链表容器返回  
+        return arrlist;
     }
 
     int GetIDIndex()

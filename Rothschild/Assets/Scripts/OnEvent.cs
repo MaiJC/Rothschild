@@ -19,6 +19,7 @@ public class OnEvent : MonoBehaviour
     private OnConfirm save;
 
     private bool hasInitalize = false;
+    double loadTime;
 
     // Use this for initialization
     void Start()
@@ -30,12 +31,13 @@ public class OnEvent : MonoBehaviour
         //choiceOne = this.transform.GetChild(2).gameObject.GetComponent<Button>();
         //choiceTwo = this.transform.GetChild(3).gameObject.GetComponent<Button>();
         //choiceThree = this.transform.GetChild(4).gameObject.GetComponent<Button>();
+        loadTime = Time.time;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (hasInitalize == false && Time.fixedTime > 2)
+        if (hasInitalize == false && Time.fixedTime - loadTime > 2)
         {
             eventImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
             eventText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
@@ -140,7 +142,7 @@ public class OnEvent : MonoBehaviour
                 break;
         }
         save.SetSelectable();
-        
+
     }
 
     public void SetChoiceType(int typeOne, int typeTwo)

@@ -58,6 +58,7 @@ public class LevelManager : MonoBehaviour
     private List<Image> personImage = new List<Image>();
     private List<OnPerson> person = new List<OnPerson>();
 
+    double loadTime;
     // Use this for initialization
     void Start()
     {
@@ -65,13 +66,14 @@ public class LevelManager : MonoBehaviour
         //InitializeMonkey();
         //NextLevel();
         //NextEvent();
+        loadTime = Time.time;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         gameObject.SetActive(true);
-        if (hasInitialize == false && Time.fixedTime > 2)
+        if (hasInitialize == false && Time.fixedTime - loadTime > 2)
         {
             Initialize();
             InitializeMonkey();
@@ -272,6 +274,12 @@ public class LevelManager : MonoBehaviour
         person.Add(GameObject.Find("PersonPanelB").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelC").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelD").GetComponent<OnPerson>());
+
+        for (int i = 0; i < person.Count; i++)
+        {
+            person[i].SetReputation(playerDataProc.GetPlayerAttr()[i].reputation);
+            person[i].SetWealth(playerDataProc.GetPlayerAttr()[i].money);
+        }
 
         //foreach (Image i in personImage)
         //{

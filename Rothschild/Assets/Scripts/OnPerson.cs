@@ -30,6 +30,10 @@ public class OnPerson : EventTrigger
 
     private List<double> monkeyInput = new List<double>();
 
+    bool isMonkey = false;
+
+    double loadTime;
+
 
     // Use this for initialization
     void Start()
@@ -44,12 +48,14 @@ public class OnPerson : EventTrigger
         //avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
         //wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
         //reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
+
+        loadTime = Time.time;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (hasInitalize == false && Time.fixedTime > 2)
+        if (hasInitalize == false && Time.fixedTime - loadTime > 2)
         {
             targetGraphic = this.GetComponent<Button>().targetGraphic;
             //colorState = this.GetComponent<ColorState>();
@@ -80,7 +86,19 @@ public class OnPerson : EventTrigger
         }
         if (monkeyInput.Count > 12)
         {
-            transform.GetChild(0).gameObject.GetComponent<Image>().overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
+            if (!isMonkey)
+            {
+                transform.GetChild(0).gameObject.GetComponent<Image>().overrideSprite
+                    = Resources.Load("monkey", typeof(Sprite)) as Sprite;
+                isMonkey = true;
+                monkeyInput.Clear();
+            }
+            else
+            {
+                transform.GetChild(0).gameObject.GetComponent<Image>().overrideSprite = null;
+                isMonkey = false;
+                monkeyInput.Clear();
+            }
         }
     }
 
