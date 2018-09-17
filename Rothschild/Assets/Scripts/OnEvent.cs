@@ -31,7 +31,7 @@ public class OnEvent : MonoBehaviour
         //choiceOne = this.transform.GetChild(2).gameObject.GetComponent<Button>();
         //choiceTwo = this.transform.GetChild(3).gameObject.GetComponent<Button>();
         //choiceThree = this.transform.GetChild(4).gameObject.GetComponent<Button>();
-        loadTime = Time.fixedTime;
+        loadTime = Time.time;
     }
 
     // Update is called once per frame

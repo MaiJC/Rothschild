@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
         //InitializeMonkey();
         //NextLevel();
         //NextEvent();
-        loadTime = Time.fixedTime;
+        loadTime = Time.time;
     }
 
     // Update is called once per frame
@@ -75,11 +75,11 @@ public class LevelManager : MonoBehaviour
         gameObject.SetActive(true);
         if (hasInitialize == false && Time.fixedTime - loadTime > 2)
         {
-            hasInitialize = true;
             Initialize();
             InitializeMonkey();
             NextLevel();
             NextEvent();
+            hasInitialize = true;
         }
     }
 
@@ -373,9 +373,6 @@ public class LevelManager : MonoBehaviour
         selectedPerson.Clear();
         currentRound++;
 
-        if (currentLevel == levelCount && levelEventID[currentLevel - 1].Count == 0)
-            return;
-
         if (isInStory || isInJumpStory)
         {
             Debug.Log("in story or in jump story");
@@ -595,24 +592,9 @@ public class LevelManager : MonoBehaviour
 
             roleLimit = loadRes.GetRoleLimit(currentEventID);
             currentMaxSelectedPersonCount = loadRes.GetRoleCountLimit(currentEventID);
-           
+
         }
-        //设置不能选的人的颜色
-        foreach (OnPerson personTmp in person)
-        {
-            personTmp.Clear();
-        }
-        foreach (int pp in roleLimit)
-        {
-            person[pp - 1].SetUnselectable();
-        }
-        if (currentMaxSelectedPersonCount == 0)
-        {
-            foreach (OnPerson pp in person)
-            {
-                pp.SetUnselectable();
-            }
-        }
+
     }
 
     void NextLevel()
@@ -701,12 +683,5 @@ public class LevelManager : MonoBehaviour
             person[currentHanlingDeadPerson - 1].SetAlive();
 
         }
-    }
-
-    public bool IsFinish()
-    {
-        if (currentLevel == levelCount && levelStoryID[currentLevel - 1].Count == 0)
-            return true;
-        return false;
     }
 }

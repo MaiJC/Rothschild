@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class OnPerson : EventTrigger
 {
-    //private Graphic targetGraphic;
-    private Image targetGraphic;
+    private Graphic targetGraphic;
     private bool isSelected = false;
 
     private ColorState colorState;
@@ -52,16 +51,36 @@ public class OnPerson : EventTrigger
         //wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
         //reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
 
-        loadTime = Time.fixedTime;
+        loadTime = Time.time;
     }
 
     // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (hasInitalize == false && Time.fixedTime - loadTime > 2)
+        {
+            targetGraphic = this.GetComponent<Button>().targetGraphic;
+            //colorState = this.GetComponent<ColorState>();
+            colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
 
-    private void FixedUpdate()
+            targetGraphic.color = colorState.personNormalColor;
+
+            levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+            avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
+            wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
+            reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
+
+            hasInitalize = true;
+            StartFrame();
+            DeactiveFrame();
+        }
+    }
+
+    private void Update()
     {
         for (int i = 0; i < monkeyInput.Count; i++)
         {
-            if (Time.fixedTime - monkeyInput[i] > 2)
+            if (Time.time - monkeyInput[i] > 2)
             {
                 monkeyInput.RemoveAt(i);
                 i--;
@@ -83,6 +102,7 @@ public class OnPerson : EventTrigger
                 monkeyInput.Clear();
             }
         }
+<<<<<<< HEAD
         if (hasInitalize == false && Time.fixedTime - loadTime > 1.5)
         {
             targetGraphic = this.transform.GetChild(0).GetComponent<Image>();
@@ -106,6 +126,8 @@ public class OnPerson : EventTrigger
             DeactiveFrame();
         }
 
+=======
+>>>>>>> b9a6213160e25931c6abc9ddbf15241def09ce79
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
@@ -144,7 +166,7 @@ public class OnPerson : EventTrigger
             DeactiveFrame();
             isSelected = false;
         }
-        monkeyInput.Add(Time.fixedTime);
+        monkeyInput.Add(Time.time);
 
     }
 
@@ -170,7 +192,7 @@ public class OnPerson : EventTrigger
         if (isDead)
             return;
         isSelected = false;
-        targetGraphic.color = colorState.personNormalColor;
+        //targetGraphic.color = colorState.personNormalColor;
         this.enabled = true;
         DeactiveFrame();
     }
@@ -251,17 +273,13 @@ public class OnPerson : EventTrigger
 
     public void SetUnselectable()
     {
-        if (isDead)
-            return;
-        targetGraphic.color = colorState.unselectableColor;
+        //targetGraphic.color = colorState.unselectableColor;
         this.isSelected = false;
         this.enabled = false;
     }
 
     public void SetSelected()
     {
-        if (isDead)
-            return;
         //targetGraphic.color = colorState.selectColor;
         this.isSelected = true;
         this.enabled = false;
