@@ -16,6 +16,7 @@ public class OnConfirm : EventTrigger
     private Image teamWorkBar;
     private OnEvent onEvent;
     private bool hasInitalize = false;
+    double loadTime;
 
     // Use this for initialization
     void Start()
@@ -34,12 +35,13 @@ public class OnConfirm : EventTrigger
         //onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
 
         //choiceID = this.tag == "ChoiceOne" ? 1 : 2;
+        loadTime = Time.fixedTime;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (hasInitalize == false && Time.fixedTime > 2)
+        if (hasInitalize == false && Time.fixedTime - loadTime > 1.6)
         {
             onPerson.Add(GameObject.Find("PersonPanelA").GetComponent<OnPerson>());
             onPerson.Add(GameObject.Find("PersonPanelB").GetComponent<OnPerson>());
@@ -80,10 +82,10 @@ public class OnConfirm : EventTrigger
         PrcData();
         //获得下一关
         levelManager.Confirm(choice, selectRole);
-        foreach (OnPerson personTmp in onPerson)
-        {
-            personTmp.Clear();
-        }
+        //foreach (OnPerson personTmp in onPerson)
+        //{
+        //    personTmp.Clear();
+        //}
         levelManager.HandleDead();
         RefreshTeamwork();
     }

@@ -58,6 +58,7 @@ public class LevelManager : MonoBehaviour
     private List<Image> personImage = new List<Image>();
     private List<OnPerson> person = new List<OnPerson>();
 
+    double loadTime;
     // Use this for initialization
     void Start()
     {
@@ -65,19 +66,20 @@ public class LevelManager : MonoBehaviour
         //InitializeMonkey();
         //NextLevel();
         //NextEvent();
+        loadTime = Time.fixedTime;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         gameObject.SetActive(true);
-        if (hasInitialize == false && Time.fixedTime > 2)
+        if (hasInitialize == false && Time.fixedTime - loadTime > 2)
         {
+            hasInitialize = true;
             Initialize();
             InitializeMonkey();
             NextLevel();
             NextEvent();
-            hasInitialize = true;
         }
     }
 
@@ -273,6 +275,12 @@ public class LevelManager : MonoBehaviour
         person.Add(GameObject.Find("PersonPanelC").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelD").GetComponent<OnPerson>());
 
+        for (int i = 0; i < person.Count; i++)
+        {
+            person[i].SetReputation(playerDataProc.GetPlayerAttr()[i].reputation);
+            person[i].SetWealth(playerDataProc.GetPlayerAttr()[i].money);
+        }
+
         //foreach (Image i in personImage)
         //{
         //    i.overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
@@ -364,6 +372,9 @@ public class LevelManager : MonoBehaviour
         /*TODO: 增加是否为下一关的判断*/
         selectedPerson.Clear();
         currentRound++;
+
+        if (currentLevel == levelCount && levelEventID[currentLevel - 1].Count == 0)
+            return;
 
         if (isInStory || isInJumpStory)
         {
@@ -584,9 +595,24 @@ public class LevelManager : MonoBehaviour
 
             roleLimit = loadRes.GetRoleLimit(currentEventID);
             currentMaxSelectedPersonCount = loadRes.GetRoleCountLimit(currentEventID);
-
+           
         }
-
+        //设置不能选的人的颜色
+        foreach (OnPerson personTmp in person)
+        {
+            personTmp.Clear();
+        }
+        foreach (int pp in roleLimit)
+        {
+            person[pp - 1].SetUnselectable();
+        }
+        if (currentMaxSelectedPersonCount == 0)
+        {
+            foreach (OnPerson pp in person)
+            {
+                pp.SetUnselectable();
+            }
+        }
     }
 
     void NextLevel()
@@ -675,5 +701,12 @@ public class LevelManager : MonoBehaviour
             person[currentHanlingDeadPerson - 1].SetAlive();
 
         }
+    }
+
+    public bool IsFinish()
+    {
+        if (currentLevel == levelCount && levelStoryID[currentLevel - 1].Count == 0)
+            return true;
+        return false;
     }
 }

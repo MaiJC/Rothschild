@@ -1082,10 +1082,10 @@ public class PlayerDataProc : MonoBehaviour
 
         return GetPlayerAttr();
     }
-
+/*
     public int Login(ref PlayerData playerInfo)
     {
-        /*    string path = Application.dataPath + playerDBPath;
+            string path = Application.dataPath + playerDBPath;
             string name = playerInfo.name;
             string password = playerInfo.password;
 
@@ -1133,14 +1133,14 @@ public class PlayerDataProc : MonoBehaviour
                     }
                 }
             }
-    */
+    
         print("用户名或密码错误！！！");
         return 1;
-    }
+    }*/
 
-    public int Logout(PlayerData playerInfo)
+  /*  public int Logout(PlayerData playerInfo)
     {
-        /*  name = playerInfo.name;
+          name = playerInfo.name;
           string path = Application.dataPath + playerDBPath;
           if (File.Exists(path))
           {
@@ -1176,10 +1176,10 @@ public class PlayerDataProc : MonoBehaviour
               }
               xml.Save(path);
           }
-  */
+  
         return 0;
     }
-
+    */
     public void CleanPlayerInfo()
     {
         teamworkValue = 80;
@@ -1192,6 +1192,48 @@ public class PlayerDataProc : MonoBehaviour
         roleEventStats.Clear();
     }
 
+    public int OnLogin(string user, string password)
+    {
+        if (!PlayerPrefs.HasKey(user))
+        {
+            print("账号不存在");
+        //    GameObject.Find("Log").GetComponent<Text>().text = "账号不存在";
+            return 1;
+        }
+        else if (PlayerPrefs.GetString(user) != password)
+        {
+            print("密码错误");
+            return 2;
+        }
+        else
+        {
+            print("登录成功");
+         //   GameObject.Find("Log").GetComponent<Text>().text = "登录成功";
+            return 0;
+        }
+    }
+    public int OnRegister(string user, string password)
+    {
+        if (PlayerPrefs.HasKey(user))
+        {
+            print("已存在");
+         //   GameObject.Find("Log").GetComponent<Text>().text = "已存在";
+            return 1;
+        }
+        else if (password == string.Empty || user == string.Empty)
+        {
+            print("不可为空");
+            return 2;
+        }
+        else
+        {
+            print("注册成功");
+            PlayerPrefs.SetString(user, password);
+            PlayerPrefs.Save();
+        //    GameObject.Find("Log").GetComponent<Text>().text = "注册成功";
+            return 0;
+        }
+    }
     // Use this for initialization
     void Start()
     {
@@ -1204,6 +1246,10 @@ public class PlayerDataProc : MonoBehaviour
         }
 
         LoadXml();
+
+     //   OnLogin("xkchen", "123");
+    //    OnRegister("xkchen", "123");
+
 
 //<<<<<<< HEAD
 //        SavePlayerData();  //将字符串缓存到本地

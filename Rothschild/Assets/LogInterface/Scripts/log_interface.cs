@@ -8,6 +8,8 @@ public class log_interface : MonoBehaviour
 {
     private bool isLoadComplete = false;
 
+    double loadTime;
+
     class GameEvent
     {
         public GameEvent(GameObject body, GameObject highlight_body, GameObject name)
@@ -376,6 +378,8 @@ public class log_interface : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        loadTime = Time.fixedTime;
+
         //导入小康的脚本
         playerdataproc = GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>();
         loadres = GameObject.Find("LogicHandler").GetComponent<LoadRes>();
@@ -544,13 +548,13 @@ public class log_interface : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         update_event_body();
         update_highlight_event_body();
         update_event_name();
 
-        if (isLoadComplete == false && Time.time > 2)
+        if (isLoadComplete == false && Time.fixedTime - loadTime > 2)
         {
             isLoadComplete = true;
             exit_log_interface_click();
