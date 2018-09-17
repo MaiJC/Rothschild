@@ -15,6 +15,11 @@ public class OnLose : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+<<<<<<< HEAD
+        levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+        winInterface = GameObject.Find("WinInterface");
+=======
+>>>>>>> b9a6213160e25931c6abc9ddbf15241def09ce79
         loseInterface = GameObject.Find("LoseInterface");
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Retry);
         GameObject.Find("Exit").GetComponent<Button>().onClick.AddListener(Quit);

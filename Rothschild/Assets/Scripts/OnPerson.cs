@@ -18,9 +18,11 @@ public class OnPerson : EventTrigger
     //财富
     private Text wealthText;
     private int wealthNum;
+    private GameObject wealthArror;
     //名望
     private Text reputationText;
     private int reputationNum;
+    private GameObject reputationArror;
     //是否死亡
     private bool isDead = false;
 
@@ -100,6 +102,32 @@ public class OnPerson : EventTrigger
                 monkeyInput.Clear();
             }
         }
+<<<<<<< HEAD
+        if (hasInitalize == false && Time.fixedTime - loadTime > 1.5)
+        {
+            targetGraphic = this.transform.GetChild(0).GetComponent<Image>();
+            //targetGraphic = this.GetComponent<Button>().targetGraphic;
+            //colorState = this.GetComponent<ColorState>();
+            colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
+
+            targetGraphic.color = colorState.personNormalColor;
+
+            levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+            avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
+            wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
+            reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
+            wealthArror = this.transform.GetChild(3).gameObject;
+            reputationArror = this.transform.GetChild(4).gameObject;
+            wealthArror.SetActive(false);
+            reputationArror.SetActive(false);
+
+            hasInitalize = true;
+            StartFrame();
+            DeactiveFrame();
+        }
+
+=======
+>>>>>>> b9a6213160e25931c6abc9ddbf15241def09ce79
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
@@ -174,13 +202,27 @@ public class OnPerson : EventTrigger
         avatarImage.sprite = Resources.Load(avatarName, typeof(Sprite)) as Sprite;
     }
 
+    private bool hasSetWealth = false;
     /*接收值为财富值的改变，返回角色是否死亡，返回true则为死亡*/
     public bool SetWealth(int wealth)
     {
-        //wealthNum += wealthChange;
+        if (wealthNum != wealth && hasSetWealth == true)
+        {
+            wealthArror.SetActive(true);
+            int direction = wealth > wealthNum ? 1 : -1;
+            wealthArror.transform.localScale = new Vector3(Mathf.Abs(wealthArror.transform.localScale.x) * direction
+                , wealthArror.transform.localScale.y, 1);
+            if (direction == 1)
+                wealthArror.GetComponent<Image>().color = Color.red;
+            else
+                wealthArror.GetComponent<Image>().color = Color.green;
+        }
+        else if (hasSetWealth == true)
+        {
+            wealthArror.SetActive(false);
+        }
+        hasSetWealth = true;
 
-        //isDead = (wealthNum <= 0);
-        //wealthNum = wealthNum < 0 ? 0 : wealthNum;
         wealthNum = wealth;
         isDead = (wealthNum <= 0 || wealthNum >= 100);
         wealthNum = Mathf.Clamp(wealthNum, 0, 100);
@@ -190,17 +232,31 @@ public class OnPerson : EventTrigger
 
         return isDead;
     }
-
+    private bool hasSetReputation = false;
     /*接收值为声望的改变，返回角色是否死亡，返回true则为死亡*/
     public bool SetReputation(int reputation)
     {
-        //reputationNum += reputationChange;
+        if (reputationNum != reputation && hasSetReputation == true)
+        {
+            reputationArror.SetActive(true);
+            int direction = reputation > reputationNum ? 1 : -1;
+            reputationArror.transform.localScale = new Vector3(Mathf.Abs(reputationArror.transform.localScale.x) * direction
+                , reputationArror.transform.localScale.y, 1);
 
-        //isDead = (reputationNum <= 0);
-        //reputationNum = reputationNum < 0 ? 0 : wealthNum;
+            if (direction == 1)
+                reputationArror.GetComponent<Image>().color = Color.red;
+            else
+                reputationArror.GetComponent<Image>().color = Color.green;
+        }
+        else if (hasSetReputation == true)
+        {
+            reputationArror.SetActive(false);
+        }
+        hasSetReputation = true;
+
         reputationNum = reputation;
         isDead = (reputationNum <= 0 || reputationNum >= 100);
-        wealthNum = Mathf.Clamp(reputation, 0, 100);
+        reputationNum = Mathf.Clamp(reputation, 0, 100);
         reputationText.text = reputationNum.ToString() + "/100";
         if (isDead)
             SetDead();
