@@ -289,7 +289,7 @@ public class LoadRes : MonoBehaviour {
   
                 if (eventID == fatherEventID)   
                 {
-                    if (2 == eventChoiceType)
+                    if (2 == eventChoiceType && type <= 2)
                     {
                         keyCharacter = 1;
                         break;

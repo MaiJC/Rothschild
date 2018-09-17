@@ -107,6 +107,8 @@ public class OnConfirm : EventTrigger
             onPerson[i].SetWealth(playerAttrs[i].money);
         }
 
+        //onPerson[0].SetWealth(0);
+
         RefreshTeamwork();
     }
 

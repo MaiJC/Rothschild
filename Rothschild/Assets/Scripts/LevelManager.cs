@@ -42,6 +42,7 @@ public class LevelManager : MonoBehaviour
     private int currentHanlingDeadPerson = 0;
     private bool hasInitialize = false;
     private int choiceTypeOne, choiceTypeTwo;
+    private int choiceTypeOneCopy, choiceTypeTwoCopy;
     private struct ZTPreStoryCondition
     {
         public int storyID;
@@ -272,10 +273,10 @@ public class LevelManager : MonoBehaviour
         person.Add(GameObject.Find("PersonPanelC").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelD").GetComponent<OnPerson>());
 
-        foreach (Image i in personImage)
-        {
-            i.overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
-        }
+        //foreach (Image i in personImage)
+        //{
+        //    i.overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
+        //}
     }
 
     public bool AddSelect(string personTag)
@@ -634,6 +635,10 @@ public class LevelManager : MonoBehaviour
                 currentHanlingDeadPerson = i + 1;
                 handleDeadRemains = newDeadPerson;
                 currentMaxSelectedPersonCountCopy = currentMaxSelectedPersonCount;
+                //choiceTypeOneCopy = choiceTypeOne;
+                //choiceTypeTwoCopy = choiceTypeTwo;
+                //choiceTypeOne = 1;
+                //choiceTypeTwo = 2;
                 currentMaxSelectedPersonCount = 1;
                 break;
             }
@@ -648,13 +653,15 @@ public class LevelManager : MonoBehaviour
         if (handleDeadRemains == 0)
         {
             currentMaxSelectedPersonCount = currentMaxSelectedPersonCountCopy;
+            //choiceTypeOne = choiceTypeOneCopy;
+            //choiceTypeTwo = choiceTypeTwoCopy;
             deadInterface.SetActive(false);
         }
 
         //不救，就存下来这个人已经死了
         if (choice == 2)
         {
-            hasDead[currentHanlingDeadPerson] = true;
+            hasDead[currentHanlingDeadPerson - 1] = true;
             return;
         }
         //救了
