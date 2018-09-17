@@ -12,8 +12,6 @@ public class OnLoad : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         loadTime = Time.time;
-        Resources.UnloadUnusedAssets();
-        SceneManager.UnloadSceneAsync("WithPic");
     }
 	
 	// Update is called once per frame

@@ -66,7 +66,7 @@ public class OnLose : MonoBehaviour
         //    }     
         //}
 
-        SceneManager.LoadScene("Reload", LoadSceneMode.Single);
+        SceneManager.LoadScene("WithPic", LoadSceneMode.Single);
     }
 
     void Quit()
