@@ -64,7 +64,7 @@ public class OnPerson : EventTrigger
                 i--;
             }
         }
-        if (monkeyInput.Count > 12)
+        if (monkeyInput.Count > 20)
         {
             if (!isMonkey)
             {
