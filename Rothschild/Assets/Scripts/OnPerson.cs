@@ -49,36 +49,16 @@ public class OnPerson : EventTrigger
         //wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
         //reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
 
-        loadTime = Time.time;
+        loadTime = Time.fixedTime;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (hasInitalize == false && Time.fixedTime - loadTime > 2)
-        {
-            targetGraphic = this.GetComponent<Button>().targetGraphic;
-            //colorState = this.GetComponent<ColorState>();
-            colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
 
-            targetGraphic.color = colorState.personNormalColor;
-
-            levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
-            avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
-            wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
-            reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
-
-            hasInitalize = true;
-            StartFrame();
-            DeactiveFrame();
-        }
-    }
-
-    private void Update()
+    private void FixedUpdate()
     {
         for (int i = 0; i < monkeyInput.Count; i++)
         {
-            if (Time.time - monkeyInput[i] > 2)
+            if (Time.fixedTime - monkeyInput[i] > 2)
             {
                 monkeyInput.RemoveAt(i);
                 i--;
@@ -100,6 +80,24 @@ public class OnPerson : EventTrigger
                 monkeyInput.Clear();
             }
         }
+        if (hasInitalize == false && Time.fixedTime - loadTime > 1.5)
+        {
+            targetGraphic = this.GetComponent<Button>().targetGraphic;
+            //colorState = this.GetComponent<ColorState>();
+            colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
+
+            targetGraphic.color = colorState.personNormalColor;
+
+            levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+            avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
+            wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
+            reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
+
+            hasInitalize = true;
+            StartFrame();
+            DeactiveFrame();
+        }
+
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
@@ -138,7 +136,7 @@ public class OnPerson : EventTrigger
             DeactiveFrame();
             isSelected = false;
         }
-        monkeyInput.Add(Time.time);
+        monkeyInput.Add(Time.fixedTime);
 
     }
 

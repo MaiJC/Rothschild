@@ -7,18 +7,28 @@ using UnityEngine.SceneManagement;
 public class OnLose : MonoBehaviour
 {
     GameObject loseInterface;
+    GameObject winInterface;
     List<OnPerson> person = new List<OnPerson>();
     bool isLose = false;
+    bool isFinish = false;
     double loadTime;
     GameObject teamwork;
+    LevelManager levelManager;
 
     // Use this for initialization
     void Start()
     {
+
+        levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
+        winInterface = GameObject.Find("WinInterface");
         loseInterface = GameObject.Find("LoseInterface");
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Retry);
         GameObject.Find("Exit").GetComponent<Button>().onClick.AddListener(Quit);
+        GameObject.Find("WinRestart").GetComponent<Button>().onClick.AddListener(Retry);
+        GameObject.Find("WinExit").GetComponent<Button>().onClick.AddListener(Quit);
+        GameObject.Find("WTF").GetComponent<Button>().onClick.AddListener(Retry);
         loseInterface.SetActive(false);
+        winInterface.SetActive(false);
 
         person.Add(GameObject.Find("PersonPanelA").GetComponent<OnPerson>());
         person.Add(GameObject.Find("PersonPanelB").GetComponent<OnPerson>());
@@ -27,19 +37,49 @@ public class OnLose : MonoBehaviour
 
         teamwork = GameObject.Find("Fill");
 
-        loadTime = Time.time;
+        loadTime = Time.fixedTime;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Time.time -loadTime < 2 || isLose)
+        if (Time.fixedTime - loadTime < 3 || isLose)
             return;
+        ListenLose();
+        ListenWin();
+    }
 
+    void Initalize()
+    {
+
+    }
+
+    void Retry()
+    {
+        //GameObject[] allGameObject = Transform.FindObjectsOfType<GameObject>();
+        //foreach (GameObject go in allGameObject)
+        //{
+        //    if (go != this.gameObject)
+        //    {
+        //        go.SetActive(true);
+        //        Resources.UnloadAsset(go);
+        //    }     
+        //}
+
+        SceneManager.LoadScene("Reload", LoadSceneMode.Single);
+    }
+
+    void Quit()
+    {
+        Application.Quit();
+    }
+
+    void ListenLose()
+    {
         bool allDead = true;
-        for(int i=0;i<person.Count;i++)
+        for (int i = 0; i < person.Count; i++)
         {
-            if(person[i].IsDead()==false)
+            if (person[i].IsDead() == false)
             {
                 allDead = false;
                 break;
@@ -52,7 +92,7 @@ public class OnLose : MonoBehaviour
             return;
         }
 
-        if(teamwork.gameObject.transform.localScale.x<0.02)
+        if (teamwork.gameObject.transform.localScale.x < 0.02)
         {
             isLose = true;
             loseInterface.SetActive(true);
@@ -60,13 +100,12 @@ public class OnLose : MonoBehaviour
         }
     }
 
-    void Retry()
+    void ListenWin()
     {
-        SceneManager.LoadScene("Reload");
-    }
-
-    void Quit()
-    {
-        Application.Quit();
+        if(isFinish==false && levelManager.IsFinish())
+        {
+            winInterface.SetActive(true);
+            isFinish = true;
+        }
     }
 }

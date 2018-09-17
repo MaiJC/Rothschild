@@ -35,7 +35,7 @@ public class OnConfirm : EventTrigger
         //onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
 
         //choiceID = this.tag == "ChoiceOne" ? 1 : 2;
-        loadTime = Time.time;
+        loadTime = Time.fixedTime;
     }
 
     // Update is called once per frame

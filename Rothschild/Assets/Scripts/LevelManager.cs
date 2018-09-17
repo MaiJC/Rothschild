@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
         //InitializeMonkey();
         //NextLevel();
         //NextEvent();
-        loadTime = Time.time;
+        loadTime = Time.fixedTime;
     }
 
     // Update is called once per frame
@@ -372,6 +372,9 @@ public class LevelManager : MonoBehaviour
         /*TODO: 增加是否为下一关的判断*/
         selectedPerson.Clear();
         currentRound++;
+
+        if (currentLevel == levelCount && levelEventID[currentLevel - 1].Count == 0)
+            return;
 
         if (isInStory || isInJumpStory)
         {
@@ -683,5 +686,12 @@ public class LevelManager : MonoBehaviour
             person[currentHanlingDeadPerson - 1].SetAlive();
 
         }
+    }
+
+    public bool IsFinish()
+    {
+        if (currentLevel == levelCount && levelStoryID[currentLevel - 1].Count == 0)
+            return true;
+        return false;
     }
 }
