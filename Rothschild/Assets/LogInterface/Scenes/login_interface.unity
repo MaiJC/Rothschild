@@ -223,7 +223,7 @@ RectTransform:
   - {fileID: 832261059}
   - {fileID: 453592498}
   m_Father: {fileID: 823064735}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -294,7 +294,7 @@ RectTransform:
   m_Children:
   - {fileID: 1631527102}
   m_Father: {fileID: 823064735}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -868,8 +868,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 142817918}
   - {fileID: 230289439}
+  - {fileID: 142817918}
   - {fileID: 2040359035}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1455,7 +1455,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "-\u6027\u611F\u8377\u5B98\u5728\u7EBF\u53D1\u724C-"
+  m_Text: "-\u70B9\u51FB\u5C4F\u5E55\u5F00\u59CB\u6E38\u620F -"
 --- !u!222 &1631527104
 CanvasRenderer:
   m_ObjectHideFlags: 0
