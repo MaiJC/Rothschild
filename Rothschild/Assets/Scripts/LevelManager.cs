@@ -595,9 +595,24 @@ public class LevelManager : MonoBehaviour
 
             roleLimit = loadRes.GetRoleLimit(currentEventID);
             currentMaxSelectedPersonCount = loadRes.GetRoleCountLimit(currentEventID);
-
+           
         }
-
+        //设置不能选的人的颜色
+        foreach (OnPerson personTmp in person)
+        {
+            personTmp.Clear();
+        }
+        foreach (int pp in roleLimit)
+        {
+            person[pp - 1].SetUnselectable();
+        }
+        if (currentMaxSelectedPersonCount == 0)
+        {
+            foreach (OnPerson pp in person)
+            {
+                pp.SetUnselectable();
+            }
+        }
     }
 
     void NextLevel()
