@@ -445,7 +445,7 @@ public class LevelManager : MonoBehaviour
                     Debug.Log("a story start");
                     isInStory = true;
                     //永远都取出第一个故事
-                    currentStoryID = levelStoryID[currentLevel - 1][3];
+                    currentStoryID = levelStoryID[currentLevel - 1][0];
                     currentEventID = loadRes.GetStoryHeadEventID(currentStoryID);
                     levelStoryID[currentLevel - 1].RemoveAt(0);
                     currentStoryHead = currentEventID;
