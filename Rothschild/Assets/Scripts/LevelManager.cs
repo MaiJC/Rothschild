@@ -62,10 +62,6 @@ public class LevelManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //Initialize();
-        //InitializeMonkey();
-        //NextLevel();
-        //NextEvent();
         loadTime = Time.fixedTime;
     }
 

@@ -41,7 +41,7 @@ public class OnConfirm : EventTrigger
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (hasInitalize == false && Time.fixedTime - loadTime > 1.6)
+        if (hasInitalize == false && Time.fixedTime - loadTime > 0.6)
         {
             onPerson.Add(GameObject.Find("PersonPanelA").GetComponent<OnPerson>());
             onPerson.Add(GameObject.Find("PersonPanelB").GetComponent<OnPerson>());
