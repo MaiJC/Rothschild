@@ -35,13 +35,13 @@ public class OnConfirm : EventTrigger
         //onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
 
         //choiceID = this.tag == "ChoiceOne" ? 1 : 2;
-        loadTime = Time.time;
+        loadTime = Time.fixedTime;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (hasInitalize == false && Time.fixedTime - loadTime > 2)
+        if (hasInitalize == false && Time.fixedTime - loadTime > 1.6)
         {
             onPerson.Add(GameObject.Find("PersonPanelA").GetComponent<OnPerson>());
             onPerson.Add(GameObject.Find("PersonPanelB").GetComponent<OnPerson>());
@@ -52,8 +52,8 @@ public class OnConfirm : EventTrigger
             colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
             targetGraphic = this.GetComponent<Button>().targetGraphic;
             teamWorkBar = GameObject.Find("Fill").GetComponent<Image>();
-            float teamworkPercent = (float)playerDataProc.GetTeamworkValue() / 200.0f;
-            teamWorkBar.transform.localScale = new Vector3(teamworkPercent, 1.0f, 1.0f);
+            //float teamworkPercent = (float)playerDataProc.GetTeamworkValue() / 200.0f;
+            //teamWorkBar.transform.localScale = new Vector3(teamworkPercent, 1.0f, 1.0f);
             onEvent = GameObject.Find("EventSlot").GetComponent<OnEvent>();
 
             choiceID = this.tag == "ChoiceOne" ? 1 : 2;
@@ -72,20 +72,21 @@ public class OnConfirm : EventTrigger
             selectRole.Add(person.IsSelected());
             if (person.IsSelected()) selectedCount++;
         }
-        if (selectedCount == 0 && choiceType != 2)
+        if (selectedCount == 0 && choiceType != 2 && levelManager.currentMaxSelectedPersonCount != 0)
         {
             return;
         }
 
         int choice = tag == "ChoiceOne" ? 1 : 2;
 
-        PrcData();
+        if (!levelManager.IsHandlingDead())
+            PrcData();
         //获得下一关
         levelManager.Confirm(choice, selectRole);
-        foreach (OnPerson personTmp in onPerson)
-        {
-            personTmp.Clear();
-        }
+        //foreach (OnPerson personTmp in onPerson)
+        //{
+        //    personTmp.Clear();
+        //}
         levelManager.HandleDead();
         RefreshTeamwork();
     }
@@ -105,8 +106,12 @@ public class OnConfirm : EventTrigger
 
         for (int i = 0; i < 4; i++)
         {
-            onPerson[i].SetReputation(playerAttrs[i].reputation);
-            onPerson[i].SetWealth(playerAttrs[i].money);
+            bool firstBothDead = false;
+            if (playerAttrs[i].reputation <= 0 && playerAttrs[i].money <= 0 && onPerson[i].IsDead() == false)
+                firstBothDead = true;
+            //onPerson[i].SetReputation(playerAttrs[i].reputation, firstBothDead);
+            //onPerson[i].SetWealth(playerAttrs[i].money, firstBothDead);
+            onPerson[i].SetWealthAndReputation(playerAttrs[i].money, playerAttrs[i].reputation);
         }
 
         //onPerson[0].SetWealth(0);
@@ -118,6 +123,7 @@ public class OnConfirm : EventTrigger
     {
         int teamWork = playerDataProc.GetTeamworkValue();
         float teamWorkPercent = (float)teamWork / 200.0f;
+        if (teamWorkPercent < 0) teamWorkPercent = 0;
         teamWorkBar.transform.localScale = new Vector3(teamWorkPercent, 1, 1);
     }
 
@@ -130,7 +136,7 @@ public class OnConfirm : EventTrigger
             return;
         }
 
-        this.targetGraphic.color = colorState.deadColor;
+        this.targetGraphic.color = colorState.unselectableColor;
         this.enabled = false;
     }
 

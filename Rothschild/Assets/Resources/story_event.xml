@@ -1,403 +1,547 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <TStoryEventTable_Tab>
-  <TStoryEventTable version="1">
-    <StoryID>1 </StoryID>
+<TStoryEventTable version="1">
+    <StoryID>2 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>0 </Before>
-    <Next>100010001 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
-    <StoryID>1 </StoryID>
+    <Next>100020001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>2 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
-    <Before>100010001 </Before>
-    <Next>100010002 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+    <Before>100020001 </Before>
+    <Next>100020002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>2 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>100020002 </Before>
+    <Next>100020003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>2 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>100020002 </Before>
+    <Next>100020004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>4 </StoryID>
     <Level>1 </Level>
-    <Character>1 </Character>
+    <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>0 </Before>
     <Next>100040001 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>4 </StoryID>
     <Level>1 </Level>
     <Character>1 </Character>
     <Choice>1 </Choice>
     <Before>100040001 </Before>
     <Next>100040002 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>6 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>0 </Before>
     <Next>100060001 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>6 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
+    <Before>100060004 </Before>
+    <Next>100060005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>6 </StoryID>
+    <Level>1 </Level>
+    <Character>1 </Character>
+    <Choice>1 </Choice>
     <Before>100060001 </Before>
     <Next>100060002 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>6 </StoryID>
     <Level>1 </Level>
     <Character>1 </Character>
     <Choice>1 </Choice>
     <Before>100060002 </Before>
     <Next>100060003 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>6 </StoryID>
+    <Level>1 </Level>
+    <Character>1 </Character>
+    <Choice>1 </Choice>
+    <Before>100060005 </Before>
+    <Next>100060006 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>6 </StoryID>
+    <Level>1 </Level>
+    <Character>1 </Character>
+    <Choice>2 </Choice>
+    <Before>100060005 </Before>
+    <Next>100060008 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>6 </StoryID>
+    <Level>1 </Level>
+    <Character>2 </Character>
+    <Choice>1 </Choice>
+    <Before>100060001 </Before>
+    <Next>100060002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>6 </StoryID>
     <Level>1 </Level>
     <Character>2 </Character>
     <Choice>1 </Choice>
     <Before>100060002 </Before>
     <Next>100060004 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>6 </StoryID>
+    <Level>1 </Level>
+    <Character>2 </Character>
+    <Choice>1 </Choice>
+    <Before>100060005 </Before>
+    <Next>100060007 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>0 </Before>
     <Next>100070001 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100070001 </Before>
     <Next>100070002 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100070004 </Before>
     <Next>100070011 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100070006 </Before>
     <Next>100070007 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>2 </Choice>
     <Before>100070004 </Before>
     <Next>100070008 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>2 </Choice>
     <Before>100070006 </Before>
     <Next>100070008 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>1 </Character>
     <Choice>1 </Choice>
     <Before>100070002 </Before>
     <Next>100070003 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>1 </Character>
     <Choice>1 </Choice>
     <Before>100070003 </Before>
     <Next>100070005 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>1 </Character>
     <Choice>1 </Choice>
     <Before>100070007 </Before>
     <Next>100070009 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>1 </Character>
     <Choice>1 </Choice>
     <Before>100070011 </Before>
-    <Next>100070012 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+    <Next>100070009 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>2 </Character>
     <Choice>1 </Choice>
     <Before>100070002 </Before>
     <Next>100070004 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>2 </Character>
     <Choice>1 </Choice>
     <Before>100070003 </Before>
     <Next>100070006 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>2 </Character>
     <Choice>1 </Choice>
     <Before>100070007 </Before>
     <Next>100070010 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>7 </StoryID>
     <Level>1 </Level>
     <Character>2 </Character>
     <Choice>1 </Choice>
     <Before>100070011 </Before>
     <Next>100070010 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>0 </Before>
     <Next>100090001 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100090001 </Before>
     <Next>100090002 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100090002 </Before>
     <Next>100090003 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>9 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>100090003 </Before>
+    <Next>100090004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>9 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>100090004 </Before>
+    <Next>100090010 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100090005 </Before>
-    <Next>100090008 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+    <Next>100090011 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>9 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>100090008 </Before>
+    <Next>100090010 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>2 </Choice>
     <Before>100090001 </Before>
     <Next>100090003 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>2 </Choice>
     <Before>100090002 </Before>
     <Next>100090003 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>2 </Choice>
-    <Before>100090005 </Before>
+    <Before>100090003 </Before>
+    <Next>100090008 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>9 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>100090004 </Before>
     <Next>100090009 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>9 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>100090008 </Before>
+    <Next>100090009 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>1 </Character>
     <Choice>1 </Choice>
-    <Before>100090003 </Before>
-    <Next>100090004 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
-    <StoryID>9 </StoryID>
-    <Level>1 </Level>
-    <Character>1 </Character>
-    <Choice>1 </Choice>
-    <Before>100090004 </Before>
+    <Before>100090010 </Before>
     <Next>100090006 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>1 </Character>
-    <Choice>1 </Choice>
-    <Before>100090008 </Before>
-    <Next>100090010 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
-    <StoryID>9 </StoryID>
-    <Level>1 </Level>
-    <Character>2 </Character>
-    <Choice>1 </Choice>
-    <Before>100090003 </Before>
+    <Choice>2 </Choice>
+    <Before>100090010 </Before>
     <Next>100090005 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>2 </Character>
     <Choice>1 </Choice>
-    <Before>100090004 </Before>
+    <Before>100090010 </Before>
     <Next>100090007 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
-    <StoryID>9 </StoryID>
-    <Level>1 </Level>
-    <Character>2 </Character>
-    <Choice>1 </Choice>
-    <Before>100090008 </Before>
-    <Next>100090011 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>10 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>0 </Before>
     <Next>100100001 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>10 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100100001 </Before>
     <Next>100100002 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>10 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100100002 </Before>
     <Next>100100004 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>10 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100100003 </Before>
     <Next>100100002 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>10 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>2 </Choice>
     <Before>100100001 </Before>
     <Next>100100003 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>10 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>2 </Choice>
     <Before>100100002 </Before>
     <Next>100100005 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>11 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>0 </Before>
+    <Next>100110001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>11 </StoryID>
+    <Level>1 </Level>
+    <Character>1 </Character>
+    <Choice>1 </Choice>
+    <Before>100110001 </Before>
+    <Next>100110003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>11 </StoryID>
+    <Level>1 </Level>
+    <Character>1 </Character>
+    <Choice>2 </Choice>
+    <Before>100110001 </Before>
+    <Next>100110004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>11 </StoryID>
+    <Level>1 </Level>
+    <Character>2 </Character>
+    <Choice>1 </Choice>
+    <Before>100110001 </Before>
+    <Next>100110002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>12 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
     <Next>100120001 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>13 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>100130001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>13 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>100130001 </Before>
+    <Next>100130002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>13 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>100130001 </Before>
+    <Next>100130003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>14 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>0 </Before>
     <Next>100140001 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>14 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100140001 </Before>
     <Next>100140002 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>14 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100140002 </Before>
     <Next>100140004 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>14 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100140004 </Before>
     <Next>100140005 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>14 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>100140007 </Before>
     <Next>100140008 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>14 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>2 </Choice>
     <Before>100140007 </Before>
     <Next>100140009 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>14 </StoryID>
     <Level>1 </Level>
     <Character>1 </Character>
     <Choice>1 </Choice>
     <Before>100140005 </Before>
     <Next>100140006 </Next>
-  </TStoryEventTable>
-  <TStoryEventTable version="1">
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>14 </StoryID>
     <Level>1 </Level>
     <Character>2 </Character>
     <Choice>1 </Choice>
     <Before>100140005 </Before>
     <Next>100140007 </Next>
-  </TStoryEventTable>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>101 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>201010001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>101 </StoryID>
+    <Level>2 </Level>
+    <Character>1 </Character>
+    <Choice>1 </Choice>
+    <Before>201010001 </Before>
+    <Next>201010002 </Next>
+</TStoryEventTable>
 </TStoryEventTable_Tab>

@@ -192,7 +192,7 @@ public class log_interface : MonoBehaviour
         int reputation_value = playerattr[current_role_id].reputation;
 
         wealth_value_text_obj.GetComponent<Text>().text = wealth_value.ToString();
-        reputation_value_text_obj.GetComponent<Text>().text = reputation_value.ToString();
+        //reputation_value_text_obj.GetComponent<Text>().text = reputation_value.ToString();
     }
 
     //用于：进入日志界面
@@ -380,8 +380,8 @@ public class log_interface : MonoBehaviour
         playerdataproc = GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>();
         loadres = GameObject.Find("LogicHandler").GetComponent<LoadRes>();
 
-        role_description_list = new List<string> { "友善的", "征服者", "博学者", "迷人的" };
-        role_name_list = new List<string>() { "卡尔", "内森", "杰姆斯", "简" };
+        role_description_list = new List<string> { "友善的", "无畏的", "博学的", "迷人的" };
+        role_name_list = new List<string>() { "卡尔", "内森", "詹姆斯", "简" };
         role_place_list = new List<string>() { "法兰克福", "伦敦", "巴黎", "那不勒斯" };
         role_total_num = role_name_list.Count;
         current_role_id = 0;

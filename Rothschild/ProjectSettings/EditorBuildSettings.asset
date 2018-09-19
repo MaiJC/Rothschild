@@ -7,5 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: 00000000000000000000000000000000
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/WithPic.unity
+    guid: ab3089458708f864b89b41287424bacc
+  - enabled: 1
+    path: Assets/Scenes/Reload.unity
+    guid: b6c3392a7bc55ef41a1f5a6d7102473e
   m_configObjects: {}

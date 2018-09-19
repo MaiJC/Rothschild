@@ -54,8 +54,9 @@ public class login_interface : MonoBehaviour {
         confirm_button_obj.SetActive(false);
         cancel_button_obj.SetActive(false);
         ready_background_obj.SetActive(false);
-	}
 
+
+    }
 
     void login_button_click()
     {
@@ -140,9 +141,5 @@ public class login_interface : MonoBehaviour {
         login_canvas_obj.SetActive(false);
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 }

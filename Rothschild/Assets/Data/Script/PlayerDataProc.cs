@@ -249,7 +249,7 @@ public class PlayerDataProc : MonoBehaviour
 
     public PlayerAttr[] HandleDeath(int deathRoleID, int saveRoleID)
     {
-        if (settleResult[deathRoleID - 1].money <= 0)
+        if (settleResult[deathRoleID - 1].money <= 0 || settleResult[deathRoleID - 1].money >= 100)
         {
             if (1 == settleResult[saveRoleID - 1].money)
             {
@@ -264,7 +264,7 @@ public class PlayerDataProc : MonoBehaviour
 
         }
 
-        if (settleResult[deathRoleID - 1].reputation <= 0)
+        if (settleResult[deathRoleID - 1].reputation <= 0 || settleResult[deathRoleID - 1].reputation >= 100)
         {
             if (1 == settleResult[saveRoleID - 1].reputation)
             {
@@ -445,7 +445,7 @@ public class PlayerDataProc : MonoBehaviour
         {
             if (key2 != 0)  // 双key
             {
-                if (selectRoles.Contains(key1) && selectRoles.Contains(key2))
+                if (selectRoles.Contains(key1) || selectRoles.Contains(key2))
                 {
                     keyFlag = true;
                 }
@@ -910,7 +910,7 @@ public class PlayerDataProc : MonoBehaviour
 
             if (eventID == id && eventChoice == choice)
             {
-                if (2 == eventChoiceType)
+                if (2 == eventChoiceType && type <= 3)
                 {
                     money = int.Parse(xl1.ChildNodes[GetWithKeyMoneyIndex()].InnerText);
                     reputation = int.Parse(xl1.ChildNodes[GetWithKeyReputationIndex()].InnerText);

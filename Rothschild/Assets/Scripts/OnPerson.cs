@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class OnPerson : EventTrigger
 {
-    private Graphic targetGraphic;
+    //private Graphic targetGraphic;
+    private Image targetGraphic;
     private bool isSelected = false;
 
     private ColorState colorState;
@@ -51,36 +52,16 @@ public class OnPerson : EventTrigger
         //wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
         //reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
 
-        loadTime = Time.time;
+        loadTime = Time.fixedTime;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (hasInitalize == false && Time.fixedTime - loadTime > 2)
-        {
-            targetGraphic = this.GetComponent<Button>().targetGraphic;
-            //colorState = this.GetComponent<ColorState>();
-            colorState = GameObject.Find("ColorState").GetComponent<ColorState>();
 
-            targetGraphic.color = colorState.personNormalColor;
-
-            levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
-            avatarImage = this.transform.GetChild(0).gameObject.GetComponent<Image>();
-            wealthText = this.transform.GetChild(1).gameObject.GetComponent<Text>();
-            reputationText = this.transform.GetChild(2).gameObject.GetComponent<Text>();
-
-            hasInitalize = true;
-            StartFrame();
-            DeactiveFrame();
-        }
-    }
-
-    private void Update()
+    private void FixedUpdate()
     {
         for (int i = 0; i < monkeyInput.Count; i++)
         {
-            if (Time.time - monkeyInput[i] > 2)
+            if (Time.fixedTime - monkeyInput[i] > 2)
             {
                 monkeyInput.RemoveAt(i);
                 i--;
@@ -102,7 +83,6 @@ public class OnPerson : EventTrigger
                 monkeyInput.Clear();
             }
         }
-<<<<<<< HEAD
         if (hasInitalize == false && Time.fixedTime - loadTime > 1.5)
         {
             targetGraphic = this.transform.GetChild(0).GetComponent<Image>();
@@ -126,8 +106,6 @@ public class OnPerson : EventTrigger
             DeactiveFrame();
         }
 
-=======
->>>>>>> b9a6213160e25931c6abc9ddbf15241def09ce79
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
@@ -166,7 +144,7 @@ public class OnPerson : EventTrigger
             DeactiveFrame();
             isSelected = false;
         }
-        monkeyInput.Add(Time.time);
+        monkeyInput.Add(Time.fixedTime);
 
     }
 
@@ -184,17 +162,18 @@ public class OnPerson : EventTrigger
 
     public bool IsSelected()
     {
+        if (isDead) return false;
         return isSelected;
     }
 
     public void Clear()
     {
+        DeactiveFrame();
+        isSelected = false;
         if (isDead)
             return;
-        isSelected = false;
-        //targetGraphic.color = colorState.personNormalColor;
+        targetGraphic.color = colorState.personNormalColor;
         this.enabled = true;
-        DeactiveFrame();
     }
 
     public void SetAvator(string avatarName)
@@ -206,6 +185,8 @@ public class OnPerson : EventTrigger
     /*接收值为财富值的改变，返回角色是否死亡，返回true则为死亡*/
     public bool SetWealth(int wealth)
     {
+        if (isDead)
+            return false;
         if (wealthNum != wealth && hasSetWealth == true)
         {
             wealthArror.SetActive(true);
@@ -236,6 +217,8 @@ public class OnPerson : EventTrigger
     /*接收值为声望的改变，返回角色是否死亡，返回true则为死亡*/
     public bool SetReputation(int reputation)
     {
+        if (isDead)
+            return false;
         if (reputationNum != reputation && hasSetReputation == true)
         {
             reputationArror.SetActive(true);
@@ -264,22 +247,87 @@ public class OnPerson : EventTrigger
         return isDead;
     }
 
+    public bool SetWealthAndReputation(int wealth, int reputation)
+    {
+        if (isDead)
+            return false;
+        if (wealthNum != wealth && hasSetWealth == true)
+        {
+            wealthArror.SetActive(true);
+            int direction = wealth > wealthNum ? 1 : -1;
+            wealthArror.transform.localScale = new Vector3(Mathf.Abs(wealthArror.transform.localScale.x) * direction
+                , wealthArror.transform.localScale.y, 1);
+            if (direction == 1)
+                wealthArror.GetComponent<Image>().color = Color.red;
+            else
+                wealthArror.GetComponent<Image>().color = Color.green;
+        }
+        else if (hasSetWealth == true)
+        {
+            wealthArror.SetActive(false);
+        }
+        hasSetWealth = true;
+        wealthNum = wealth;
+        wealthNum = Mathf.Clamp(wealthNum, 0, 100);
+        wealthText.text = wealthNum.ToString() + "/100";
+
+        if (reputationNum != reputation && hasSetReputation == true)
+        {
+            reputationArror.SetActive(true);
+            int direction = reputation > reputationNum ? 1 : -1;
+            reputationArror.transform.localScale = new Vector3(Mathf.Abs(reputationArror.transform.localScale.x) * direction
+                , reputationArror.transform.localScale.y, 1);
+
+            if (direction == 1)
+                reputationArror.GetComponent<Image>().color = Color.red;
+            else
+                reputationArror.GetComponent<Image>().color = Color.green;
+        }
+        else if (hasSetReputation == true)
+        {
+            reputationArror.SetActive(false);
+        }
+        hasSetReputation = true;
+        reputationNum = reputation;
+        reputationNum = Mathf.Clamp(reputation, 0, 100);
+        reputationText.text = reputationNum.ToString() + "/100";
+
+        isDead = (wealthNum <= 0 || wealthNum >= 100 || reputationNum <= 0 || reputationNum >= 100);
+
+        if (isDead)
+            SetDead();
+
+        return isDead;
+    }
+
     private void SetDead()
     {
         targetGraphic.color = colorState.deadColor;
         this.isSelected = false;
         this.enabled = false;
+        this.isDead = true;
+        DeactiveFrame();
+    }
+
+    public void DeadDead()
+    {
+        this.reputationArror.SetActive(false);
+        this.wealthArror.SetActive(false);
     }
 
     public void SetUnselectable()
     {
-        //targetGraphic.color = colorState.unselectableColor;
+        if (isDead)
+            return;
+        targetGraphic.color = colorState.unselectableColor;
         this.isSelected = false;
         this.enabled = false;
     }
 
     public void SetSelected()
     {
+        if (isDead)
+            return;
         //targetGraphic.color = colorState.selectColor;
         this.isSelected = true;
         this.enabled = false;
@@ -294,7 +342,7 @@ public class OnPerson : EventTrigger
     {
         isDead = false;
         this.enabled = true;
-        //targetGraphic.color = colorState.personNormalColor;
+        targetGraphic.color = colorState.personNormalColor;
     }
 
     private void ActiveFrame()

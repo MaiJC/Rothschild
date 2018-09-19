@@ -31,7 +31,7 @@ public class OnEvent : MonoBehaviour
         //choiceOne = this.transform.GetChild(2).gameObject.GetComponent<Button>();
         //choiceTwo = this.transform.GetChild(3).gameObject.GetComponent<Button>();
         //choiceThree = this.transform.GetChild(4).gameObject.GetComponent<Button>();
-        loadTime = Time.time;
+        loadTime = Time.fixedTime;
     }
 
     // Update is called once per frame
@@ -83,6 +83,8 @@ public class OnEvent : MonoBehaviour
         eventText.text = choiceTest[0];
         choiceTest.RemoveAt(0);
 
+        Debug.Log("choice count" + choiceTest.Count.ToString());
+
         choiceCount = choiceTest.Count;
         if (choiceTest.Count == 0)
         {
@@ -111,6 +113,12 @@ public class OnEvent : MonoBehaviour
 
     public void SetUnselectable()
     {
+        if (levelManager.currentMaxSelectedPersonCount == 0)
+        {
+            SetSelectable();
+            return;
+        }
+
         switch (choiceCount)
         {
             case 1:
@@ -147,6 +155,8 @@ public class OnEvent : MonoBehaviour
 
     public void SetChoiceType(int typeOne, int typeTwo)
     {
+        Debug.Log("SetChoiceType: choiceCount:" + choiceCount.ToString()
+            + ", type1:" + typeOne.ToString() + ", type2:" + typeTwo.ToString());
         switch (choiceCount)
         {
             case 1:
