@@ -5,7 +5,13 @@ using UnityEngine.UI;
 
 public class login_interface : MonoBehaviour {
 
+    PlayerDataProc playerdataproc;
+
     GameObject login_canvas_obj;
+    GameObject login_background_obj;
+    GameObject ready_background_obj;
+
+    GameObject warning_text_obj;
 
     GameObject user_name_inputfield_obj;
     GameObject password_inputfield_obj;
@@ -15,26 +21,20 @@ public class login_interface : MonoBehaviour {
     GameObject confirm_button_obj;
     GameObject cancel_button_obj;
 
-    class Account
-    {
-        public Account(string user_name,string password)
-        {
-            this.user_name = user_name;
-            this.password = password;
-        }
-
-        public string user_name;
-        public string password;
-    }
-
-    List<Account> account_list = new List<Account>();
-
 
 	// Use this for initialization
 	void Start () {
 
+        //导入小康的脚本
+        playerdataproc = GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>();
+
         login_canvas_obj = GameObject.Find("login_canvas");
         login_canvas_obj.SetActive(true);
+
+        warning_text_obj = GameObject.Find("warning_text");
+
+        login_background_obj = GameObject.Find("login_background");
+        ready_background_obj = GameObject.Find("ready_background");
 
         user_name_inputfield_obj = GameObject.Find("user_name_inputfield");
         password_inputfield_obj = GameObject.Find("password_inputfield");
@@ -49,42 +49,41 @@ public class login_interface : MonoBehaviour {
         confirm_button_obj.GetComponent<Button>().onClick.AddListener(confirm_button_click);
         cancel_button_obj.GetComponent<Button>().onClick.AddListener(cancel_button_click);
 
+        ready_background_obj.GetComponent<Button>().onClick.AddListener(ready_background_click);
+
         confirm_button_obj.SetActive(false);
         cancel_button_obj.SetActive(false);
+        ready_background_obj.SetActive(false);
 
-        print_account_list();
-	}
 
+    }
 
     void login_button_click()
     {
         var user_name_input = user_name_inputfield_obj.GetComponent<InputField>().text;
         var password_input = password_inputfield_obj.GetComponent<InputField>().text;
 
-
-        foreach(var account in account_list)
+        switch(playerdataproc.OnLogin(user_name_input, password_input))
         {
-            if(user_name_input == account.user_name )
-            {
-                if (password_input == account.password)
-                {
-                    //登录成功，跳到下一界面
-                    Debug.Log("登录成功，跳到下一界面");
-                }
-                else
-                {
-                    warning("密码输入错误！");
-                }
-
-                return;
-            }
+            case 1:
+                warning("用户名不存在");
+                break;
+            case 2:
+                warning("密码错误");
+                break;
+            case 0:
+                //登录成功，跳到下一界面
+                ready_background_obj.SetActive(true);
+                login_background_obj.SetActive(false);
+                break;
         }
-        warning("用户名不存在！");
     }
 
 
     void register_button_click()
     {
+        warning("");
+
         confirm_button_obj.SetActive(true);
         cancel_button_obj.SetActive(true);
 
@@ -98,28 +97,31 @@ public class login_interface : MonoBehaviour {
         var user_name_input = user_name_inputfield_obj.GetComponent<InputField>().text;
         var password_input = password_inputfield_obj.GetComponent<InputField>().text;
 
-
-        foreach (var account in account_list)
+        switch (playerdataproc.OnRegister(user_name_input, password_input))
         {
-            if (user_name_input == account.user_name)
-            {
-                warning("用户名已被注册！");
-                return;
-            }
+            case 1:
+                warning("用户名已存在");
+                break;
+            case 2:
+                warning("用户名或密码不可为空");
+                break;
+            case 0:
+                warning("注册成功，请直接登录");
+                login_button_obj.SetActive(true);
+                register_button_obj.SetActive(true);
+
+                confirm_button_obj.SetActive(false);
+                cancel_button_obj.SetActive(false);
+
+                break;
         }
-
-        account_list.Add(new Account(user_name_input, password_input));
-
-        login_button_obj.SetActive(true);
-        register_button_obj.SetActive(true);
-
-        confirm_button_obj.SetActive(false);
-        cancel_button_obj.SetActive(false);
     }
 
 
     void cancel_button_click()
     {
+        warning("");
+
         login_button_obj.SetActive(true);
         register_button_obj.SetActive(true);
 
@@ -130,23 +132,14 @@ public class login_interface : MonoBehaviour {
 
     void warning(string warning_text)
     {
-        Debug.Log(warning_text);
+        warning_text_obj.GetComponent<Text>().text = warning_text;
     }
 
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    void print_account_list()
+    void ready_background_click()
     {
-        foreach (var account in account_list)
-        {
-            Debug.Log(string.Format("user_name:{0}, password:{1}", account.user_name, account.password));
-        }
+        login_canvas_obj.SetActive(false);
     }
+	
+
 }
-
-
-//账号密码非空

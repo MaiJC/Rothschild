@@ -18,7 +18,6 @@ public class OnLose : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         levelManager = GameObject.Find("LogicHandler").GetComponent<LevelManager>();
         winInterface = GameObject.Find("WinInterface");
         loseInterface = GameObject.Find("LoseInterface");
@@ -43,8 +42,10 @@ public class OnLose : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Time.fixedTime - loadTime < 3 || isLose)
+        if (Time.fixedTime - loadTime < 5 || isLose)
             return;
+
+
         ListenLose();
         ListenWin();
     }
@@ -56,16 +57,8 @@ public class OnLose : MonoBehaviour
 
     void Retry()
     {
-        //GameObject[] allGameObject = Transform.FindObjectsOfType<GameObject>();
-        //foreach (GameObject go in allGameObject)
-        //{
-        //    if (go != this.gameObject)
-        //    {
-        //        go.SetActive(true);
-        //        Resources.UnloadAsset(go);
-        //    }     
-        //}
-
+        GameObject.Find("LogicHandler").GetComponent<PlayerDataProc>().CleanPlayerInfo();
+        GameObject.Find("Fill").transform.localScale = new Vector3(1, 1, 1);
         SceneManager.LoadScene("WithPic", LoadSceneMode.Single);
     }
 
@@ -92,7 +85,7 @@ public class OnLose : MonoBehaviour
             return;
         }
 
-        if (teamwork.gameObject.transform.localScale.x < 0.02)
+        if (teamwork.gameObject.transform.localScale.x < 0.01)
         {
             isLose = true;
             loseInterface.SetActive(true);
@@ -102,8 +95,9 @@ public class OnLose : MonoBehaviour
 
     void ListenWin()
     {
-        if(isFinish==false && levelManager.IsFinish())
+        if (isFinish == false && levelManager.IsFinish())
         {
+            Debug.Log("win!!!!!!");
             winInterface.SetActive(true);
             isFinish = true;
         }

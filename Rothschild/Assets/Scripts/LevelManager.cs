@@ -17,8 +17,8 @@ public class LevelManager : MonoBehaviour
     private int currentLevel = 0;
     private int currentEventCount = 0;
     private int currentRound = 0;
-    private int currentMaxSelectedPersonCount = 2;
-    private int currentMaxSelectedPersonCountCopy;
+    public int currentMaxSelectedPersonCount = 2;
+    private int currentMaxSelectedPersonCountCopy = 100;
     private int currentMaxSelectedChooiceCount = 2;
     private int currentSelectedCount = 0;
     private int currentStoryHead;
@@ -256,6 +256,9 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
             hasDead[i] = false;
 
+        float teamworkPercent = (float)playerDataProc.GetTeamworkValue() / 200.0f;
+        GameObject.Find("Fill").GetComponent<Image>().transform.localScale
+            = new Vector3(teamworkPercent, 1.0f, 1.0f);
 
     }
 
@@ -277,8 +280,10 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < person.Count; i++)
         {
-            person[i].SetReputation(playerDataProc.GetPlayerAttr()[i].reputation);
-            person[i].SetWealth(playerDataProc.GetPlayerAttr()[i].money);
+            //person[i].SetReputation(playerDataProc.GetPlayerAttr()[i].reputation);
+            //person[i].SetWealth(playerDataProc.GetPlayerAttr()[i].money);
+            person[i].SetWealthAndReputation(playerDataProc.GetPlayerAttr()[i].money,
+                playerDataProc.GetPlayerAttr()[i].reputation);
         }
 
         //foreach (Image i in personImage)
@@ -307,7 +312,7 @@ public class LevelManager : MonoBehaviour
         }
         foreach (int p in roleLimit)
         {
-            if (p == selectPerson)
+            if (p == selectPerson && !IsHandlingDead())
                 return false;
         }
 
@@ -360,8 +365,13 @@ public class LevelManager : MonoBehaviour
 
         /*TODO: 增加如果原本选择数满上线，则将灰色的卡恢复彩色的功能*/
         currentSelectedCount--;
-        if (currentSelectedCount == 0)
+        if (currentSelectedCount == 0 && currentMaxSelectedPersonCount != 0)
             onEvent.SetUnselectable();
+        if (currentMaxSelectedPersonCount == 0)
+        {
+            foreach (OnPerson pp in person)
+                pp.SetUnselectable();
+        }
 
         if (currentSelectedCount < 0)
             Debug.LogError("currentSelectedCount less than 0!");
@@ -373,17 +383,13 @@ public class LevelManager : MonoBehaviour
         selectedPerson.Clear();
         currentRound++;
 
-        if (currentLevel == levelCount && levelEventID[currentLevel - 1].Count == 0)
+        if (IsFinish())
             return;
 
-        if (isInStory || isInJumpStory)
+        if (isInStory)
         {
             Debug.Log("in story or in jump story");
-            //currentEventID=loadRes.GetNextStoryID(currentStoryHead,)
-            //int chooice = this.tag == "ChoiceOne" ? 1 : 2;
             int fatherEventID = currentEventID;
-            //currentEventID = loadRes.GetNextStoryID(currentStoryHead, choose, fatherEventID);
-
             //找出被选中的角色
             List<int> roles = new List<int>();
             for (int i = 0; i < person.Count; i++)
@@ -394,209 +400,115 @@ public class LevelManager : MonoBehaviour
             {
                 choiceTypeOne = choiceTypeTwo;
             }
-            currentEventID = loadRes.GetNextStoryEvent(currentStoryID, fatherEventID, lastChoice, choiceTypeOne, roles);
+            currentEventID = loadRes.GetNextStoryEvent(currentStoryID, fatherEventID, lastChoice,
+                choiceTypeOne, roles);
 
+            Debug.Log("Story ID:" + currentStoryID.ToString() + " ,current event ID:" + currentEventID.ToString());
             //单条故事线结束，判断是否跳跳跳，以决定是否退出
             if (currentEventID == 0)
             {
-                if (isInJumpStory)
+                Debug.Log("a story end");
+                isInStory = false;
+                if (levelStoryID[currentLevel - 1].Count == 0)
                 {
-                    //跳跳跳单条线结束，返回故事开头，同时将之前的主角加入已经选择名单
-                    if (jumpStoryTimesRemain != 0)
-                    {
-                        Debug.Log("back to jump story head");
-                        jumpStoryTimesRemain--;
-                        currentEventID = currentStoryHead;
-                        jumpStorySelectedRole[currentJumpStoryPerson - 1] = true;
-                    }
-                    else
-                    {
-                        Debug.Log("a jump story end");
-                        isInJumpStory = false;
-                        if (levelStoryID[currentLevel - 1].Count == 0)
-                        {
-                            NextLevel();
-                        }
-                    }
-
+                    NextLevel();
                 }
-                else if (isInStory)
-                {
-                    Debug.Log("a story end");
-                    isInStory = false;
-                    if (levelStoryID[currentLevel - 1].Count == 0)
-                    {
-                        NextLevel();
-                    }
-                }
-            }
-            Debug.Log("Story ID:" + currentStoryID.ToString() + " ,current event ID:" + currentEventID.ToString());
+            } 
         }
-        if (!isInStory && !isInJumpStory)
+        if (!isInStory)
         {
-            /*TODO: 目前故事的出现是完全随机，没有限制回合数的，后期需要加入故事出现的回合数判断*/
-            //从事件池里面随机事件
-            //int idx = Random.Range(0, currentEventCount + levelStoryID[currentLevel - 1].Count);
-
-            int maxRange = commonEventID.Count + levelEventID[currentLevel - 1].Count
-                + levelStoryID[currentLevel - 1].Count;
-            int idx = Random.Range(0, maxRange);
-
-            //发生所有关卡都能出现的事件
-            if (idx < commonEventID.Count)
+            if (IsFinish())
+                return;
+            int maxRange = levelEventID[currentLevel - 1].Count + levelStoryID[currentLevel - 1].Count;
+            bool randomSuccess;
+            do
             {
-                //确保事件如果有前置事件，前置事件已经发生
-                bool havePerEventAndNotHappen = false;
-                do
+                randomSuccess = true;
+                int idx = Random.Range(0, maxRange);
+                //发生该关卡特有的事件
+                if (idx < levelEventID[currentLevel - 1].Count)
                 {
-                    int preEvent = loadRes.GetPreEventID(commonEventID[idx]);
-                    if (preEvent != 0)
-                    {
-                        if (!happenedEvent.Contains(preEvent))
-                        {
-                            havePerEventAndNotHappen = true;
-                            idx = Random.Range(0, commonEventID.Count);
-                        }
-                        else
-                        {
-                            havePerEventAndNotHappen = false;
-                        }
-                    }
-                } while (havePerEventAndNotHappen);
-
-                currentEventID = commonEventID[idx];
-                commonEventID.RemoveAt(idx);
-                currentEventCount--;
-            }
-            //发生该关卡特有的事件
-            else if (idx < levelEventID[currentLevel - 1].Count)
-            {
-                Debug.Log("in a normal event");
-                //确保事件如果有前置事件，前置事件已经发生
-                bool havePerEventAndNotHappen = false;
-                do
-                {
-                    //idx = Random.Range(commonEventID.Count, levelEventID[currentLevel - 1].Count);
+                    Debug.Log("in a normal event");
                     int preEvent = loadRes.GetPreEventID(levelEventID[currentLevel - 1][idx]);
-                    Debug.Log(preEvent.ToString());
-                    if (preEvent != 0)
+                    Debug.Log("pre eventID:" + preEvent.ToString());
+                    if (preEvent != 0 && !happenedEvent.Contains(preEvent))
                     {
-                        if (!happenedEvent.Contains(preEvent))
-                        {
-                            havePerEventAndNotHappen = true;
-                            idx = Random.Range(commonEventID.Count, levelEventID[currentLevel - 1].Count);
-                            Debug.Log("have pre event and pre event hasn't happen");
-                        }
-                        else
-                        {
-                            Debug.Log("have pre event and pre event has happened");
-                            havePerEventAndNotHappen = false;
-                        }
+                        randomSuccess = false;
+                        Debug.Log("have pre event and pre event hasn't happen");
                     }
                     else
                     {
-                        Debug.Log("don't have per event");
-                        havePerEventAndNotHappen = false;
+                        if (preEvent != 0)
+                            Debug.Log("have pre event and pre event has happened");
+                        else
+                            Debug.Log("don't have per event");
+                        currentEventID = levelEventID[currentLevel - 1][idx];
+                        levelEventID[currentLevel - 1].RemoveAt(idx);
                     }
-                } while (havePerEventAndNotHappen);
-
-                currentEventID = levelEventID[currentLevel - 1][idx - commonEventID.Count];
-                levelEventID[currentLevel - 1].RemoveAt(idx - commonEventID.Count);
-                currentEventCount--;
-            }
-            //生成故事
-            else
-            {
-                Debug.Log("a story start");
-                //永远都取出第一个故事
-                currentStoryID = levelStoryID[currentLevel - 1][0];
-                currentEventID = loadRes.GetStoryHeadEventID(currentStoryID);
-                levelStoryID[currentLevel - 1].RemoveAt(0);
-                if (playerDataProc.IsJumpStory(currentStoryID))
-                {
-                    isInJumpStory = true;
-                    isJumpStoryFirstHappen = true;
-                    jumpStoryTimesRemain = JUMP_STORY_TIMES_MAX;
-                    Debug.Log("is jump story");
                 }
+                //生成故事
                 else
                 {
+                    if (levelStoryID[currentLevel - 1].Count == 0)
+                        return;
+                    Debug.Log("a story start");
                     isInStory = true;
-                    Debug.Log("is normal story");
+                    //永远都取出第一个故事
+                    currentStoryID = levelStoryID[currentLevel - 1][0];
+                    currentEventID = loadRes.GetStoryHeadEventID(currentStoryID);
+                    levelStoryID[currentLevel - 1].RemoveAt(0);
+                    currentStoryHead = currentEventID;
+                    Debug.Log("the first event of the story:" + currentEventID.ToString());
                 }
-                currentStoryHead = currentEventID;
-            }
-        }
+            } while (!randomSuccess);
 
+        }
 
         /*TODO: 添加事件切换特效*/
         //为事件槽设置新的图片和文字描述
-        //onEvent.SetImage(eventUIPath[currentEventID]);
-        //onEvent.SetText(eventText[currentEventID]);
         Debug.Log("Next event: " + currentEventID.ToString());
         happenedEvent.Add(currentEventID);
         if (currentEventID == 0)
-            Debug.Log("Error");
+            Debug.LogError("Error");
 
 
         onEvent.SetEventTitle(loadRes.GetEventTitle(currentEventID));
         //设置该关卡的图片，文字，可选择角色等信息
-        if (isInJumpStory)//这里其实是错的
-        {
-            //跳跳跳的开头
-            if (isJumpStoryFirstHappen)
-            {
-                onEvent.SetEventText(loadRes.GetEventText(currentEventID));
-                onEvent.SetEventID(currentEventID);
-                onEvent.SetChoiceType(1, 2);
-                onEvent.SetUnselectable();
-                for (int i = 0; i < jumpStorySelectedRole.Count; i++)
-                {
-                    if (jumpStorySelectedRole[i])
-                    {
-                        roleLimit.Add(i + 1);
-                        person[i].SetUnselectable();
-                        //onEvent.SetPersonUnselectable(i + i);
-                    }
-                }
-                currentMaxSelectedPersonCount = 1;
-            }
-            //不是跳跳跳的开头
-            else
-            {
-                onEvent.SetEventText(loadRes.GetEventText(currentEventID));
-                onEvent.SetEventID(currentEventID);
-                onEvent.SetChoiceType(2, 2);
-                onEvent.SetUnselectable();
-                for (int i = 0; i < 4; i++)
-                {
-                    if (i == currentJumpStoryPerson - 1)
-                    {
-                        person[i].SetSelected();
-                    }
-                    else
-                    {
-                        person[i].SetUnselectable();
-                    }
-                }
+        //int choiceTypeOne, choiceTypeTwo;
+        choiceTypeOne = loadRes.GetChoiceType(currentEventID, 1);
+        choiceTypeTwo = loadRes.GetChoiceType(currentEventID, 2);
+        onEvent.SetEventText(loadRes.GetEventText(currentEventID));
+        onEvent.SetEventID(currentEventID);
+        onEvent.SetChoiceType(choiceTypeOne, choiceTypeTwo);
+        Debug.Log("CT1:" + choiceTypeOne.ToString() + " ,CT2:" + choiceTypeTwo.ToString());
+        onEvent.SetUnselectable();
 
+        roleLimit = loadRes.GetRoleLimit(currentEventID);
+
+        currentMaxSelectedPersonCount = loadRes.GetRoleCountLimit(currentEventID);
+        if (currentMaxSelectedPersonCount == 0)
+            onEvent.SetSelectable();
+
+        //设置不能选的人的颜色
+        foreach (OnPerson personTmp in person)
+        {
+            personTmp.Clear();
+        }
+        foreach (int pp in roleLimit)
+        {
+            person[pp - 1].SetUnselectable();
+        }
+        if (currentMaxSelectedPersonCount == 0)
+        {
+            foreach (OnPerson pp in person)
+            {
+                pp.SetUnselectable();
             }
         }
-        else
-        {
-            //int choiceTypeOne, choiceTypeTwo;
-            choiceTypeOne = loadRes.GetChoiceType(currentEventID, 1);
-            choiceTypeTwo = loadRes.GetChoiceType(currentEventID, 2);
-            onEvent.SetEventText(loadRes.GetEventText(currentEventID));
-            onEvent.SetEventID(currentEventID);
-            onEvent.SetChoiceType(choiceTypeOne, choiceTypeTwo);
-            Debug.Log("CT1:" + choiceTypeOne.ToString() + " ,CT2:" + choiceTypeTwo.ToString());
-            onEvent.SetUnselectable();
+    }
 
-            roleLimit = loadRes.GetRoleLimit(currentEventID);
-            currentMaxSelectedPersonCount = loadRes.GetRoleCountLimit(currentEventID);
-
-        }
+    void GetCrrentEvent(int idx)
+    {
 
     }
 
@@ -629,6 +541,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public bool IsHandlingDead()
+    {
+        return handleDeadRemains > 0;
+    }
+
     public void HandleDead()
     {
         int newDeadPerson = 0;
@@ -645,46 +562,73 @@ public class LevelManager : MonoBehaviour
                 deadInterface.SetActive(true);
                 currentHanlingDeadPerson = i + 1;
                 handleDeadRemains = newDeadPerson;
-                currentMaxSelectedPersonCountCopy = currentMaxSelectedPersonCount;
-                //choiceTypeOneCopy = choiceTypeOne;
-                //choiceTypeTwoCopy = choiceTypeTwo;
-                //choiceTypeOne = 1;
-                //choiceTypeTwo = 2;
+                if (currentMaxSelectedPersonCountCopy == 100)
+                    currentMaxSelectedPersonCountCopy = currentMaxSelectedPersonCount;
                 currentMaxSelectedPersonCount = 1;
+                onEvent.SetChoiceType(1, 2);
+                onEvent.SetUnselectable();
+                foreach (OnPerson p in person)
+                    p.Clear();
                 break;
             }
 
         }
     }
 
-    private void DeadConfirm(int role, int choice)
+    private void DeadConfirm(int saver, int choice)
     {
+        foreach (OnPerson pp in person)
+            pp.Clear();
+        //不救，就存下来这个人已经死了
+        if (choice == 2)
+        {
+            hasDead[currentHanlingDeadPerson - 1] = true;
+            person[currentHanlingDeadPerson - 1].DeadDead();
+        }
+        //救了
+        else
+        {
+            person[currentHanlingDeadPerson - 1].SetAlive();
+            PlayerAttr[] tmpAttr = playerDataProc.HandleDeath(currentHanlingDeadPerson, saver);
+
+            //person[currentHanlingDeadPerson - 1].SetWealthAndReputation(
+            //    tmpAttr[currentHanlingDeadPerson - 1].money,
+            //    tmpAttr[currentHanlingDeadPerson - 1].reputation);
+
+            //person[saver - 1].SetWealthAndReputation(tmpAttr[saver - 1].money,
+            //    tmpAttr[saver - 1].reputation);
+
+            for (int i = 0; i < 4; i++)
+            {
+                person[i].SetWealthAndReputation(tmpAttr[i].money, tmpAttr[i].reputation);
+            }
+
+        }
+
         //没有新死的人了，就把死亡界面去掉
         handleDeadRemains--;
         if (handleDeadRemains == 0)
         {
             currentMaxSelectedPersonCount = currentMaxSelectedPersonCountCopy;
-            //choiceTypeOne = choiceTypeOneCopy;
-            //choiceTypeTwo = choiceTypeTwoCopy;
+            currentMaxSelectedPersonCountCopy = 100;
+            onEvent.SetEventText(loadRes.GetEventText(currentEventID));
+            onEvent.SetEventID(currentEventID);
+            onEvent.SetChoiceType(choiceTypeOne, choiceTypeTwo);
+            onEvent.SetSelectable();
+            foreach (OnPerson personTmp in person)
+            {
+                personTmp.Clear();
+            }
+            if (currentMaxSelectedPersonCount == 0)
+            {
+                foreach (OnPerson p in person)
+                    p.SetUnselectable();
+            }
+            foreach (int pp in roleLimit)
+            {
+                person[pp - 1].SetUnselectable();
+            }
             deadInterface.SetActive(false);
-        }
-
-        //不救，就存下来这个人已经死了
-        if (choice == 2)
-        {
-            hasDead[currentHanlingDeadPerson - 1] = true;
-            return;
-        }
-        //救了
-        else
-        {
-            PlayerAttr[] tmpAttr = playerDataProc.HandleDeath(currentHanlingDeadPerson, role);
-            person[currentHanlingDeadPerson - 1].SetReputation(tmpAttr[currentHanlingDeadPerson - 1].reputation);
-            person[currentHanlingDeadPerson - 1].SetWealth(tmpAttr[currentHanlingDeadPerson - 1].money);
-            person[role - 1].SetReputation(tmpAttr[role - 1].reputation);
-            person[role - 1].SetWealth(tmpAttr[role - 1].money);
-            person[currentHanlingDeadPerson - 1].SetAlive();
-
         }
     }
 
