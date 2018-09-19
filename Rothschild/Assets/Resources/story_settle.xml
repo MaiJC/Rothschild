@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <TStorySettleTable_Tab>
 <TStorySettleTable version="1">
-    <StoryID>2 </StoryID>
-    <SettleType>1 </SettleType>
-    <Param1>100010001 </Param1>
-    <Param2>0 </Param2>
-    <Param3>1 </Param3>
-</TStorySettleTable>
-<TStorySettleTable version="1">
     <StoryID>10 </StoryID>
     <SettleType>1 </SettleType>
     <Param1>100090010 </Param1>
@@ -20,5 +13,54 @@
     <Param1>100080001 </Param1>
     <Param2>0 </Param2>
     <Param3>1 </Param3>
+</TStorySettleTable>
+<TStorySettleTable version="1">
+    <StoryID>203 </StoryID>
+    <SettleType>0 </SettleType>
+    <Param1>200010001 </Param1>
+    <Param2>1 </Param2>
+    <Param3>0 </Param3>
+</TStorySettleTable>
+<TStorySettleTable version="1">
+    <StoryID>204 </StoryID>
+    <SettleType>0 </SettleType>
+    <Param1>200010001 </Param1>
+    <Param2>2 </Param2>
+    <Param3>0 </Param3>
+</TStorySettleTable>
+<TStorySettleTable version="1">
+    <StoryID>206 </StoryID>
+    <SettleType>0 </SettleType>
+    <Param1>200010000 </Param1>
+    <Param2>1 </Param2>
+    <Param3>0 </Param3>
+</TStorySettleTable>
+<TStorySettleTable version="1">
+    <StoryID>207 </StoryID>
+    <SettleType>0 </SettleType>
+    <Param1>200010000 </Param1>
+    <Param2>2 </Param2>
+    <Param3>0 </Param3>
+</TStorySettleTable>
+<TStorySettleTable version="1">
+    <StoryID>252 </StoryID>
+    <SettleType>1 </SettleType>
+    <Param1>200010093 </Param1>
+    <Param2>0 </Param2>
+    <Param3>0 </Param3>
+</TStorySettleTable>
+<TStorySettleTable version="1">
+    <StoryID>254 </StoryID>
+    <SettleType>1 </SettleType>
+    <Param1>200030091 </Param1>
+    <Param2>0 </Param2>
+    <Param3>0 </Param3>
+</TStorySettleTable>
+<TStorySettleTable version="1">
+    <StoryID>3001 </StoryID>
+    <SettleType>0 </SettleType>
+    <Param1>300030013 </Param1>
+    <Param2>0 </Param2>
+    <Param3>0 </Param3>
 </TStorySettleTable>
 </TStorySettleTable_Tab>

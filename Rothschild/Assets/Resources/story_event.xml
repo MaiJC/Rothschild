@@ -1,54 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <TStoryEventTable_Tab>
 <TStoryEventTable version="1">
-    <StoryID>2 </StoryID>
-    <Level>1 </Level>
-    <Character>0 </Character>
-    <Choice>1 </Choice>
-    <Before>0 </Before>
-    <Next>100020001 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>2 </StoryID>
-    <Level>1 </Level>
-    <Character>0 </Character>
-    <Choice>1 </Choice>
-    <Before>100020001 </Before>
-    <Next>100020002 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>2 </StoryID>
-    <Level>1 </Level>
-    <Character>0 </Character>
-    <Choice>1 </Choice>
-    <Before>100020002 </Before>
-    <Next>100020003 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>2 </StoryID>
-    <Level>1 </Level>
-    <Character>0 </Character>
-    <Choice>2 </Choice>
-    <Before>100020002 </Before>
-    <Next>100020004 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>4 </StoryID>
-    <Level>1 </Level>
-    <Character>0 </Character>
-    <Choice>1 </Choice>
-    <Before>0 </Before>
-    <Next>100040001 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>4 </StoryID>
-    <Level>1 </Level>
-    <Character>1 </Character>
-    <Choice>1 </Choice>
-    <Before>100040001 </Before>
-    <Next>100040002 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
     <StoryID>6 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
@@ -61,16 +13,16 @@
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
-    <Before>100060004 </Before>
-    <Next>100060005 </Next>
+    <Before>100060001 </Before>
+    <Next>100060002 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
     <StoryID>6 </StoryID>
     <Level>1 </Level>
-    <Character>1 </Character>
+    <Character>0 </Character>
     <Choice>1 </Choice>
-    <Before>100060001 </Before>
-    <Next>100060002 </Next>
+    <Before>100060004 </Before>
+    <Next>100060005 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
     <StoryID>6 </StoryID>
@@ -95,14 +47,6 @@
     <Choice>2 </Choice>
     <Before>100060005 </Before>
     <Next>100060008 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>6 </StoryID>
-    <Level>1 </Level>
-    <Character>2 </Character>
-    <Choice>1 </Choice>
-    <Before>100060001 </Before>
-    <Next>100060002 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
     <StoryID>6 </StoryID>
@@ -233,6 +177,22 @@
     <Next>100070010 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
+    <StoryID>8 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>100080001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>8 </StoryID>
+    <Level>1 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>100080001 </Before>
+    <Next>100080002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
     <StoryID>9 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
@@ -277,24 +237,8 @@
     <Level>1 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
-    <Before>100090005 </Before>
-    <Next>100090011 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>9 </StoryID>
-    <Level>1 </Level>
-    <Character>0 </Character>
-    <Choice>1 </Choice>
     <Before>100090008 </Before>
     <Next>100090010 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>9 </StoryID>
-    <Level>1 </Level>
-    <Character>0 </Character>
-    <Choice>2 </Choice>
-    <Before>100090001 </Before>
-    <Next>100090003 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
     <StoryID>9 </StoryID>
@@ -342,7 +286,7 @@
     <Character>1 </Character>
     <Choice>2 </Choice>
     <Before>100090010 </Before>
-    <Next>100090005 </Next>
+    <Next>100090007 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
     <StoryID>9 </StoryID>
@@ -401,38 +345,6 @@
     <Next>100100005 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
-    <StoryID>11 </StoryID>
-    <Level>1 </Level>
-    <Character>0 </Character>
-    <Choice>1 </Choice>
-    <Before>0 </Before>
-    <Next>100110001 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>11 </StoryID>
-    <Level>1 </Level>
-    <Character>1 </Character>
-    <Choice>1 </Choice>
-    <Before>100110001 </Before>
-    <Next>100110003 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>11 </StoryID>
-    <Level>1 </Level>
-    <Character>1 </Character>
-    <Choice>2 </Choice>
-    <Before>100110001 </Before>
-    <Next>100110004 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>11 </StoryID>
-    <Level>1 </Level>
-    <Character>2 </Character>
-    <Choice>1 </Choice>
-    <Before>100110001 </Before>
-    <Next>100110002 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
     <StoryID>12 </StoryID>
     <Level>1 </Level>
     <Character>0 </Character>
@@ -447,22 +359,6 @@
     <Choice>1 </Choice>
     <Before>0 </Before>
     <Next>100130001 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>13 </StoryID>
-    <Level>1 </Level>
-    <Character>0 </Character>
-    <Choice>1 </Choice>
-    <Before>100130001 </Before>
-    <Next>100130002 </Next>
-</TStoryEventTable>
-<TStoryEventTable version="1">
-    <StoryID>13 </StoryID>
-    <Level>1 </Level>
-    <Character>0 </Character>
-    <Choice>2 </Choice>
-    <Before>100130001 </Before>
-    <Next>100130003 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
     <StoryID>14 </StoryID>
@@ -529,19 +425,1051 @@
     <Next>100140007 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
-    <StoryID>101 </StoryID>
+    <StoryID>201 </StoryID>
     <Level>2 </Level>
     <Character>0 </Character>
     <Choice>1 </Choice>
     <Before>0 </Before>
-    <Next>201010001 </Next>
+    <Next>200010000 </Next>
 </TStoryEventTable>
 <TStoryEventTable version="1">
-    <StoryID>101 </StoryID>
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010000 </Before>
+    <Next>200010001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010001 </Before>
+    <Next>200010091 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010002 </Before>
+    <Next>200010092 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010003 </Before>
+    <Next>200010093 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010004 </Before>
+    <Next>200010005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010005 </Before>
+    <Next>200010095 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010006 </Before>
+    <Next>200010007 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010007 </Before>
+    <Next>200010008 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010008 </Before>
+    <Next>200010098 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010009 </Before>
+    <Next>200010010 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010091 </Before>
+    <Next>200010002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010092 </Before>
+    <Next>200010003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010093 </Before>
+    <Next>200010004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010095 </Before>
+    <Next>200010006 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200010098 </Before>
+    <Next>200010009 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200010000 </Before>
+    <Next>200010001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200010001 </Before>
+    <Next>200010002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200010003 </Before>
+    <Next>200010004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200010004 </Before>
+    <Next>200010005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200010005 </Before>
+    <Next>200010006 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200010008 </Before>
+    <Next>200010010 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200010009 </Before>
+    <Next>200010010 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>201 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200010092 </Before>
+    <Next>200010003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200100001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200100002 </Before>
+    <Next>200100020 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200100003 </Before>
+    <Next>200100020 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200100004 </Before>
+    <Next>200100020 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200100005 </Before>
+    <Next>200100020 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200100018 </Before>
+    <Next>200100019 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200100019 </Before>
+    <Next>200100021 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200100020 </Before>
+    <Next>200100018 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
     <Level>2 </Level>
     <Character>1 </Character>
     <Choice>1 </Choice>
-    <Before>201010001 </Before>
-    <Next>201010002 </Next>
+    <Before>200100001 </Before>
+    <Next>200100002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>1 </Character>
+    <Choice>2 </Choice>
+    <Before>200100001 </Before>
+    <Next>200100004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>2 </Character>
+    <Choice>1 </Choice>
+    <Before>200100001 </Before>
+    <Next>200100003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>202 </StoryID>
+    <Level>2 </Level>
+    <Character>2 </Character>
+    <Choice>2 </Choice>
+    <Before>200100001 </Before>
+    <Next>200100005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>203 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200300001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>203 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200300001 </Before>
+    <Next>200300002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>203 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200300002 </Before>
+    <Next>200300004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>203 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200300003 </Before>
+    <Next>200400002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>203 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200300004 </Before>
+    <Next>200400005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>203 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200300002 </Before>
+    <Next>200300003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>204 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200400001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>204 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200400001 </Before>
+    <Next>200400002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>205 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200500001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200600001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600001 </Before>
+    <Next>200600091 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600002 </Before>
+    <Next>200600004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600003 </Before>
+    <Next>200700002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600004 </Before>
+    <Next>200600005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600005 </Before>
+    <Next>200600007 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600006 </Before>
+    <Next>200600008 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600007 </Before>
+    <Next>200600008 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600008 </Before>
+    <Next>200600009 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600008 </Before>
+    <Next>200700002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600009 </Before>
+    <Next>200600010 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200600091 </Before>
+    <Next>200600002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200600004 </Before>
+    <Next>200600006 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200600009 </Before>
+    <Next>200600011 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>206 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200600091 </Before>
+    <Next>200600003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>207 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200700001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>207 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200700001 </Before>
+    <Next>200700002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>208 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200800091 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>208 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200800001 </Before>
+    <Next>200800003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>208 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200800002 </Before>
+    <Next>200800092 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>208 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200800003 </Before>
+    <Next>200800004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>208 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200800004 </Before>
+    <Next>200800006 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>208 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200800091 </Before>
+    <Next>200800001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>208 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200800001 </Before>
+    <Next>200800002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>208 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200800003 </Before>
+    <Next>200800005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>208 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200800004 </Before>
+    <Next>200800007 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>209 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200900001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>209 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200900001 </Before>
+    <Next>200900002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>209 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200900002 </Before>
+    <Next>200900003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>252 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200020001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>252 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200020001 </Before>
+    <Next>200020002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>252 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200020001 </Before>
+    <Next>200020003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200030001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200030001 </Before>
+    <Next>200030091 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200030003 </Before>
+    <Next>200030009 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200030004 </Before>
+    <Next>200030009 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200030005 </Before>
+    <Next>200030009 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200030009 </Before>
+    <Next>200030006 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200030010 </Before>
+    <Next>200030011 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200030011 </Before>
+    <Next>200030012 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>200030091 </Before>
+    <Next>200030002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200030001 </Before>
+    <Next>200030002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200030002 </Before>
+    <Next>200030005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200030009 </Before>
+    <Next>200030010 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200030011 </Before>
+    <Next>200030012 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>1 </Character>
+    <Choice>1 </Choice>
+    <Before>200030002 </Before>
+    <Next>200030003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>253 </StoryID>
+    <Level>2 </Level>
+    <Character>2 </Character>
+    <Choice>1 </Choice>
+    <Before>200030002 </Before>
+    <Next>200030004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>254 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200040001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>255 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>200050001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>255 </StoryID>
+    <Level>2 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>200050001 </Before>
+    <Next>200050002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>300030001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>300030001 </Before>
+    <Next>300030002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>300030002 </Before>
+    <Next>300030003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>300030003 </Before>
+    <Next>300030004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>300030004 </Before>
+    <Next>300030005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>300030005 </Before>
+    <Next>300030006 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>300030006 </Before>
+    <Next>300030007 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>300030007 </Before>
+    <Next>300030008 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>300030008 </Before>
+    <Next>300030009 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>300030009 </Before>
+    <Next>300030010 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>300030010 </Before>
+    <Next>300030011 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>300030002 </Before>
+    <Next>300030013 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>300030003 </Before>
+    <Next>300030013 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>300030005 </Before>
+    <Next>300030013 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>300030006 </Before>
+    <Next>300030013 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>300030008 </Before>
+    <Next>300030013 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>300030009 </Before>
+    <Next>300030013 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>300030010 </Before>
+    <Next>300030013 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>1 </Character>
+    <Choice>1 </Choice>
+    <Before>300030011 </Before>
+    <Next>300030012 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>1 </Character>
+    <Choice>2 </Choice>
+    <Before>300030011 </Before>
+    <Next>300030013 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>302 </StoryID>
+    <Level>3 </Level>
+    <Character>2 </Character>
+    <Choice>1 </Choice>
+    <Before>300030011 </Before>
+    <Next>300030013 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3001 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>310000003 </Before>
+    <Next>310000004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3001 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>310000002 </Before>
+    <Next>310000003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3001 </StoryID>
+    <Level>3 </Level>
+    <Character>1 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>310000002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3001 </StoryID>
+    <Level>3 </Level>
+    <Character>1 </Character>
+    <Choice>2 </Choice>
+    <Before>310000004 </Before>
+    <Next>310000008 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3001 </StoryID>
+    <Level>3 </Level>
+    <Character>2 </Character>
+    <Choice>1 </Choice>
+    <Before>310000004 </Before>
+    <Next>310000005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3002 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>0 </Before>
+    <Next>310000007 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3002 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>310000007 </Before>
+    <Next>310030001 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3002 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>310030001 </Before>
+    <Next>310030002 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3002 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>310030002 </Before>
+    <Next>310030003 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3002 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>1 </Choice>
+    <Before>310030003 </Before>
+    <Next>310030004 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3002 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>310003005 </Before>
+    <Next>310030006 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3002 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>310030001 </Before>
+    <Next>310030007 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3002 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>310030002 </Before>
+    <Next>310030007 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3002 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>310030003 </Before>
+    <Next>310030005 </Next>
+</TStoryEventTable>
+<TStoryEventTable version="1">
+    <StoryID>3002 </StoryID>
+    <Level>3 </Level>
+    <Character>0 </Character>
+    <Choice>2 </Choice>
+    <Before>310030007 </Before>
+    <Next>310030006 </Next>
 </TStoryEventTable>
 </TStoryEventTable_Tab>
