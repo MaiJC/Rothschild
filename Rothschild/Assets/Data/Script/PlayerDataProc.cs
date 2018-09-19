@@ -237,6 +237,8 @@ public class PlayerDataProc : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
+            settleResult[i].money = Mathf.Clamp(settleResult[i].money, 0, 100);
+            settleResult[i].reputation = Mathf.Clamp(settleResult[i].reputation, 0, 100);
             playerAttrs[i].money = settleResult[i].money;
             playerAttrs[i].reputation = settleResult[i].reputation;
 
@@ -249,7 +251,7 @@ public class PlayerDataProc : MonoBehaviour
 
     public PlayerAttr[] HandleDeath(int deathRoleID, int saveRoleID)
     {
-        if (settleResult[deathRoleID - 1].money <= 0 || settleResult[deathRoleID - 1].money >= 100)
+        if (settleResult[deathRoleID - 1].money <= 0)
         {
             if (1 == settleResult[saveRoleID - 1].money)
             {
@@ -264,7 +266,7 @@ public class PlayerDataProc : MonoBehaviour
 
         }
 
-        if (settleResult[deathRoleID - 1].reputation <= 0 || settleResult[deathRoleID - 1].reputation >= 100)
+        if (settleResult[deathRoleID - 1].reputation <= 0)
         {
             if (1 == settleResult[saveRoleID - 1].reputation)
             {

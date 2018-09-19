@@ -281,11 +281,6 @@ public class LevelManager : MonoBehaviour
             person[i].SetWealthAndReputation(playerDataProc.GetPlayerAttr()[i].money,
                 playerDataProc.GetPlayerAttr()[i].reputation);
         }
-
-        //foreach (Image i in personImage)
-        //{
-        //    i.overrideSprite = Resources.Load("monkey", typeof(Sprite)) as Sprite;
-        //}
     }
 
     public bool AddSelect(string personTag)
@@ -586,13 +581,6 @@ public class LevelManager : MonoBehaviour
         {
             person[currentHanlingDeadPerson - 1].SetAlive();
             PlayerAttr[] tmpAttr = playerDataProc.HandleDeath(currentHanlingDeadPerson, saver);
-
-            //person[currentHanlingDeadPerson - 1].SetWealthAndReputation(
-            //    tmpAttr[currentHanlingDeadPerson - 1].money,
-            //    tmpAttr[currentHanlingDeadPerson - 1].reputation);
-
-            //person[saver - 1].SetWealthAndReputation(tmpAttr[saver - 1].money,
-            //    tmpAttr[saver - 1].reputation);
 
             for (int i = 0; i < 4; i++)
             {
