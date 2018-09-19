@@ -292,7 +292,8 @@ public class OnPerson : EventTrigger
         reputationNum = Mathf.Clamp(reputation, 0, 100);
         reputationText.text = reputationNum.ToString() + "/100";
 
-        isDead = (wealthNum <= 0 || wealthNum >= 100 || reputationNum <= 0 || reputationNum >= 100);
+        //isDead = (wealthNum <= 0 || wealthNum >= 100 || reputationNum <= 0 || reputationNum >= 100);
+        isDead = (wealthNum <= 0 || reputationNum <= 0);
 
         if (isDead)
             SetDead();
