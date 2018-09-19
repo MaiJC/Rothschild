@@ -1864,7 +1864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!132 &185936835
 GUIText:
   m_ObjectHideFlags: 0
@@ -11154,7 +11154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &910885022
 Transform:
   m_ObjectHideFlags: 0
@@ -11184,7 +11184,7 @@ MonoBehaviour:
   enterColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 0.39215687}
   selectColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0.39215687}
   deadColor: {r: 1, g: 0, b: 0, a: 1}
-  unselectableColor: {r: 0.509434, g: 0.507031, b: 0.507031, a: 1}
+  unselectableColor: {r: 0, g: 0, b: 0, a: 0.49803922}
   personNormalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &911107961
 GameObject:
@@ -13080,7 +13080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1113458457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16565,7 +16565,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1820650150761744, guid: 1d3c04c4ae276f147840b99569decd9b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114818951528401164, guid: 1d3c04c4ae276f147840b99569decd9b,
         type: 2}
@@ -16968,6 +16968,26 @@ Prefab:
       propertyPath: m_FontData.m_FontSize
       value: 38
       objectReference: {fileID: 0}
+    - target: {fileID: 114106298204919590, guid: 869a712f9ffe09b46b9d64bb9fc4a25d,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114106298204919590, guid: 869a712f9ffe09b46b9d64bb9fc4a25d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114106298204919590, guid: 869a712f9ffe09b46b9d64bb9fc4a25d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114106298204919590, guid: 869a712f9ffe09b46b9d64bb9fc4a25d,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 869a712f9ffe09b46b9d64bb9fc4a25d, type: 2}
   m_IsPrefabAsset: 0
@@ -17299,7 +17319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1377397140
 Transform:
   m_ObjectHideFlags: 0
@@ -20149,7 +20169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1669538414
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20731,7 +20751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1731893170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21678,7 +21698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1818419167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24358,7 +24378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &2105942347
 AudioSource:
   m_ObjectHideFlags: 0
